@@ -1,0 +1,73 @@
+# Byte-compiled / cached / interpreted files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment (venv)
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# VSCode veya IDE ayarları
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest, coverage, test çıktıları
+.cache/
+.coverage
+coverage.xml
+*.cover
+htmlcov/
+nosetests.xml
+test-output/
+
+# pipenv, poetry, hatch vs.
+Pipfile.lock
+poetry.lock
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# MyPy, Pylint, Pyright
+.mypy_cache/
+.pytype/
+.pyre/
+pylint-report.txt
+
+# Logs
+*.log
+
+# SQLite / veri tabanı dosyaları
+*.sqlite3
+*.db
+
+# Secret files
+.env
+*.env
+
+# MacOS veya Linux sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+*.spec
+
+# Jupyter Notebook otomatik çıktı dosyaları
+*.nbconvert.ipynb
+
+
+
+# Sphinx / Docs çıktısı
+docs/_build/
+
+# Local test / debug dosyaları
+debug.log
+*.tmp
