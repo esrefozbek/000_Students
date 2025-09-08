@@ -1,24 +1,24 @@
 import canlıTablo 
 from klavyeDinleme import ENTER
 from rich.live import Live
-import dilimleme, VERİ, yeniÖğrenci_KAYIT, ogrenci_LiSTEleme, JSON, menü, tupleyi_Sözlükleştirme, ogrenci_SiLME, ogrenci_BUL, klavyeDinleme, readchar, sırfSORGU, time,sayaçKronometre,pomodoro,teknikMenü
+import dilimleme, veri, yeniOgrenci_KAYIT, ogrenci_LiSTEleme, JSON, menu, tupleyi_Sozluklestirme, ogrenci_SiLME, ogrenci_BUL, klavyeDinleme, readchar, sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü
 
 from rich.console import Console; console = Console()
 
 """! Bu programda ilk olarak JSON dosyasından verileri alıyoruz, yoksa boş falan diyerek uyarı veriyoruz.
 Yeni öğrenci Kayıt işlemleri ilk olarak  'ogrenciListesi=[ ];' ne tuple şeklinde kayıt girilerek bqşlıyor, listeye tupleler şeklinde öğrencileri ekliyoruz.   """
 
-menü.ekranTemizle()
+menu.ekranTemizle()
 def startPoint():
-        VERİ.TupleliListe_.clear()
-        VERİ.SözlüklüListe_.clear()
-        menü.rastgele_box_stili
+        veri.TupleliListe_.clear()
+        veri.SozlukluListe_.clear()
+        menu.rastgele_box_stili
         
         
 
         while True:  #Menüden seçim
             
-                    menü.menu_goster()
+                    menu.menu_goster()
                     #REVIEW - JSON._JSONdanYükleme_()
                     try:
                         console.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
@@ -37,14 +37,14 @@ def startPoint():
                     
                     
                     if CHOOSEN == 1:
-                        yeniÖğrenci_KAYIT.yeniÖğrenciKayıdı()
+                        yeniOgrenci_KAYIT.yeniOgrenciKayidi()
 
                     elif CHOOSEN==2:
-                        if not VERİ.TupleliListe_:
+                        if not veri.TupleliListe_:
                             JSON.JSONdanYükleme_()
                             ogrenci_BUL.ogrenciBul()
                         #FIXME - klavyeDinleme.enter_ile_devam_et()
-                        VERİ.TupleliListe_.clear()
+                        veri.TupleliListe_.clear()
                         pomodoro.geri_say_bar(4,"pomodoro")
                        
                         
@@ -72,37 +72,37 @@ def startPoint():
                         
                         
                     elif CHOOSEN==5: #NOTE - Ekranı restleme
-                        sayaçKronometre.geri_say(5)
+                        sayacKronometre.geri_say(5)
                        
                     elif CHOOSEN==6: #NOTE - editleme0
                         canlıTablo.main()
-                        sayaçKronometre.geri_say(6)
+                        sayacKronometre.geri_say(6)
                         
                     elif CHOOSEN == 7:         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
-                        VERİ.value=10
-                        değer=VERİ.value
-                        menü.ekranTemizle()
+                        veri.value=10
+                        değer=veri.value
+                        menu.ekranTemizle()
                         JSON.JSONdanYükleme_()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if VERİ.TupleliListe_:
+                        if veri.TupleliListe_:
                             ogrenci_LiSTEleme.altAltaOgrenciListesi(değer)
-                            VERİ.TupleliListe_.clear()
+                            veri.TupleliListe_.clear()
                         else:
                             console.print("📭 Liste boş. Önce öğrenci gir.",style="white")
-                        sayaçKronometre.progress_sayac()
+                        sayacKronometre.progress_sayac()
 
                     elif CHOOSEN==77:
                 
-                        VERİ.value=50
-                        değer=VERİ.value
-                        menü.ekranTemizle()
+                        veri.value=50
+                        değer=veri.value
+                        menu.ekranTemizle()
                         JSON.JSONdanYükleme_()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if VERİ.TupleliListe_:
+                        if veri.TupleliListe_:
                             ogrenci_LiSTEleme.altAltaOgrenciListesi(değer)
                             canlıTablo.main()    
-                            VERİ.TupleliListe_.clear()
+                            veri.TupleliListe_.clear()
                         else:
                             console.print("📭 Liste boş. Önce öğrenci gir.", style="blink")
                       #FIXME -   menü.rastgele_box_stili
@@ -146,25 +146,25 @@ def startPoint():
                         
                     elif CHOOSEN==3:
                         JSON.JSONdanYükleme_()
-                        sayaçKronometre.geri_say(6)
+                        sayacKronometre.geri_say(6)
                        
                         
                         
                     elif CHOOSEN==4: 
-                        console.print("\n[bold]VERİ.TupleliListe_:[/bold]",VERİ.TupleliListe_)
+                        console.print("\n[bold]VERİ.TupleliListe_:[/bold]",veri.TupleliListe_)
                         ENTER()
            
                     elif CHOOSEN==5:
-                        tupleyi_Sözlükleştirme.TupleyiSözlükYap(liste=VERİ.TupleliListe_)
+                        tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
                         #NOTE - Hangi tuple var, ilk kayıttaki mi , jsondan gelip remove edilmiş olan mı, 
                         klavyeDinleme.Enter_ile_devam_et()
 
                     elif CHOOSEN==6:
                         menüTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
-                        if VERİ.SözlüklüListe_:
+                        if veri.SozlukluListe_:
                             console.print("\nVERİ.SözlüklüListe_:",style="green")
-                            for i in VERİ.SözlüklüListe_:
+                            for i in veri.SozlukluListe_:
                                     console.print(i)
                                     
                         else:
@@ -175,24 +175,24 @@ def startPoint():
                     elif CHOOSEN==7:
                         menüTipi="tupleliListe"
                         listeTipi="tupleliListe"
-                        VERİ.TupleliListe_.sort()
+                        veri.TupleliListe_.sort()
                             
-                        console.print(f"\n[ {len(VERİ.TupleliListe_)} TALEBE bulundu ]",style=" white")
-                        console.print("[magenta]VERİ.TupleliListe_:[/magenta]",VERİ.TupleliListe_)
-                        if VERİ.SözlüklüListe_:
+                        console.print(f"\n[ {len(veri.TupleliListe_)} TALEBE bulundu ]",style=" white")
+                        console.print("[magenta]VERİ.TupleliListe_:[/magenta]",veri.TupleliListe_)
+                        if veri.SozlukluListe_:
                            # for sözlük in sözlüklüListe:
-                                console.print("\n",VERİ.SözlüklüListe_,"\n",style="bold")
+                                console.print("\n",veri.SozlukluListe_,"\n",style="bold")
                         else:
                             print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         klavyeDinleme.Enter_ile_devam_et()
 
                     elif CHOOSEN==8:
-                        sayaçKronometre.geri_say(5)
+                        sayacKronometre.geri_say(5)
                         
                     
                     elif CHOOSEN==9:
-                        VERİ.TupleliListe_.clear()
-                        if VERİ.TupleliListe_:
+                        veri.TupleliListe_.clear()
+                        if veri.TupleliListe_:
                             print("Tupleli liste dolu")
                             ENTER()
                         else:
@@ -200,12 +200,12 @@ def startPoint():
                         ENTER()
                     
                     elif CHOOSEN==10:
-                        VERİ.SözlüklüListe_.clear()
+                        veri.SozlukluListe_.clear()
 
                         # ekran temizlenir anaMenüye gidilir Lakin silinen eklenen listeleri doludur.
                         
                     elif CHOOSEN==11:
-                        dilimleme.dilimleme(5,VERİ.TupleliListe_)                        
+                        dilimleme.dilimleme(5,veri.TupleliListe_)                        
                     #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
                     
                     elif CHOOSEN==12:

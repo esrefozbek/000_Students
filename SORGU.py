@@ -1,4 +1,4 @@
-import tablolarPY,VERİ
+import tablolarPY,veri
 from rich.console import Console; console=Console()
 
 menüTipi="Sorgu Menüsü"
@@ -14,7 +14,7 @@ def _Sorgu_(buÖğrenciyiBul):
         
     if buÖğrenciyiBul:     
         if buÖğrenciyiBul.isdigit():
-            for ogrenci in VERİ.TupleliListe_:
+            for ogrenci in veri.TupleliListe_:
                 if buÖğrenciyiBul == str(ogrenci[0]):
                     found = True
                     SorgudaBulunanlarListesi_.append(ogrenci)
@@ -36,7 +36,7 @@ def _Sorgu_(buÖğrenciyiBul):
             if SorgudaBulunanlarListesi_:
                 SorgudaBulunanlarListesi_.clear()  #TODO - Her sorguda önce temizle
                 
-            for ogrenci in VERİ.TupleliListe_:
+            for ogrenci in veri.TupleliListe_:
                 if buÖğrenciyiBul in ogrenci[1] or buÖğrenciyiBul in ogrenci[2]:
                     SorgudaBulunanlarListesi_.append(ogrenci)
                     if len(SorgudaBulunanlarListesi_) == 1:

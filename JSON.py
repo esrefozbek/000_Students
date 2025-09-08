@@ -1,7 +1,7 @@
 
 import json
 from rich.console import Console
-import VERİ,sayaçKronometre, os
+import veri,sayacKronometre, os
 console = Console()
 
 #! JSON DOSYASINA ÖĞRENCİ EKLEME
@@ -22,7 +22,7 @@ def JSONaKayıt(dosya_adi:str, liste:list ):
         jsonaKayıt_içinGeçiciListe = []
  
        #REVIEW -  console.print("[bold yellow]_jsona_kayıt_: [/bold yellow] mevcut veriler iLAVELi hali:",    mevcut_veriler)
-        console.print(f"💾 _jsona_kayıt_() : '{dosya_adi}' dosyasına {len(VERİ.SözlüklüListe_)} öğrenci eklendi.\n")
+        console.print(f"💾 _jsona_kayıt_() : '{dosya_adi}' dosyasına {len(veri.SozlukluListe_)} öğrenci eklendi.\n")
         # VERİ.SözlüklüListe_.clear()
         # VERİ.TupleliListe_.clear()
     
@@ -30,13 +30,13 @@ def JSONaKayıt(dosya_adi:str, liste:list ):
 #! JSON DOSYASINDAN LİSTEYİ ÇEKME
             
 def JSONdanYükleme_():
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🐓🐓🐓  VERİ.TupleliListe_:", VERİ.TupleliListe_,style="")
-            dosya_adi = "öğrenciler.json"
+            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🐓🐓🐓  VERİ.TupleliListe_:", veri.TupleliListe_,style="")
+            dosya_adi = "students.json"
             if not os.path.exists(dosya_adi):
                 print(f"⚠️ '{dosya_adi}' dosyası bulunamadı. Henüz veri kaydedilmemiş olabilir.")
                 return
            
-            with open("öğrenciler.json", "r", encoding="utf-8") as file:
+            with open("students.json", "r", encoding="utf-8") as file:
                 Geçici_Liste = json.load(file)
                 
                 console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow] 🤡🤡🤡 Geçici_Liste=json.load(file) tipi ve [-1:] :",type(Geçici_Liste),Geçici_Liste[-1:],style="")
@@ -47,21 +47,21 @@ def JSONdanYükleme_():
                 #ANCHOR -  console.print(ogrenci_listesi[1])   #NOTE - örnek olarak koydum
                
             
-            if VERİ.TupleliListe_:
-                VERİ.TupleliListe_.clear() 
+            if veri.TupleliListe_:
+                veri.TupleliListe_.clear() 
             # Tuple listeyi oluştur
-            VERİ.TupleliListe_ = [
+            veri.TupleliListe_ = [
             (ogr["id"], ogr["ad"], ogr["soyad"],ogr["öğrenciNumarası"], ogr["dogum_yili"], ogr["sinif"], ogr["kayıtTarihi"])
                 for ogr in Geçici_Liste  ]
             
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🌼🌼🌼 yukarıdaki sözlük içeren liste tupleye çevrildi ve TupleliListe_ye eklendi :",VERİ.TupleliListe_[-1:],style="")
+            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🌼🌼🌼 yukarıdaki sözlük içeren liste tupleye çevrildi ve TupleliListe_ye eklendi :",veri.TupleliListe_[-1:],style="")
             
             
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:]",VERİ.TupleliListe_[-2:],style="")
+            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:]",veri.TupleliListe_[-2:],style="")
             
     
-            if not VERİ.TupleliListe_:
+            if not veri.TupleliListe_:
                 console.print("[bold yellow]jsondan_yükleme(): [/bold yellow] if TupleliListe_ şuan boş",style="")
-                console.print(VERİ.TupleliListe_,"...")
+                console.print(veri.TupleliListe_,"...")
             
             

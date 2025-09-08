@@ -1,9 +1,9 @@
 from rich import box
-import tupleyi_Sözlükleştirme
+import tupleyi_Sozluklestirme
 import JSON
-import menü
+import menu
 import main
-import VERİ
+import veri
 
 from rich.table import Table
 from rich.console import Console
@@ -42,14 +42,14 @@ box_turleri = [
 
 
 
-box_stili=menü.boxStilim
+box_stili=menu.boxStilim
 
 
 
 def TABLO_6lı(liste: list, menüTipi: str = "Ana Menümmmm", listeTipi: str = "Ana Listemmmm"):
     # Tablo yaratılıyor
     
-    table = Table(title="TABLO",caption=f"{VERİ.value} dilimlenmiş tablo",box=box_stili,show_header=True,header_style="bold white",)
+    table = Table(title="TABLO",caption=f"{veri.value} dilimlenmiş tablo",box=box_stili,show_header=True,header_style="bold white",)
     table.add_column("Sıra No", justify="center", style="bold yellow", no_wrap=False)
     table.add_column("Id", justify="center", style="white", no_wrap=True)
     table.add_column("Ad", justify="right",style="white")

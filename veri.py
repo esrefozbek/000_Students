@@ -11,12 +11,12 @@ TupleliListe_= [
 dilimListe=[]
 alt_liste=[]
 
-silinmişlerListesi_=[]
+silinmislerListesi_=[]
 
 yeniEklenenlerListesi_=[]
 
-SözlüklüListe_=[]
-yedekSözlüklüListe_=[]
+SozlukluListe_=[]
+yedekSozlukluListe_=[]
 
 sayı:int
 ad:str

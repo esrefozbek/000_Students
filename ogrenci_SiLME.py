@@ -5,8 +5,8 @@ from rich.console import Console;console = Console()
 import re
 import onayE_H
 import JSON
-import VERİ 
-import tupleyi_Sözlükleştirme
+import veri 
+import tupleyi_Sozluklestirme
 
 
 def ogrenciSil():
@@ -81,8 +81,8 @@ def ogrenciSil():
             console.print(f"Öğrenci kayıdı siliniyor!!!: {ogr}", style="bold blue")
             if onayE_H.Evet_Hayır_OnayiAl(ogr):
                 silinen_öğrenci_sayısı+=1
-                VERİ.silinmişlerListesi_.append(ogr)
-                VERİ.TupleliListe_.remove(ogr)
+                veri.silinmislerListesi_.append(ogr)
+                veri.TupleliListe_.remove(ogr)
             else:
                 print("Kayıt işlemini iptal ettin")
         if silinen_öğrenci_sayısı:
@@ -94,11 +94,11 @@ def ogrenciSil():
 
     # Temizlik
     bulunanlarListesi_.clear()
-    tupleyi_Sözlükleştirme.TupleyiSözlükYap(liste=VERİ.TupleliListe_)
-    JSON.JSONaKayıt("öğrenciler.json",VERİ.SözlüklüListe_)
+    tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
+    JSON.JSONaKayıt("öğrenciler.json",veri.SozlukluListe_)
     #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_)
-    VERİ.TupleliListe_.clear()
-    VERİ.SözlüklüListe_.clear()
+    veri.TupleliListe_.clear()
+    veri.SozlukluListe_.clear()
     
     
  

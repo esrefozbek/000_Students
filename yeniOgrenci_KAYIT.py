@@ -1,15 +1,15 @@
 import ogrenci_LiSTEleme
 import JSON
 import klavyeDinleme
-import VERİ 
-import  tupleyi_Sözlükleştirme
-from ÖĞRENCİLER_KLASI import Ogrenciler
+import veri 
+import  tupleyi_Sozluklestirme
+from student_class import Ogrenciler
 from rich.console import Console ;console=Console()
 
-def yeniÖğrenciKayıdı():
+def yeniOgrenciKayidi():
         toplamKaçKayıtGirildi=0
-        if VERİ.TupleliListe_:
-                VERİ.TupleliListe_.clear()   #program ilk açıldığında JSONdanYükleme yapıldığında veri.TupleliListe_ dolu hale geliyor.  Bu da Çift kayıda sebep oluyor. Bu sebeple SIFIRLANMALIdır.
+        if veri.TupleliListe_:
+                veri.TupleliListe_.clear()   #program ilk açıldığında JSONdanYükleme yapıldığında veri.TupleliListe_ dolu hale geliyor.  Bu da Çift kayıda sebep oluyor. Bu sebeple SIFIRLANMALIdır.
         
         
         while True:
@@ -17,10 +17,10 @@ def yeniÖğrenciKayıdı():
                         console.print("\n[bold magenta underline]📝 Yeni Öğrenci Girişi  📝[/bold magenta underline]")
                                 
                         console.print(
-                        "\n[bold yellow]📕📕🗝️🗝️ TupleliListe_:[/bold yellow]",  VERİ.TupleliListe_[-2:], style="" )
+                        "\n[bold yellow]📕📕🗝️🗝️ TupleliListe_:[/bold yellow]",  veri.TupleliListe_[-2:], style="" )
 
                         
-                        console.print("\n[bold yellow]📙📙 🔑🔑 SözlüklüListe_:[/bold yellow]", VERİ.SözlüklüListe_[-2:])
+                        console.print("\n[bold yellow]📙📙 🔑🔑 SözlüklüListe_:[/bold yellow]", veri.SozlukluListe_[-2:])
                 else:
                         pass
                               
@@ -49,30 +49,30 @@ def yeniÖğrenciKayıdı():
                           
                 #NOTE - tupleye çevrilen klas nesnesi tupleli listeye kaydediliyor ???????
                 #NOTE - yeni öğrenci nesne tuplesi,  boş  VERİ.TupleliListe_ sine kaydediliyor. TupleliListe_ bu aşamada dolmaya başlıyor. 
-                console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",VERİ.TupleliListe_[-1:],end="")
-                VERİ.TupleliListe_.append(TupleClassNesnesi) 
-                console.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",VERİ.TupleliListe_[-2:],end="")
+                console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",veri.TupleliListe_[-1:],end="")
+                veri.TupleliListe_.append(TupleClassNesnesi) 
+                console.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",veri.TupleliListe_[-2:],end="")
                 
                    
-                VERİ.yeniEklenenlerListesi_.append(TupleClassNesnesi)  
+                veri.yeniEklenenlerListesi_.append(TupleClassNesnesi)  
                 
                   
 
                 
          #NOTE - Esc ile çıktık ve elimizdeki VERİ.TupleliListe_ yi  sözlük yaparak JSON'a kaydedeceğiz.
-        tupleyi_Sözlükleştirme.TupleyiSözlükYap(liste=VERİ.TupleliListe_)
-        VERİ.TupleliListe_.clear()
+        tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
+        veri.TupleliListe_.clear()
         
         
         
-        if VERİ.SözlüklüListe_:
+        if veri.SozlukluListe_:
                 console.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a gömüyorum...",style="")
           
                 klavyeDinleme.ENTER()  
-                toplamKaçKayıtGirildi += len(VERİ.SözlüklüListe_)
+                toplamKaçKayıtGirildi += len(veri.SozlukluListe_)
                                   
-                JSON.JSONaKayıt("öğrenciler.json",VERİ.SözlüklüListe_ );
-                VERİ.SözlüklüListe_.clear(); 
+                JSON.JSONaKayıt("students.json",veri.SozlukluListe_ );
+                veri.SozlukluListe_.clear(); 
                     
                 #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_);                 VERİ.yedekSözlüklüListe_.clear()   
         

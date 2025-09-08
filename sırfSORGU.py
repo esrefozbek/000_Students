@@ -1,4 +1,4 @@
-from menü import menu_goster, ekranTemizle
+from menu import menu_goster, ekranTemizle
 import klavyeDinleme
 import SORGU
 from rich.console import Console; console = Console()
