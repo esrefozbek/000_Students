@@ -340,5 +340,14 @@
         "dogum_yili": "1981",
         "sinif": "4E",
         "kayıtTarihi": "08/09/2025 13:22:00"
+    },
+    {
+        "id": 39,
+        "ad": "Kadir",
+        "soyad": "Mısıroğlu",
+        "öğrenciNumarası": "109",
+        "dogum_yili": "1934",
+        "sinif": "5D",
+        "kayıtTarihi": "09/09/2025 08:53:31"
     }
 ]

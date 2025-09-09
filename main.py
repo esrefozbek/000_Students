@@ -1,3 +1,4 @@
+import sys
 import canlıTablo 
 from klavyeDinleme import ENTER
 from rich.live import Live
@@ -15,7 +16,7 @@ def startPoint():
         menu.rastgele_box_stili
         
         
-
+#!SECTION ANAMENÜ
         while True:  #Menüden seçim
             
                     menu.menu_goster()
@@ -36,10 +37,10 @@ def startPoint():
                         
                     
                     
-                    if CHOOSEN == 1:
+                    if CHOOSEN == 1:#NOTE - YENİ KAYIT
                         yeniOgrenci_KAYIT.yeniOgrenciKayidi()
 
-                    elif CHOOSEN==2:
+                    elif CHOOSEN==2:#NOTE - BUL
                         if not veri.TupleliListe_:
                             JSON.JSONdanYükleme_()
                             ogrenci_BUL.ogrenciBul()
@@ -49,7 +50,7 @@ def startPoint():
                        
                         
 
-                    elif CHOOSEN ==3:
+                    elif CHOOSEN ==3: #NOTE -  SİL
                         # if not VERİ.TupleliListe_:
                         # else:
                         JSON.JSONdanYükleme_()   
@@ -57,7 +58,7 @@ def startPoint():
                         ogrenci_SiLME.ogrenciSil()
                         klavyeDinleme.Enter_ile_devam_et()
 
-                    elif CHOOSEN==4:
+                    elif CHOOSEN==4:  #NOTE -  ÇIKIŞ
                         print("Çıkılıyor. Görüşmek üzere!")
                         #JSON.JSONaKayıt("öğrenciler.json",VERİ.SözlüklüListe_)
                         #VERİ.SözlüklüListe_.clear()
@@ -68,17 +69,18 @@ def startPoint():
                             startPoint()
 
                         elif key == '\r':  # ENTER
-                            break
+                            sys.exit()
+
                         
                         
-                    elif CHOOSEN==5: #NOTE - Ekranı restleme
+                    elif CHOOSEN==5: #NOTE - Ekranı resEtleme
                         sayacKronometre.geri_say(5)
                        
-                    elif CHOOSEN==6: #NOTE - editleme0
+                    elif CHOOSEN==6: #NOTE - editleme
                         canlıTablo.main()
                         sayacKronometre.geri_say(6)
                         
-                    elif CHOOSEN == 7:         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
+                    elif CHOOSEN == 7: #NOTE -  DİLİMLEME         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
                         veri.value=10
                         değer=veri.value
@@ -92,7 +94,7 @@ def startPoint():
                             console.print("📭 Liste boş. Önce öğrenci gir.",style="white")
                         sayacKronometre.progress_sayac()
 
-                    elif CHOOSEN==77:
+                    elif CHOOSEN==77:#NOTE -  DİLİMLEME
                 
                         veri.value=50
                         değer=veri.value
@@ -112,12 +114,12 @@ def startPoint():
                        
                     elif CHOOSEN==33:
                        break
-        with Live(refresh_per_second=2) as live:
-            for _ in range(3):
-                time.sleep(1)
-                live.update(f"menü açılıyor... {_}")           
+                    with Live(refresh_per_second=2) as live:
+                        for _ in range(3):
+                            time.sleep(1)
+                            live.update(f"menü açılıyor... {_}")           
                     
-              
+#!SECTION TEKNNİK MENÜ          
         while True:                
                     teknikMenü.teknikMenü()
                     try:
@@ -228,10 +230,3 @@ def startPoint():
 
 if __name__ == "__main__":
     startPoint()
-
-    
-    
-    
-    
-    
-    
