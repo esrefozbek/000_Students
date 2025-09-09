@@ -2,6 +2,9 @@
 import json
 from rich.console import Console
 import veri,sayacKronometre, os
+from rich.panel import Panel
+from rich.layout import Layout
+from rich import print
 console = Console()
 
 #! JSON DOSYASINA ÖĞRENCİ EKLEME
@@ -30,7 +33,8 @@ def JSONaKayıt(dosya_adi:str, liste:list ):
 #! JSON DOSYASINDAN LİSTEYİ ÇEKME
             
 def JSONdanYükleme_():
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🐓🐓🐓  VERİ.TupleliListe_:", veri.TupleliListe_,style="")
+           #^ console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🐓🐓🐓  VERİ.TupleliListe_:", veri.TupleliListe_,style="")
+            
             dosya_adi = "students.json"
             if not os.path.exists(dosya_adi):
                 print(f"⚠️ '{dosya_adi}' dosyası bulunamadı. Henüz veri kaydedilmemiş olabilir.")
@@ -39,7 +43,7 @@ def JSONdanYükleme_():
             with open("students.json", "r", encoding="utf-8") as file:
                 Geçici_Liste = json.load(file)
                 
-                console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow] 🤡🤡🤡 Geçici_Liste=json.load(file) tipi ve [-1:] :",type(Geçici_Liste),Geçici_Liste[-1:],style="")
+             #^ -    console.print(Panel.fit(f"\n[bold yellow]jsondan_yükleme():[/bold yellow] 🤡🤡🤡 Geçici_Liste=json.load(file) tipi ve [-1:] :{type(Geçici_Liste)},{Geçici_Liste[-1:]}",style=""))
                 
                 #ANCHOR -  console.print("[bold yellow]jsondan_yükleme(): [/bold yellow] 'ogrenci_listesi = json.load(f)'  tipi:",type(ogrenci_listesi))
                 #ANCHOR - console.print("[bold yellow]jsondan_yükleme(): [/bold yellow]  .json'dan gelen sözlüklü liste: _____ogrenci_listesi_____",style="white")
@@ -54,10 +58,10 @@ def JSONdanYükleme_():
             (ogr["id"], ogr["ad"], ogr["soyad"],ogr["öğrenciNumarası"], ogr["dogum_yili"], ogr["sinif"], ogr["kayıtTarihi"])
                 for ogr in Geçici_Liste  ]
             
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🌼🌼🌼 yukarıdaki sözlük içeren liste tupleye çevrildi ve TupleliListe_ye eklendi :",veri.TupleliListe_[-1:],style="")
+            #! - console.print(Panel.fit(f"[bold yellow]jsondan_yükleme():[/bold yellow]🌼🌼🌼 yukarıdaki sözlük içeren liste tupleye çevrildi ve TupleliListe_ye eklendi : {veri.TupleliListe_[-1:]}", style=""))
             
             
-            console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:]",veri.TupleliListe_[-2:],style="")
+            #! console.print(Panel.fit(f"\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:] \n { veri.TupleliListe_[-2:]}",style=""))
             
     
             if not veri.TupleliListe_:

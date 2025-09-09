@@ -1,5 +1,5 @@
 import ogrenci_LiSTEleme
-import SORGU
+import arama
 import klavyeDinleme
 from rich.console import Console;console = Console()
 import re
@@ -11,8 +11,8 @@ import tupleyi_Sozluklestirme
 
 def ogrenciSil():
     aranan_ogrenci = klavyeDinleme.klavyeÖncesiMesaj(2)  #klavyeden değer alınıyor   
-    SORGU._Sorgu_(aranan_ogrenci)     # Öğrenci sorgulama
-    bulunanlarListesi_ = SORGU.SorgudaBulunanlarListesi_   #Kısaltma yaptım
+    arama.arama(aranan_ogrenci)     # Öğrenci sorgulama
+    bulunanlarListesi_ = arama.AramadaBulunanlarListesi_   #Kısaltma yaptım
 
     if not bulunanlarListesi_:
         console.print("[bold red]Hiçbir öğrenci bulunamadı.[/bold red]")

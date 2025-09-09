@@ -349,5 +349,32 @@
         "dogum_yili": "1934",
         "sinif": "5D",
         "kayıtTarihi": "09/09/2025 08:53:31"
+    },
+    {
+        "id": 40,
+        "ad": "Fazıl",
+        "soyad": "Türkses",
+        "öğrenciNumarası": "637",
+        "dogum_yili": "1968",
+        "sinif": "8U",
+        "kayıtTarihi": "09/09/2025 09:59:06"
+    },
+    {
+        "id": 41,
+        "ad": "Adem",
+        "soyad": "Aslan",
+        "öğrenciNumarası": "472",
+        "dogum_yili": "1957",
+        "sinif": "4F",
+        "kayıtTarihi": "09/09/2025 12:33:16"
+    },
+    {
+        "id": 42,
+        "ad": "Mariya",
+        "soyad": "Tenduri",
+        "öğrenciNumarası": "176",
+        "dogum_yili": "1958",
+        "sinif": "5F",
+        "kayıtTarihi": "09/09/2025 17:24:54"
     }
 ]

@@ -1,25 +1,50 @@
 import readchar
-from rich.console import Console
-console = Console()
+from rich.console import Console;c = Console()
+from rich.panel import Panel
+from rich import box
+from rich.table import Table
+from rich.live import Live
 import time
+from rich.layout import Layout
+from rich import print
+layout = Layout()
 
+
+
+def klavyeÖncesiMesaj(sayı:int):
+    if sayı==1:
+           c.print(Panel.fit(f"📌[white] Öğrencinin numarasını, adını ya da soyadını gir[/]\n [italic tan]  Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.", style="deep_sky_blue1"),end="")
+     
+        #   p=Panel("[italic] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", title="📌 Öğrencinin numarasını, adını ya da soyadını gir", subtitle=f"Gir {klavyeGirisi()}")
+           c.print(">>> ",end="")     
+     
+        
+        
+    if sayı==2:
+        c.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold magenta")
+        c.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
+        print(">> ", end="", flush=True)
+    if sayı==3:
+       c.print("\n[color(15)]💰💰 Yeni öğrencinin ADINI giriniz:[color(240)](Bu aşamada [bold magenta]'Esc'[/bold magenta] ile kayıttan çıkabilirsin)[/color(240)]:[/ color(15)]  ",end="")
+       #print("", end="", flush=True)      
+    return klavyeGirisi()
 
 def klavyeGirisi():
-        girilenKlavyeTusu = ""
+        pressedKeys = ""
         while True:
-            key = readchar.readkey()
-            if key == readchar.key.ESC:
-                console.print("\n\nESC'ye basıldı, Ana Menüye dönülüyor...", style="blink")
-                time.sleep(2)
-                return None
+            pressedKey = readchar.readkey()
+            if pressedKey == readchar.key.ESC:
+                c.print("\n\nESC'ye basıldı, Ana Menüye dönülüyor  (1.5 second) ...", style="blink")
+                time.sleep(1.5)
+                return None 
                 
-            elif key == '\r':  # ENTER
+            elif pressedKey == '\r':  # ENTER
                 break
             else:
-                girilenKlavyeTusu += key
-                print(key, end="", flush=True)
+                pressedKeys += pressedKey
+                print(pressedKey, end="", flush=True)
             
-        return girilenKlavyeTusu.strip()
+        return pressedKeys.strip()
 
 
 def enter_OR_esc(metod):
@@ -31,36 +56,12 @@ def enter_OR_esc(metod):
                 print("\n\nESC'ye basıldı,")
                 return None
 
-
-
-
-
-
-def klavyeÖncesiMesaj(sayı:int):
-    if sayı==1:
-        console.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold yellow")
-        print("Ana menüye dönmek için [ESC] tuşuna bas.")
-        print(">> ", end="", flush=True)
-        
-    elif sayı==2:
-        console.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold magenta")
-        console.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
-        print(">> ", end="", flush=True)
-    
-    elif sayı==3:
-    
-       console.print("\n[color(15)]💰💰 Yeni öğrencinin ADINI giriniz:[color(240)](Bu aşamada [bold magenta]'Esc'[/bold magenta] ile kayıttan çıkabilirsin)[/color(240)]:[/ color(15)]  ",end="")
-       #print("", end="", flush=True)      
-    
-    return klavyeGirisi()
-
-
  
                 
 
 def Enter_ile_devam_et(mesaj="""
 ➡️  Devam etmek için [bold green]ENTER[/bold green] tuşuna bas..."""):
-    console.print(mesaj, style="blink")
+    c.print(mesaj, style="blink")
     while True:
         key = readchar.readkey()
         if key in ['\r', '\n']:

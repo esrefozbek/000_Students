@@ -1,10 +1,10 @@
-import sys
+import sys,os
 import canlıTablo 
 from klavyeDinleme import ENTER
 from rich.live import Live
-import dilimleme, veri, yeniOgrenci_KAYIT, ogrenci_LiSTEleme, JSON, menu, tupleyi_Sozluklestirme, ogrenci_SiLME, ogrenci_BUL, klavyeDinleme, readchar, sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü
+import dilimleme, veri, yeniOgrenci_KAYIT, ogrenci_LiSTEleme, JSON, menu, tupleyi_Sozluklestirme, ogrenci_SiLME,  klavyeDinleme, readchar, sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü,arama
 
-from rich.console import Console; console = Console()
+from rich.console import Console; c = Console()
 
 """! Bu programda ilk olarak JSON dosyasından verileri alıyoruz, yoksa boş falan diyerek uyarı veriyoruz.
 Yeni öğrenci Kayıt işlemleri ilk olarak  'ogrenciListesi=[ ];' ne tuple şeklinde kayıt girilerek bqşlıyor, listeye tupleler şeklinde öğrencileri ekliyoruz.   """
@@ -22,15 +22,15 @@ def startPoint():
                     menu.menu_goster()
                     #REVIEW - JSON._JSONdanYükleme_()
                     try:
-                        console.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
+                        c.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
                         CHOOSEN = int(input())
                     except ValueError:
-                        console.print( "⚠️  Lütfen sadece sayı girin.",style="" )
+                        c.print( "⚠️  Lütfen sadece sayı girin.",style="" )
                         input("ENTER ile devam et...")
                         continue
                     
                     if CHOOSEN not in (1,2,3,4,5,6,7,77,33):
-                        console.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
+                        c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
                         input("ENTER ile devam et...")
                         continue
                    
@@ -40,15 +40,26 @@ def startPoint():
                     if CHOOSEN == 1:#NOTE - YENİ KAYIT
                         yeniOgrenci_KAYIT.yeniOgrenciKayidi()
 
+
+
                     elif CHOOSEN==2:#NOTE - BUL
                         if not veri.TupleliListe_:
                             JSON.JSONdanYükleme_()
-                            ogrenci_BUL.ogrenciBul()
-                        #FIXME - klavyeDinleme.enter_ile_devam_et()
+                            while True:
+                                a=arama.aramaParametresi()
+                                if a is not None:
+                                    a=a.strip().lower()
+                                    if a is "":
+                                        c.print("Hiçbir değer girmeden [italic white]Enter[/] tuşuna bastınız",style="yellow")
+                                    else:    
+                                        arama.arama(a)
+                                else :
+                                    break
+                      
                         veri.TupleliListe_.clear()
-                        pomodoro.geri_say_bar(4,"pomodoro")
+                        pomodoro.geri_say_bar(3,"Ana menüye dönülecek (5 saniye)...")
+                        #pomodoro.pomodoro_dongusu()
                        
-                        
 
                     elif CHOOSEN ==3: #NOTE -  SİL
                         # if not VERİ.TupleliListe_:
@@ -62,16 +73,19 @@ def startPoint():
                         print("Çıkılıyor. Görüşmek üzere!")
                         #JSON.JSONaKayıt("öğrenciler.json",VERİ.SözlüklüListe_)
                         #VERİ.SözlüklüListe_.clear()
-                        console.print("\n[bold ] bak cidden çıkıyorum [bold yellow]emin misin[/bold yellow]\n[bold] [bold white]Vazgeçmek istersen [bold green ]Esc[/bold green]'ye bas [/bold white]\n [bold orange] İlla çıkman gerekiyorsa [bold green ]ENTER[/bold green]'a bas [/bold orange]")
+                        c.print("""\n[bold ]Bak cidden çıkıyorum [bold yellow]emin misin[/]
+[bold white]Vazgeçmek istersen [bold green]Esc[/]'ye bas [/bold white]
+[bold orange]İlla çıkman gerekiyorsa [bold green ]ENTER[/]'a bas [/bold orange]""")
                                             
                         key = readchar.readkey()
                         if key == readchar.key.ESC:
                             startPoint()
 
                         elif key == '\r':  # ENTER
-                            sys.exit()
-
-                        
+                           
+                           os.system("exit")
+                           sys.exit()
+                           os.system("taskkill /F /PID " + str(os.getpid()))
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
                         sayacKronometre.geri_say(5)
@@ -91,7 +105,7 @@ def startPoint():
                             ogrenci_LiSTEleme.altAltaOgrenciListesi(değer)
                             veri.TupleliListe_.clear()
                         else:
-                            console.print("📭 Liste boş. Önce öğrenci gir.",style="white")
+                            c.print("📭 Liste boş. Önce öğrenci gir.",style="white")
                         sayacKronometre.progress_sayac()
 
                     elif CHOOSEN==77:#NOTE -  DİLİMLEME
@@ -106,7 +120,7 @@ def startPoint():
                             canlıTablo.main()    
                             veri.TupleliListe_.clear()
                         else:
-                            console.print("📭 Liste boş. Önce öğrenci gir.", style="blink")
+                            c.print("📭 Liste boş. Önce öğrenci gir.", style="blink")
                       #FIXME -   menü.rastgele_box_stili
                             ENTER()
                         #FIXME - startPoint()
@@ -123,16 +137,16 @@ def startPoint():
         while True:                
                     teknikMenü.teknikMenü()
                     try:
-                        console.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
+                        c.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
                         CHOOSEN = int(input())
                     except ValueError:
-                        console.print( "⚠️  Lütfen sadece sayı girin.",style="" )
+                        c.print( "⚠️  Lütfen sadece sayı girin.",style="" )
                         input("ENTER ile devam et...")
                         continue
                     
 
                     if CHOOSEN not in (1,2,3,4,5,6,7,8,9,10,11,12, 13,44):
-                        console.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
+                        c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
                         input("ENTER ile devam et...")
                         continue      
                         
@@ -153,7 +167,7 @@ def startPoint():
                         
                         
                     elif CHOOSEN==4: 
-                        console.print("\n[bold]VERİ.TupleliListe_:[/bold]",veri.TupleliListe_)
+                        c.print("\n[bold]VERİ.TupleliListe_:[/bold]",veri.TupleliListe_)
                         ENTER()
            
                     elif CHOOSEN==5:
@@ -165,9 +179,9 @@ def startPoint():
                         menüTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
                         if veri.SozlukluListe_:
-                            console.print("\nVERİ.SözlüklüListe_:",style="green")
+                            c.print("\nVERİ.SözlüklüListe_:",style="green")
                             for i in veri.SozlukluListe_:
-                                    console.print(i)
+                                    c.print(i)
                                     
                         else:
                             print( "Henüz Öğrenci Kaydı girilmedi. ")
@@ -179,11 +193,11 @@ def startPoint():
                         listeTipi="tupleliListe"
                         veri.TupleliListe_.sort()
                             
-                        console.print(f"\n[ {len(veri.TupleliListe_)} TALEBE bulundu ]",style=" white")
-                        console.print("[magenta]VERİ.TupleliListe_:[/magenta]",veri.TupleliListe_)
+                        c.print(f"\n[ {len(veri.TupleliListe_)} TALEBE bulundu ]",style=" white")
+                        c.print("[magenta]VERİ.TupleliListe_:[/magenta]",veri.TupleliListe_)
                         if veri.SozlukluListe_:
                            # for sözlük in sözlüklüListe:
-                                console.print("\n",veri.SozlukluListe_,"\n",style="bold")
+                                c.print("\n",veri.SozlukluListe_,"\n",style="bold")
                         else:
                             print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         klavyeDinleme.Enter_ile_devam_et()
@@ -215,10 +229,10 @@ def startPoint():
                                        
                         
                     elif CHOOSEN==13:  #NOTE - renk paleti  
-                        console.print("[bold underline]256 Renk Paleti[/]\n")
+                        c.print("[bold underline]256 Renk Paleti[/]\n")
                         for i in range(0, 256, 16):
                             line = " ".join(f"[on color({j})]{j:3}[/]" for j in range(i, i + 16))
-                            console.print(line)
+                            c.print(line)
                         klavyeDinleme.Enter_ile_devam_et()
                     
                     elif CHOOSEN==44:

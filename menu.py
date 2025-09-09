@@ -2,6 +2,9 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import print, box
+
+
+
 import os, random
 
 
@@ -37,18 +40,19 @@ def menu_goster():
     
     table = Table(title="🧠 [bold yellow]Öğrenci Sistemi Menüsü[/bold yellow]", box=boxStilim, expand=False)
 
-    table.add_column("Seçim", justify="center", style="green", no_wrap=False)
+    table.add_column("Seçim", justify="center", style="green", no_wrap=False)    
+    table.add_column("Sembol", justify="center", style="green", no_wrap=False)    
     table.add_column(f"İşlem, [red]  Box Stili:[/red] [bold black]{(secim)}[/bold black]", style="white",no_wrap=False)
 
-    table.add_row("1","➕ Öğrenci Ekle")
-    table.add_row("2", "🔍 Öğrenci Bul")
-    table.add_row("3", "❌ Öğrenci Sil")
-    table.add_row("4", "💾 Kaydet ve Çık")
-    table.add_row("5", "Ekranı resetle")
-    table.add_row("6","✒️  Bir kaydı editleme") 
-    table.add_row("7", "📋 Öğrencileri Listele (10 Dilimli)")
-    table.add_row("77", "📋 Öğrencileri Listele (50 Dilimli)")
-    table.add_row("33","Teknik menüye hicret et") 
+    table.add_row("1","➕","Öğrenci Ekle")
+    table.add_row("2", "🔍","Öğrenci Bul")
+    table.add_row("3", "❌","Öğrenci Sil")
+    table.add_row("4", "💾","Kaydet ve Çık")
+    table.add_row("5", ":thumbs_up:","Ekranı resetle")
+    table.add_row("6",":thumbs_down:","Bir kaydı editleme") 
+    table.add_row("7", "📋","Öğrencileri Listele (10 Dilimli)")
+    table.add_row("77", "📋", "Öğrencileri Listele (50 Dilimli)")
+    table.add_row("33","","Teknik menüye hicret et") 
     
     panel = Panel(table, title="[red]Ana Menü", border_style="blue", expand=False)
     console.print(panel)
