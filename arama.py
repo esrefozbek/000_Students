@@ -4,10 +4,11 @@ from rich.console import Console; console = Console()
 import tablolarPY,veri 
 # import aramaParametresi
 from rich.console import Console; c=Console()
-
+import random,randomRenk
 menüTipi="Sorgu Menüsü"
 listeTipi="Sorgu Listesi"
 AramadaBulunanlarListesi_=[]
+
 
 
 
@@ -51,5 +52,12 @@ def arama(aramaArgumani):
         tablolarPY.TABLO_6lı(AramadaBulunanlarListesi_,menüTipi, listeTipi)
         
     if not AramadaBulunanlarListesi_:
-                    c.print("[italic][bold yellow]  Bu kayıtta bir öğrenci bulunamadı.[/][/]", style="orange1")
+                    #randomRenk.ogrenciYok()
+             #     c.print(f"[{randomRenk.randomize(randomRenk.Renkler())}]  Bu kayıtta bir öğrenci bulunamadı.[/]", style="")
+                  print("   öğrenci yok")
            
+
+
+
+
+

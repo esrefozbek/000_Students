@@ -95,7 +95,7 @@ def progress_sayac(saniye: int = 3):
           
 
 if __name__ == "__main__":
-    geri_say(18)
+    geri_say(8)
 
 
 

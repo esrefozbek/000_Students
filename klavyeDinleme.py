@@ -9,16 +9,14 @@ from rich.layout import Layout
 from rich import print
 layout = Layout()
 
-
-
+aramaSayısı=0
 def klavyeÖncesiMesaj(sayı:int):
+    global aramaSayısı
     if sayı==1:
-           c.print(Panel.fit(f"📌[white] Öğrencinin numarasını, adını ya da soyadını gir[/]\n [italic tan]  Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.", style="deep_sky_blue1"),end="")
-     
-        #   p=Panel("[italic] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", title="📌 Öğrencinin numarasını, adını ya da soyadını gir", subtitle=f"Gir {klavyeGirisi()}")
-           c.print(">>> ",end="")     
-     
-        
+        aramaSayısı+=1
+        if not aramaSayısı>1:
+            c.print(Panel(f"📌[white] Aradığın talebenin numarasını, adını ya da soyadını gir,[/][italic tan] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.", style="deep_sky_blue1"),end="")
+        print("[bold red3] Esc[/][grey50] or[/][bold sea_green2] new[/] [yellow1]>>[/] ", end="", flush=True)
         
     if sayı==2:
         c.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold magenta")
@@ -28,6 +26,7 @@ def klavyeÖncesiMesaj(sayı:int):
        c.print("\n[color(15)]💰💰 Yeni öğrencinin ADINI giriniz:[color(240)](Bu aşamada [bold magenta]'Esc'[/bold magenta] ile kayıttan çıkabilirsin)[/color(240)]:[/ color(15)]  ",end="")
        #print("", end="", flush=True)      
     return klavyeGirisi()
+
 
 def klavyeGirisi():
         pressedKeys = ""
@@ -55,9 +54,7 @@ def enter_OR_esc(metod):
         elif key == readchar.key.ESC:
                 print("\n\nESC'ye basıldı,")
                 return None
-
- 
-                
+              
 
 def Enter_ile_devam_et(mesaj="""
 ➡️  Devam etmek için [bold green]ENTER[/bold green] tuşuna bas..."""):

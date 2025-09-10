@@ -2,21 +2,24 @@ import sys,os
 import canlıTablo 
 from klavyeDinleme import ENTER
 from rich.live import Live
+from rich.box import Box
 import dilimleme, veri, yeniOgrenci_KAYIT, ogrenci_LiSTEleme, JSON, menu, tupleyi_Sozluklestirme, ogrenci_SiLME,  klavyeDinleme, readchar, sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü,arama
-
 from rich.console import Console; c = Console()
 
-"""! Bu programda ilk olarak JSON dosyasından verileri alıyoruz, yoksa boş falan diyerek uyarı veriyoruz.
-Yeni öğrenci Kayıt işlemleri ilk olarak  'ogrenciListesi=[ ];' ne tuple şeklinde kayıt girilerek bqşlıyor, listeye tupleler şeklinde öğrencileri ekliyoruz.   """
 
-menu.ekranTemizle()
+#^########################################menu.ekranTemizle()
+
+def anamenü_bekletme(scnd):
+    with Live(refresh_per_second=2) as live:
+        for i in range(scnd, 0, -1):
+            live.update(f"[cyan]⏳ Anamenü açılıyor... {i}[/]")
+            time.sleep(1)
+
 def startPoint():
         veri.TupleliListe_.clear()
         veri.SozlukluListe_.clear()
-        menu.rastgele_box_stili
-        
-        
-#!SECTION ANAMENÜ
+       
+                                                                #!SECTION ANAMENÜ
         while True:  #Menüden seçim
             
                     menu.menu_goster()
@@ -25,13 +28,13 @@ def startPoint():
                         c.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
                         CHOOSEN = int(input())
                     except ValueError:
-                        c.print( "⚠️  Lütfen sadece sayı girin.",style="" )
-                        input("ENTER ile devam et...")
+                        c.print( "⚠️  Lütfen sadece sayı girin.ENTER ile devam et",style="" )
+                        input()
                         continue
                     
                     if CHOOSEN not in (1,2,3,4,5,6,7,77,33):
-                        c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
-                        input("ENTER ile devam et...")
+                        c.print( "❗❗❗❗❗❗❗[bold bright white] Düzgün bir sayı gir ENTER ile devam et[/]❗❗❗❗❗❗", style="blink")
+                        input()
                         continue
                    
                         
@@ -49,15 +52,15 @@ def startPoint():
                                 a=arama.aramaParametresi()
                                 if a is not None:
                                     a=a.strip().lower()
-                                    if a is "":
-                                        c.print("Hiçbir değer girmeden [italic white]Enter[/] tuşuna bastınız",style="yellow")
+                                    if a == "":
+                                        c.print("Hiçbir değer girmeden [italic white]Enter[/] tuşuna bastın Beni boşuna oyalama dostum",style="yellow")
                                     else:    
                                         arama.arama(a)
                                 else :
                                     break
                       
                         veri.TupleliListe_.clear()
-                        pomodoro.geri_say_bar(3,"Ana menüye dönülecek (5 saniye)...")
+                        pomodoro.geri_say_bar(2,"Ana menüye dönülecek (2 saniye)...")
                         #pomodoro.pomodoro_dongusu()
                        
 
@@ -82,17 +85,27 @@ def startPoint():
                             startPoint()
 
                         elif key == '\r':  # ENTER
-                           
-                           os.system("exit")
-                           sys.exit()
-                           os.system("taskkill /F /PID " + str(os.getpid()))
+                           sys.exit("çıkıyorum..................................")
+                        
+   
+   
+   
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
-                        sayacKronometre.geri_say(5)
+                      #^  sayacKronometre.geri_say(1)
+                        anamenü_bekletme(1)
+                        veri.TupleliListe_.clear()
+                        veri.SozlukluListe_.clear()
+                        continue
+                    
+                        
+   
+   
+   
                        
                     elif CHOOSEN==6: #NOTE - editleme
                         canlıTablo.main()
-                        sayacKronometre.geri_say(6)
+                        sayacKronometre.geri_say(3)
                         
                     elif CHOOSEN == 7: #NOTE -  DİLİMLEME         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
@@ -127,13 +140,13 @@ def startPoint():
                     
                        
                     elif CHOOSEN==33:
+                       anamenü_bekletme(2)
                        break
-                    with Live(refresh_per_second=2) as live:
-                        for _ in range(3):
-                            time.sleep(1)
-                            live.update(f"menü açılıyor... {_}")           
-                    
-#!SECTION TEKNNİK MENÜ          
+
+                       
+                       
+                       
+                                                                           #!SECTION TEKNNİK MENÜ          
         while True:                
                     teknikMenü.teknikMenü()
                     try:
@@ -162,7 +175,7 @@ def startPoint():
                         
                     elif CHOOSEN==3:
                         JSON.JSONdanYükleme_()
-                        sayacKronometre.geri_say(6)
+                        sayacKronometre.geri_say(3)
                        
                         
                         
@@ -203,7 +216,7 @@ def startPoint():
                         klavyeDinleme.Enter_ile_devam_et()
 
                     elif CHOOSEN==8:
-                        sayacKronometre.geri_say(5)
+                        sayacKronometre.geri_say(3)
                         
                     
                     elif CHOOSEN==9:
@@ -222,7 +235,7 @@ def startPoint():
                         
                     elif CHOOSEN==11:
                         dilimleme.dilimleme(5,veri.TupleliListe_)                        
-                    #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
+                        #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
                     
                     elif CHOOSEN==12:
                         sırfSORGU._SırfSorgu_()
@@ -243,4 +256,4 @@ def startPoint():
 
 
 if __name__ == "__main__":
-    startPoint()
+            startPoint()
