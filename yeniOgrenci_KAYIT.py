@@ -2,9 +2,10 @@ import ogrenci_LiSTEleme
 import JSON
 import klavyeDinleme
 import veri 
+from rich.panel import Panel
 import  tupleyi_Sozluklestirme
 from student_class import Ogrenciler
-from rich.console import Console ;console=Console()
+from rich.console import Console ;c=Console()
 
 def yeniOgrenciKayidi():
         toplamKaçKayıtGirildi=0
@@ -14,21 +15,25 @@ def yeniOgrenciKayidi():
         
         while True:
                 if toplamKaçKayıtGirildi==0:
-                        console.print("\n[bold magenta underline]📝 Yeni Öğrenci Girişi  📝[/bold magenta underline]")
+                        c.print(Panel.fit(
+        "[yellow2]📝 Yeni Öğrenci Girişi [/][italic grey27] 📌 Anamenü'ye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]",
+        border_style="green_yellow"  # ← dış çerçevenin rengi burada
+    ),
+    end=""
+)
                                 
-                        console.print(
-                        "\n[bold yellow]📕📕🗝️🗝️ TupleliListe_:[/bold yellow]",  veri.TupleliListe_[-2:], style="" )
+                  #      console.print(                        "\n[bold yellow]📕📕🗝️🗝️ TupleliListe_:[/bold yellow]",  veri.TupleliListe_[-2:], style="" )
 
                         
-                        console.print("\n[bold yellow]📙📙 🔑🔑 SözlüklüListe_:[/bold yellow]", veri.SozlukluListe_[-2:])
+          #              console.print("\n[bold yellow]📙📙 🔑🔑 SözlüklüListe_:[/bold yellow]", veri.SozlukluListe_[-2:])
                 else:
                         pass
                               
                 #NOTE -  Burada normalde bir ad giriliyor, 'Esc'  ye basılırsa yeni öğrenci kayıdı sonlandırılıyor.
-                ad = klavyeDinleme.klavyeÖncesiMesaj(3)  
+                ad = klavyeDinleme.klavyeDinlemesiÖncesiMesaj(3)  
                 
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
-                        console.print(f"📤[bold red] Kullanıcı [bold yellow]ESC[/bold yellow]'ye bastı. Giriş iptal edildi.[/bold red]\n [bold white]{toplamKaçKayıtGirildi}[/bold white] [bold magenta]kayıt girdiniz, Tebrik eder, hayatında başarılar dilerim[/bold magenta]")
+                        c.print(f"📤[bold red] Kullanıcı [bold yellow]ESC[/bold yellow]'ye bastı. Giriş iptal edildi.[/bold red]\n [bold white]{toplamKaçKayıtGirildi}[/bold white] [bold magenta]kayıt girdiniz, Tebrik eder, hayatında başarılar dilerim[/bold magenta]")
                         break
                 else:
                         ad=ad.strip()
@@ -45,13 +50,13 @@ def yeniOgrenciKayidi():
                 
                 #NOTE - öğrenci nesnesi tipinde geri dönen ve 4ten 6ya çıkmış elemanlı nesneyi tekrar tuple tipine çeviriyoruz. Klasta, Tupleye Id ve Kayıt Tarihi bilgileri ekleniyor.
                 TupleClassNesnesi=OgrenciNesnesi.toTuple()
-                console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
+              #^  console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
                           
                 #NOTE - tupleye çevrilen klas nesnesi tupleli listeye kaydediliyor ???????
                 #NOTE - yeni öğrenci nesne tuplesi,  boş  VERİ.TupleliListe_ sine kaydediliyor. TupleliListe_ bu aşamada dolmaya başlıyor. 
-                console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",veri.TupleliListe_[-1:],end="")
+               #^ console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",veri.TupleliListe_[-1:],end="")
                 veri.TupleliListe_.append(TupleClassNesnesi) 
-                console.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",veri.TupleliListe_[-2:],end="")
+                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",veri.TupleliListe_[-2:],end="")
                 
                    
                 veri.yeniEklenenlerListesi_.append(TupleClassNesnesi)  
@@ -66,7 +71,7 @@ def yeniOgrenciKayidi():
         
         
         if veri.SozlukluListe_:
-                console.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a gömüyorum...",style="")
+                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a gömüyorum...",style="")
           
                 klavyeDinleme.ENTER()  
                 toplamKaçKayıtGirildi += len(veri.SozlukluListe_)

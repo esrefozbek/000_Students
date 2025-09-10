@@ -10,7 +10,7 @@ from rich import print
 layout = Layout()
 
 aramaSayısı=0
-def klavyeÖncesiMesaj(sayı:int):
+def klavyeDinlemesiÖncesiMesaj(sayı:int):
     global aramaSayısı
     if sayı==1:
         aramaSayısı+=1

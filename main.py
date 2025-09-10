@@ -1,3 +1,6 @@
+
+#^     breakpoint()
+
 import sys,os
 import canlıTablo 
 from klavyeDinleme import ENTER

@@ -394,5 +394,32 @@
         "dogum_yili": "1424",
         "sinif": "2D",
         "kayıtTarihi": "10/09/2025 13:13:01"
+    },
+    {
+        "id": 45,
+        "ad": "Paul",
+        "soyad": "Newmann",
+        "öğrenciNumarası": "165",
+        "dogum_yili": "1967",
+        "sinif": "4R",
+        "kayıtTarihi": "10/09/2025 17:25:51"
+    },
+    {
+        "id": 46,
+        "ad": "EErcan",
+        "soyad": "Paka",
+        "öğrenciNumarası": "1520",
+        "dogum_yili": "1974",
+        "sinif": "7Y",
+        "kayıtTarihi": "10/09/2025 18:08:25"
+    },
+    {
+        "id": 47,
+        "ad": "Cashua",
+        "soyad": "Bills",
+        "öğrenciNumarası": "215",
+        "dogum_yili": "1874",
+        "sinif": "4B",
+        "kayıtTarihi": "10/09/2025 18:52:39"
     }
 ]

@@ -10,7 +10,7 @@ import tupleyi_Sozluklestirme
 
 
 def ogrenciSil():
-    aranan_ogrenci = klavyeDinleme.klavyeÖncesiMesaj(2)  #klavyeden değer alınıyor   
+    aranan_ogrenci = klavyeDinleme.klavyeDinlemesiÖncesiMesaj(2)  #klavyeden değer alınıyor   
     arama.arama(aranan_ogrenci)     # Öğrenci sorgulama
     bulunanlarListesi_ = arama.AramadaBulunanlarListesi_   #Kısaltma yaptım
 

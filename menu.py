@@ -29,13 +29,16 @@ box_turleri = [
 
 def ekranTemizle():
      os.system('cls' if os.name == 'nt' else 'clear')
+     
+     
+     #^ bu  rastgele_box_stili()   metodu tekniMenü.py'de de  var.
     
 def rastgele_box_stili():
     global secim
     secim=random.choice(box_turleri)
     box_objesi = getattr(box, secim)
     mesaj="Bugün hava kapalı olacak"
-    print(type(box_objesi))
+  #^  print(type(box_objesi))
     return secim,box_objesi,mesaj   #^ bu return, tuple olarak kabul edilir
 
 

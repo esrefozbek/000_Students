@@ -26,7 +26,7 @@ def rastgele_box_stili():
     global secim
     secim=random.choice(box_turleri)
     box_objesi = getattr(box, secim)
-    print(type(box_objesi))
+   #^  print(type(box_objesi))
     return box_objesi
 
 boxStilim=rastgele_box_stili()

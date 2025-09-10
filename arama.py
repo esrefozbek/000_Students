@@ -1,10 +1,13 @@
+import time
 import klavyeDinleme
 #import arama
 from rich.console import Console; console = Console()
 import tablolarPY,veri 
+from rich.live import Live
+import time
 # import aramaParametresi
 from rich.console import Console; c=Console()
-import random,randomRenk
+import randomRenk
 menüTipi="Sorgu Menüsü"
 listeTipi="Sorgu Listesi"
 AramadaBulunanlarListesi_=[]
@@ -16,7 +19,7 @@ AramadaBulunanlarListesi_=[]
 def aramaParametresi():
     aramaParametresi:object
     while True:
-        aramaParametresi=klavyeDinleme.klavyeÖncesiMesaj(1)
+        aramaParametresi=klavyeDinleme.klavyeDinlemesiÖncesiMesaj(1)
 
         if aramaParametresi is None:   #NOTE -  None cevabı  ancak Esc'ye basıldı ise gelir.
             console.print("\n📤 Kullanıcı ESC'ye bastı. Giriş iptal edildi.",style="")
@@ -28,6 +31,7 @@ def aramaParametresi():
 
 
 
+from rich.spinner import Spinner
 
 #a=aramaParametresi.aramaParametresi()
 def arama(aramaArgumani):
@@ -40,11 +44,13 @@ def arama(aramaArgumani):
                 #console.print(" [white on red]Bu numaraya sahip bir öğrenci yok. Düzgün bir sayı gir[/white on red]", style=""  )
                         if aramaArgumani==str(ogrenci[0]) or aramaArgumani in ogrenci[1].lower() or aramaArgumani in ogrenci[2].lower():
                                     AramadaBulunanlarListesi_.append(ogrenci)
+                   
                 else:
                     continue
-                
+    text=f"Aranıyor... "
+    with Live(Spinner("dots", text=text),    refresh_per_second=10):
+                                        time.sleep(0.8)
                                  
-
 
 
 
@@ -52,9 +58,10 @@ def arama(aramaArgumani):
         tablolarPY.TABLO_6lı(AramadaBulunanlarListesi_,menüTipi, listeTipi)
         
     if not AramadaBulunanlarListesi_:
-                    #randomRenk.ogrenciYok()
+                    randomRenk.ogrenciYok()
+                    
              #     c.print(f"[{randomRenk.randomize(randomRenk.Renkler())}]  Bu kayıtta bir öğrenci bulunamadı.[/]", style="")
-                  print("   öğrenci yok")
+               #   print("   öğrenci yok")
            
 
 
