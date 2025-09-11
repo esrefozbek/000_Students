@@ -1,11 +1,12 @@
-from menu import menu_goster, ekranTemizle
-import klavyeDinleme
+
+import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 import AsistanFonksiyonlar.arama as Arama
 from rich.console import Console; console = Console()
 
+
 def _SırfSorgu_():
     while True:
-        arananData=klavyeDinleme.klavyeDinlemesiÖncesiMesaj(1)
+        arananData=klavDinle.klavyeDinlemesiÖncesiMesaj(1)
         if arananData is None:
             console.print("\n📤 Kullanıcı ESC'ye bastı. Giriş iptal edildi.",style="")
             break

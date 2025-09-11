@@ -433,20 +433,29 @@
     },
     {
         "id": 49,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "11/09/2025 07:12:14"
+        "ad": "Ra\bfet",
+        "soyad": "Şeker",
+        "öğrenciNumarası": "162",
+        "dogum_yili": "1971",
+        "sinif": "5R",
+        "kayıtTarihi": "11/09/2025 08:40:43"
     },
     {
         "id": 50,
-        "ad": "22",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "11/09/2025 07:12:54"
+        "ad": "Rüstem",
+        "soyad": "Batumlu",
+        "öğrenciNumarası": "316",
+        "dogum_yili": "1961",
+        "sinif": "3E",
+        "kayıtTarihi": "11/09/2025 12:05:36"
+    },
+    {
+        "id": 51,
+        "ad": "Fiyanka",
+        "soyad": "Reskof",
+        "öğrenciNumarası": "512",
+        "dogum_yili": "1989",
+        "sinif": "7Y",
+        "kayıtTarihi": "11/09/2025 12:06:20"
     }
 ]

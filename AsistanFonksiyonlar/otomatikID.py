@@ -1,16 +1,16 @@
-import veri
-import JSON
+import VERI.veri as Veri
+import AnaFonksiyonlar.JSON as Json
 from rich.console import Console; console = Console()
 
 sayı: int = 0
 
 def otomatikID():
     global sayı
-    if not veri.TupleliListe_:
-        JSON.JSONdanYükleme_()
+    if not Veri.TupleliListe_:
+        Json.JSONdanYükleme_()
 
-    if veri.TupleliListe_:
-        en_büyük_tuple = max(veri.TupleliListe_, key=lambda x: x[0])
+    if Veri.TupleliListe_:
+        en_büyük_tuple = max(Veri.TupleliListe_, key=lambda x: x[0])
         sayı = en_büyük_tuple[0]  # Sadece ID'yi al
         console.print("[bold magenta]otomatikID():[/bold magenta]🍀🍺🍺🍀  En büyük ID:",sayı )
     else:

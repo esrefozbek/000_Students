@@ -5,15 +5,15 @@
 
 
 import time
-import klavyeDinleme
+import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 #import arama
 from rich.console import Console; console = Console()
-import tablolarPY,veri 
+import MenuTablo.tablolarPY as TablolarPY,VERI.veri as Veri 
 from rich.live import Live
 import time
 # import aramaParametresi
 from rich.console import Console; c=Console()
-import randomRenk
+import Widgetler.randomRenk as RandomRenk
 menüTipi="Sorgu Menüsü"
 listeTipi="Sorgu Listesi"
 AramadaBulunanlarListesi_=[]
@@ -25,7 +25,7 @@ AramadaBulunanlarListesi_=[]
 def aramaParametresi():
     aramaParametresi:object
     while True:
-        aramaParametresi=klavyeDinleme.klavyeDinlemesiÖncesiMesaj(1)
+        aramaParametresi=klavDinle.klavyeDinlemesiÖncesiMesaj(1)
 
         if aramaParametresi is None:   #NOTE -  None cevabı  ancak Esc'ye basıldı ise gelir.
             console.print("\n📤 Kullanıcı ESC'ye bastı. Giriş iptal edildi.",style="")
@@ -45,7 +45,7 @@ def arama(aramaArgumani):
     AramadaBulunanlarListesi_.clear()  #TODO - Her sorguda önce temizle 
             
     
-    for ogrenci in veri.TupleliListe_:
+    for ogrenci in Veri.TupleliListe_:
                 if   (aramaArgumani is not None):
                 #console.print(" [white on red]Bu numaraya sahip bir öğrenci yok. Düzgün bir sayı gir[/white on red]", style=""  )
                         if aramaArgumani==str(ogrenci[0]) or aramaArgumani in ogrenci[1].lower() or aramaArgumani in ogrenci[2].lower():
@@ -61,10 +61,10 @@ def arama(aramaArgumani):
 
 
     if not len(AramadaBulunanlarListesi_)==0:
-        tablolarPY.TABLO_6lı(AramadaBulunanlarListesi_,menüTipi, listeTipi)
+        TablolarPY.TABLO_6lı(AramadaBulunanlarListesi_,menüTipi, listeTipi)
         
     if not AramadaBulunanlarListesi_:
-                    randomRenk.ogrenciYok()
+                    RandomRenk.ogrenciYok()
                     
              #     c.print(f"[{randomRenk.randomize(randomRenk.Renkler())}]  Bu kayıtta bir öğrenci bulunamadı.[/]", style="")
                #   print("   öğrenci yok")

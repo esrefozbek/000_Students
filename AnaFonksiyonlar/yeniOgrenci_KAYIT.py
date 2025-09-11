@@ -3,19 +3,19 @@
 #FIXME - çıkmak için Esc ye bastığında "Devam etmek için ENTER tuşuna bas..."  yerine "Girilen öğrencileri kaydetmek için Enter/e   kayıttan vazgeçmek için Esc/H  seçin"   gelsin
 
 
-import ekleSilEdit_vs.ogrenci_LiSTEleme as oglis
-import JSON
-import klavyeDinleme
-import veri 
+import AnaFonksiyonlar.ogrenci_LiSTEleme as oglis
+import AnaFonksiyonlar.JSON as Json
+import AsistanFonksiyonlar.klavyeDinleme as klavDinle
+import VERI.veri as Veri 
 from rich.panel import Panel
 import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
-from student_class import Ogrenciler
+from AnaFonksiyonlar.student_class import Ogrenciler
 from rich.console import Console ;c=Console()
 
 def yeniOgrenciKayidi():
         toplamKaçKayıtGirildi=0
-        if veri.TupleliListe_:
-                veri.TupleliListe_.clear()   #program ilk açıldığında JSONdanYükleme yapıldığında veri.TupleliListe_ dolu hale geliyor.  Bu da Çift kayıda sebep oluyor. Bu sebeple SIFIRLANMALIdır.
+        if Veri.TupleliListe_:
+                Veri.TupleliListe_.clear()   #program ilk açıldığında JSONdanYükleme yapıldığında veri.TupleliListe_ dolu hale geliyor.  Bu da Çift kayıda sebep oluyor. Bu sebeple SIFIRLANMALIdır.
         
         
         while True:
@@ -35,7 +35,7 @@ def yeniOgrenciKayidi():
                         pass
                               
                 #NOTE -  Burada normalde bir ad giriliyor, 'Esc'  ye basılırsa yeni öğrenci kayıdı sonlandırılıyor.
-                ad = klavyeDinleme.klavyeDinlemesiÖncesiMesaj(3)  
+                ad = klavDinle.klavyeDinlemesiÖncesiMesaj(3)  
                 
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
                         c.print(f"📤[bold red] Kullanıcı [bold yellow]ESC[/bold yellow]'ye bastı. Giriş iptal edildi.[/bold red]\n [bold white]{toplamKaçKayıtGirildi}[/bold white] [bold magenta]kayıt girdiniz, Tebrik eder, hayatında başarılar dilerim[/bold magenta]")
@@ -60,29 +60,29 @@ def yeniOgrenciKayidi():
                 #NOTE - tupleye çevrilen klas nesnesi tupleli listeye kaydediliyor ???????
                 #NOTE - yeni öğrenci nesne tuplesi,  boş  VERİ.TupleliListe_ sine kaydediliyor. TupleliListe_ bu aşamada dolmaya başlıyor. 
                #^ console.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",veri.TupleliListe_[-1:],end="")
-                veri.TupleliListe_.append(TupleClassNesnesi) 
-                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",veri.TupleliListe_[-2:],end="")
+                Veri.TupleliListe_.append(TupleClassNesnesi) 
+                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri.TupleliListe_[-2:],end="")
                 
                    
-                veri.yeniEklenenlerListesi_.append(TupleClassNesnesi)  
+                Veri.yeniEklenenlerListesi_.append(TupleClassNesnesi)  
                 
                   
 
                 
          #NOTE - Esc ile çıktık ve elimizdeki VERİ.TupleliListe_ yi  sözlük yaparak JSON'a kaydedeceğiz.
-        tupSoz.TupleyiSözlükYap(liste=veri.TupleliListe_)
-        veri.TupleliListe_.clear()
+        tupSoz.TupleyiSözlükYap(liste=Veri.TupleliListe_)
+        Veri.TupleliListe_.clear()
         
         
         
-        if veri.SozlukluListe_:
+        if Veri.SozlukluListe_:
                 c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a gömüyorum...",style="")
           
-                klavyeDinleme.ENTER()  
-                toplamKaçKayıtGirildi += len(veri.SozlukluListe_)
+                klavDinle.ENTER()  
+                toplamKaçKayıtGirildi += len(Veri.SozlukluListe_)
                                   
-                JSON.JSONaKayıt("VERI/students.json",veri.SozlukluListe_ );
-                veri.SozlukluListe_.clear(); 
+                Json.JSONaKayıt("VERI/students.json",Veri.SozlukluListe_ );
+                Veri.SozlukluListe_.clear(); 
                     
                 #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_);                 VERİ.yedekSözlüklüListe_.clear()   
         

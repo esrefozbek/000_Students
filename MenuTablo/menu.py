@@ -52,7 +52,7 @@ def menu_goster():
 
     table.add_column("Seçim", justify="center", style="green", no_wrap=False)    
     table.add_column("Sembol", justify="center", style="green", no_wrap=False)    
-    table.add_column(f"İşlem, [grey46]  Box Stili:[/][bold turquoise2]{rastgele_box_stili()[0]}[/]", style="white",no_wrap=False)
+    table.add_column(f"İşlem, [grey46]Box Stili:[/][bold turquoise2]{rastgele_box_stili()[0]}[/]", style="white",no_wrap=False)
 
     table.add_row("1","➕","Öğrenci Ekle")
     table.add_row("2", "🔍","Öğrenci Bul")

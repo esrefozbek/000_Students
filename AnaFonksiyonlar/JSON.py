@@ -1,14 +1,13 @@
 
 import json
 from rich.console import Console
-import veri,sayacKronometre
+import VERI.veri as Veri,Widgetler.SayacAnimasyon.sayacKronometre as Sayac_Kronometre
 from rich.panel import Panel
 from rich.layout import Layout
 from rich import print
 console = Console()
 import os
 
-#! JSON DOSYASINA ÖĞRENCİ EKLEME
 
 
 
@@ -34,10 +33,10 @@ def JSONdanYükleme_():
                 #ANCHOR -  console.print(ogrenci_listesi[1])   #NOTE - örnek olarak koydum
                
             
-            if veri.TupleliListe_:
-                veri.TupleliListe_.clear() 
+            if Veri.TupleliListe_:
+                Veri.TupleliListe_.clear() 
             # Tuple listeyi oluştur
-            veri.TupleliListe_ = [
+            Veri.TupleliListe_ = [
             (ogr["id"], ogr["ad"], ogr["soyad"],ogr["öğrenciNumarası"], ogr["dogum_yili"], ogr["sinif"], ogr["kayıtTarihi"])
                 for ogr in Geçici_Liste  ]
             
@@ -47,12 +46,13 @@ def JSONdanYükleme_():
             #! console.print(Panel.fit(f"\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:] \n { veri.TupleliListe_[-2:]}",style=""))
             
     
-            if not veri.TupleliListe_:
+            if not Veri.TupleliListe_:
                 console.print("[bold yellow]jsondan_yükleme(): [/bold yellow] if TupleliListe_ şuan boş",style="")
-                console.print(veri.TupleliListe_,"...")
+                console.print(Veri.TupleliListe_,"...")
             
             
 
+#! JSON DOSYASINA ÖĞRENCİ EKLEME
 def JSONaKayıt(dosya_adi:str, liste:list ):
         """ try:
             with open(dosya_adi, "r", encoding="utf-8") as f:
@@ -68,7 +68,7 @@ def JSONaKayıt(dosya_adi:str, liste:list ):
         jsonaKayıt_içinGeçiciListe = []
  
        #REVIEW -  console.print("[bold yellow]_jsona_kayıt_: [/bold yellow] mevcut veriler iLAVELi hali:",    mevcut_veriler)
-        console.print(f"💾 _jsona_kayıt_() : '{dosya_adi}' dosyasına {len(veri.SozlukluListe_)} öğrenci eklendi.\n")
+        console.print(f"💾 _jsona_kayıt_() : '{dosya_adi}' dosyasına {len(Veri.SozlukluListe_)} öğrenci eklendi.\n")
         # VERİ.SözlüklüListe_.clear()
         # VERİ.TupleliListe_.clear()
     
