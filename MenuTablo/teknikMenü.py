@@ -43,7 +43,8 @@ def teknikMenü():
     table.add_column("Seçim", justify="center", style="green", no_wrap=False)
     table.add_column(f"İşlem, [red]  Box Stili:[/red] [bold black]{(secim)}[/bold black]", style="white",no_wrap=False)
 
-    table.add_row("1", "Yeni Eklenen Öğrenci Listesi")
+    table.add_row("1", "Veri.yeniEklenenlerListesi_")
+    table.add_row("0", "Veri.SozlukluListe_")
     table.add_row("2", "Silinen Öğrenci Listesi")
     table.add_row("3", "JSON'dan okuma(Tupleli liste oluşturma)")
     table.add_row("4", "Tupleli Liste")

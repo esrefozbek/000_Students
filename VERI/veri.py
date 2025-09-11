@@ -13,9 +13,15 @@ alt_liste=[]
 
 silinmislerListesi_=[]
 
-yeniEklenenlerListesi_=[]
+
+yeniEklenenlerListesi_Tuple=[]
+yeniEklenenlerListesi_Tuple_Kopya=[]
+
+
 
 SozlukluListe_=[]
+SozlukluListe_Kopya=[]
+
 yedekSozlukluListe_=[]
 
 sayı:int

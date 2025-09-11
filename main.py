@@ -1,5 +1,5 @@
 
-#^     breakpoint()
+#breakpoint()
 
 import sys,os
 import MenuTablo.canlıTablo as CanlıTablo 
@@ -46,6 +46,7 @@ def startPoint():
                     
                     
                     if CHOOSEN == 1:#NOTE - YENİ KAYIT
+                       #^ breakpoint()
                         yeniOgrenci_KAYIT.yeniOgrenciKayidi()
 
 
@@ -163,14 +164,19 @@ def startPoint():
                         continue
                     
 
-                    if CHOOSEN not in (1,2,3,4,5,6,7,8,9,10,11,12, 13,44):
+                    if CHOOSEN not in (0,1,2,3,4,5,6,7,8,9,10,11,12, 13,44):
                         c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
                         input("ENTER ile devam et...")
                         continue      
+                    
+                    
+                    elif CHOOSEN == 0:
+                        c.print("Veri.SozlukluListe_ >> ",oglis.yeniOgrListesiSözlükDökümü())
+                        ENTER()
                         
 
                     elif CHOOSEN == 1:
-                        oglis.yeniEklenenOgrencilerListesiDökümü() 
+                        c.print("Veri.SozlukluListe_ >> ",oglis.yeniOgrListesiDökümü() )
                         ENTER()
 
                     elif CHOOSEN==2:
@@ -189,7 +195,8 @@ def startPoint():
                         ENTER()
            
                     elif CHOOSEN==5:
-                        tupSoz.TupleyiSözlükYap(liste=Veri.TupleliListe_)
+                        tupSoz.TupleyiSözlükYap(Veri.TupleliListe_)
+                      
                         #NOTE - Hangi tuple var, ilk kayıttaki mi , jsondan gelip remove edilmiş olan mı, 
                         klavDinle.Enter_ile_devam_et()
 

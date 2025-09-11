@@ -23,11 +23,20 @@ def silinmişKayıtlılarListesiDökümü():
         print( "Henüz Öğrenci Kayıdı silinmedi. ")
 
 
-def yeniEklenenOgrencilerListesiDökümü():
+def yeniOgrListesiDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
-    if Veri.yeniEklenenlerListesi_:     
-        TablolarPY.TABLO_6lı(Veri.yeniEklenenlerListesi_,menüTipi, listeTipi )
+    if Veri.yeniEklenenlerListesi_Tuple_Kopya:     
+        TablolarPY.TABLO_6lı(Veri.yeniEklenenlerListesi_Tuple_Kopya,menüTipi, listeTipi )
+    else:
+        console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
+        
+
+def yeniOgrListesiSözlükDökümü():
+    menüTipi="Yeni Eklenenler"
+    listeTipi="Yeni Eklenenler"
+    if Veri.SozlukluListe_Kopya:     
+        TablolarPY.TABLO_6lı(Veri.SozlukluListe_Kopya,menüTipi, listeTipi )
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
 

@@ -52,23 +52,24 @@ def JSONdanYükleme_():
             
             
 
+
+
 #! JSON DOSYASINA ÖĞRENCİ EKLEME
-def JSONaKayıt(dosya_adi:str, liste:list ):
-        """ try:
-            with open(dosya_adi, "r", encoding="utf-8") as f:
-                jsonaKayıt_içinGeçiciListe = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            console.print(f"[red]Hata oluştu:[/red] {e}") """
-        
-        jsonaKayıt_içinGeçiciListe = []
-        # Yeni öğrencileri ekle
-        jsonaKayıt_içinGeçiciListe.extend(liste) # Dosyaya JSON olarak yaz
-        with open(dosya_adi, "w", encoding="utf-8") as f:
-                json.dump(jsonaKayıt_içinGeçiciListe, f, indent=4, ensure_ascii=False)
-        jsonaKayıt_içinGeçiciListe = []
- 
-       #REVIEW -  console.print("[bold yellow]_jsona_kayıt_: [/bold yellow] mevcut veriler iLAVELi hali:",    mevcut_veriler)
-        console.print(f"💾 _jsona_kayıt_() : '{dosya_adi}' dosyasına {len(Veri.SozlukluListe_)} öğrenci eklendi.\n")
-        # VERİ.SözlüklüListe_.clear()
-        # VERİ.TupleliListe_.clear()
-    
+# 2️⃣ JSON'a kayıt fonksiyonu
+def JSONaKayıt(dosya_adi: str, liste: list):
+    # Dosyada mevcut veri varsa oku
+    try:
+        with open(dosya_adi, "r", encoding="utf-8") as f:
+            mevcut_veriler = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        mevcut_veriler = []
+
+    # Yeni listeyi mevcut verilerin sonuna ekle
+    mevcut_veriler.extend(liste)
+
+    # Güncellenmiş listeyi JSON dosyasına yaz
+    with open(dosya_adi, "w", encoding="utf-8") as f:
+        json.dump(mevcut_veriler, f, indent=4, ensure_ascii=False)
+
+    console.print(f"💾 [bold green]_jsona_kayıt_[/bold green]: '{dosya_adi}' dosyasına {len(liste)} öğrenci eklendi.\n")
+

@@ -1,18 +1,17 @@
 #from veri import TupleliListe_,SözlüklüListe_
 import VERI.veri as Veri
-from rich.console import Console; console = Console()
+from rich.console import Console; c = Console()
 
 
 #ANCHOR -  tuple içeren liste SÖZLÜĞE dönüştürülüyor. 
 
-def TupleyiSözlükYap(liste:list=Veri.TupleliListe_):
-    console.print("[bold yellow]TupleyiSözlükYap_():[/bold yellow] başlıyor......  ")
-    console.print("[bold yellow]TupleyiSözlükYap_():[/bold yellow] SözlüklüListe_ nin durumu:",Veri.SozlukluListe_)
+def TupleyiSözlükYap(yeniEklenenlerListesi_:list=Veri.yeniEklenenlerListesi_Tuple):
+    c.print("[bold yellow]TupleyiSözlükYap_():[/bold yellow] SözlüklüListe_ nin durumu:",Veri.SozlukluListe_)
         
     if Veri.SozlukluListe_:  
-        Veri.SozlukluListe_.clear()                                              
+        Veri.SozlukluListe_.clear()           #FIXME - burada listebaştan yaratılıyor                                    
     
-    for TupleClassNesnesi in liste:
+    for TupleClassNesnesi in yeniEklenenlerListesi_ :
         Veri.SozlukluListe_.append({
             "id": TupleClassNesnesi[0],
             "ad": TupleClassNesnesi[1],
@@ -22,26 +21,28 @@ def TupleyiSözlükYap(liste:list=Veri.TupleliListe_):
             "sinif": TupleClassNesnesi[5],
             "kayıtTarihi":TupleClassNesnesi[6]
         })
-    console.print("[bold yellow]TupleyiSözlükYap_():[/bold yellow] Dolum sonrası SözlüklüListe_:↩️",Veri.SozlukluListe_[-2:])
+    c.print("[bold yellow]TupleyiSözlükYap_():[/] Dolum sonrası SözlüklüListe_:↩️",Veri.SozlukluListe_[0:])
     
     #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız. 
     if Veri.SozlukluListe_:
         Veri.yedekSozlukluListe_=Veri.SozlukluListe_.copy()
+        Veri.SozlukluListe_Kopya=Veri.SozlukluListe_.copy()
         
          
         
-        console.print ("\n[bold magenta]Tupleyi Sözlükleştirme:[/bold magenta] ♻️ ♻️ Tuplenin sözlüğe dönüştürülüp SözlüklüListe_ ye kayıt işlemi tamamlandı Allah'ın izniyle  ,\n",style="")
-        console.print (f"""[bold magenta]Tupleyi Sözlükleştirme:[/bold magenta]
-\n[bold black]
-☢️  İstatistiklerim: ☢️ [/bold black]
-[yellow]Sözlük listenin tipi:[/yellow]{type(Veri.SozlukluListe_)}
-[yellow]Herbir elemanın tipi[0]:[/yellow]{type(Veri.SozlukluListe_[0])}
-[yellow]Sözlüğün uzunluğu:[/yellow]{len(Veri.SozlukluListe_)}
-[white]SözlüklüListeden bir örnek alınmış hali:[/white]\n""",style="yellow")
-        console.print (f"""SözlüklüListe_nin ilk elemanı[0] ve son eleman[[-1]:\n""", Veri.SozlukluListe_[0],"...",Veri.SozlukluListe_[-1], style="yellow")
+        c.print ("\n[bold magenta]Tupleyi Sözlükleştirme:[/] ♻️ ♻️ Tuplenin sözlüğe dönüştürülüp SözlüklüListe_ ye kayıt işlemi tamamlandı,\n",style="")
         
-        if Veri.TupleliListe_:
-                Veri.TupleliListe_.clear()
+        c.print (f"""[bold magenta]Tupleyi Sözlükleştirme:[/]
+\n[bold black]
+☢️  İstatistiklerim: ☢️ [/]
+[yellow]Sözlük listenin tipi:[/]{type(Veri.SozlukluListe_)}
+[yellow]Herbir elemanın tipi[0]:[/]{type(Veri.SozlukluListe_[0])}
+[yellow]Sözlüğün uzunluğu:[/]{len(Veri.SozlukluListe_)}
+[white]SözlüklüListe hali:[/]\n""",style="yellow")
+        c.print (f"""istatistikteki SözlüklüListe_ :\n""", Veri.SozlukluListe_, style="yellow")
+        
+        """  if Veri.TupleliListe_:
+                Veri.TupleliListe_.clear() """
 
     return Veri.SozlukluListe_ 
                 
