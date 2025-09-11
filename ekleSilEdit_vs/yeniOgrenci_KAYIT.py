@@ -1,9 +1,14 @@
-import ogrenci_LiSTEleme
+#FIXME -  çıkışta girlen öğrenciyi/öğrencileri kaydedeyim mi  Evet/Enter    Hayır/Esc seçeneği olsun. 
+#FIXME - ilk öğrenci tamamlandığında yeni öğrenci girişi BANNER i yerine "Yeni öğrencinin ADINI giriniz:(Bu aşamada 'Esc' ile kayıttan çıkabilirsin):"  seçeneği tekrar gelsin.
+#FIXME - çıkmak için Esc ye bastığında "Devam etmek için ENTER tuşuna bas..."  yerine "Girilen öğrencileri kaydetmek için Enter/e   kayıttan vazgeçmek için Esc/H  seçin"   gelsin
+
+
+import ekleSilEdit_vs.ogrenci_LiSTEleme as oglis
 import JSON
 import klavyeDinleme
 import veri 
 from rich.panel import Panel
-import  tupleyi_Sozluklestirme
+import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
 from student_class import Ogrenciler
 from rich.console import Console ;c=Console()
 
@@ -65,7 +70,7 @@ def yeniOgrenciKayidi():
 
                 
          #NOTE - Esc ile çıktık ve elimizdeki VERİ.TupleliListe_ yi  sözlük yaparak JSON'a kaydedeceğiz.
-        tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
+        tupSoz.TupleyiSözlükYap(liste=veri.TupleliListe_)
         veri.TupleliListe_.clear()
         
         
@@ -76,7 +81,7 @@ def yeniOgrenciKayidi():
                 klavyeDinleme.ENTER()  
                 toplamKaçKayıtGirildi += len(veri.SozlukluListe_)
                                   
-                JSON.JSONaKayıt("students.json",veri.SozlukluListe_ );
+                JSON.JSONaKayıt("VERI/students.json",veri.SozlukluListe_ );
                 veri.SozlukluListe_.clear(); 
                     
                 #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_);                 VERİ.yedekSözlüklüListe_.clear()   

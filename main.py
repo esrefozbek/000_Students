@@ -6,8 +6,9 @@ import canlıTablo
 from klavyeDinleme import ENTER
 from rich.live import Live
 from rich.box import Box
-import dilimleme, veri, yeniOgrenci_KAYIT, ogrenci_LiSTEleme, JSON, menu, tupleyi_Sozluklestirme, ogrenci_SiLME,  klavyeDinleme, readchar, sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü,arama
+import AsistanFonksiyonlar.dilimleme as Dilimleme, veri, ekleSilEdit_vs.yeniOgrenci_KAYIT as yeniOgrenci_KAYIT, ekleSilEdit_vs.ogrenci_LiSTEleme as oglis, JSON, menu, ekleSilEdit_vs.ogrenci_SiLME as ogrenci_SiLME,  klavyeDinleme, readchar, AsistanFonksiyonlar.sırfSORGU as sırfSORGU, time,sayacKronometre,pomodoro,teknikMenü,AsistanFonksiyonlar.arama as Arama
 from rich.console import Console; c = Console()
+import AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
 
 
 #^########################################menu.ekranTemizle()
@@ -52,13 +53,13 @@ def startPoint():
                         if not veri.TupleliListe_:
                             JSON.JSONdanYükleme_()
                             while True:
-                                a=arama.aramaParametresi()
+                                a=Arama.aramaParametresi()
                                 if a is not None:
                                     a=a.strip().lower()
                                     if a == "":
                                         c.print("Hiçbir değer girmeden [italic white]Enter[/] tuşuna bastın Beni boşuna oyalama dostum",style="yellow")
                                     else:    
-                                        arama.arama(a)
+                                        Arama.arama(a)
                                 else :
                                     break
                       
@@ -118,7 +119,7 @@ def startPoint():
                         JSON.JSONdanYükleme_()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
                         if veri.TupleliListe_:
-                            ogrenci_LiSTEleme.altAltaOgrenciListesi(değer)
+                            oglis.altAltaOgrenciListesi(değer)
                             veri.TupleliListe_.clear()
                         else:
                             c.print("📭 Liste boş. Önce öğrenci gir.",style="white")
@@ -132,7 +133,7 @@ def startPoint():
                         JSON.JSONdanYükleme_()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
                         if veri.TupleliListe_:
-                            ogrenci_LiSTEleme.altAltaOgrenciListesi(değer)
+                            oglis.altAltaOgrenciListesi(değer)
                             canlıTablo.main()    
                             veri.TupleliListe_.clear()
                         else:
@@ -168,11 +169,11 @@ def startPoint():
                         
 
                     elif CHOOSEN == 1:
-                        ogrenci_LiSTEleme.yeniEklenenOgrencilerListesiDökümü() 
+                        oglis.yeniEklenenOgrencilerListesiDökümü() 
                         ENTER()
 
                     elif CHOOSEN==2:
-                        ogrenci_LiSTEleme.silinmişKayıtlılarListesiDökümü() 
+                        oglis.silinmişKayıtlılarListesiDökümü() 
                         ENTER()
 
                         
@@ -187,7 +188,7 @@ def startPoint():
                         ENTER()
            
                     elif CHOOSEN==5:
-                        tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
+                        tupSoz.TupleyiSözlükYap(liste=veri.TupleliListe_)
                         #NOTE - Hangi tuple var, ilk kayıttaki mi , jsondan gelip remove edilmiş olan mı, 
                         klavyeDinleme.Enter_ile_devam_et()
 
@@ -237,7 +238,7 @@ def startPoint():
                         # ekran temizlenir anaMenüye gidilir Lakin silinen eklenen listeleri doludur.
                         
                     elif CHOOSEN==11:
-                        dilimleme.dilimleme(5,veri.TupleliListe_)                        
+                        Dilimleme.dilimleme(5,veri.TupleliListe_)                        
                         #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
                     
                     elif CHOOSEN==12:

@@ -3,7 +3,7 @@ from rich.console import Console;console=Console()
 from rich.table import Table
 import tablolarPY
 import veri
-import dilimleme
+import AsistanFonksiyonlar.dilimleme as Dilimleme
 
 
 
@@ -11,7 +11,7 @@ import dilimleme
 def altAltaOgrenciListesi(value):
     kaçarKaçar = value if value is not None else 8  # kaçarlı dilimler yapalım        
     veri.TupleliListe_.sort()
-    dilimleme.gptDilimleme(kaçarKaçar, liste=veri.TupleliListe_) 
+    Dilimleme.gptDilimleme(kaçarKaçar, liste=veri.TupleliListe_) 
     
 
 def silinmişKayıtlılarListesiDökümü():

@@ -1,6 +1,6 @@
 from menu import menu_goster, ekranTemizle
 import klavyeDinleme
-import arama
+import AsistanFonksiyonlar.arama as Arama
 from rich.console import Console; console = Console()
 
 def _SırfSorgu_():
@@ -11,4 +11,4 @@ def _SırfSorgu_():
             break
         else:
         #     sorgu.sorgu(arananData)
-            arama.arama(arananData)
+            Arama.arama(arananData)

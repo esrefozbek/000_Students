@@ -1,3 +1,9 @@
+#FIXME - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.
+
+
+
+
+
 import time
 import klavyeDinleme
 #import arama
@@ -40,7 +46,7 @@ def arama(aramaArgumani):
             
     
     for ogrenci in veri.TupleliListe_:
-                if   (aramaArgumani.isdigit() or aramaArgumani.isalpha() ):
+                if   (aramaArgumani is not None):
                 #console.print(" [white on red]Bu numaraya sahip bir öğrenci yok. Düzgün bir sayı gir[/white on red]", style=""  )
                         if aramaArgumani==str(ogrenci[0]) or aramaArgumani in ogrenci[1].lower() or aramaArgumani in ogrenci[2].lower():
                                     AramadaBulunanlarListesi_.append(ogrenci)

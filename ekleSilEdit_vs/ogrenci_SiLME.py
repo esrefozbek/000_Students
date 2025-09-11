@@ -1,21 +1,30 @@
-import ogrenci_LiSTEleme
-import arama
+ #FIXME - mesela 16 yı silmek için 16 yazdım  Sonra 16yı değilde 17 yazmak için backspace ile geri gitmeye kalktım   Geri gitmedi, Esc'ye bastım.     BOOOOMMMMMMM     Normal çıkış için basılan ESc bile patladı !!!!!!
+ 
+ #FIXME - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.   Bu tüm listeyi görmek için bir vantaj mı yoksa hata mı
+ #FIXME -  Silmeden çıkmak için Esc ye bas,  Devam etmek için Enter  çıkmak için tekrar Esc ye bas seçeneği iyi olur.  
+ #FIXME -  bu sayfadaki kodlar Revize edilmeli. 
+ #FIXME - "İndeksler:"   kısmı "İndeksler or Esc"   olarak değiştirilmeli.  
+ 
+ 
+ 
+import ekleSilEdit_vs.ogrenci_LiSTEleme as oglis
+import AsistanFonksiyonlar.arama as Arama
 import klavyeDinleme
-from rich.console import Console;console = Console()
+from rich.console import Console; k = Console()
 import re
-import onayE_H
+import AsistanFonksiyonlar.onayE_H as OnayE_H
 import JSON
 import veri 
-import tupleyi_Sozluklestirme
+import AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
 
 
 def ogrenciSil():
     aranan_ogrenci = klavyeDinleme.klavyeDinlemesiÖncesiMesaj(2)  #klavyeden değer alınıyor   
-    arama.arama(aranan_ogrenci)     # Öğrenci sorgulama
-    bulunanlarListesi_ = arama.AramadaBulunanlarListesi_   #Kısaltma yaptım
+    Arama.arama(aranan_ogrenci)     # Öğrenci sorgulama
+    bulunanlarListesi_ = Arama.AramadaBulunanlarListesi_   #Kısaltma yaptım
 
     if not bulunanlarListesi_:
-        console.print("[bold red]Hiçbir öğrenci bulunamadı.[/bold red]")
+        k.print("[bold red]Hiçbir öğrenci bulunamadı.[/bold red]")
         return
 
     tekrar_sayacı=1
@@ -40,14 +49,14 @@ def ogrenciSil():
    
     while True:
         if tekrar_sayacı==1 :
-            console.print(metin1)
+            k.print(metin1)
         else:
-            console.print(metin2)
+            k.print(metin2)
 
         girdi = input("İndeksler: ")
         girdi=girdi.strip()
         if not girdi:
-            console.print("Boş giriş yapıldı. Tekrar deneyin.", style="red")
+            k.print("Boş giriş yapıldı. Tekrar deneyin.", style="red")
             continue
         
 
@@ -61,10 +70,10 @@ def ogrenciSil():
                 if 0 <= girdi < len(bulunanlarListesi_):
                     geçerli_girdiler_Listesi.append(girdi)
                 else:
-                    console.print(f"Hatalı indeks: {girdi}", style="bold red")
+                    k.print(f"Hatalı indeks: {girdi}", style="bold red")
                     hatalı_var = True
             else:
-                console.print(f"Geçersiz giriş: {girdi}", style="bold red")
+                k.print(f"Geçersiz giriş: {girdi}", style="bold red")
                 hatalı_var = True
            
 
@@ -78,28 +87,27 @@ def ogrenciSil():
             
         silinen_öğrenci_sayısı:int=0           
         for ogr in silinecekler:
-            console.print(f"Öğrenci kayıdı siliniyor!!!: {ogr}", style="bold blue")
-            if onayE_H.Evet_Hayır_OnayiAl(ogr):
+            k.print(f"Öğrenci kayıdı siliniyor!!!: {ogr}", style="bold blue")
+            if OnayE_H.Evet_Hayır_OnayiAl(ogr):
                 silinen_öğrenci_sayısı+=1
                 veri.silinmislerListesi_.append(ogr)
                 veri.TupleliListe_.remove(ogr)
             else:
                 print("Kayıt işlemini iptal ettin")
         if silinen_öğrenci_sayısı:
-            console.print(f"{silinen_öğrenci_sayısı} öğrenci başarıyla silindi. 😄😄 ", style="bold green")
+            k.print(f"{silinen_öğrenci_sayısı} öğrenci başarıyla silindi. 😄😄 ", style="bold green")
             break
         else:
-            console.print(f"Hiçbir TALEBE KAYDI silinmedi", style="red")
+            k.print(f"Hiçbir TALEBE KAYDI silinmedi", style="red")
             break
 
     # Temizlik
     bulunanlarListesi_.clear()
-    tupleyi_Sozluklestirme.TupleyiSözlükYap(liste=veri.TupleliListe_)
-    JSON.JSONaKayıt("öğrenciler.json",veri.SozlukluListe_)
+    tupSoz.TupleyiSözlükYap(liste=veri.TupleliListe_)
+    JSON.JSONaKayıt("VERI/students.json",veri.SozlukluListe_)
     #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_)
     veri.TupleliListe_.clear()
     veri.SozlukluListe_.clear()
     
     
- 
 

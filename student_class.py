@@ -1,5 +1,5 @@
+from AsistanFonksiyonlar import otomatikID as otmID
 
-import otomatikID
 from rich.console import Console
 console=Console()
 from datetime import datetime
@@ -17,7 +17,7 @@ class Ogrenciler():
     #? BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR
     
     def __init__(self,  ad, soyad,öğrenciNumarası, dogTarihi,sinifi):
-        self.ogrenciId= otomatikID.otomatikID()+1
+        self.ogrenciId= otmID.otomatikID()+1
         self.ad=ad
         self.soyad=soyad
         self.öğrenciNumarası=öğrenciNumarası

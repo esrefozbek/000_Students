@@ -12,14 +12,14 @@ import json
 
 def renkleriAl(): # renkleri al json'a yaz
     renkler = []
-    with open("renk.txt", "r", encoding="utf-8") as dosya:
+    with open("VERI/renk.txt", "r", encoding="utf-8") as dosya:
         for line in dosya:
             eslesme = re.search(r'"(.*?)"', line)
             if eslesme:
                 renkler.append(eslesme.group(1))
 
     # JSON'a yazma işlemi
-    with open("renkler.json", "w", encoding="utf-8") as json_dosya:
+    with open("VERI/renkler.json", "w", encoding="utf-8") as json_dosya:
         json.dump({"renkler": renkler}, json_dosya, ensure_ascii=False, indent=4)
     return tuple(renkler)
 
@@ -27,7 +27,7 @@ def renkleriAl(): # renkleri al json'a yaz
 
 
 
-def renkleriJsondanOku(dosya_adi="renkler.json"):
+def renkleriJsondanOku(dosya_adi="VERI/renkler.json"):
     with open(dosya_adi, "r", encoding="utf-8") as json_dosya:
         veri = json.load(json_dosya)
         return tuple(veri["renkler"])
@@ -42,7 +42,7 @@ def randomize(birTuple):
 
 # Öğrenci bulunamadı mesajı animasyonu
 def ogrenciYok():
-    renkler=renkleriJsondanOku(dosya_adi="renkler.json")
+    renkler=renkleriJsondanOku(dosya_adi="VERI/renkler.json")
     metin_taban = "Bu kayıtta bir öğrenci bulunamadı."
     with Live("", refresh_per_second=2, console=console) as live:
         for i in range(2):    
