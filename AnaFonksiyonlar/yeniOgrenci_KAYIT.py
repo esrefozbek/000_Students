@@ -36,10 +36,10 @@ def yeniOgrenciKayidi():
                 else:
                         ad=ad.strip()
                 # print("\n")       
-                c.print("\n\t[green3]SOYADINI[/] giriniz ",end=">> "); soyad = input().strip()
-                c.print("\t[green3]NUMARASINI[/] giriniz ",end=">> ");  öğrenciNumarası = input().strip()
-                c.print("\t[green3]Doğum Tarihini[/] giriniz ",end=">> "); dogumTarihi = input().strip()
-                c.print("\t[green3]SINIFINI[/] giriniz ",end=">> "); sinifi = input().strip()
+                c.print("\n\t[green3]SOYADINI[/] gir ",end=">> "); soyad = input().strip()
+                c.print("\t[green3]NUMARASINI[/] gir ",end=">> ");  öğrenciNumarası = input().strip()
+                c.print("\t[green3]Doğum Tarihini[/] gir ",end=">> "); dogumTarihi = input().strip()
+                c.print("\t[green3]SINIFINI[/] gir ",end=">> "); sinifi = input().strip()
 
               
                 OgrenciTuple = ad, soyad, öğrenciNumarası,dogumTarihi, sinifi 
