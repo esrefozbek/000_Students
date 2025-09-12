@@ -1,7 +1,7 @@
 
 import json
 from rich.console import Console
-import VERI.veri as Veri,Widgetler.SayacAnimasyon.sayacKronometre as Sayac_Kronometre
+import VERI.veri as Veri_Yolu,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 from rich.panel import Panel
 from rich.layout import Layout
 from rich import print
@@ -33,10 +33,10 @@ def JSONdanYükleme_():
                 #ANCHOR -  console.print(ogrenci_listesi[1])   #NOTE - örnek olarak koydum
                
             
-            if Veri.TupleliListe_:
-                Veri.TupleliListe_.clear() 
+            if Veri_Yolu.TupleliListe_:
+                Veri_Yolu.TupleliListe_.clear() 
             # Tuple listeyi oluştur
-            Veri.TupleliListe_ = [
+            Veri_Yolu.TupleliListe_ = [
             (ogr["id"], ogr["ad"], ogr["soyad"],ogr["öğrenciNumarası"], ogr["dogum_yili"], ogr["sinif"], ogr["kayıtTarihi"])
                 for ogr in Geçici_Liste  ]
             
@@ -46,9 +46,9 @@ def JSONdanYükleme_():
             #! console.print(Panel.fit(f"\n[bold yellow]jsondan_yükleme():[/bold yellow]🦢🦢🦢  JSON'dan gelen sözlükler tupleye çevrildi ve TupleliListe_'ye döşendi.TupleliListe_ dolu şuandaa [-2:] \n { veri.TupleliListe_[-2:]}",style=""))
             
     
-            if not Veri.TupleliListe_:
+            if not Veri_Yolu.TupleliListe_:
                 console.print("[bold yellow]jsondan_yükleme(): [/bold yellow] if TupleliListe_ şuan boş",style="")
-                console.print(Veri.TupleliListe_,"...")
+                console.print(Veri_Yolu.TupleliListe_,"...")
             
             
 
@@ -71,5 +71,5 @@ def JSONaKayıt(dosya_adi: str, liste: list):
     with open(dosya_adi, "w", encoding="utf-8") as f:
         json.dump(mevcut_veriler, f, indent=4, ensure_ascii=False)
 
-    console.print(f"💾 [bold green]_jsona_kayıt_[/bold green]: '{dosya_adi}' dosyasına {len(liste)} öğrenci eklendi.\n")
+    console.print(f"💾 [bold green]_jsona_kayıt_[/]: '{dosya_adi}' dosyasına {len(liste)} öğrenci eklendi.\n")
 

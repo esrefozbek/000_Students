@@ -2,7 +2,7 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-import AsistanFonksiyonlar.klavyeDinleme as klavDinle, VERI.veri as Veri,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Sayac_Kronometre
+import AsistanFonksiyonlar.klavyeDinleme as klavDinle, VERI.veri as Veri_Yolu,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import  MenuTablo.tablolarPY as TablolarPY
  
 
@@ -12,17 +12,17 @@ def dilimleme(value,liste):
     menüTipi="Dilimlenmiş Ana Liste"
     listeTipi="Dilimlenmiş Tüm Liste"
     kaçarKaçar = value if value is not None else 10  # kaçarlı dilimler yapalım
-    Veri.dilimListe = []
+    Veri_Yolu.dilimListe = []
     for idx, i in enumerate(liste):
-        Veri.dilimListe.append(i)
+        Veri_Yolu.dilimListe.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TablolarPY.TABLO_6lı(Veri.dilimListe, menüTipi=f"Dilim {(idx // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(idx // kaçarKaçar) + 1}")
-            Veri.dilimListe = []  # Dilimi sıfırla
+            TablolarPY.TABLO_6lı(Veri_Yolu.dilimListe, menüTipi=f"Dilim {(idx // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(idx // kaçarKaçar) + 1}")
+            Veri_Yolu.dilimListe = []  # Dilimi sıfırla
             klavDinle.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
-    if Veri.dilimListe:  # Eğer dilimListe boş değilse
-        TablolarPY.TABLO_6lı(Veri.dilimListe, menüTipi=f"Dilim {(len(liste) // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(len(liste) // kaçarKaçar) + 1}")
+    if Veri_Yolu.dilimListe:  # Eğer dilimListe boş değilse
+        TablolarPY.TABLO_6lı(Veri_Yolu.dilimListe, menüTipi=f"Dilim {(len(liste) // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(len(liste) // kaçarKaçar) + 1}")
         klavDinle.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
@@ -36,8 +36,8 @@ def gptDilimleme(value,liste: list):
     for i in range(toplam_sayfa):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
-        Veri.alt_liste = liste[baslangic:bitis] 
-        TablolarPY.TABLO_6lı(Veri.alt_liste, menüTipi,  listeTipi)
+        Veri_Yolu.alt_liste = liste[baslangic:bitis] 
+        TablolarPY.TABLO_6lı(Veri_Yolu.alt_liste, menüTipi,  listeTipi)
         klavDinle.Enter_ile_devam_et()
         if i>1:
             print("\n\n")

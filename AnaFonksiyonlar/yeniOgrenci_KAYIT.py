@@ -4,26 +4,26 @@
 
 #breakpoint()
 
-import AnaFonksiyonlar.ogrenci_LiSTEleme as oglis
+import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
 import AnaFonksiyonlar.JSON as Json
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
-import VERI.veri as Veri 
+import VERI.veri as Veri_Yolu 
 from rich.panel import Panel
-import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
+import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
 from AnaFonksiyonlar.student_class import Ogrenciler
 from rich.console import Console ;c=Console()
 
 def yeniOgrenciKayidi():
         toplamKaçKayıtGirildi=0
-        if Veri.TupleliListe_:
-                Veri.SozlukluListe_.clear(); 
-                Veri.yeniEklenenlerListesi_Tuple.clear();
+        if Veri_Yolu.TupleliListe_:
+                Veri_Yolu.SozlukluListe_.clear(); 
+                Veri_Yolu.yeniEklenenlerListesi_Tuple.clear();
                 #program ilk açıldığında JSONdanYükleme yapıldığında veri.TupleliListe_ dolu hale geliyor.  Bu da Çift kayıda sebep oluyor. Bu sebeple SIFIRLANMALIdır. Bre gafil, sıfırlama yapacaksan neden çağırıyorsun, çağırma boş bir liste üret ve onla  devame et.
         
         
         while True:
                 if toplamKaçKayıtGirildi==0:
-                        c.print(Panel.fit("[yellow2]📝 Yeni Öğrenci Girişi [/][italic grey27] 📌 Anamenü'ye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", border_style="green_yellow"), end="")
+                        c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey7] 📌 Anamenü'ye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", border_style="green_yellow"), end="")
                 else:
                         pass
                               
@@ -35,53 +35,51 @@ def yeniOgrenciKayidi():
                         break
                 else:
                         ad=ad.strip()
-                soyad = input("\n🧑‍🎓 Öğrencinin soyadını giriniz:").strip()
-                öğrenciNumarası = input("🔢 Öğrenci numarasını giriniz:").strip()
-                dogumTarihi = input("📆📆 Doğum tarihini giriniz:").strip()
-                sinifi = input("🏛️🏛️ Sınıfını giriniz:").strip()
+                # print("\n")       
+                c.print("\n\t[green3]SOYADINI[/] giriniz ",end=">> "); soyad = input().strip()
+                c.print("\t[green3]NUMARASINI[/] giriniz ",end=">> ");  öğrenciNumarası = input().strip()
+                c.print("\t[green3]Doğum Tarihini[/] giriniz ",end=">> "); dogumTarihi = input().strip()
+                c.print("\t[green3]SINIFINI[/] giriniz ",end=">> "); sinifi = input().strip()
 
               
-                ogrenciTuple = ad, soyad, öğrenciNumarası,dogumTarihi, sinifi 
-                OgrenciNesnesi = Ogrenciler(*ogrenciTuple)   
+                OgrenciTuple = ad, soyad, öğrenciNumarası,dogumTarihi, sinifi 
+                OgrenciNesnesi = Ogrenciler(*OgrenciTuple)   
                 TupleClassNesnesi=OgrenciNesnesi.toTuple()
                 
-               
-                """  c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
+                """   
+                c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
                 c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",
-                        Veri.TupleliListe_[-1:],end="")
+                        Veri_Yolu.TupleliListe_[-1:],end="")
                 
-                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri.TupleliListe_[-2:],end="") """
-                
+                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri_Yolu.TupleliListe_[-2:],end="") 
+                 """
                    
-                Veri.yeniEklenenlerListesi_Tuple.append(TupleClassNesnesi) 
+                Veri_Yolu.yeniEklenenlerListesi_Tuple.append(TupleClassNesnesi) 
                 toplamKaçKayıtGirildi +=1 
+                c.print(f"  {toplamKaçKayıtGirildi}. [grey3]öğrencinin bilgileri geçici hafızaya alındı[/] \n")
+                
                   
 
-        Veri.yeniEklenenlerListesi_Tuple_Kopya=Veri.yeniEklenenlerListesi_Tuple.copy() 
+        Veri_Yolu.yeniEklenenlerListesi_Tuple_Kopya=Veri_Yolu.yeniEklenenlerListesi_Tuple.copy() 
                 
          #NOTE - Esc ile çıktık ve elimizdeki VERİ.TupleliListe_ yi  sözlük yaparak JSON'a kaydedeceğiz.
-        tupSoz.TupleyiSözlükYap(yeniEklenenlerListesi_=Veri.yeniEklenenlerListesi_Tuple)  #^  tupleyi_Sözlükleştirme.py ye gidiyor ve returnla geri geliyoruz
+        Tup_Soz.TupleyiSözlükYap(yeniEklenenlerListesi_=Veri_Yolu.yeniEklenenlerListesi_Tuple)  #^  tupleyi_Sözlükleştirme.py ye gidiyor ve returnla geri geliyoruz
 
                 #^^   Veri.TupleliListe_.clear()
         
         
         #^toplamKaçKayıtGirildi += len(Veri.SozlukluListe_)
         
-        if Veri.SozlukluListe_:
+        if Veri_Yolu.SozlukluListe_:
                 c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a gömüyorum...",style="")
           
               #^  klavDinle.ENTER()  
-                c.print("yeni öğrenci kayıttaki verisözlüklü liste: \n",Veri.SozlukluListe_)   
-                input("burada bir duralım")              
-             #^   klavDinle.ENTER()  
-                Json.JSONaKayıt("VERI/students.json",Veri.SozlukluListe_ );
+              #^  c.print("yeni öğrenci kayıttaki verisözlüklü liste: \n",Veri_Yolu.SozlukluListe_)   
+              #^  input("burada bir duralım")              
+              #^  klavDinle.ENTER()  
+              #^  Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozlukluListe_ );
                
-                    
-                #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_);                 VERİ.yedekSözlüklüListe_.clear()   
-        
-        # else:
-        #         print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow] SözlüklüListe boş")
-          
+       
     
        
     

@@ -23,7 +23,7 @@ def klavyeDinlemesiÖncesiMesaj(sayı:int):
         c.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
         print(">> ", end="", flush=True)
     if sayı==3:
-       c.print("\n[bright_white]💰💰 Yeni öğrencinin [green3]ADINI[/] giriniz[/bright_white][grey19] Bu aşamada [bright_red]'Esc'[/] ile kayıttan çıkabilirsin[/grey19]:  ",end=">> ")
+       c.print("\n[bright_white]💰💰 Yeni öğrencinin [green3]ADINI[/] gir[/bright_white][grey19] ya da [bright_red]Esc[/] ile çık [/grey19]>> ",end="")
        #print("", end="", flush=True)      
     return klavyeGirisi()
 

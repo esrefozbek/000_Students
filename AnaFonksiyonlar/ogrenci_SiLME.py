@@ -7,15 +7,15 @@
  
  
  
-import AnaFonksiyonlar.ogrenci_LiSTEleme as oglis
+import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
 import AsistanFonksiyonlar.arama as Arama
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 from rich.console import Console; k = Console()
 import re
 import AsistanFonksiyonlar.onayE_H as OnayE_H
 import AnaFonksiyonlar.JSON as Json
-import VERI.veri as Veri 
-import AsistanFonksiyonlar.tupleyi_Sozluklestirme as tupSoz
+import VERI.veri as Veri_Yolu 
+import AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
 
 
 def ogrenciSil():
@@ -90,8 +90,8 @@ def ogrenciSil():
             k.print(f"Öğrenci kayıdı siliniyor!!!: {ogr}", style="bold blue")
             if OnayE_H.Evet_Hayır_OnayiAl(ogr):
                 silinen_öğrenci_sayısı+=1
-                Veri.silinmislerListesi_.append(ogr)
-                Veri.TupleliListe_.remove(ogr)
+                Veri_Yolu.silinmislerListesi_.append(ogr)
+                Veri_Yolu.TupleliListe_.remove(ogr)
             else:
                 print("Kayıt işlemini iptal ettin")
         if silinen_öğrenci_sayısı:
@@ -103,11 +103,11 @@ def ogrenciSil():
 
     # Temizlik
     bulunanlarListesi_.clear()
-    tupSoz.TupleyiSözlükYap(liste=Veri.TupleliListe_)
-    Json.JSONaKayıt("VERI/students.json",Veri.SozlukluListe_)
+    Tup_Soz.TupleyiSözlükYap(liste=Veri_Yolu.TupleliListe_)
+    Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozlukluListe_)
     #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_)
-    Veri.TupleliListe_.clear()
-    Veri.SozlukluListe_.clear()
+    Veri_Yolu.TupleliListe_.clear()
+    Veri_Yolu.SozlukluListe_.clear()
     
     
 

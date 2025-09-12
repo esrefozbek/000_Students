@@ -8,7 +8,7 @@ import time
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 #import arama
 from rich.console import Console; console = Console()
-import MenuTablo.tablolarPY as TablolarPY,VERI.veri as Veri 
+import MenuTablo.tablolarPY as TablolarPY,VERI.veri as Veri_Yolu 
 from rich.live import Live
 import time
 # import aramaParametresi
@@ -45,7 +45,7 @@ def arama(aramaArgumani):
     AramadaBulunanlarListesi_.clear()  #TODO - Her sorguda önce temizle 
             
     
-    for ogrenci in Veri.TupleliListe_:
+    for ogrenci in Veri_Yolu.TupleliListe_:
                 if   (aramaArgumani is not None):
                 #console.print(" [white on red]Bu numaraya sahip bir öğrenci yok. Düzgün bir sayı gir[/white on red]", style=""  )
                         if aramaArgumani==str(ogrenci[0]) or aramaArgumani in ogrenci[1].lower() or aramaArgumani in ogrenci[2].lower():
