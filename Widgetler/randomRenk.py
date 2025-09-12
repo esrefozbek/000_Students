@@ -4,13 +4,12 @@ import random
 import re
 from rich.live import Live
 from rich.console import Console
+import os
 
 console = Console()
 
-import re
-import json
 
-def renkleriAl(): # renkleri al json'a yaz
+def renkleriJSONaYaz():  # renk.txt'den renkleri alıp JSON'a yaz
     renkler = []
     with open("VERI/renk.txt", "r", encoding="utf-8") as dosya:
         for line in dosya:
@@ -18,39 +17,40 @@ def renkleriAl(): # renkleri al json'a yaz
             if eslesme:
                 renkler.append(eslesme.group(1))
 
-    # JSON'a yazma işlemi
+    # JSON'a yaz
+    os.makedirs("VERI", exist_ok=True)
     with open("VERI/renkler.json", "w", encoding="utf-8") as json_dosya:
         json.dump({"renkler": renkler}, json_dosya, ensure_ascii=False, indent=4)
+
     return tuple(renkler)
 
 
-
-
-
 def renkleriJsondanOku(dosya_adi="VERI/renkler.json"):
+    if not os.path.exists(dosya_adi):
+        print(f"{dosya_adi} bulunamadı. Otomatik oluşturuluyor...")
+        return renkleriJSONaYaz()
+
     with open(dosya_adi, "r", encoding="utf-8") as json_dosya:
         veri = json.load(json_dosya)
         return tuple(veri["renkler"])
 
 
-
-# Rastgele renk seç
 def randomize(birTuple):
     return random.choice(birTuple)
 
 
-
-# Öğrenci bulunamadı mesajı animasyonu
 def ogrenciYok():
-    renkler=renkleriJsondanOku(dosya_adi="VERI/renkler.json")
+    renkler = renkleriJsondanOku()
     metin_taban = "Bu kayıtta bir öğrenci bulunamadı."
-    with Live("", refresh_per_second=2, console=console) as live:
-        for i in range(2):    
+    
+    with Live("", refresh_per_second=4, console=console) as live:
+        for i in range(3):  # animasyon 3 kez dönsün
             for renk in renkler:
-                if "grey" in renk:
-                    metin = f"[{renk}]{metin_taban}[/]"
-                    time.sleep(0.04)
-                    live.update(metin)
+                # grey kontrolü kaldırıldı, her renkte çalışsın
+                metin = f"[{renk}]{metin_taban}[/]"
+                live.update(metin)
+                time.sleep(0.1)
+
                
 
 # # Test amaçlı çalıştırma (doğrudan çalıştırıldığında)

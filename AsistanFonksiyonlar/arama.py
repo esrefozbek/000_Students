@@ -8,7 +8,7 @@ import time
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 #import arama
 from rich.console import Console; console = Console()
-import MenuTablo.tablolarPY as TablolarPY,VERI.veri as Veri_Yolu 
+import MenuTablo.tablolarPY as TablolarPY,VERI.emptyLists as Veri_Yolu 
 from rich.live import Live
 import time
 # import aramaParametresi
@@ -64,11 +64,11 @@ def arama(aramaArgumani):
         TablolarPY.TABLO_6lı(AramadaBulunanlarListesi_,menüTipi, listeTipi)
         
     if not AramadaBulunanlarListesi_:
-                    RandomRenk.ogrenciYok()
+                  #^^  RandomRenk.ogrenciYok()
                     
              #     c.print(f"[{randomRenk.randomize(randomRenk.Renkler())}]  Bu kayıtta bir öğrenci bulunamadı.[/]", style="")
                #   print("   öğrenci yok")
-           
+            c.print("Bu kayıtta bir öğrenci bulunamadı.")           
 
 
 

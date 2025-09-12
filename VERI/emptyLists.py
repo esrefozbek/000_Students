@@ -14,12 +14,12 @@ alt_liste=[]
 silinmislerListesi_=[]
 
 
-yeniEklenenlerListesi_Tuple=[]
+YeniEklenenlerinTupleListesi_=[]
 yeniEklenenlerListesi_Tuple_Kopya=[]
 
 
 
-SozlukluListe_=[]
+SozluklerListesi_=[]
 SozlukluListe_Kopya=[]
 
 yedekSozlukluListe_=[]

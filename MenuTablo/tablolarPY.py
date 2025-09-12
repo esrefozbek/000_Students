@@ -1,6 +1,6 @@
 from rich import box
 import MenuTablo.menu as Menu
-import VERI.veri as Veri_Yolu
+import VERI.emptyLists as Veri_Yolu
 from rich.table import Table
 from rich.console import Console
 from rich.console import Console; z=Console()

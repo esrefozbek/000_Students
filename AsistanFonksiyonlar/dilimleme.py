@@ -2,7 +2,7 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-import AsistanFonksiyonlar.klavyeDinleme as klavDinle, VERI.veri as Veri_Yolu,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import AsistanFonksiyonlar.klavyeDinleme as klavDinle, VERI.emptyLists as Veri_Yolu,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import  MenuTablo.tablolarPY as TablolarPY
  
 

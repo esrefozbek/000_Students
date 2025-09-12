@@ -13,8 +13,8 @@ import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 from rich.console import Console; k = Console()
 import re
 import AsistanFonksiyonlar.onayE_H as OnayE_H
-import AnaFonksiyonlar.JSON as Json
-import VERI.veri as Veri_Yolu 
+import AnaFonksiyonlar.JSON_jobs as Json
+import VERI.emptyLists as Veri_Yolu 
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
 
 
@@ -103,11 +103,11 @@ def ogrenciSil():
 
     # Temizlik
     bulunanlarListesi_.clear()
-    Tup_Soz.TupleyiSözlükYap(liste=Veri_Yolu.TupleliListe_)
-    Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozlukluListe_)
+    Tup_Soz.TupleyiSözlükYap(Veri_Yolu.TupleliListe_)
+    Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_)
     #FIXME - JSON.JSONaKayıt("YEDEK.json",VERİ.yedekSözlüklüListe_)
     Veri_Yolu.TupleliListe_.clear()
-    Veri_Yolu.SozlukluListe_.clear()
+    Veri_Yolu.SozluklerListesi_.clear()
     
     
 

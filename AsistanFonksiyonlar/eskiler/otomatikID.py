@@ -1,5 +1,5 @@
-import VERI.veri as Veri_Yolu
-import AnaFonksiyonlar.JSON as Json
+import VERI.emptyLists as Veri_Yolu
+import AnaFonksiyonlar.JSON_jobs as Json
 from rich.console import Console; c = Console()
 
 sayı: int = 0

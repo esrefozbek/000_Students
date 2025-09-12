@@ -10,10 +10,10 @@ import time
 from AsistanFonksiyonlar.klavyeDinleme import ENTER
 import MenuTablo.canlıTablo as Canlı_Tablo
 import AsistanFonksiyonlar.dilimleme as Dilimleme
-import VERI.veri as Veri_Yolu
+import VERI.emptyLists as Veri_Yolu
 import AnaFonksiyonlar.yeniOgrenci_KAYIT as YeniOgr_KAYIT
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
-import AnaFonksiyonlar.JSON as Json
+import AnaFonksiyonlar.JSON_jobs as Json
 import MenuTablo.menu as Menu
 import AnaFonksiyonlar.ogrenci_SiLME as Ogr_SiL
 import AsistanFonksiyonlar.sırfSORGU as sırfSORGU
@@ -24,7 +24,7 @@ import AsistanFonksiyonlar.arama as Arama
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
 
-
+#breakpoint()
 #^########################################menu.ekranTemizle()
 
 def anamenü_bekletme(scnd):
@@ -35,9 +35,9 @@ def anamenü_bekletme(scnd):
 
 def startPoint():
         Veri_Yolu.TupleliListe_.clear()
-        Veri_Yolu.SozlukluListe_.clear()
+        Veri_Yolu.SozluklerListesi_.clear()
        
-                                                                #!SECTION ANAMENÜ
+#? SECTION ANAMENÜ
         while True:  #Menüden seçim
             
                     Menu.menu_goster()
@@ -50,8 +50,8 @@ def startPoint():
                         input()
                         continue
                     
-                    if CHOOSEN not in (1,2,3,4,5,6,7,77,33):
-                        c.print( "❗❗❗❗❗❗❗[bold bright white] Düzgün bir sayı gir ENTER ile devam et[/]❗❗❗❗❗❗", style="blink")
+                    if CHOOSEN not in (1,2,3,4,5,6,7,77,44):
+                        c.print( "❗❗❗❗❗❗❗[bold bright white] Düzgün bir sayı gir ENTER ile devam et[/]❗❗❗❗❗❗", style="blink", end="")
                         input()
                         continue
                    
@@ -105,21 +105,14 @@ def startPoint():
 
                         elif key == '\r':  # ENTER
                            sys.exit("çıkıyorum..................................")
-                        
-   
-   
-   
+
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
                       #^  sayacKronometre.geri_say(1)
                         anamenü_bekletme(1)
                         Veri_Yolu.TupleliListe_.clear()
-                        Veri_Yolu.SozlukluListe_.clear()
+                        Veri_Yolu.SozluklerListesi_.clear()
                         continue
-                    
-                        
-   
-   
    
                        
                     elif CHOOSEN==6: #NOTE - editleme
@@ -158,14 +151,14 @@ def startPoint():
                         #FIXME - startPoint()
                     
                        
-                    elif CHOOSEN==33:
+                    elif CHOOSEN==44:
                        anamenü_bekletme(2)
                        break
 
                        
                        
                        
-                                                                           #!SECTION TEKNNİK MENÜ          
+#? SECTION TEKNİK MENÜ 
         while True:                
                     Tek_Menü.teknikMenü()
                     try:
@@ -177,7 +170,7 @@ def startPoint():
                         continue
                     
 
-                    if selected not in (0,1,2,3,4,5,6,7,8,9,10,11,12, 13,44):
+                    if selected not in (0,1,2,3,4,5,6,7,8,9,10,11,12, 13,33):
                         c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
                         input("ENTER ile devam et...")
                         continue      
@@ -216,9 +209,9 @@ def startPoint():
                     elif selected==6:
                         menüTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
-                        if Veri_Yolu.SozlukluListe_:
+                        if Veri_Yolu.SozluklerListesi_:
                             c.print("\nVERİ.SözlüklüListe_:",style="green")
-                            for i in Veri_Yolu.SozlukluListe_:
+                            for i in Veri_Yolu.SozluklerListesi_:
                                     c.print(i)
                                     
                         else:
@@ -233,9 +226,9 @@ def startPoint():
                             
                         c.print(f"\n[ {len(Veri_Yolu.TupleliListe_)} TALEBE bulundu ]",style=" white")
                         c.print("[magenta]VERİ.TupleliListe_:[/magenta]",Veri_Yolu.TupleliListe_)
-                        if Veri_Yolu.SozlukluListe_:
+                        if Veri_Yolu.SozluklerListesi_:
                            # for sözlük in sözlüklüListe:
-                                c.print("\n",Veri_Yolu.SozlukluListe_,"\n",style="bold")
+                                c.print("\n",Veri_Yolu.SozluklerListesi_,"\n",style="bold")
                         else:
                             print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         klavDinle.Enter_ile_devam_et()
@@ -254,7 +247,7 @@ def startPoint():
                         ENTER()
                     
                     elif selected==10:
-                        Veri_Yolu.SozlukluListe_.clear()
+                        Veri_Yolu.SozluklerListesi_.clear()
 
                         # ekran temizlenir anaMenüye gidilir Lakin silinen eklenen listeleri doludur.
                         
@@ -273,7 +266,7 @@ def startPoint():
                             c.print(line)
                         klavDinle.Enter_ile_devam_et()
                     
-                    elif selected==44:
+                    elif selected==33:
                         startPoint()
 
                         

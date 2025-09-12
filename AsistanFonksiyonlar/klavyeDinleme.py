@@ -16,14 +16,14 @@ def klavyeDinlemesiÖncesiMesaj(sayı:int):
         aramaSayısı+=1
         if not aramaSayısı>1:
             c.print(Panel(f"📌[white] Aradığın talebenin numarasını, adını ya da soyadını gir,[/][italic tan] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.", style="deep_sky_blue1"),end="")
-        print("[bold red3] Esc[/][grey50] or[/][bold sea_green2] new[/] [yellow1]>>[/] ", end="", flush=True)
+        print("[bold red3] Esc[/][grey30] or[/][bold sea_green2] new[/] [yellow1]>>[/] ", end="", flush=True)
         
     if sayı==2:
         c.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold magenta")
         c.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
         print(">> ", end="", flush=True)
     if sayı==3:
-       c.print("\n[bright_white]💰💰 Yeni öğrencinin [green3]ADINI[/] gir[/bright_white][grey19] ya da [bright_red]Esc[/] ile çık [/grey19]>> ",end="")
+       c.print("\n[bright_white]💰💰 Yeni öğrencinin [green3]ADINI[/] gir[/bright_white][italic grey30] ya da [bright_red]Esc[/] ile çık [/italic grey30]>> ",end="")
        #print("", end="", flush=True)      
     return klavyeGirisi()
 

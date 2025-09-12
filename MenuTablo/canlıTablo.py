@@ -1,7 +1,7 @@
 from rich.table import Table
 from rich.live import Live
 from time import sleep
-import VERI.veri as Veri_Yolu  # içinde TupleliListe_ olan modül
+import VERI.emptyLists as Veri_Yolu  # içinde TupleliListe_ olan modül
 
 
 def tablo_olustur(liste: list) -> Table:

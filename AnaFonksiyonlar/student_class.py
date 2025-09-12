@@ -1,8 +1,8 @@
-from AsistanFonksiyonlar import otomatikID as otmID
-
-from rich.console import Console
-console=Console()
+from AsistanFonksiyonlar.eskiler import otomatikID as otmID
+from rich.console import Console; c=Console()
 from datetime import datetime
+import AsistanFonksiyonlar.txt_Jobs as TxtYolu
+import os
 
 
 class Ogrenciler():
@@ -14,10 +14,17 @@ class Ogrenciler():
     # kayıtTarihi:datetime 
     
 
-    #? BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR
+    #NOTE -  BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR
     
     def __init__(self,  ad, soyad,öğrenciNumarası, dogTarihi,sinifi):
-        self.ogrenciId= otmID.otomatikID()+1
+        if not os.path.exists("VERI/Text.txt"):
+            print("sınıfta if not exists  |||>> ",)
+            TxtYolu.txtYoksaOlustur("VERI/Text.txt")
+        c.print("sınıfta Text'ten okunan değer >>",(TxtYolu.txtID_Oku("VERI/Text.txt")))
+        self.ogrenciId=int(TxtYolu.txtID_Oku("VERI/Text.txt")) + 1
+        c.print("sınıfta +1 yapıldı ve basıldı  >> ",self.ogrenciId,style="")
+        TxtYolu.txteYeniID_Gir(str(self.ogrenciId))
+        input("sınıf yatışı 1")
         self.ad=ad
         self.soyad=soyad
         self.öğrenciNumarası=öğrenciNumarası
@@ -31,6 +38,7 @@ class Ogrenciler():
     def toTuple(self):  #inputla alınan veriler  tuple olarak return edildi. 
         return (self.ogrenciId, self.ad, self.soyad, self.öğrenciNumarası, self.doğumTarihi,self.sinifi, self.kayıtTarihi)
 
+        
 
 
 # --- Araba sınıfı burada bitti ---

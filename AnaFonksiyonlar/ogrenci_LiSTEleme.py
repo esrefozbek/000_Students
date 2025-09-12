@@ -2,7 +2,7 @@ from rich.panel import Panel
 from rich.console import Console;console=Console()
 from rich.table import Table
 import MenuTablo.tablolarPY as TablolarPY
-import VERI.veri as Veri_Yolu
+import VERI.emptyLists as Veri_Yolu
 import AsistanFonksiyonlar.dilimleme as Dilimleme
 
 
