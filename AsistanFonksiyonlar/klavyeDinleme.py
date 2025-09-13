@@ -23,7 +23,7 @@ def klavyeDinlemesiÖncesiMesaj(sayı:int):
         c.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
         print(">> ", end="", flush=True)
     if sayı==3:
-       c.print("\n[bright_white]💰💰 Yeni öğrencinin [green3]ADINI[/] gir[/bright_white][italic grey30] ya da [bright_red]Esc[/] ile çık [/italic grey30]>> ",end="")
+       c.print("\n[yellow]Öğrencinin;[/]\n[green]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end=" >> ")
        #print("", end="", flush=True)      
     return klavyeGirisi()
 
@@ -33,8 +33,9 @@ def klavyeGirisi():
         while True:
             pressedKey = readchar.readkey()
             if pressedKey == readchar.key.ESC:
-                c.print("\n\nESC'ye basıldı, Ana Menüye dönülüyor  (1.5 second) ...", style="blink")
-                time.sleep(1.5)
+                c.print("ESC'ye basıldı, Ana Menüye dönülüyor...", style="yellow")
+               # time.sleep(1.5)
+               
                 return None 
                 
             elif pressedKey == '\r':  # ENTER

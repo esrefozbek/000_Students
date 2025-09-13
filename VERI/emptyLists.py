@@ -15,7 +15,7 @@ silinmislerListesi_=[]
 
 
 YeniEklenenlerinTupleListesi_=[]
-yeniEklenenlerListesi_Tuple_Kopya=[]
+yeniEklenenlerTupleListesi_Kopyasi=[]
 
 
 

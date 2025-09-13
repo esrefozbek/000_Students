@@ -26,8 +26,8 @@ def silinmişKayıtlılarListesiDökümü():
 def yeniOgrListesiDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
-    if Veri_Yolu.yeniEklenenlerListesi_Tuple_Kopya:     
-        TablolarPY.TABLO_6lı(Veri_Yolu.yeniEklenenlerListesi_Tuple_Kopya,menüTipi, listeTipi )
+    if Veri_Yolu.yeniEklenenlerTupleListesi_Kopyasi:     
+        TablolarPY.TABLO_6lı(Veri_Yolu.yeniEklenenlerTupleListesi_Kopyasi,menüTipi, listeTipi )
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
         

@@ -1,3 +1,4 @@
+#breakpoint()
 from AsistanFonksiyonlar.eskiler import otomatikID as otmID
 from rich.console import Console; c=Console()
 from datetime import datetime
@@ -17,14 +18,8 @@ class Ogrenciler():
     #NOTE -  BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR
     
     def __init__(self,  ad, soyad,öğrenciNumarası, dogTarihi,sinifi):
-        if not os.path.exists("VERI/Text.txt"):
-            print("sınıfta if not exists  |||>> ",)
-            TxtYolu.txtYoksaOlustur("VERI/Text.txt")
-        c.print("sınıfta Text'ten okunan değer >>",(TxtYolu.txtID_Oku("VERI/Text.txt")))
-        self.ogrenciId=int(TxtYolu.txtID_Oku("VERI/Text.txt")) + 1
-        c.print("sınıfta +1 yapıldı ve basıldı  >> ",self.ogrenciId,style="")
-        TxtYolu.txteYeniID_Gir(str(self.ogrenciId))
-        input("sınıf yatışı 1")
+        
+        self.ogrenciId=  TxtYolu.ID_olustur_ve_oku()
         self.ad=ad
         self.soyad=soyad
         self.öğrenciNumarası=öğrenciNumarası

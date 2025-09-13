@@ -29,15 +29,15 @@ def yeniOgrenciKayidi():
                 ad = klavDinle.klavyeDinlemesiÖncesiMesaj(3)  
                 
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
-                        c.print(f"📤[bold red] Kullanıcı [bold yellow]ESC[/bold yellow]'ye bastı. Giriş iptal edildi.[/]\n [bold white]{toplamKaçKayıtGirildi}[/] [bold magenta]kayıt girdiniz, Tebrik eder, hayatında başarılar dilerim[/]")
+                        c.print(f"\n{toplamKaçKayıtGirildi} öğrenci bilgisi girdiniz...",style="")
                         break
                 else:
                         ad=ad.strip()
                 # print("\n")       
-                c.print("\n\t[green3]SOYADINI[/] gir ",end=">> "); soyad = input().strip()
-                c.print("\t[green3]NUMARASINI[/] gir ",end=">> ");  öğrenciNumarası = input().strip()
-                c.print("\t[green3]Doğum Tarihini[/] gir ",end=">> "); dogumTarihi = input().strip()
-                c.print("\t[green3]SINIFINI[/] gir ",end=">> "); sinifi = input().strip()
+                c.print("\n\t[green]SOYADI[/] ",end=": "); soyad = input().strip()
+                c.print("\t[green]NUMARASI[/] ",end=": ");  öğrenciNumarası = input().strip()
+                c.print("\t[green]Doğum Tarihi[/] ",end=": "); dogumTarihi = input().strip()
+                c.print("\t[green]SINIFI[/] ",end=": "); sinifi = input().strip()
 
                         
               
@@ -45,34 +45,32 @@ def yeniOgrenciKayidi():
                 OgrenciNesnesi = Ogrenciler(*OgrenciTuple)   
                 TupleClassNesnesi=OgrenciNesnesi.toTuple()
                  
-                c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
-                input("kayıtta yatış 1")
-                c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",
-                        Veri_Yolu.TupleliListe_[-1:],end="")
-                input("kayıtta yatış 2")
+                #c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]♥️ ♥️TupleClassNesnesi görünüşüm: \n",TupleClassNesnesi,style="white")
+                #  input("kayıtta yatış 1")
+                #c.print("\n[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]⭐⭐ Tupleli listenin Nesne appendi öncesi:",                        Veri_Yolu.TupleliListe_[-1:],end="")
+                #  input("kayıtta yatış 2")
                 
-                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri_Yolu.TupleliListe_[-2:],end="") 
-                input("kayıtta yatış 3")
+                #c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri_Yolu.TupleliListe_[-2:],end="") 
+                #  input("kayıtta yatış 3")
                    
                 Veri_Yolu.YeniEklenenlerinTupleListesi_.append(TupleClassNesnesi) 
                 toplamKaçKayıtGirildi +=1 
-                c.print(f"  {toplamKaçKayıtGirildi}. [grey3]öğrencinin bilgileri geçici hafızaya alındı[/] \n")
-                c.print("Veri_Yolu.YeniEklenenlerinTupleListesi_>>>\n",Veri_Yolu.YeniEklenenlerinTupleListesi_)
-                klavDinle.ENTER()
+                # c.print(f"{toplamKaçKayıtGirildi}. [grey3]öğrencinin bilgileri geçici hafızaya alındı[/] \n")
+                c.print(f"'{len(Veri_Yolu.YeniEklenenlerinTupleListesi_)}' [grey54]öğrencinin bilgileri geçici hafızaya alındı[/]\n",Veri_Yolu.YeniEklenenlerinTupleListesi_,end="")
+                #klavDinle.ENTER()
                 
                 
                   
 
-        Veri_Yolu.yeniEklenenlerListesi_Tuple_Kopya=Veri_Yolu.YeniEklenenlerinTupleListesi_.copy() 
+        Veri_Yolu.yeniEklenenlerTupleListesi_Kopyasi.extend(Veri_Yolu.YeniEklenenlerinTupleListesi_) 
       
         Tup_Soz.TupleyiSözlükYap(Veri_Yolu.YeniEklenenlerinTupleListesi_)  #^  
         
         if Veri_Yolu.SozluklerListesi_:
-                c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...",style="")
+                #c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...",style="")
           
-                klavDinle.ENTER()  
-                #^ Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ );
-                lastID=Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ )
+            
+                getlastID=Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ )
 
                 
                 
