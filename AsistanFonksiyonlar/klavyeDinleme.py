@@ -30,29 +30,41 @@ def klavyeDinlemesiÖncesiMesaj(sayı:int):
     return klavyeGirisi()
 
 
+import keyboard
+
+import keyboard
+import sys
+
 def klavyeGirisi():
     pressedKeys = ""
 
-  # print("[bold green]Yazmaya başlayın (ESC ile iptal, ENTER ile tamamla):[/bold green]")
+    #print("Yazmaya başlayın (ESC ile iptal, ENTER ile tamamla):")
 
     while True:
         key = keyboard.read_event()
 
         if key.event_type == keyboard.KEY_DOWN:
             if key.name == 'esc':
-                print("\n[yellow]ESC'ye basıldı, Ana Menüye dönülüyor...[/yellow]")
+                print("\nESC'ye basıldı, Ana Menüye dönülüyor...")
                 return None
             elif key.name == 'enter':
                 break
             elif key.name == 'space':
                 pressedKeys += ' '
-                print(' ', end="", flush=True)
+                sys.stdout.write(' ')
+                sys.stdout.flush()
+            elif key.name == 'backspace':
+                if len(pressedKeys) > 0:
+                    pressedKeys = pressedKeys[:-1]
+                    # Ekrandan da sil
+                    sys.stdout.write('\b \b')
+                    sys.stdout.flush()
             elif len(key.name) == 1:
                 pressedKeys += key.name
-                print(key.name, end="", flush=True)
+                sys.stdout.write(key.name)
+                sys.stdout.flush()
             else:
-                # özel tuşları (örn. shift, ctrl) yoksay
-                pass
+                pass  # shift, ctrl, vs.
 
     return pressedKeys.strip()
 

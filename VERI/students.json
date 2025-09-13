@@ -583,5 +583,32 @@
         "dogum_yili": "",
         "sinif": "",
         "kayıtTarihi": "13/09/2025 20:58:43"
+    },
+    {
+        "id": 66,
+        "ad": ",Selim",
+        "soyad": "Selim",
+        "öğrenciNumarası": "",
+        "dogum_yili": "",
+        "sinif": "",
+        "kayıtTarihi": "13/09/2025 21:36:30"
+    },
+    {
+        "id": 67,
+        "ad": "Bahaa",
+        "soyad": "Bahaa",
+        "öğrenciNumarası": "",
+        "dogum_yili": "",
+        "sinif": "",
+        "kayıtTarihi": "13/09/2025 21:36:38"
+    },
+    {
+        "id": 68,
+        "ad": "erdef",
+        "soyad": "erdef",
+        "öğrenciNumarası": "",
+        "dogum_yili": "",
+        "sinif": "",
+        "kayıtTarihi": "13/09/2025 21:51:53"
     }
 ]
