@@ -43,7 +43,7 @@ def startPoint():
                     Menu.menu_goster()
                     #REVIEW - JSON._JSONdanYükleme_()
                     try:
-                        c.print("🟢 [bold white]SANA ZAHMET BİR SEÇİM YAP:[/bold white]", style="blink",end=" ")
+                        c.print("[bold white]\tSANA ZAHMET BİR [red][blink]SEÇİM[/][/] YAP:[/bold white]", style="",end=" ")
                         CHOOSEN = int(input())
                     except ValueError:
                         c.print( "⚠️  Lütfen sadece sayı girin.ENTER ile devam et",style="" )

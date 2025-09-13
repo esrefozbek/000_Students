@@ -532,254 +532,56 @@
     },
     {
         "id": 60,
-        "ad": "1",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 17:55:35"
+        "ad": "Şakir",
+        "soyad": "Zümre",
+        "öğrenciNumarası": "437",
+        "dogum_yili": "1879",
+        "sinif": "4G",
+        "kayıtTarihi": "13/09/2025 20:19:37"
     },
     {
         "id": 61,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:29:05"
+        "ad": "Güsyav",
+        "soyad": "Agüsto",
+        "öğrenciNumarası": "462",
+        "dogum_yili": "1954",
+        "sinif": "3D",
+        "kayıtTarihi": "13/09/2025 20:20:07"
     },
     {
         "id": 62,
-        "ad": "324",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:30:08"
+        "ad": "Mahir",
+        "soyad": "Çayan",
+        "öğrenciNumarası": "325",
+        "dogum_yili": "1956",
+        "sinif": "2D",
+        "kayıtTarihi": "13/09/2025 20:20:27"
     },
     {
         "id": 63,
-        "ad": "222d",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:31:05"
+        "ad": "Çetin",
+        "soyad": "Emeç",
+        "öğrenciNumarası": "132",
+        "dogum_yili": "1954",
+        "sinif": "3S",
+        "kayıtTarihi": "13/09/2025 20:20:55"
     },
     {
         "id": 64,
-        "ad": "132sd",
-        "soyad": "",
-        "öğrenciNumarası": "",
+        "ad": "Kemal",
+        "soyad": "Kemal",
+        "öğrenciNumarası": "Bulamaç",
         "dogum_yili": "",
         "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:40:25"
+        "kayıtTarihi": "13/09/2025 20:57:18"
     },
     {
         "id": 65,
-        "ad": "xcvx",
-        "soyad": "",
-        "öğrenciNumarası": "",
+        "ad": "Refet",
+        "soyad": "Refet",
+        "öğrenciNumarası": "CAN",
         "dogum_yili": "",
         "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:40:30"
-    },
-    {
-        "id": 66,
-        "ad": "4534fddd",
-        "soyad": "s",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:49:23"
-    },
-    {
-        "id": 67,
-        "ad": "fdgdfg67",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:49:31"
-    },
-    {
-        "id": 68,
-        "ad": "dfgdf",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:49:36"
-    },
-    {
-        "id": 69,
-        "ad": "23423sdfsdf",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:51:34"
-    },
-    {
-        "id": 70,
-        "ad": "67hh",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 18:52:03"
-    },
-    {
-        "id": 71,
-        "ad": "we",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:01:23"
-    },
-    {
-        "id": 72,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:01:28"
-    },
-    {
-        "id": 73,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:01:48"
-    },
-    {
-        "id": 74,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:06:11"
-    },
-    {
-        "id": 75,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:06:15"
-    },
-    {
-        "id": 76,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:06:20"
-    },
-    {
-        "id": 77,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:08:22"
-    },
-    {
-        "id": 78,
-        "ad": "",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:11:34"
-    },
-    {
-        "id": 79,
-        "ad": "dsfb b",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:14:54"
-    },
-    {
-        "id": 80,
-        "ad": "dfs44",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:18:31"
-    },
-    {
-        "id": 81,
-        "ad": "1231vccxv",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:19:23"
-    },
-    {
-        "id": 82,
-        "ad": "34dsf",
-        "soyad": "cvfd",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "234",
-        "kayıtTarihi": "13/09/2025 19:21:59"
-    },
-    {
-        "id": 83,
-        "ad": "wqwe234",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:24:05"
-    },
-    {
-        "id": 84,
-        "ad": "213213",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:24:45"
-    },
-    {
-        "id": 85,
-        "ad": "dsa324e",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:26:55"
-    },
-    {
-        "id": 86,
-        "ad": "234sdf",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:28:36"
-    },
-    {
-        "id": 87,
-        "ad": "123123dasasd",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "13/09/2025 19:29:24"
+        "kayıtTarihi": "13/09/2025 20:58:43"
     }
 ]

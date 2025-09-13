@@ -38,10 +38,10 @@ boxStilim=rastgele_box_stili()
 def teknikMenü():
     os.system("cls" if os.name == "nt" else "clear")  # Terminal temizliği
     
-    table = Table(title="🧠 [bold yellow]Teknik Bakım Menüsü[/bold yellow]", box=boxStilim, expand=False)
+    table = Table(title=":thumbs_up: [yellow]Teknik Bakım Menüsü[/yellow]:thumbs_up:", box=boxStilim, expand=False)
 
-    table.add_column("Seçim", justify="center", style="green", no_wrap=False)
-    table.add_column(f"İşlem, [red]  Box Stili:[/red] [bold black]{(secim)}[/bold black]", style="white",no_wrap=False)
+    table.add_column("Seçim", justify="center", style="light_goldenrod1", no_wrap=False)
+    table.add_column(f"İşlem, [red]  Box Stili:[/red] [black]{(secim)}[/black]", style="white",no_wrap=False)
 
     table.add_row("1", "Veri.yeniEklenenlerListesi_")
     table.add_row("0", "Veri.SozlukluListe_")
@@ -59,7 +59,7 @@ def teknikMenü():
     table.add_row("13", "256 [italic]Renk Paleti[/]")
     table.add_row("33", "Ana Menüye hicret et")
     
-    panel = Panel(table, title="[red]Alt Menü", border_style="blue", expand=False)
+    panel = Panel(table, title="[red]Alt Menü", border_style="light_goldenrod2", expand=False)
     console.print(panel)
     
 

@@ -48,10 +48,10 @@ def rastgele_box_stili():
 def menu_goster():
    ####################################### os.system("cls" if os.name == "nt" else "clear")  # Terminal temizliği
     
-    table = Table(title="🧠 [bold yellow]Öğrenci Sistemi Menüsü[/bold yellow]", box=rastgele_box_stili()[1], expand=False)
+    table = Table(title="🧠 [yellow]Öğrenci Sistemi Menüsü[/yellow]", box=rastgele_box_stili()[1], expand=False)
 
-    table.add_column("Seçim", justify="center", style="green", no_wrap=False)    
-    table.add_column("", justify="center", style="green", no_wrap=False)    
+    table.add_column("Seçim", justify="center", style="turquoise2", no_wrap=False)    
+    table.add_column("", justify="center", style="", no_wrap=False)    
     table.add_column(f"İşlem, [grey46]Box Stili:[/][bold turquoise2]{rastgele_box_stili()[0]}[/]", style="white",no_wrap=False)
 
     table.add_row("1","➕","Öğrenci Ekle")
@@ -64,7 +64,7 @@ def menu_goster():
     table.add_row("77", "📋", "Öğrencileri Listele (50 Dilimli)")
     table.add_row("44","","Teknik menüye hicret et") 
     
-    panel = Panel(table, title="[red]Ana Menü", border_style="blue", expand=False)
+    panel = Panel(table, title="[red]Ana Menü", border_style="deep_sky_blue1", expand=False)
     console.print(panel)
     
 # Menü oluşturuldu

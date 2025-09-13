@@ -8,6 +8,8 @@ import time
 from rich.layout import Layout
 from rich import print
 layout = Layout()
+import keyboard
+from rich import print
 
 aramaSayısı=0
 def klavyeDinlemesiÖncesiMesaj(sayı:int):
@@ -29,22 +31,30 @@ def klavyeDinlemesiÖncesiMesaj(sayı:int):
 
 
 def klavyeGirisi():
-        pressedKeys = ""
-        while True:
-            pressedKey = readchar.readkey()
-            if pressedKey == readchar.key.ESC:
-                c.print("ESC'ye basıldı, Ana Menüye dönülüyor...", style="yellow")
-               # time.sleep(1.5)
-               
-                return None 
-                
-            elif pressedKey == '\r':  # ENTER
+    pressedKeys = ""
+
+  # print("[bold green]Yazmaya başlayın (ESC ile iptal, ENTER ile tamamla):[/bold green]")
+
+    while True:
+        key = keyboard.read_event()
+
+        if key.event_type == keyboard.KEY_DOWN:
+            if key.name == 'esc':
+                print("\n[yellow]ESC'ye basıldı, Ana Menüye dönülüyor...[/yellow]")
+                return None
+            elif key.name == 'enter':
                 break
+            elif key.name == 'space':
+                pressedKeys += ' '
+                print(' ', end="", flush=True)
+            elif len(key.name) == 1:
+                pressedKeys += key.name
+                print(key.name, end="", flush=True)
             else:
-                pressedKeys += pressedKey
-                print(pressedKey, end="", flush=True)
-            
-        return pressedKeys.strip()
+                # özel tuşları (örn. shift, ctrl) yoksay
+                pass
+
+    return pressedKeys.strip()
 
 
 def enter_OR_esc(metod):

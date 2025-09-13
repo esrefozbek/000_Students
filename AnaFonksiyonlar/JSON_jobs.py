@@ -105,7 +105,7 @@ def JSONaKayıt(jsonDosya_adi: str, TupleSozlukYapildi: list):
     getLastID = mevcut_veriler[-1]["id"]
     with open(jsonDosya_adi, "w", encoding="utf-8") as f:
         json.dump(mevcut_veriler, f, indent=4, ensure_ascii=False)
-    c.print(f"{len(TupleSozlukYapildi)} öğrencinin bilgileri JSON'a kaydedildi.\n")
+    c.print(f"{len(TupleSozlukYapildi)} öğrencinin bilgileri [red]JSON[/]'a kaydedildi.\n")
     Veri_Yolu.YeniEklenenlerinTupleListesi_.clear()
     SpinnerYolu.spinner3(3)      
     return getLastID
