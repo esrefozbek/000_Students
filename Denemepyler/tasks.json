@@ -1,0 +1,11 @@
+[
+    { "name": "Görev 1", "step": 0, "status": "çalışıyor", "max_steps": 8 },
+    { "name": "Görev 2", "step": 0, "status": "çalışıyor", "max_steps": 5 },
+    { "name": "Görev 3", "step": 0, "status": "çalışıyor", "max_steps": 5 },
+    { "name": "Görev 4", "step": 0, "status": "çalışıyor", "max_steps": 5 },
+    { "name": "Görev 5", "step": 0, "status": "çalışıyor", "max_steps": 7 },
+    { "name": "Görev 6", "step": 0, "status": "çalışıyor", "max_steps": 3 },
+    { "name": "Görev 7", "step": 0, "status": "çalışıyor", "max_steps": 2 },
+    { "name": "Görev 8", "step": 0, "status": "çalışıyor", "max_steps": 4 },
+    { "name": "Görev 9", "step": 0, "status": "çalışıyor", "max_steps": 3 }
+]
