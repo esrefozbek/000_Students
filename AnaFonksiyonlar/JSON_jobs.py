@@ -1,5 +1,5 @@
 #breakpoint()
-import VERI.emptyLists as Veri_Yolu,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import VERI.emptyLists as VERIModul,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import json
 import os
 from rich.panel import Panel
@@ -27,85 +27,82 @@ def JSONdanYükleme_():
             with open(jsonDosya_adi, "r", encoding="utf-8") as file:
                 Geçici_Liste = json.load(file)
             
-            if Veri_Yolu.TupleliListe_:
-               Veri_Yolu.TupleliListe_.clear() 
+            if VERIModul.SilinenlerinTupleliListesi_:
+               VERIModul.SilinenlerinTupleliListesi_.clear() 
             # Tuple listeyi oluştur
-            Veri_Yolu.TupleliListe_ = [
+            VERIModul.SilinenlerinTupleliListesi_ = [
             (ogr["id"], ogr["ad"], ogr["soyad"],ogr["öğrenciNumarası"], ogr["dogum_yili"], ogr["sinif"], ogr["kayıtTarihi"])
                 for ogr in Geçici_Liste  ]
     
-            if not Veri_Yolu.TupleliListe_:
-                c.print("[bold yellow]jsondan_yükleme(): [/bold yellow] if TupleliListe_ şuan boş",style="")
-                c.print(Veri_Yolu.TupleliListe_,"...")
+            if not VERIModul.SilinenlerinTupleliListesi_:
+                c.print("[bold yellow]jsondan_yükleme(): [/bold yellow] TupleliListe_ şuan boş",style="")
+                c.print(VERIModul.SilinenlerinTupleliListesi_,"...")
             
             
 
-#& JSON DOSYASINA ÖĞRENCİ EKLEME  
+#&                              JSON DOSYASINA ÖĞRENCİ EKLEME                                  
 # 2️⃣ JSON'a kayıt fonksiyonu
 
-def JSONaKayıt(jsonDosya_adi: str, TupleSozlukYapildi: list):
-    #FIXME -  global getLastID
-
+def JSONaKayıtOncesiDosya_VarMi(jsonDosya_adi: str, EklenenVeyaSilinenSayisi: int):
+  
     try:
         with open(jsonDosya_adi, "r", encoding="utf-8") as f:
             mevcut_veriler = json.load(f)
-            getLastID = mevcut_veriler[-1]["id"] if mevcut_veriler else 0   #NOTE -  
+            getLastJSON_ID = mevcut_veriler[-1]["id"] if mevcut_veriler else 0   #NOTE -  
+            txt_dosya_yolu = "VERI/Text.txt"
+            if not os.path.exists(txt_dosya_yolu):
+                getTextID = TxtYolu.txtOlustur(txt_dosya_yolu)
+            else: 
+                getTextID = TxtYolu.txtID_Oku(txt_dosya_yolu)
+                getTextID = TxtYolu.txtID_Oku("VERI/Text.txt")
 
     except (FileNotFoundError, json.JSONDecodeError):
-        c.print("JSON dosyası mevcut değil")
         mevcut_veriler = []
-        getLastID = 0
+        getLastJSON_ID = 0
+        TxtYolu.txtOlustur("VERI/Text.txt")
+        getTextID = 0
 
-        if not os.path.exists("VERI/Text.txt"):
-            c.print("[yellow]VERI/Text.txt dosyası bulunamadı. Oluşturuluyor...[/yellow]")
-            TxtYolu.txtOlustur("VERI/Text.txt")
 
-        c.print("Yeni bir JSON dosyası oluşturuluyor...", style="bold red")
-        with open(jsonDosya_adi, "w", encoding="utf-8") as f:
-            json.dump(mevcut_veriler, f, indent=4)
 
-    # Mevcut ID ile text dosyasındaki ID'yi karşılaştır
-    textID = TxtYolu.txtID_Oku("VERI/Text.txt")
-    
-    if textID!=(getLastID+len(Veri_Yolu.YeniEklenenlerinTupleListesi_)):
+
+def JSONaKayıtOncesiID_UyumKontrolu(jsonDosya_adi: str, EklenenVeyaSilinenSayisi: int):
+    if getTextID!=(getLastJSON_ID+ EklenenVeyaSilinenSayisi):
         c.print("\n","⚠️","[red]ID çatışması tespit edildi. Biraz belkleyin düzeltiyorum.[/]")
-        c.print("=================================================================")
-        c.print("[red]@textID[/] >>",textID)
-        c.print("getLastID@JSONFile >>", getLastID,  "|| from Text.txt ID :", textID  - len(Veri_Yolu.YeniEklenenlerinTupleListesi_))
-        c.print("[yellow]len(SozluklerListesi_)[] >>",len(Veri_Yolu.SozluklerListesi_))
-        c.print("[yellow]len(TupleListe)[/] >>",len(Veri_Yolu.YeniEklenenlerinTupleListesi_))
-        c.print("[yellow]IDsi hatalı Tupleler[/] >>",Veri_Yolu.YeniEklenenlerinTupleListesi_,style="yellow")
-        c.print("IDsi hatalı Sözlükler >>",TupleSozlukYapildi,style="yellow")
-        SpinnerPY.spinner2(5)      
-        for i in Veri_Yolu.SozluklerListesi_:
-            getLastID+=1
-            #c.print("for içinde getLastID :", getLastID)
-            i["id"]=getLastID 
-            TxtYolu.txtUzerineYaz("VERI/Text.txt", getLastID)
-        c.print("SÖZLÜK IDsi düzeltildi",TupleSozlukYapildi,style="yellow")
-        c.print("=================================================================\n")
-            
-              
+        SpinnerPY.spinner2(3)      
+        for i in VERIModul.YeniEklenenlerinSozluklerListesi_:
+            getLastJSON_ID+=1
+            i["id"]=getLastJSON_ID 
+            TxtYolu.txtUzerineYaz("VERI/Text.txt", getLastJSON_ID)
+    
+    return mevcut_veriler, getLastJSON_ID, getTextID
 
-    else:  #getLastID == (textID  - len(Veri_Yolu.SozluklerListesi_)):
-        """ c.print("=================================================================")
-        c.print("[italic yellow]****ÇAKIŞMA YOK****[/]")
-        c.print("TxtYolu.txtUzerineYaz", getLastID,"& textID >>",textID )
-        c.print("****çakışma var*** \n@textID >>",textID)
-        c.print("getLastID@JSONFile >>",getLastID)
-        c.print("len(SozluklerListesi_) >>",len(Veri_Yolu.SozluklerListesi_))
-        c.print("len(YeniEklenenlerinTupleListesi_) >>",len(Veri_Yolu.YeniEklenenlerinTupleListesi_))
-        c.print("getLastID@JSONFile >>", getLastID, "|||| from Text.txt ID :", textID  - len(Veri_Yolu.YeniEklenenlerinTupleListesi_))
-        c.print("Veri_Yolu.YeniEklenenlerinTupleListesi>>\n",Veri_Yolu.YeniEklenenlerinTupleListesi_)
-        c.print("=================================================================") """
 
-        
-                
-    mevcut_veriler.extend(TupleSozlukYapildi)
-    getLastID = mevcut_veriler[-1]["id"]
+
+
+def JSONaKayıt(jsonDosya_adi: str, mevcut_veriler: list,YeniEklenenlerinSozluklerListesi_: list):
+    sayi=len(YeniEklenenlerinSozluklerListesi_)
+    veri=JSONaKayıtOncesiDosya_VarMi(jsonDosya_adi, sayi)
+    JSONaKayıtOncesiID_UyumKontrolu(jsonDosya_adi, EklenenVeyaSilinenSayisi)
+    veri[0].extend(YeniEklenenlerinSozluklerListesi_)
+    getLastJSON_ID = veri[0][-1]["id"]
+    
+    with open(jsonDosya_adi, "w", encoding="utf-8") as f:
+        json.dump(veri[0], f, indent=4, ensure_ascii=False)
+    c.print(f"{len(YeniEklenenlerinSozluklerListesi_)} öğrencinin bilgileri [red]JSON[/]'a kaydedildi.\n")
+    VERIModul.YeniEklenenlerinTupleListesi_.clear()
+    SpinnerPY.spinner3(3)      
+    return veri[1]
+
+
+def JSONdanKayitSilme(jsonDosya_adi: str, SilinenlerinSozluklerListesi_: list,mevcut_veriler: list ):
+    sayi=len(SilinenlerinSozluklerListesi_)*(-1)
+    #FIXME -  veri=JSONaKayıtOncesiID_Kontrol(jsonDosya_adi, sayi)
+    mevcut_veriler.remove(SilinenlerinSozluklerListesi_)
+    getLastJSON_ID = mevcut_veriler[-1]["id"]
+    
     with open(jsonDosya_adi, "w", encoding="utf-8") as f:
         json.dump(mevcut_veriler, f, indent=4, ensure_ascii=False)
-    c.print(f"{len(TupleSozlukYapildi)} öğrencinin bilgileri [red]JSON[/]'a kaydedildi.\n")
-    Veri_Yolu.YeniEklenenlerinTupleListesi_.clear()
+    c.print(f"{len(SilinenlerinSozluklerListesi_)} öğrencinin bilgileri [red]JSON[/]'dan silindi.\n")
+    VERIModul.SilinenlerinSozluklerListesi_.clear()
     SpinnerPY.spinner3(3)      
-    return getLastID
+    return getLastJSON_ID

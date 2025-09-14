@@ -4,7 +4,7 @@ TupleliListe_ = [
 ]
       """
 
-TupleliListe_= [
+SilinenlerinTupleliListesi_= [
    
 ]
 
@@ -16,10 +16,13 @@ silinmislerListesi_=[]
 
 YeniEklenenlerinTupleListesi_=[]
 yeniEklenenlerTupleListesi_Kopyasi=[]
+SilinenlerinTupleliListesi_=[]
 
 
 
-SozluklerListesi_=[]
+SilinenlerinSozluklerListesi_=[]
+YeniEklenenlerinSozluklerListesi_Kopyasi=[]
+YeniEklenenlerinSozluklerListesi_=[]
 SozlukluListe_Kopya=[]
 
 yedekSozlukluListe_=[]

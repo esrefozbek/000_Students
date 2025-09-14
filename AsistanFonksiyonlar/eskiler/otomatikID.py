@@ -1,16 +1,16 @@
-import VERI.emptyLists as Veri_Yolu
-import AnaFonksiyonlar.JSON_jobs as Json
+import VERI.emptyLists as VERIModul
+import AnaFonksiyonlar.JSON_jobs as AnaModul
 from rich.console import Console; c = Console()
 
 sayı: int = 0
 
 def otomatikID():
     global sayı
-    if not Veri_Yolu.TupleliListe_:
-        Json.JSONdanYükleme_()
+    if not VERIModul.SilinenlerinTupleliListesi_:
+        AnaModul.JSONdanYükleme_()
 
-    if Veri_Yolu.TupleliListe_:
-        en_büyük_tuple = max(Veri_Yolu.TupleliListe_, key=lambda x: x[0])
+    if VERIModul.SilinenlerinTupleliListesi_:
+        en_büyük_tuple = max(VERIModul.SilinenlerinTupleliListesi_, key=lambda x: x[0])
         sayı = en_büyük_tuple[0]  # Sadece ID'yi al
         c.print("\t[green3]ID[/green3] >>",sayı,end=", " )
     else:

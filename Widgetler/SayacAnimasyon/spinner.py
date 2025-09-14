@@ -1,64 +1,64 @@
-# from rich.console import Console
-# from rich.spinner import Spinner
-# import time
-# import random
-# c = Console()
+from rich.console import Console
+from rich.spinner import Spinner
+import time
+import random
+c = Console()
 
 
 
-# def spinner1(sayi):
+def spinner1(sayi):
 
-#     with c.status("[bold green]Yükleniyor...", spinner="dots"):
-#         time.sleep(sayi)  # burada uzun süren işlemin olur
+    with c.status("[bold green]Yükleniyor...", spinner="dots"):
+        time.sleep(sayi)  # burada uzun süren işlemin olur
 
 
-# def spinner2(sayi):
+def spinner2(sayi):
 
-#     with c.status("[bold green]Düzeltiliyor...", spinner="dots"):
-#         time.sleep(sayi)  # burada uzun süren işlemin olur
+    with c.status("[bold green]Düzeltiliyor...", spinner="dots"):
+        time.sleep(sayi)  # burada uzun süren işlemin olur
         
         
-# def spinner3(sayi):
+def spinner3(sayi):
 
-#     with c.status("[bold green]Bilgilerin kaydı gerçekleşiyor...", spinner="dots"):
-#         time.sleep(sayi)  # burada uzun süren işlemin olur
+    with c.status("[bold green]Bilgilerin kaydı gerçekleşiyor...", spinner="dots"):
+        time.sleep(sayi)  # burada uzun süren işlemin olur
         
         
-# def spinnersDenemeler(sayi):
-#     with c.status("[bold white]SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", spinner="dots"):
-#         time.sleep(sayi)  # burada uzun süren işlemin olur
+def spinnersDenemeler(sayi):
+    with c.status("[bold white]SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", spinner="dots"):
+        time.sleep(sayi)  # burada uzun süren işlemin olur
         
         
 
-# from rich._spinners import SPINNERS
+from rich._spinners import SPINNERS
 
-# spinnersList=[]
+spinnersList=[]
 
-# def spinnersGecidi():
-#     for name in SPINNERS.keys():
-#         spinnersList.append(name)
-#        # with c.status(f"[bold cyan]Spinner: {name}", spinner=name):
-#         #    time.sleep(3)
-# #c.print(spinnersList)
-
-
-# # Rastgele spinner seçen fonksiyon
-# def random_spinners():
-#     return random.choice(spinnersList)
+def spinnersGecidi():
+    for name in SPINNERS.keys():
+        spinnersList.append(name)
+       # with c.status(f"[bold cyan]Spinner: {name}", spinner=name):
+        #    time.sleep(3)
+#c.print(spinnersList)
 
 
-
-# def randomSonuc():
-#     spinnersGecidi()
-#     name=random_spinners()
-#     return name
+# Rastgele spinner seçen fonksiyon
+def random_spinners():
+    return random.choice(spinnersList)
 
 
 
-# def dene_spinner():
-#     name=randomSonuc()
-#     with c.status(f"[bold cyan]Spinner:{name}", spinner=name):
-#         time.sleep(3)
+def randomSonuc():
+    spinnersGecidi()
+    name=random_spinners()
+    return name
+
+
+
+def dene_spinner():
+    name=randomSonuc()
+    with c.status(f"[bold cyan]Spinner:{name}", spinner=name):
+        time.sleep(3)
 
 
 
@@ -395,6 +395,11 @@
 #         layout[f"tablo_{i}"].update(Panel(table, title=f"{gorev} Tablosu", border_style="cyan"))
 
 #     return layout
+
+
+
+
+
 
 # # Görevleri başlat
 # threads = []

@@ -1,7 +1,7 @@
 from rich.table import Table
 from rich.live import Live
 from time import sleep
-import VERI.emptyLists as Veri_Yolu  # içinde TupleliListe_ olan modül
+import VERI.emptyLists as VERIModul  # içinde TupleliListe_ olan modül
 
 
 def tablo_olustur(liste: list) -> Table:
@@ -32,7 +32,7 @@ def tablo_olustur(liste: list) -> Table:
 
 
 def main():
-    liste = Veri_Yolu.TupleliListe_
+    liste = VERIModul.SilinenlerinTupleliListesi_
 
     with Live(tablo_olustur(liste), refresh_per_second=4) as live:
         for _ in range(14):  # 50 kez güncellensin

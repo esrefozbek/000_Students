@@ -1,5 +1,5 @@
 #from veri import TupleliListe_,SözlüklüListe_
-import VERI.emptyLists as Veri_Yolu
+import VERI.emptyLists as VERIModul
 from rich.console import Console; c = Console()
 
 
@@ -7,11 +7,11 @@ from rich.console import Console; c = Console()
 
 def TupleyiSözlükYap(YeniEklenenlerinTupleListesi_):
         
-    if Veri_Yolu.SozluklerListesi_:  
-        Veri_Yolu.SozluklerListesi_.clear() #FIXME -burada listebaştan yaratılıyor.
+    if VERIModul.YeniEklenenlerinSozluklerListesi_:  
+        VERIModul.YeniEklenenlerinSozluklerListesi_.clear() #FIXME -burada listebaştan yaratılıyor.
         c.print("TupleyiSözlükYap>>yeniEklenenlerListesi_>>", YeniEklenenlerinTupleListesi_)
     for TupleClassNesnesi in YeniEklenenlerinTupleListesi_ :
-        Veri_Yolu.SozluklerListesi_.append({
+        VERIModul.YeniEklenenlerinSozluklerListesi_.append({
             "id": TupleClassNesnesi[0],
             "ad": TupleClassNesnesi[1],
             "soyad": TupleClassNesnesi[2],
@@ -25,9 +25,9 @@ def TupleyiSözlükYap(YeniEklenenlerinTupleListesi_):
       #  c.print("[...]" )
     
    
-    if Veri_Yolu.SozluklerListesi_:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
-        Veri_Yolu.yedekSozlukluListe_.extend(Veri_Yolu.SozluklerListesi_)
-        Veri_Yolu.SozlukluListe_Kopya.extend(Veri_Yolu.SozluklerListesi_)
+    if VERIModul.YeniEklenenlerinSozluklerListesi_:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
+        VERIModul.yedekSozlukluListe_.extend(VERIModul.YeniEklenenlerinSozluklerListesi_)
+        VERIModul.SozlukluListe_Kopya.extend(VERIModul.YeniEklenenlerinSozluklerListesi_)
         
         
         
@@ -39,7 +39,7 @@ def TupleyiSözlükYap(YeniEklenenlerinTupleListesi_):
         # \t[yellow1]Sözlüğün uzunluğu:[/]{len(Veri_Yolu.SozluklerListesi_)},
         # [dark_slate_gray2]\nHazırlanan SözlüklüListe [/]>>\n\t""", Veri_Yolu.SozluklerListesi_,end="\n")        """
     
-    return Veri_Yolu.SozluklerListesi_ 
+    return VERIModul.YeniEklenenlerinSozluklerListesi_ 
                 
            
                 

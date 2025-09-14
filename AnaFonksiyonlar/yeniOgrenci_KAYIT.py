@@ -5,20 +5,20 @@
 #breakpoint()
 
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
-import AnaFonksiyonlar.JSON_jobs as Json
+import AnaFonksiyonlar.JSON_jobs as AnaModul
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
-import VERI.emptyLists as Veri_Yolu 
+import VERI.emptyLists as VERIModul 
 from rich.panel import Panel
-import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
+import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 from AnaFonksiyonlar.student_class import Ogrenciler
 from rich.console import Console ;c=Console()
 lastID=0
 
 def yeniOgrenciKayidi():
         toplamKaçKayıtGirildi=0
-        if Veri_Yolu.TupleliListe_:
-                Veri_Yolu.SozluklerListesi_.clear(); 
-                Veri_Yolu.YeniEklenenlerinTupleListesi_.clear();
+        if VERIModul.SilinenlerinTupleliListesi_:
+                VERIModul.YeniEklenenlerinSozluklerListesi_.clear(); 
+                VERIModul.YeniEklenenlerinTupleListesi_.clear();
         while True:
                 if toplamKaçKayıtGirildi==0:
                         c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey30]\n📌 Anamenü'ye [bold orange_red1]Esc[/] ile dönebilirsin.[/]", border_style="green_yellow"), end="")
@@ -54,24 +54,24 @@ def yeniOgrenciKayidi():
                 #c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]👑👑 Tupleli listenin Nesne appendi SONRASI :",Veri_Yolu.TupleliListe_[-2:],end="") 
                 #  input("kayıtta yatış 3")
                    
-                Veri_Yolu.YeniEklenenlerinTupleListesi_.append(TupleClassNesnesi) 
+                VERIModul.YeniEklenenlerinTupleListesi_.append(TupleClassNesnesi) 
                 toplamKaçKayıtGirildi +=1 
                 # c.print(f"{toplamKaçKayıtGirildi}. [grey3]öğrencinin bilgileri geçici hafızaya alındı[/] \n")
-                c.print(f"'{len(Veri_Yolu.YeniEklenenlerinTupleListesi_)}' [grey54]öğrencinin bilgileri geçici hafızaya alındı[/]\n",Veri_Yolu.YeniEklenenlerinTupleListesi_,end="")
+                c.print(f"'{len(VERIModul.YeniEklenenlerinTupleListesi_)}' [grey54]öğrencinin bilgileri geçici hafızaya alındı[/]\n",VERIModul.YeniEklenenlerinTupleListesi_,end="")
                 #klavDinle.ENTER()
                 
                 
                   
 
-        Veri_Yolu.yeniEklenenlerTupleListesi_Kopyasi.extend(Veri_Yolu.YeniEklenenlerinTupleListesi_) 
+        VERIModul.yeniEklenenlerTupleListesi_Kopyasi.extend(VERIModul.YeniEklenenlerinTupleListesi_) 
       
-        Tup_Soz.TupleyiSözlükYap(Veri_Yolu.YeniEklenenlerinTupleListesi_)  #^  
+        AsistanModul.TupleyiSözlükYap(VERIModul.YeniEklenenlerinTupleListesi_)  #^  
         
-        if Veri_Yolu.SozluklerListesi_:
+        if VERIModul.YeniEklenenlerinSozluklerListesi_:
                 #c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...",style="")
           
             
-                getlastID=Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ ) ###FIXME - 
+                getlastID=AnaModul.JSONaKayıt("VERI/students.json",VERIModul.YeniEklenenlerinSozluklerListesi_ ) ###FIXME - 
 
                 
                 
