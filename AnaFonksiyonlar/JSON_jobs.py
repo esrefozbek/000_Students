@@ -8,7 +8,7 @@ from rich import print
 from rich.console import Console; c = Console()
 import AsistanFonksiyonlar.txt_Jobs as TxtYolu
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as makeDict
-import Widgetler.SayacAnimasyon.spinner as SpinnerYolu
+import Widgetler.SayacAnimasyon.spinner as SpinnerPY
 
 
 
@@ -76,7 +76,7 @@ def JSONaKayıt(jsonDosya_adi: str, TupleSozlukYapildi: list):
         c.print("[yellow]len(TupleListe)[/] >>",len(Veri_Yolu.YeniEklenenlerinTupleListesi_))
         c.print("[yellow]IDsi hatalı Tupleler[/] >>",Veri_Yolu.YeniEklenenlerinTupleListesi_,style="yellow")
         c.print("IDsi hatalı Sözlükler >>",TupleSozlukYapildi,style="yellow")
-        SpinnerYolu.spinner2(5)      
+        SpinnerPY.spinner2(5)      
         for i in Veri_Yolu.SozluklerListesi_:
             getLastID+=1
             #c.print("for içinde getLastID :", getLastID)
@@ -107,5 +107,5 @@ def JSONaKayıt(jsonDosya_adi: str, TupleSozlukYapildi: list):
         json.dump(mevcut_veriler, f, indent=4, ensure_ascii=False)
     c.print(f"{len(TupleSozlukYapildi)} öğrencinin bilgileri [red]JSON[/]'a kaydedildi.\n")
     Veri_Yolu.YeniEklenenlerinTupleListesi_.clear()
-    SpinnerYolu.spinner3(3)      
+    SpinnerPY.spinner3(3)      
     return getLastID

@@ -23,6 +23,7 @@ import MenuTablo.teknikMenü as Tek_Menü
 import AsistanFonksiyonlar.arama as Arama
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as Tup_Soz
 import AsistanFonksiyonlar.klavyeDinleme as klavDinle
+#import Widgetler.SayacAnimasyon.spinner as spinnerPY
 
 #breakpoint()
 #^########################################menu.ekranTemizle()
@@ -43,7 +44,18 @@ def startPoint():
                     Menu.menu_goster()
                     #REVIEW - JSON._JSONdanYükleme_()
                     try:
-                        c.print("[bold white]\tSANA ZAHMET BİR [red][blink]SEÇİM[/][/] YAP:[/bold white]", style="",end=" ")
+                        from rich.prompt import Prompt
+                        name = Prompt.ask("Enter your name") 
+                        name = Prompt.ask("Enter your name", default="Paul Atreides") 
+                        
+                        name = Prompt.ask("Enter your name", choices=["Paul", "Jessica", "Duncan"], default="Paul")
+                        
+                        from rich.prompt import Confirm
+                        is_rich_great = Confirm.ask("Do you like rich?")
+                        assert is_rich_great
+                        
+                        c.print("[bold white]  SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", style="link https://google.com",end=" ")
+                        
                         CHOOSEN = int(input())
                     except ValueError:
                         c.print( "⚠️  Lütfen sadece sayı girin.ENTER ile devam et",style="" )
@@ -109,7 +121,8 @@ def startPoint():
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
                       #^  sayacKronometre.geri_say(1)
-                        anamenü_bekletme(1)
+                      #  spinnerPY.dene_spinner() 
+                        anamenü_bekletme(3)
                         Veri_Yolu.TupleliListe_.clear()
                         Veri_Yolu.SozluklerListesi_.clear()
                         continue

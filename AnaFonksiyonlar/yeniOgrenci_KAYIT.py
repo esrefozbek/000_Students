@@ -21,13 +21,14 @@ def yeniOgrenciKayidi():
                 Veri_Yolu.YeniEklenenlerinTupleListesi_.clear();
         while True:
                 if toplamKaçKayıtGirildi==0:
-                        c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey30]\n📌 Anamenü'ye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", border_style="green_yellow"), end="")
+                        c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey30]\n📌 Anamenü'ye [bold orange_red1]Esc[/] ile dönebilirsin.[/]", border_style="green_yellow"), end="")
                 else:
                         pass
                               
                 #NOTE -  Burada normalde bir ad giriliyor, 'Esc'  ye basılırsa yeni öğrenci kayıdı sonlandırılıyor.
                 ad = klavDinle.klavyeDinlemesiÖncesiMesaj(3)  
                 
+
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
                         c.print(f"\n{toplamKaçKayıtGirildi} öğrenci bilgisi girdiniz...",style="")
                         break
@@ -70,7 +71,7 @@ def yeniOgrenciKayidi():
                 #c.print("[bold yellow]yeniÖğrenciKayıdı():[/bold yellow]💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...",style="")
           
             
-                getlastID=Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ )
+                getlastID=Json.JSONaKayıt("VERI/students.json",Veri_Yolu.SozluklerListesi_ ) ###FIXME - 
 
                 
                 
