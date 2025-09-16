@@ -13,7 +13,7 @@ import Widgetler.SayacAnimasyon.spinner as SpinnerPY
 
 
 
-#& JSON DOSYASINDAN LİSTEYİ ÇEKME  
+#& JSON DOSYASINDAN LİSTEYİ ÇEKME                     
             
 def JSONdanYükleme_():
            #^ console.print("\n[bold yellow]jsondan_yükleme():[/bold yellow]🐓🐓🐓  VERİ.TupleliListe_:", veri.TupleliListe_,style="")
@@ -40,7 +40,7 @@ def JSONdanYükleme_():
             
             
 
-#&                              JSON DOSYASINA ÖĞRENCİ EKLEME                                  
+#&         JSON DOSYASINA ÖĞRENCİ EKLEME                     
 # 2️⃣ JSON'a kayıt fonksiyonu
 
 def JSONaKayıtOncesiDosya_VarMi(jsonDosya_adi: str, EklenenVeyaSilinenSayisi: int):
