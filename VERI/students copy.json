@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "ad": "Fahrettin",
+        "soyad": "Cürekli",
+        "ogrenciNumarasi": "1653",
+        "dogum_yili": "1970",
+        "sinif": "5g",
+        "kayitTarihi": "02/09/2025 23:12:20"
+    },
+    {
+        "id": 2,
+        "ad": "Fahrettin",
+        "soyad": "Cürekli",
+        "ogrenciNumarasi": "1653",
+        "dogum_yili": "1970",
+        "sinif": "5g",
+        "kayitTarihi": "02/09/2025 23:12:20"
+    },
+    {
+        "id": 3,
+        "ad": "Fahrettin",
+        "soyad": "Cürekli",
+        "ogrenciNumarasi": "1653",
+        "dogum_yili": "1970",
+        "sinif": "5g",
+        "kayitTarihi": "02/09/2025 23:12:20"
+    }
+    
+]
