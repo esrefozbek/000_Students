@@ -19,7 +19,7 @@ def _Sorgu_(buÖğrenciyiBul):
                     found = True
                     SorgudaBulunanlarListesi_.append(ogrenci)
                     if len(SorgudaBulunanlarListesi_) == 1:
-                        console.print(f"\n🔍 Bulunan Öğrenciler Listesi ", style="bold white on blue",end="")
+                        console.print(f"\n🔍 Bulunan Öğrenciler Listesi ", style="bold yellow on blue",end="")
                     
             console.print(f"[ {len(SorgudaBulunanlarListesi_)} TALEBE bulundu ]", style=" bold yellow")
             # main.ekranTemizle()
@@ -41,7 +41,7 @@ def _Sorgu_(buÖğrenciyiBul):
                     SorgudaBulunanlarListesi_.append(ogrenci)
                     if len(SorgudaBulunanlarListesi_) == 1:
                         
-                        console.print(f"\n🔍 Bulunan Öğrenciler Listesi ", style="bold black on white",end="")
+                        console.print(f"\n🔍"," Bulunan Öğrenciler Listesi ", style="italic red on white",end="")
             console.print(f"[ {len(SorgudaBulunanlarListesi_)} TALEBE bulundu ]", style=" bold yellow")
             # main.ekranTemizle()
             # main.menu_goster()
@@ -52,5 +52,5 @@ def _Sorgu_(buÖğrenciyiBul):
                 tablolarPY.TABLO_6lı(SorgudaBulunanlarListesi_,menüTipi, listeTipi)
                 
             if not SorgudaBulunanlarListesi_:
-                console.print("[blue on bright_green]  Bu isimde bir öğrenci bulunamadı.[/blue on bright_green]", style="orange1")
+                console.print("[blue on green]  Bu isimde bir öğrenci bulunamadı.[/blue on green]", style="orange1")
            
