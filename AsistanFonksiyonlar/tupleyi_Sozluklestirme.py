@@ -1,45 +1,33 @@
 #from veri import TupleliListe_,SözlüklüListe_
-import VERI.emptyLists as VERIModul
+import VERI.emptyLists as EmptyLists
 from rich.console import Console; c = Console()
+
 
 
 #NOTE -  tuple içeren liste SÖZLÜĞE dönüştürülüyor. 
 
-def TupleyiSözlükYap(YeniEklenenlerinTupleListesi_):
+def TupleyiSözlükListesineEkle(fark_TupleListesi:list):
+    if EmptyLists.FARK_SozlukListesi:  
+        EmptyLists.FARK_SozlukListesi.clear() #FIXME -burada listebaştan yaratılıyor.
         
-    if VERIModul.YeniEklenenlerinSozluklerListesi_:  
-        VERIModul.YeniEklenenlerinSozluklerListesi_.clear() #FIXME -burada listebaştan yaratılıyor.
-        c.print("TupleyiSözlükYap>>yeniEklenenlerListesi_>>", YeniEklenenlerinTupleListesi_)
-    for TupleClassNesnesi in YeniEklenenlerinTupleListesi_ :
-        VERIModul.YeniEklenenlerinSozluklerListesi_.append({
-            "id": TupleClassNesnesi[0],
-            "ad": TupleClassNesnesi[1],
-            "soyad": TupleClassNesnesi[2],
-            "öğrenciNumarası":TupleClassNesnesi[3],
-            "dogum_yili": TupleClassNesnesi[4],
-            "sinif": TupleClassNesnesi[5],
-            "kayıtTarihi":TupleClassNesnesi[6] })
+    for item in fark_TupleListesi :
+        EmptyLists.FARK_SozlukListesi.append({
+            "id": item[0],
+            "ad": item[1],
+            "soyad": item[2],
+            "ogrenciNumarasi":item[3],
+            "dogumTarihi": item[4],
+            "sinifi": item[5],
+            "kayitTarihi":item[6] })
         
-  #  c.print("[bold yellow]TupleyiSözlükYap_():[/] Dolum sonrası SözlüklüListe_:",end="")
-#    if Veri_Yolu.SozluklerListesi_:
-      #  c.print("[...]" )
-    
+    c.print("SözlükYap:: FARK_SozlukListesi >>", EmptyLists.FARK_SozlukListesi)
    
-    if VERIModul.YeniEklenenlerinSozluklerListesi_:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
-        VERIModul.yedekSozlukluListe_.extend(VERIModul.YeniEklenenlerinSozluklerListesi_)
-        VERIModul.SozlukluListe_Kopya.extend(VERIModul.YeniEklenenlerinSozluklerListesi_)
-        
-        
-        
-       # c.print ("\n[bold magenta]Tupleyi Sözlükleştirme:[/] Tuplenin sözlüğe dönüştürülüp SözlüklüListe_ ye kaydı tamamlandı.\n",style="")
-             
-        # c.print (f"""\n[dark_orange3]Tupleyi Sözlükleştirdim[/]\n[turquoise2]☢️  İstatistiklerim: ☢️ [/]
-        # \t[yellow1]Sözlük listenin tipi:[/]{type(Veri_Yolu.SozluklerListesi_)}
-        # \t[yellow1]Herbir elemanın tipi[0]:[/]{type(Veri_Yolu.SozluklerListesi_[0])}
-        # \t[yellow1]Sözlüğün uzunluğu:[/]{len(Veri_Yolu.SozluklerListesi_)},
-        # [dark_slate_gray2]\nHazırlanan SözlüklüListe [/]>>\n\t""", Veri_Yolu.SozluklerListesi_,end="\n")        """
-    
-    return VERIModul.YeniEklenenlerinSozluklerListesi_ 
+   
+    if EmptyLists.FARK_SozlukListesi:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
+        EmptyLists.yedekSozlukluListe_.extend(EmptyLists.FARK_SozlukListesi)
+        EmptyLists.SozlukluListe_Kopya.extend(EmptyLists.FARK_SozlukListesi)
+      
+    return EmptyLists.FARK_SozlukListesi 
                 
            
                 

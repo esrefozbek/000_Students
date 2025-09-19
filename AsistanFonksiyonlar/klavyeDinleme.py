@@ -5,8 +5,11 @@ from rich.layout import Layout;l = Layout()
 from rich import print
 from rich import print
 import sys
+aramaSayısı=0
+
 
 def klavyeGirisi():
+    global aramaSayısı
     pressedKeys = ""
     #print("Yazmaya başlayın (ESC ile iptal, ENTER ile tamamla):")
 
@@ -15,6 +18,7 @@ def klavyeGirisi():
 
         if key == readchar.key.ESC:
             print("\nESC'ye basıldı, Ana Menüye dönülüyor...")
+            aramaSayısı=0   #! ESC ye basılınca aramasayısı sıfırlanır ve, diğer menü işlemine klavye öncesi mesaj değeri sıfır olarak gider ve ilk mesajla karşılaşılır. 
             return None
         elif key == readchar.key.ENTER:
             break
@@ -62,20 +66,24 @@ def ENTER():
     Enter_ile_devam_et()
 
 
-aramaSayısı=0
-def klavyeDinlemesiÖncesiMesaj(sayı:int):
+
+def klavyeÖncesiMesaj(sayı:int=0):
     global aramaSayısı
+        
+    if sayı==0: pass
     if sayı==1:
-        aramaSayısı+=1
-        if not aramaSayısı>1:
-            c.print(Panel(f"📌[white] Aradığın talebenin numarasını, adını ya da soyadını gir,[/][italic tan] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.", style="deep_sky_blue1"),end="")
+        if aramaSayısı<1:
+            c.print(Panel(f"📌[white] Aradığın talebenin numarasını, adını ya da soyadını gir,[/][italic tan] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", style="deep_sky_blue1"),end="")
         print("[bold red3] Esc[/][grey30] or[/][bold sea_green2] new[/] [yellow1]>>[/] ", end="", flush=True)
         
     if sayı==2:
         c.print("\n📌 Öğrenci numarası, adı ya da soyadı gir:", style="bold magenta")
         c.print("Ana menüye dönmek için [ESC] tuşuna bas.", style="bold yellow")
         print(">> ", end="", flush=True)
+        
     if sayı==3:
        c.print("\n[yellow]Öğrencinin;[/]\n[green]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end=" >> ")
        #print("", end="", flush=True)      
+    aramaSayısı+=1
+    
     return klavyeGirisi()

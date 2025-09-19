@@ -1,6 +1,6 @@
 from rich import box
 import MenuTablo.menu as Menu
-import VERI.emptyLists as VERIModul
+import VERI.emptyLists as EmptyLists
 from rich.table import Table
 from rich.console import Console
 from rich.console import Console; z=Console()
@@ -37,10 +37,15 @@ box_turleri = [
 
 altBox_stili=Menu.rastgele_box_stili()
 
-def TABLO_6lı(liste: list, menüTipi: str = "Ana Menümmmm", listeTipi: str = "Ana Listemmmm"):
+def TABLO_6lı(liste: list, menüTipi: str = "Ana Menüm", listeTipi: str = "Ana Listem", Aranan:str="kelime"):
     # Tablo yaratılıyor
     
-    table = Table(title=f"[bold yellow1]BULUNAN ÖĞRENCİLER TABLOSU[/] [thistle1]box_stili:[/]{altBox_stili[0]}",caption=f"{VERIModul.value} dilimlenmiş tablo",box=altBox_stili[1],show_header=True,header_style="bold cyan",)
+    
+    
+    table = Table(title=f"[bold yellow1]BULUNAN ÖĞRENCİLER TABLOSU[/] [thistle1]box_stili:[/]{altBox_stili[0]}",caption=f"{EmptyLists.value} dilimlenmiş tablo",box=altBox_stili[1],show_header=True,header_style="bold cyan",)
+    
+    
+    table.add_column("{Aranan Kelam}", justify="center", style="bold yellow", no_wrap=False)
     table.add_column("Sıra No", justify="center", style="bold yellow", no_wrap=False)
     table.add_column("Id", justify="center", style="white", no_wrap=True)
     table.add_column("Ad", justify="right",style="white")
@@ -51,18 +56,19 @@ def TABLO_6lı(liste: list, menüTipi: str = "Ana Menümmmm", listeTipi: str = "
     table.add_column("Kayıt Tarihi", justify="center", style="white", no_wrap=True,overflow="crop")
     
     for sıra_numarası, ogrenci in enumerate(liste):
-                  table.add_row(str(sıra_numarası),
-                                  str(ogrenci[0]),
-                                      ogrenci[1],
-                                      ogrenci[2],
-                                      str(ogrenci[3]),
-                                      ogrenci[4],
-                                      ogrenci[5],
-                                      ogrenci[6]
+            [ f"Aranan"],
+            table.add_row(str(sıra_numarası),
+                                   str(ogrenci["Id"]),
+            ogrenci["ad"],
+            ogrenci["soyad"],
+            ogrenci["ogrenciNumarasi"],
+            ogrenci["dogumTarihi"],
+            ogrenci["sinifi"],
+            ogrenci["kayitTarihi"],
                                      ) 
    
     
-# Tablo yaratıldı. 
+            # Tablo yaratıldı. 
     
     
     z.print("\n", table)

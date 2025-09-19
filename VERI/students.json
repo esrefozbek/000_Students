@@ -1,488 +1,479 @@
 [
     {
-        "id": 1,
+        "Id": 1,
         "ad": "Fahrettin",
         "soyad": "Cürekli",
-        "öğrenciNumarası": "1653",
-        "dogum_yili": "1970",
-        "sinif": "5g",
-        "kayıtTarihi": "02/09/2025 23:12:20"
+        "ogrenciNumarasi": "1653",
+        "dogumTarihi": "1970",
+        "sinifi": "5g",
+        "kayitTarihi": "02/09/2025 23:12:20"
     },
     {
-        "id": 2,
+        "Id": 2,
         "ad": "Zeynep",
         "soyad": "Karakurt",
-        "öğrenciNumarası": "1654",
-        "dogum_yili": "2008",
-        "sinif": "6a",
-        "kayıtTarihi": "02/09/2025 23:13:01"
+        "ogrenciNumarasi": "1654",
+        "dogumTarihi": "2008",
+        "sinifi": "6a",
+        "kayitTarihi": "02/09/2025 23:13:01"
     },
     {
-        "id": 3,
+        "Id": 3,
         "ad": "Emir",
         "soyad": "Yalçın",
-        "öğrenciNumarası": "1655",
-        "dogum_yili": "2007",
-        "sinif": "7b",
-        "kayıtTarihi": "02/09/2025 23:13:42"
+        "ogrenciNumarasi": "1655",
+        "dogumTarihi": "2007",
+        "sinifi": "7b",
+        "kayitTarihi": "02/09/2025 23:13:42"
     },
     {
-        "id": 4,
+        "Id": 4,
         "ad": "Elif",
         "soyad": "Demirer",
-        "öğrenciNumarası": "1656",
-        "dogum_yili": "2009",
-        "sinif": "5c",
-        "kayıtTarihi": "02/09/2025 23:14:10"
+        "ogrenciNumarasi": "1656",
+        "dogumTarihi": "2009",
+        "sinifi": "5c",
+        "kayitTarihi": "02/09/2025 23:14:10"
     },
     {
-        "id": 5,
+        "Id": 5,
         "ad": "Mert",
         "soyad": "Aydın",
-        "öğrenciNumarası": "1657",
-        "dogum_yili": "2006",
-        "sinif": "8d",
-        "kayıtTarihi": "02/09/2025 23:14:45"
+        "ogrenciNumarasi": "1657",
+        "dogumTarihi": "2006",
+        "sinifi": "8d",
+        "kayitTarihi": "02/09/2025 23:14:45"
     },
     {
-        "id": 6,
+        "Id": 6,
         "ad": "Ayşe",
         "soyad": "Kurtuluş",
-        "öğrenciNumarası": "1658",
-        "dogum_yili": "2008",
-        "sinif": "6e",
-        "kayıtTarihi": "02/09/2025 23:15:20"
+        "ogrenciNumarasi": "1658",
+        "dogumTarihi": "2008",
+        "sinifi": "6e",
+        "kayitTarihi": "02/09/2025 23:15:20"
     },
     {
-        "id": 7,
+        "Id": 7,
         "ad": "Burak",
         "soyad": "Öztürk",
-        "öğrenciNumarası": "1659",
-        "dogum_yili": "2007",
-        "sinif": "7f",
-        "kayıtTarihi": "02/09/2025 23:15:55"
+        "ogrenciNumarasi": "1659",
+        "dogumTarihi": "2007",
+        "sinifi": "7f",
+        "kayitTarihi": "02/09/2025 23:15:55"
     },
     {
-        "id": 8,
+        "Id": 8,
         "ad": "Naz",
         "soyad": "Yıldız",
-        "öğrenciNumarası": "1660",
-        "dogum_yili": "2009",
-        "sinif": "5a",
-        "kayıtTarihi": "02/09/2025 23:16:30"
+        "ogrenciNumarasi": "1660",
+        "dogumTarihi": "2009",
+        "sinifi": "5a",
+        "kayitTarihi": "02/09/2025 23:16:30"
     },
     {
-        "id": 9,
+        "Id": 9,
         "ad": "Can",
         "soyad": "Ergün",
-        "öğrenciNumarası": "1661",
-        "dogum_yili": "2006",
-        "sinif": "8b",
-        "kayıtTarihi": "02/09/2025 23:17:05"
+        "ogrenciNumarasi": "1661",
+        "dogumTarihi": "2006",
+        "sinifi": "8b",
+        "kayitTarihi": "02/09/2025 23:17:05"
     },
     {
-        "id": 10,
+        "Id": 10,
         "ad": "Selin",
         "soyad": "Koç",
-        "öğrenciNumarası": "1662",
-        "dogum_yili": "2008",
-        "sinif": "6c",
-        "kayıtTarihi": "02/09/2025 23:17:40"
+        "ogrenciNumarasi": "1662",
+        "dogumTarihi": "2008",
+        "sinifi": "6c",
+        "kayitTarihi": "02/09/2025 23:17:40"
     },
     {
-        "id": 11,
+        "Id": 11,
         "ad": "Deniz",
         "soyad": "Şimşek",
-        "öğrenciNumarası": "1663",
-        "dogum_yili": "2007",
-        "sinif": "7d",
-        "kayıtTarihi": "02/09/2025 23:18:15"
+        "ogrenciNumarasi": "1663",
+        "dogumTarihi": "2007",
+        "sinifi": "7d",
+        "kayitTarihi": "02/09/2025 23:18:15"
     },
     {
-        "id": 12,
+        "Id": 12,
         "ad": "Ece",
         "soyad": "Bozkurt",
-        "öğrenciNumarası": "1664",
-        "dogum_yili": "2009",
-        "sinif": "5e",
-        "kayıtTarihi": "02/09/2025 23:18:50"
+        "ogrenciNumarasi": "1664",
+        "dogumTarihi": "2009",
+        "sinifi": "5e",
+        "kayitTarihi": "02/09/2025 23:18:50"
     },
     {
-        "id": 13,
+        "Id": 13,
         "ad": "Kerem",
         "soyad": "Güneş",
-        "öğrenciNumarası": "1665",
-        "dogum_yili": "2006",
-        "sinif": "8a",
-        "kayıtTarihi": "02/09/2025 23:19:25"
+        "ogrenciNumarasi": "1665",
+        "dogumTarihi": "2006",
+        "sinifi": "8a",
+        "kayitTarihi": "02/09/2025 23:19:25"
     },
     {
-        "id": 14,
+        "Id": 14,
         "ad": "Melis",
         "soyad": "Çelik",
-        "öğrenciNumarası": "1666",
-        "dogum_yili": "2008",
-        "sinif": "6b",
-        "kayıtTarihi": "02/09/2025 23:20:00"
+        "ogrenciNumarasi": "1666",
+        "dogumTarihi": "2008",
+        "sinifi": "6b",
+        "kayitTarihi": "02/09/2025 23:20:00"
     },
     {
-        "id": 15,
+        "Id": 15,
         "ad": "Tuna",
         "soyad": "Ersoy",
-        "öğrenciNumarası": "1667",
-        "dogum_yili": "2007",
-        "sinif": "7c",
-        "kayıtTarihi": "02/09/2025 23:20:35"
+        "ogrenciNumarasi": "1667",
+        "dogumTarihi": "2007",
+        "sinifi": "7c",
+        "kayitTarihi": "02/09/2025 23:20:35"
     },
     {
-        "id": 16,
+        "Id": 16,
         "ad": "İpek",
         "soyad": "Yılmaz",
-        "öğrenciNumarası": "1668",
-        "dogum_yili": "2009",
-        "sinif": "5f",
-        "kayıtTarihi": "02/09/2025 23:21:10"
+        "ogrenciNumarasi": "1668",
+        "dogumTarihi": "2009",
+        "sinifi": "5f",
+        "kayitTarihi": "02/09/2025 23:21:10"
     },
     {
-        "id": 17,
+        "Id": 17,
         "ad": "Baran",
         "soyad": "Kaya",
-        "öğrenciNumarası": "1669",
-        "dogum_yili": "2006",
-        "sinif": "8c",
-        "kayıtTarihi": "02/09/2025 23:21:45"
+        "ogrenciNumarasi": "1669",
+        "dogumTarihi": "2006",
+        "sinifi": "8c",
+        "kayitTarihi": "02/09/2025 23:21:45"
     },
     {
-        "id": 18,
+        "Id": 18,
         "ad": "Duru",
         "soyad": "Aksoy",
-        "öğrenciNumarası": "1670",
-        "dogum_yili": "2008",
-        "sinif": "6d",
-        "kayıtTarihi": "02/09/2025 23:22:20"
+        "ogrenciNumarasi": "1670",
+        "dogumTarihi": "2008",
+        "sinifi": "6d",
+        "kayitTarihi": "02/09/2025 23:22:20"
     },
     {
-        "id": 19,
+        "Id": 19,
         "ad": "Yiğit",
         "soyad": "Özdemir",
-        "öğrenciNumarası": "1671",
-        "dogum_yili": "2007",
-        "sinif": "7e",
-        "kayıtTarihi": "02/09/2025 23:22:55"
+        "ogrenciNumarasi": "1671",
+        "dogumTarihi": "2007",
+        "sinifi": "7e",
+        "kayitTarihi": "02/09/2025 23:22:55"
     },
     {
-        "id": 20,
+        "Id": 20,
         "ad": "Sude",
         "soyad": "Arslan",
-        "öğrenciNumarası": "1672",
-        "dogum_yili": "2009",
-        "sinif": "5b",
-        "kayıtTarihi": "02/09/2025 23:23:30"
+        "ogrenciNumarasi": "1672",
+        "dogumTarihi": "2009",
+        "sinifi": "5b",
+        "kayitTarihi": "02/09/2025 23:23:30"
     },
     {
-        "id": 21,
+        "Id": 21,
         "ad": "Ali",
         "soyad": "Çetin",
-        "öğrenciNumarası": "1673",
-        "dogum_yili": "2006",
-        "sinif": "8e",
-        "kayıtTarihi": "02/09/2025 23:24:05"
+        "ogrenciNumarasi": "1673",
+        "dogumTarihi": "2006",
+        "sinifi": "8e",
+        "kayitTarihi": "02/09/2025 23:24:05"
     },
     {
-        "id": 22,
+        "Id": 22,
         "ad": "Buse",
         "soyad": "Tan",
-        "öğrenciNumarası": "1674",
-        "dogum_yili": "2008",
-        "sinif": "6f",
-        "kayıtTarihi": "02/09/2025 23:24:40"
+        "ogrenciNumarasi": "1674",
+        "dogumTarihi": "2008",
+        "sinifi": "6f",
+        "kayitTarihi": "02/09/2025 23:24:40"
     },
     {
-        "id": 23,
+        "Id": 23,
         "ad": "Kaan",
         "soyad": "Polat",
-        "öğrenciNumarası": "1675",
-        "dogum_yili": "2007",
-        "sinif": "7g",
-        "kayıtTarihi": "02/09/2025 23:25:15"
+        "ogrenciNumarasi": "1675",
+        "dogumTarihi": "2007",
+        "sinifi": "7g",
+        "kayitTarihi": "02/09/2025 23:25:15"
     },
     {
-        "id": 24,
+        "Id": 24,
         "ad": "Ceren",
         "soyad": "Uçar",
-        "öğrenciNumarası": "1676",
-        "dogum_yili": "2009",
-        "sinif": "5d",
-        "kayıtTarihi": "02/09/2025 23:25:50"
+        "ogrenciNumarasi": "1676",
+        "dogumTarihi": "2009",
+        "sinifi": "5d",
+        "kayitTarihi": "02/09/2025 23:25:50"
     },
     {
-        "id": 25,
+        "Id": 25,
         "ad": "Eren",
         "soyad": "Şahin",
-        "öğrenciNumarası": "1677",
-        "dogum_yili": "2006",
-        "sinif": "8f",
-        "kayıtTarihi": "02/09/2025 23:26:25"
+        "ogrenciNumarasi": "1677",
+        "dogumTarihi": "2006",
+        "sinifi": "8f",
+        "kayitTarihi": "02/09/2025 23:26:25"
     },
     {
-        "id": 26,
+        "Id": 26,
         "ad": "İlayda",
         "soyad": "Demir",
-        "öğrenciNumarası": "1678",
-        "dogum_yili": "2008",
-        "sinif": "6g",
-        "kayıtTarihi": "02/09/2025 23:27:00"
+        "ogrenciNumarasi": "1678",
+        "dogumTarihi": "2008",
+        "sinifi": "6g",
+        "kayitTarihi": "02/09/2025 23:27:00"
     },
     {
-        "id": 27,
+        "Id": 27,
         "ad": "Arda",
         "soyad": "Kılıç",
-        "öğrenciNumarası": "1679",
-        "dogum_yili": "2007",
-        "sinif": "7a",
-        "kayıtTarihi": "02/09/2025 23:27:35"
+        "ogrenciNumarasi": "1679",
+        "dogumTarihi": "2007",
+        "sinifi": "7a",
+        "kayitTarihi": "02/09/2025 23:27:35"
     },
     {
-        "id": 28,
+        "Id": 28,
         "ad": "Zehra",
         "soyad": "Özkan",
-        "öğrenciNumarası": "1680",
-        "dogum_yili": "2009",
-        "sinif": "5h",
-        "kayıtTarihi": "02/09/2025 23:28:10"
+        "ogrenciNumarasi": "1680",
+        "dogumTarihi": "2009",
+        "sinifi": "5h",
+        "kayitTarihi": "02/09/2025 23:28:10"
     },
     {
-        "id": 29,
+        "Id": 29,
         "ad": "Umut",
         "soyad": "Yüce",
-        "öğrenciNumarası": "1681",
-        "dogum_yili": "2006",
-        "sinif": "8g",
-        "kayıtTarihi": "02/09/2025 23:28:45"
+        "ogrenciNumarasi": "1681",
+        "dogumTarihi": "2006",
+        "sinifi": "8g",
+        "kayitTarihi": "02/09/2025 23:28:45"
     },
     {
-        "id": 30,
+        "Id": 30,
         "ad": "Nisa",
         "soyad": "Başar",
-        "öğrenciNumarası": "1682",
-        "dogum_yili": "2008",
-        "sinif": "6h",
-        "kayıtTarihi": "02/09/2025 23:29:20"
+        "ogrenciNumarasi": "1682",
+        "dogumTarihi": "2008",
+        "sinifi": "6h",
+        "kayitTarihi": "02/09/2025 23:29:20"
     },
     {
-        "id": 31,
+        "Id": 31,
         "ad": "Serpil",
         "soyad": "Çakmakçı",
-        "öğrenciNumarası": "145",
-        "dogum_yili": "1970",
-        "sinif": "5G",
-        "kayıtTarihi": "03/09/2025 21:41:40"
+        "ogrenciNumarasi": "145",
+        "dogumTarihi": "1970",
+        "sinifi": "5G",
+        "kayitTarihi": "03/09/2025 21:41:40"
     },
     {
-        "id": 32,
+        "Id": 32,
         "ad": "Zekiye",
         "soyad": "German",
-        "öğrenciNumarası": "637",
-        "dogum_yili": "1979",
-        "sinif": "5H",
-        "kayıtTarihi": "05/09/2025 11:06:10"
+        "ogrenciNumarasi": "637",
+        "dogumTarihi": "1979",
+        "sinifi": "5H",
+        "kayitTarihi": "05/09/2025 11:06:10"
     },
     {
-        "id": 33,
+        "Id": 33,
         "ad": "Vecihi",
         "soyad": "Hürkuş",
-        "öğrenciNumarası": "628",
-        "dogum_yili": "1894",
-        "sinif": "5G",
-        "kayıtTarihi": "07/09/2025 17:47:26"
+        "ogrenciNumarasi": "628",
+        "dogumTarihi": "1894",
+        "sinifi": "5G",
+        "kayitTarihi": "07/09/2025 17:47:26"
     },
     {
-        "id": 34,
+        "Id": 34,
         "ad": "Piyer",
         "soyad": "Laroş",
-        "öğrenciNumarası": "1954",
-        "dogum_yili": "1965",
-        "sinif": "4F",
-        "kayıtTarihi": "08/09/2025 12:15:36"
+        "ogrenciNumarasi": "1954",
+        "dogumTarihi": "1965",
+        "sinifi": "4F",
+        "kayitTarihi": "08/09/2025 12:15:36"
     },
     {
-        "id": 35,
+        "Id": 35,
         "ad": "Harun",
         "soyad": "Taner",
-        "öğrenciNumarası": "1230",
-        "dogum_yili": "1987",
-        "sinif": "5H",
-        "kayıtTarihi": "08/09/2025 12:20:54"
+        "ogrenciNumarasi": "1230",
+        "dogumTarihi": "1987",
+        "sinifi": "5H",
+        "kayitTarihi": "08/09/2025 12:20:54"
     },
     {
-        "id": 36,
+        "Id": 36,
         "ad": "Müslüm",
         "soyad": "Gürses",
-        "öğrenciNumarası": "648",
-        "dogum_yili": "1947",
-        "sinif": "9H",
-        "kayıtTarihi": "08/09/2025 12:54:54"
+        "ogrenciNumarasi": "648",
+        "dogumTarihi": "1947",
+        "sinifi": "9H",
+        "kayitTarihi": "08/09/2025 12:54:54"
     },
     {
-        "id": 37,
+        "Id": 37,
         "ad": "Ferdi",
         "soyad": "Tayfur",
-        "öğrenciNumarası": "378",
-        "dogum_yili": "1950",
-        "sinif": "4B",
-        "kayıtTarihi": "08/09/2025 12:55:18"
+        "ogrenciNumarasi": "378",
+        "dogumTarihi": "1950",
+        "sinifi": "4B",
+        "kayitTarihi": "08/09/2025 12:55:18"
     },
     {
-        "id": 38,
+        "Id": 38,
         "ad": "Fahri",
         "soyad": "Karaca",
-        "öğrenciNumarası": "5670",
-        "dogum_yili": "1981",
-        "sinif": "4E",
-        "kayıtTarihi": "08/09/2025 13:22:00"
+        "ogrenciNumarasi": "5670",
+        "dogumTarihi": "1981",
+        "sinifi": "4E",
+        "kayitTarihi": "08/09/2025 13:22:00"
     },
     {
-        "id": 39,
+        "Id": 39,
         "ad": "Kadir",
         "soyad": "Mısıroğlu",
-        "öğrenciNumarası": "109",
-        "dogum_yili": "1934",
-        "sinif": "5D",
-        "kayıtTarihi": "09/09/2025 08:53:31"
+        "ogrenciNumarasi": "109",
+        "dogumTarihi": "1934",
+        "sinifi": "5D",
+        "kayitTarihi": "09/09/2025 08:53:31"
     },
     {
-        "id": 40,
+        "Id": 40,
         "ad": "Fazıl",
         "soyad": "Türkses",
-        "öğrenciNumarası": "637",
-        "dogum_yili": "1968",
-        "sinif": "8U",
-        "kayıtTarihi": "09/09/2025 09:59:06"
+        "ogrenciNumarasi": "637",
+        "dogumTarihi": "1968",
+        "sinifi": "8U",
+        "kayitTarihi": "09/09/2025 09:59:06"
     },
     {
-        "id": 41,
+        "Id": 41,
         "ad": "Adem",
         "soyad": "Aslan",
-        "öğrenciNumarası": "472",
-        "dogum_yili": "1957",
-        "sinif": "4F",
-        "kayıtTarihi": "09/09/2025 12:33:16"
+        "ogrenciNumarasi": "472",
+        "dogumTarihi": "1957",
+        "sinifi": "4F",
+        "kayitTarihi": "09/09/2025 12:33:16"
     },
     {
-        "id": 42,
+        "Id": 42,
         "ad": "Mariya",
         "soyad": "Tenduri",
-        "öğrenciNumarası": "176",
-        "dogum_yili": "1958",
-        "sinif": "5F",
-        "kayıtTarihi": "09/09/2025 17:24:54"
+        "ogrenciNumarasi": "176",
+        "dogumTarihi": "1958",
+        "sinifi": "5F",
+        "kayitTarihi": "09/09/2025 17:24:54"
     },
     {
-        "id": 43,
+        "Id": 43,
         "ad": "Şaj\bkir",
         "soyad": "Şükür",
-        "öğrenciNumarası": "142",
-        "dogum_yili": "1987",
-        "sinif": "4F",
-        "kayıtTarihi": "10/09/2025 12:53:40"
+        "ogrenciNumarasi": "142",
+        "dogumTarihi": "1987",
+        "sinifi": "4F",
+        "kayitTarihi": "10/09/2025 12:53:40"
     },
     {
-        "id": 44,
+        "Id": 44,
         "ad": "Erman",
         "soyad": "PArdus",
-        "öğrenciNumarası": "13125",
-        "dogum_yili": "1424",
-        "sinif": "2D",
-        "kayıtTarihi": "10/09/2025 13:13:01"
+        "ogrenciNumarasi": "13125",
+        "dogumTarihi": "1424",
+        "sinifi": "2D",
+        "kayitTarihi": "10/09/2025 13:13:01"
     },
     {
-        "id": 45,
+        "Id": 45,
         "ad": "Paul",
         "soyad": "Newmann",
-        "öğrenciNumarası": "165",
-        "dogum_yili": "1967",
-        "sinif": "4R",
-        "kayıtTarihi": "10/09/2025 17:25:51"
+        "ogrenciNumarasi": "165",
+        "dogumTarihi": "1967",
+        "sinifi": "4R",
+        "kayitTarihi": "10/09/2025 17:25:51"
     },
     {
-        "id": 46,
+        "Id": 46,
         "ad": "EErcan",
         "soyad": "Paka",
-        "öğrenciNumarası": "1520",
-        "dogum_yili": "1974",
-        "sinif": "7Y",
-        "kayıtTarihi": "10/09/2025 18:08:25"
+        "ogrenciNumarasi": "1520",
+        "dogumTarihi": "1974",
+        "sinifi": "7Y",
+        "kayitTarihi": "10/09/2025 18:08:25"
     },
     {
-        "id": 47,
+        "Id": 47,
         "ad": "Cashua",
         "soyad": "Bills",
-        "öğrenciNumarası": "215",
-        "dogum_yili": "1874",
-        "sinif": "4B",
-        "kayıtTarihi": "10/09/2025 18:52:39"
+        "ogrenciNumarasi": "215",
+        "dogumTarihi": "1874",
+        "sinifi": "4B",
+        "kayitTarihi": "10/09/2025 18:52:39"
     },
     {
-        "id": 48,
+        "Id": 48,
         "ad": "Muhittin",
         "soyad": "Böcek",
-        "öğrenciNumarası": "874",
-        "dogum_yili": "1987",
-        "sinif": "4R",
-        "kayıtTarihi": "11/09/2025 06:01:21"
+        "ogrenciNumarasi": "874",
+        "dogumTarihi": "1987",
+        "sinifi": "4R",
+        "kayitTarihi": "11/09/2025 06:01:21"
     },
     {
-        "id": 49,
+        "Id": 49,
         "ad": "Rafet",
         "soyad": "Şeker",
-        "öğrenciNumarası": "162",
-        "dogum_yili": "1971",
-        "sinif": "5R",
-        "kayıtTarihi": "11/09/2025 08:40:43"
+        "ogrenciNumarasi": "162",
+        "dogumTarihi": "1971",
+        "sinifi": "5R",
+        "kayitTarihi": "11/09/2025 08:40:43"
     },
     {
-        "id": 50,
+        "Id": 50,
         "ad": "Rüstem",
         "soyad": "Batumlu",
-        "öğrenciNumarası": "316",
-        "dogum_yili": "1961",
-        "sinif": "3E",
-        "kayıtTarihi": "11/09/2025 12:05:36"
+        "ogrenciNumarasi": "316",
+        "dogumTarihi": "1961",
+        "sinifi": "3E",
+        "kayitTarihi": "11/09/2025 12:05:36"
     },
     {
-        "id": 51,
+        "Id": 51,
         "ad": "Lütfü",
         "soyad": "Somun",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "12/09/2025 21:35:37"
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "12/09/2025 21:35:37"
     },
     {
-        "id": 52,
-        "ad": "jjjj",
+        "Id": 52,
+        "ad": "Hırsız Ekrem",
         "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "14/09/2025 22:22:52"
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "4f",
+        "kayitTarihi": "19/09/2025 07:18:38"
     },
     {
-        "id": 53,
-        "ad": "jjjjj",
+        "Id": 53,
+        "ad": "İngiliz Özgür",
         "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "15/09/2025 00:36:19"
-    },
-    {
-        "id": 54,
-        "ad": "öööm",
-        "soyad": "",
-        "öğrenciNumarası": "",
-        "dogum_yili": "",
-        "sinif": "",
-        "kayıtTarihi": "15/09/2025 00:37:06"
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "19/09/2025 07:19:33"
     }
 ]

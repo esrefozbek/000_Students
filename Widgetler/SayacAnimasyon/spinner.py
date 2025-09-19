@@ -6,28 +6,27 @@ c = Console()
 
 
 
-def spinner1(sayi):
+def spinner(duration, WhichText:int): 
+    text="0"    # sayı ve text gönder
+    if WhichText==1:
+        text="[bold green] Ekleniyor...**[/]"
+    if WhichText==2:
+        text="[bold magenta] Siliniyor...[/]"
+    if WhichText==3:
+        text="[bold yellow] Düzeltiliyor...[/]"
+    if WhichText==4:
+        text="[bright_white] Bilgilerin kaydı gerçekleşiyor......[/]"
+    if WhichText==5:
+        text="[bold yellow] Bulunanlar yükleniyor...[/]"
+    if WhichText==6:
+        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor [/]"    
+    
+       
+    with c.status(text, spinner="line"):
+        time.sleep(duration)  # burada uzun süren işlemin olur
 
-    with c.status("[bold green]Yükleniyor...", spinner="dots"):
-        time.sleep(sayi)  # burada uzun süren işlemin olur
+       
 
-
-def spinner2(sayi):
-
-    with c.status("[bold green]Düzeltiliyor...", spinner="dots"):
-        time.sleep(sayi)  # burada uzun süren işlemin olur
-        
-        
-def spinner3(sayi):
-
-    with c.status("[bold green]Bilgilerin kaydı gerçekleşiyor...", spinner="dots"):
-        time.sleep(sayi)  # burada uzun süren işlemin olur
-        
-        
-def spinnersDenemeler(sayi):
-    with c.status("[bold white]SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", spinner="dots"):
-        time.sleep(sayi)  # burada uzun süren işlemin olur
-        
         
 
 from rich._spinners import SPINNERS

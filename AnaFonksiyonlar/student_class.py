@@ -17,22 +17,26 @@ class Ogrenciler():
 
     #NOTE -  BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR
     
-    def __init__(self,  ad, soyad,öğrenciNumarası, dogTarihi,sinifi):
+    def __init__(self,  ad, soyad, ogrenciNumarasi, dogumTarihi, sinifi):
         
-        self.ogrenciId=  TxtYolu.ID_olustur_ve_oku()
+        self.Id=TxtYolu.ID_olustur_ve_oku()
         self.ad=ad
         self.soyad=soyad
-        self.öğrenciNumarası=öğrenciNumarası
-        self.doğumTarihi=dogTarihi
+        self.ogrenciNumarasi=ogrenciNumarasi
+        self.dogumTarihi=dogumTarihi
         self.sinifi=sinifi
-        self.kayıtTarihi = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        self.kayitTarihi = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
       #  console.print ("\n Ogrenciler klasının bir nesnesi oluşturuldu.\n", style="")
         
     
-    def toTuple(self):  #inputla alınan veriler  tuple olarak return edildi. 
-        return (self.ogrenciId, self.ad, self.soyad, self.öğrenciNumarası, self.doğumTarihi,self.sinifi, self.kayıtTarihi)
+    # def toTuple(self):  #inputla alınan veriler  tuple olarak return edildi. 
+    #     return (self.ogrenciId, self.ad, self.soyad, self.ogrenciNumarasi, self.dogumTarihi,self.sinifi, self.kayitTarihi)
 
+    
+    def toDict(self):
+        return {"Id":self.Id, "ad":self.ad, "soyad":self.soyad, "ogrenciNumarasi":self.ogrenciNumarasi, "dogumTarihi":self.dogumTarihi, "sinifi":self.sinifi, "kayitTarihi":self.kayitTarihi  }
+    
         
 
 
