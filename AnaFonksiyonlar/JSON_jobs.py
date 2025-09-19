@@ -22,7 +22,7 @@ def JSONdanImport():
         with open(jsonDosya_adi, "r", encoding="utf-8") as file:
             Geçici_SozlukListesi = json.load(file)
       
-        c.print("\njson:import:Geçici_SozlukListesi[-2:]>>",Geçici_SozlukListesi[-2:])       
+       #^ c.print("\njson:import:Geçici_SozlukListesi[-1:]>>",Geçici_SozlukListesi[-1:])       
         EmptyLists.Jsonda_Mevcut_Veriler.clear() 
         
         import copy

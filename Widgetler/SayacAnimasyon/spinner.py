@@ -19,7 +19,9 @@ def spinner(duration, WhichText:int):
     if WhichText==5:
         text="[bold yellow] Bulunanlar yükleniyor...[/]"
     if WhichText==6:
-        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor [/]"    
+        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor [/]"   
+    if WhichText==7:
+        text="[bold yellow] AnaMenüye Hicret ediliyor...[/]" 
     
        
     with c.status(text, spinner="line"):

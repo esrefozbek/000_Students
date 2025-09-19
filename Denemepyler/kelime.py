@@ -3,7 +3,7 @@ from rich.console import Console; c = Console()
 
 def AramaParametresiOlustur(mesaj:int=0):
     while True:
-        aramaParametresi=klavyeyiDinle.klavyeÖncesiMesaj(mesaj)
+        aramaParametresi=klavyeyiDinle.Mesajlar(mesaj)
 
         if aramaParametresi is None:   #NOTE -  None cevabı  ancak Esc'ye basıldı ise gelir.
             c.print("\n📤 Kullanıcı ESC'ye bastı. Giriş iptal edildi.",style="")

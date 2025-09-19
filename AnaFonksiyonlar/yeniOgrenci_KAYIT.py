@@ -38,7 +38,7 @@ def inputOgr():
                         pass
                               
                 #NOTE -  Burada ad giriliyor, 'Esc'  ye basılırsa yeni öğrenci kayıdı sonlandırılıyor.
-                ad = klavyeyiDinle.klavyeÖncesiMesaj(3)  
+                ad = klavyeyiDinle.Mesajlar(3)  
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
                         c.print(f"\n{toplamKayit} öğrenci bilgisi sağladınız...\n",style="",end="\n")
                         SpinnerPY.spinner(4,4) if toplamKayit>0  else SpinnerPY.spinner(3,6) 

@@ -7,19 +7,23 @@ from rich.box import Box
 from rich.console import Console; c = Console()
 import readchar
 import time
-from AsistanFonksiyonlar.klavyeDinleme import ENTER
-import MenuTablo.canlıTablo as Canlı_Tablo
-import AsistanFonksiyonlar.dilimleme as Dilimleme
 import VERI.emptyLists as EmptyLists
+
 import AnaFonksiyonlar.yeniOgrenci_KAYIT as YeniOgr_KAYIT
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
 import AnaFonksiyonlar.JSON_jobs as AnaModul
-import MenuTablo.menu as Menu
 import AnaFonksiyonlar.ogrenci_SiLME as Ogr_SiL
-import AsistanFonksiyonlar.sırfSORGU as sırfSORGU
+
 import Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 
+import MenuTablo.canlıTablo as Canlı_Tablo
 import MenuTablo.teknikMenü as Tek_Menü
+import MenuTablo.menu as Menu
+import MenuTablo.tablolarPY as TablolarPY
+
+from AsistanFonksiyonlar.klavyeDinleme import ENTER
+import AsistanFonksiyonlar.dilimleme as Dilimleme
+import AsistanFonksiyonlar.sırfSORGU as sırfSORGU
 import AsistanFonksiyonlar.arama as Arama
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
@@ -71,7 +75,7 @@ def startPoint():
                         continue
                     
                     if CHOOSEN not in (1,2,3,4,5,6,7,77,44):
-                        c.print( "❗❗❗❗❗❗❗[bold bright white] Düzgün bir sayı gir ENTER ile devam et[/]❗❗❗❗❗❗", style="blink", end="")
+                        c.print( ":warning: [bold bright white] Düzgün bir sayı gir ENTER ile devam et[/] :warning:", style="blink", end="")
                         input()
                         continue
                    
@@ -80,9 +84,22 @@ def startPoint():
                     
                     if CHOOSEN == 1:#NOTE - YENİ KAYIT
                         YeniOgr_KAYIT.yeniOgrenciKayidi()
+                        
+                        
 
                     elif CHOOSEN==2:#NOTE - BUL
-                        Arama.bul(1)
+                              
+                        while True:
+                            arananlarSTRINGi=Arama.bul(1)  #! Bulunanlar listesine dolum yapılır,
+                           # c.print(">>main>> KRITER >> ", arananlarSTRINGi)
+                            if arananlarSTRINGi is None: break 
+                            if EmptyLists.Bulunanlar:
+                                TablolarPY.TABLO_6lı(EmptyLists.Bulunanlar, arananlarSTRINGi)
+
+                        
+                        
+                        
+                        
 
 
                     elif CHOOSEN ==3: #NOTE -  SİL
@@ -210,7 +227,7 @@ def startPoint():
                         klavyeyiDinle.Enter_ile_devam_et()
 
                     elif selected==6:
-                        menüTipi="sözlüklüListe"
+                        menuTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
                         if EmptyLists.FARK_SozlukListesi:
                             c.print("\nVERİ.SözlüklüListe_:",style="green")
@@ -223,7 +240,7 @@ def startPoint():
                         
 
                     elif selected==7:
-                        menüTipi="tupleliListe"
+                        menuTipi="tupleliListe"
                         listeTipi="tupleliListe"
                         EmptyLists.Jsonda_Mevcut_Veriler.sort()
                             
