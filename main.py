@@ -1,9 +1,14 @@
+from rich.panel import Panel
+from rich import print
+from rich.layout import Layout
 
 # breakpoint()
 
 import sys,os
 from rich.live import Live
 from rich.box import Box
+from rich import box
+from rich.table import Table
 from rich.console import Console; c = Console()
 import readchar
 import time
@@ -35,7 +40,7 @@ import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
 def anamenü_bekletme(scnd):
     with Live(refresh_per_second=2) as live:
         for i in range(scnd, 0, -1):
-            live.update(f"[cyan]⏳ Anamenü açılıyor... {i}[/]")
+            live.update(f"[cyan]⏳ Anamenü açılıyor...yaşaşınnnn {i}[/]")
             time.sleep(1)
             
             
@@ -91,10 +96,15 @@ def startPoint():
                               
                         while True:
                             arananlarSTRINGi=Arama.bul(1)  #! Bulunanlar listesine dolum yapılır,
+                            
                            # c.print(">>main>> KRITER >> ", arananlarSTRINGi)
                             if arananlarSTRINGi is None: break 
-                            if EmptyLists.Bulunanlar:
-                                TablolarPY.TABLO_6lı(EmptyLists.Bulunanlar, arananlarSTRINGi)
+                            if EmptyLists.joinedListSozlukCoklu:
+                                    
+                                                                       
+                                    TablolarPY.genel_TABLO(EmptyLists.joinedListSozlukCoklu)
+                                                     
+
 
                         
                         
@@ -111,7 +121,7 @@ def startPoint():
 
 
                     elif CHOOSEN==4:  #NOTE -  ÇIKIŞ
-                        print("Çıkılıyor. Görüşmek üzere!")
+                        c.print("Çıkılıyor. Görüşmek üzere!")
                         #JSON.JSONaKayıt("öğrenciler.json",VERİ.SözlüklüListe_)
                         #VERİ.SözlüklüListe_.clear()
                         c.print("""\n[bold ]Bak cidden çıkıyorum [bold yellow]emin misin[/]
@@ -141,7 +151,7 @@ def startPoint():
                         
                     elif CHOOSEN == 7: #NOTE -  DİLİMLEME         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
-                        EmptyLists.value=20
+                        EmptyLists.value=25
                         değer=EmptyLists.value
                         Menu.ekranTemizle()
                         AnaModul.JSONdanImport()
@@ -235,7 +245,7 @@ def startPoint():
                                     c.print(i)
                                     
                         else:
-                            print( "Henüz Öğrenci Kaydı girilmedi. ")
+                            c.print( "Henüz Öğrenci Kaydı girilmedi. ")
                         klavyeyiDinle.Enter_ile_devam_et()
                         
 
@@ -250,7 +260,7 @@ def startPoint():
                            # for sözlük in sözlüklüListe:
                                 c.print("\n",EmptyLists.FARK_SozlukListesi,"\n",style="bold")
                         else:
-                            print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
+                            c.print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         klavyeyiDinle.Enter_ile_devam_et()
 
                     elif selected==8:
@@ -260,10 +270,10 @@ def startPoint():
                     elif selected==9:
                         EmptyLists.Jsonda_Mevcut_Veriler.clear()
                         if EmptyLists.Jsonda_Mevcut_Veriler:
-                            print("Tupleli liste dolu")
+                            c.print("Tupleli liste dolu")
                             ENTER()
                         else:
-                            print("Tupleli liste  BOŞŞŞ şuanda.")
+                            c.print("Tupleli liste  BOŞŞŞ şuanda.")
                         ENTER()
                     
                     elif selected==10:

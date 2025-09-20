@@ -2,12 +2,14 @@
 
 import time, re
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
-from rich.console import Console; console = Console()
 import MenuTablo.tablolarPY as TablolarPY,VERI.emptyLists as EmptyLists 
-from rich.live import Live
 import time
+from rich import print as print  # ya da c.print kullanıyorsan onu bırak
 from rich.console import Console; c=Console()
 from rich.spinner import Spinner
+from rich.live import Live
+from rich.columns import Columns
+from rich.panel import Panel
 import AnaFonksiyonlar.JSON_jobs as AnaModul
 import Widgetler.SayacAnimasyon.spinner as Sayac
 import Widgetler.SayacAnimasyon.geriSayar as Geri_Sayar
@@ -20,14 +22,13 @@ kriter=""
 
 
 def bul(GirisMesaji:int):
-        EmptyLists.Bulunanlar.clear()  #!j - Her sorguda önce temizle 
         listeleriCleanEt()
         JSONdan_Import()    #!  her seferinde baştan yükleniyor İyi mi Kötü mü ???
         
         birSTRING=InputwithESCAPE(GirisMesaji) 
         if birSTRING is not None:
             Parsing(birSTRING)  #! KlavyedenGirilenler_Liste=[]  dolduruldu.
-            arama(EmptyLists.birSTRING_Parsing_Listesi)  #! Bulunanlar listesi dolduruldu.
+            arama(EmptyLists.ParsedSTRING_Listesi)  #! Bulunanlar listesi dolduruldu.
         return birSTRING 
 
 
@@ -70,11 +71,14 @@ def InputwithESCAPE(hangiMesajiSecelim:int=0):
 
 def Parsing(metin):
     metin=metin or ""
-    EmptyLists.birSTRING_Parsing_Listesi = re.split(r'[,\s]+', metin) #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
+    EmptyLists.ParsedSTRING_Listesi = re.split(r'[,\s]+', metin) #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
     
 
 
 def arama(aramaParametresi):
+    EmptyLists.joinedListSozlukTek.clear()
+    EmptyLists.joinedListSozlukCoklu.clear()
+    
     c.print("\n")
     kriterListesi=[]
     altListeId=[]
@@ -93,40 +97,121 @@ def arama(aramaParametresi):
                     metin in ogrenci["ad"].lower() or
                     metin in ogrenci["soyad"].lower() ):
                     EmptyLists.Bulunanlar.append(ogrenci)  
-                    altListeId.append(ogrenci["Id"])
-                    altListeAd.append(ogrenci["ad"])
-                    altListeSoyad.append(ogrenci["soyad"])
-                    altListeNumarasi.append(ogrenci["ogrenciNumarasi"])
-                    altListeDogTarihi.append(ogrenci["dogumTarihi"])
-                    altListeSinifi.append(ogrenci["sinifi"])
-                    altListeKayitTarihi.append(ogrenci["kayitTarihi"])
+                    altListeId.append(str(ogrenci["Id"]));
+                    altListeAd.append(ogrenci["ad"]);
+                    altListeSoyad.append(ogrenci["soyad"]);
+                    altListeNumarasi.append(ogrenci["ogrenciNumarasi"]);
+                    altListeDogTarihi.append(ogrenci["dogumTarihi"]);
+                    altListeSinifi.append(ogrenci["sinifi"]);
+                    altListeKayitTarihi.append(ogrenci["kayitTarihi"]);
                 else: continue
-       # cizgi=len(str(len( altListeAd)))*'-'+  (sum(len(s)+4 for s in altListeAd)-2)*'-' + len(metin)*'-' + 36*'-'
-      #  if len(cizgi)>110: cizgi='-'*115
+                
+        joinedId="\n".join(altListeId)  
+        joinedAd="\n".join(altListeAd) 
+        joinedSoyad="\n".join(altListeSoyad)  
+        joinedNumara="\n".join(altListeNumarasi) 
+        joinedDogTar="\n".join(altListeDogTarihi)
+        joinedSinif="\n".join(altListeSinifi)
+        joinedKayitTarihi="\n".join(altListeKayitTarihi)
+        EmptyLists.joinedListTek=[
+                    metin,
+                    joinedId,
+                    joinedAd,
+                    joinedSoyad,
+                    joinedNumara,
+                    joinedDogTar,
+                    joinedSinif,
+                    joinedKayitTarihi,
+                               ]
         
+        EmptyLists.joinedListSozlukTek=[{
+                    "metin":metin,
+                    "Id":joinedId,
+                    "ad":joinedAd,
+                    "soyad":joinedSoyad,
+                    "ogrenciNumarasi":joinedNumara,
+                    "dogumTarihi":joinedDogTar,
+                    "sinifi":joinedSinif,
+                    "kayitTarihi":joinedKayitTarihi,}
+                                     ]
+        
+       #^ TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukTek, metin)    
+        
+        
+        
+        
+        # c.print("Id: \n",joinedId, end="\n")
+        # c.print("Ad: \n",joinedAd, end="\n")
+        # c.print("Soyad:\n",joinedSoyad, end="\n")
+        # c.print("Numara: \n",joinedNumara, end="\n")
+        # c.print("Doğum Tarihi:\n",joinedDogTar, end="\n")
+        # c.print("Sınıf: \n",joinedSinif, end="\n")
+        # c.print("Kayıt Tarihi: \n",joinedKayitTarihi, end="\n")  
+        
+          
+                
         if EmptyLists.Bulunanlar:
-               #     c.print("\n",cizgi, style="bold green", end="\n")
+                    
+                    # c.print(f"\n'[bright_yellow]{metin}[/]' kriterine uyan {len(EmptyLists.Bulunanlar)-birOncekiToplam} öğrenci bulundu.", end="\n")
+                    from rich.panel import Panel
+                    from rich.text import Text
+
+                    text_joinedId = Text(joinedId, style="bold yellow")
+                   
+                    
+                    
+                    
                     
                     from rich.panel import Panel
-                    from rich import print as print  # ya da c.print kullanıyorsan onu bırak
-
+                    icerikler=[ 
+                    Panel(text_joinedId, title="Id",border_style="plum1"),
+                    Panel(joinedAd, title="Ad",border_style="green1"),
+                    Panel(joinedSoyad, title="Soyad"),
+                    Panel(joinedNumara, title="No'su"),
+                    Panel(joinedDogTar, title="Doğ Tarihi"),
+                    Panel(joinedSinif, title="Sınıf"),
+                    Panel(joinedKayitTarihi, title="Kayıt Tarihi",border_style="khaki1"),
+                    ]
                     
-                    mesaj = f"[bold yellow]{metin}[/] kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{altListeAd}"
-                    c.print(Panel.fit(mesaj, title="", border_style="green"))
                     
-                  #  c.print(f" {metin} kriterine uyan {len(EmptyLists.Bulunanlar)-birOncekiToplam} öğrenci bulundu. {altListeAd} ", end="")
+                    mesaj = f" \"  [bright_white on red]  {metin}  [/]  \" kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{altListeAd}"
+                    kolonlar=Columns(icerikler)
+                    
+                    mesaj=str(mesaj)
+                   #^ c.print(Panel.fit(mesaj, title="", border_style="green"))
+                   #^ c.print(kolonlar)
+                    c.print(Panel.fit(kolonlar, title=mesaj, title_align="right", subtitle="Alt", subtitle_align="right",border_style="grey39"))
+                    
+                    
+                   #^^ TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukTek, metin)    
+                    EmptyLists.joinedListSozlukCoklu.append(EmptyLists.joinedListSozlukTek[0])    #^! listenin sözlük elemanını diğer listeye append ediyoruz. 
+                   
+                   
+                   #^ c.print("joinedList\n",EmptyLists.joinedList)  
+                  #  TablolarPY.TABLO_6lı()
+                    
+                #   TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukCoklu, )    
+                  
                     birOncekiToplam=len(EmptyLists.Bulunanlar) 
-                    altListeId.clear()
+                    altListeId.clear();joinedId=""
                     altListeAd.clear()
                     altListeSoyad.clear()
                     altListeNumarasi.clear()
                     altListeDogTarihi.clear()
                     altListeSinifi.clear()
                     altListeKayitTarihi.clear()
+                    
+                    joinedId=""
+                    joinedAd=""
+                    joinedSoyad=""
+                    joinedNumara=""
+                    joinedDogTar=""
+                    joinedSinif=""
+                    joinedKayitTarihi=""
         else:
-                    c.print(f" {aramaParametresi} Bu kritere uyan bir öğrenci bulamadım, Üzgünüm.")     
-        
+                    c.print(f" {metin} kriteriyle uyuşan bir öğrenci bulamadım, Üzgünüm.")     
 
+    
     return aramaParametresi
 
 

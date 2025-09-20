@@ -1,7 +1,7 @@
 Bulunanlar=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
 TupleListesi=[]
 Jsonda_Mevcut_Veriler=[]  
-birSTRING_Parsing_Listesi=[]
+ParsedSTRING_Listesi=[]
 
 
 
@@ -31,5 +31,11 @@ value=6
 
 
 
-dilimListe=[]
-alt_liste=[]
+ListeDilimi=[]
+Dilimlenmiş_alt_liste=[]
+
+
+joinedListTek=[]
+joinedListSozlukTek=[]
+joinedListCoklu=[]
+joinedListSozlukCoklu=[]

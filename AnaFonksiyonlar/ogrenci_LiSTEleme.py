@@ -10,7 +10,7 @@ import AsistanFonksiyonlar.dilimleme as Dilimleme
 # Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
 def altAltaOgrenciListesi(value):
     kaçarKaçar = value if value is not None else 8  # kaçarlı dilimler yapalım        
-    EmptyLists.Jsonda_Mevcut_Veriler.sort()
+    EmptyLists.Jsonda_Mevcut_Veriler
     Dilimleme.gptDilimleme(kaçarKaçar, liste=EmptyLists.Jsonda_Mevcut_Veriler) 
     
 
@@ -18,7 +18,7 @@ def silinmişKayıtlılarListesiDökümü():
     menüTipi="Silinmişler"
     listeTipi="Silinmişler"
     if EmptyLists.silindilerListesi:
-        TablolarPY.TABLO_6lı(EmptyLists.silindilerListesi,menüTipi, listeTipi )
+        TablolarPY.genel_TABLO(EmptyLists.silindilerListesi, )
     else:
         print( "Henüz Öğrenci Kayıdı silinmedi. ")
 
@@ -27,7 +27,7 @@ def yeniOgrListesiDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
     if EmptyLists.eklendilerListesi:     
-        TablolarPY.TABLO_6lı(EmptyLists.eklendilerListesi,menüTipi, listeTipi )
+        TablolarPY.genel_TABLO(EmptyLists.eklendilerListesi, )
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
         
@@ -36,7 +36,7 @@ def yeniOgrListesiSözlükDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
     if EmptyLists.SozlukluListe_Kopya:     
-        TablolarPY.TABLO_6lı(EmptyLists.SozlukluListe_Kopya,menüTipi, listeTipi )
+        TablolarPY.genel_TABLO(EmptyLists.SozlukluListe_Kopya,)
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
 

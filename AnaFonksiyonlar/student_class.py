@@ -25,7 +25,7 @@ class Ogrenciler():
         self.ogrenciNumarasi=ogrenciNumarasi
         self.dogumTarihi=dogumTarihi
         self.sinifi=sinifi
-        self.kayitTarihi = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        self.kayitTarihi = datetime.now().strftime("%d/%m/%Y")
 
       #  console.print ("\n Ogrenciler klasının bir nesnesi oluşturuldu.\n", style="")
         

@@ -12,17 +12,17 @@ def dilimleme(value,liste):
     menüTipi="Dilimlenmiş Ana Liste"
     listeTipi="Dilimlenmiş Tüm Liste"
     kaçarKaçar = value if value is not None else 10  # kaçarlı dilimler yapalım
-    EmptyLists.dilimListe = []
+    EmptyLists.ListeDilimi = []
     for idx, i in enumerate(liste):
-        EmptyLists.dilimListe.append(i)
+        EmptyLists.ListeDilimi.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TablolarPY.TABLO_6lı(EmptyLists.dilimListe, menüTipi=f"Dilim {(idx // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(idx // kaçarKaçar) + 1}")
-            EmptyLists.dilimListe = []  # Dilimi sıfırla
+            TablolarPY.genel_TABLO(EmptyLists.ListeDilimi, )
+            EmptyLists.ListeDilimi = []  # Dilimi sıfırla
             klavyeyiDinle.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
-    if EmptyLists.dilimListe:  # Eğer dilimListe boş değilse
-        TablolarPY.TABLO_6lı(EmptyLists.dilimListe, menüTipi=f"Dilim {(len(liste) // kaçarKaçar) + 1}", listeTipi=f"Liste Dilimi {(len(liste) // kaçarKaçar) + 1}")
+    if EmptyLists.ListeDilimi:  # Eğer dilimListe boş değilse
+        TablolarPY.genel_TABLO(EmptyLists.ListeDilimi, )
         klavyeyiDinle.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
@@ -36,8 +36,8 @@ def gptDilimleme(value,liste: list):
     for i in range(toplam_sayfa):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
-        EmptyLists.alt_liste = liste[baslangic:bitis] 
-        TablolarPY.TABLO_6lı(EmptyLists.alt_liste, menüTipi,  listeTipi)
+        EmptyLists.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
+        TablolarPY.genel_TABLO(EmptyLists.Dilimlenmiş_alt_liste, )
         klavyeyiDinle.Enter_ile_devam_et()
         if i>1:
             print("\n\n")
