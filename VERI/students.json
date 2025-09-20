@@ -1,659 +1,1082 @@
 [
     {
         "Id": 1,
-        "ad": "Dirlik",
-        "soyad": "Erdoğan",
+        "ad": "Alabezek",
+        "soyad": "Ülker",
         "ogrenciNumarasi": "1001",
-        "dogumTarihi": "25/09/2014",
-        "sinifi": "7F",
-        "kayitTarihi": "15/09/2025"
+        "dogumTarihi": "20/09/2012",
+        "sinifi": "7A",
+        "kayitTarihi": "08/09/2025"
     },
     {
         "Id": 2,
-        "ad": "Gülüs",
-        "soyad": "Şener",
+        "ad": "Velitdin",
+        "soyad": "Yorulmaz",
         "ogrenciNumarasi": "1002",
-        "dogumTarihi": "25/03/2014",
-        "sinifi": "6G",
-        "kayitTarihi": "08/09/2025"
+        "dogumTarihi": "07/09/2013",
+        "sinifi": "4G",
+        "kayitTarihi": "12/09/2025"
     },
     {
         "Id": 3,
-        "ad": "Erdursun",
-        "soyad": "Kısakürek",
+        "ad": "Nasiba",
+        "soyad": "Tevetoğlu",
         "ogrenciNumarasi": "1003",
-        "dogumTarihi": "22/09/2013",
-        "sinifi": "6B",
-        "kayitTarihi": "04/09/2025"
+        "dogumTarihi": "30/10/2012",
+        "sinifi": "8G",
+        "kayitTarihi": "03/09/2025"
     },
     {
         "Id": 4,
-        "ad": "Aktemür",
-        "soyad": "İnönü",
+        "ad": "Toğan",
+        "soyad": "Yılmaz",
         "ogrenciNumarasi": "1004",
-        "dogumTarihi": "07/05/2014",
-        "sinifi": "4G",
-        "kayitTarihi": "09/09/2025"
-    },
-    {
-        "Id": 5,
-        "ad": "Esentürk",
-        "soyad": "Bilgin",
-        "ogrenciNumarasi": "1005",
-        "dogumTarihi": "20/11/2015",
-        "sinifi": "4C",
-        "kayitTarihi": "03/09/2025"
-    },
-    {
-        "Id": 6,
-        "ad": "Günsel",
-        "soyad": "Akçay",
-        "ogrenciNumarasi": "1006",
-        "dogumTarihi": "14/12/2012",
-        "sinifi": "8D",
-        "kayitTarihi": "15/09/2025"
-    },
-    {
-        "Id": 7,
-        "ad": "Sırriye",
-        "soyad": "Seven",
-        "ogrenciNumarasi": "1007",
-        "dogumTarihi": "20/06/2014",
-        "sinifi": "7B",
-        "kayitTarihi": "12/09/2025"
-    },
-    {
-        "Id": 8,
-        "ad": "Ferat",
-        "soyad": "Güçlü",
-        "ogrenciNumarasi": "1008",
-        "dogumTarihi": "26/07/2014",
-        "sinifi": "8A",
-        "kayitTarihi": "15/09/2025"
-    },
-    {
-        "Id": 9,
-        "ad": "Meşhur",
-        "soyad": "Aslan",
-        "ogrenciNumarasi": "1009",
-        "dogumTarihi": "01/07/2013",
-        "sinifi": "6D",
-        "kayitTarihi": "04/09/2025"
-    },
-    {
-        "Id": 10,
-        "ad": "Simten",
-        "soyad": "Akgündüz",
-        "ogrenciNumarasi": "1010",
-        "dogumTarihi": "11/10/2012",
-        "sinifi": "6D",
-        "kayitTarihi": "01/09/2025"
-    },
-    {
-        "Id": 11,
-        "ad": "Gilman",
-        "soyad": "Bilge",
-        "ogrenciNumarasi": "1011",
-        "dogumTarihi": "24/01/2015",
-        "sinifi": "5F",
-        "kayitTarihi": "19/09/2025"
-    },
-    {
-        "Id": 12,
-        "ad": "Menfeat",
-        "soyad": "Tevetoğlu",
-        "ogrenciNumarasi": "1012",
-        "dogumTarihi": "09/09/2017",
-        "sinifi": "5H",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 13,
-        "ad": "Hayret",
-        "soyad": "Korutürk",
-        "ogrenciNumarasi": "1013",
-        "dogumTarihi": "01/02/2014",
-        "sinifi": "7H",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 14,
-        "ad": "Hekmet",
-        "soyad": "Gül",
-        "ogrenciNumarasi": "1014",
-        "dogumTarihi": "13/03/2015",
-        "sinifi": "7A",
-        "kayitTarihi": "05/09/2025"
-    },
-    {
-        "Id": 15,
-        "ad": "Mülâyim",
-        "soyad": "Sezer",
-        "ogrenciNumarasi": "1015",
-        "dogumTarihi": "28/11/2014",
-        "sinifi": "4B",
-        "kayitTarihi": "03/09/2025"
-    },
-    {
-        "Id": 16,
-        "ad": "Münif",
-        "soyad": "Çetin",
-        "ogrenciNumarasi": "1016",
-        "dogumTarihi": "07/05/2014",
-        "sinifi": "6A",
-        "kayitTarihi": "04/09/2025"
-    },
-    {
-        "Id": 17,
-        "ad": "Hurşide",
-        "soyad": "Sezer",
-        "ogrenciNumarasi": "1017",
-        "dogumTarihi": "13/02/2015",
-        "sinifi": "5H",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 18,
-        "ad": "Canfeza",
-        "soyad": "Tarhan",
-        "ogrenciNumarasi": "1018",
-        "dogumTarihi": "15/07/2013",
-        "sinifi": "5C",
-        "kayitTarihi": "04/09/2025"
-    },
-    {
-        "Id": 19,
-        "ad": "Azettin",
-        "soyad": "Şafak",
-        "ogrenciNumarasi": "1019",
-        "dogumTarihi": "21/04/2015",
-        "sinifi": "7G",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 20,
-        "ad": "Nural",
-        "soyad": "Manço",
-        "ogrenciNumarasi": "1020",
-        "dogumTarihi": "03/07/2016",
-        "sinifi": "8B",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 21,
-        "ad": "Algış",
-        "soyad": "İnönü",
-        "ogrenciNumarasi": "1021",
-        "dogumTarihi": "15/02/2015",
-        "sinifi": "5C",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 22,
-        "ad": "Besin",
-        "soyad": "Akar",
-        "ogrenciNumarasi": "1022",
-        "dogumTarihi": "10/09/2014",
-        "sinifi": "6F",
-        "kayitTarihi": "14/09/2025"
-    },
-    {
-        "Id": 23,
-        "ad": "Günsel",
-        "soyad": "Eraslan",
-        "ogrenciNumarasi": "1023",
-        "dogumTarihi": "29/01/2015",
+        "dogumTarihi": "02/01/2016",
         "sinifi": "6B",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 24,
-        "ad": "Koncagül",
-        "soyad": "Erdoğan",
-        "ogrenciNumarasi": "1024",
-        "dogumTarihi": "24/08/2014",
-        "sinifi": "5A",
-        "kayitTarihi": "15/09/2025"
-    },
-    {
-        "Id": 25,
-        "ad": "Elamiye",
-        "soyad": "Akçay",
-        "ogrenciNumarasi": "1025",
-        "dogumTarihi": "25/02/2013",
-        "sinifi": "8G",
-        "kayitTarihi": "16/09/2025"
-    },
-    {
-        "Id": 26,
-        "ad": "Habibe",
-        "soyad": "Akgündüz",
-        "ogrenciNumarasi": "1026",
-        "dogumTarihi": "17/05/2014",
-        "sinifi": "4H",
-        "kayitTarihi": "19/09/2025"
-    },
-    {
-        "Id": 27,
-        "ad": "Müzekker",
-        "soyad": "Arsoy",
-        "ogrenciNumarasi": "1027",
-        "dogumTarihi": "08/10/2014",
-        "sinifi": "6H",
-        "kayitTarihi": "10/09/2025"
-    },
-    {
-        "Id": 28,
-        "ad": "Ferat",
-        "soyad": "Ergül",
-        "ogrenciNumarasi": "1028",
-        "dogumTarihi": "23/02/2014",
-        "sinifi": "7D",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 29,
-        "ad": "Demiryürek",
-        "soyad": "Bilir",
-        "ogrenciNumarasi": "1029",
-        "dogumTarihi": "21/01/2014",
-        "sinifi": "5G",
-        "kayitTarihi": "12/09/2025"
-    },
-    {
-        "Id": 30,
-        "ad": "Gürsal",
-        "soyad": "Şener",
-        "ogrenciNumarasi": "1030",
-        "dogumTarihi": "12/01/2014",
-        "sinifi": "7G",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 31,
-        "ad": "Şeyda",
-        "soyad": "Durmuş",
-        "ogrenciNumarasi": "1031",
-        "dogumTarihi": "20/12/2015",
-        "sinifi": "7E",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 32,
-        "ad": "Akar",
-        "soyad": "Çorlu",
-        "ogrenciNumarasi": "1032",
-        "dogumTarihi": "03/04/2013",
-        "sinifi": "8B",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 33,
-        "ad": "Nurhayet",
-        "soyad": "Güçlü",
-        "ogrenciNumarasi": "1033",
-        "dogumTarihi": "16/01/2013",
-        "sinifi": "7G",
-        "kayitTarihi": "14/09/2025"
-    },
-    {
-        "Id": 34,
-        "ad": "Yahşikan",
-        "soyad": "Fırat",
-        "ogrenciNumarasi": "1034",
-        "dogumTarihi": "07/10/2014",
-        "sinifi": "4D",
-        "kayitTarihi": "04/09/2025"
-    },
-    {
-        "Id": 35,
-        "ad": "Göken",
-        "soyad": "Sezer",
-        "ogrenciNumarasi": "1035",
-        "dogumTarihi": "11/01/2014",
-        "sinifi": "6C",
-        "kayitTarihi": "05/09/2025"
-    },
-    {
-        "Id": 36,
-        "ad": "Özgün",
-        "soyad": "Tarhan",
-        "ogrenciNumarasi": "1036",
-        "dogumTarihi": "09/12/2013",
-        "sinifi": "5A",
-        "kayitTarihi": "07/09/2025"
-    },
-    {
-        "Id": 37,
-        "ad": "Siper",
-        "soyad": "Demir",
-        "ogrenciNumarasi": "1037",
-        "dogumTarihi": "05/02/2017",
-        "sinifi": "4F",
-        "kayitTarihi": "07/09/2025"
-    },
-    {
-        "Id": 38,
-        "ad": "Gökay",
-        "soyad": "Hançer",
-        "ogrenciNumarasi": "1038",
-        "dogumTarihi": "19/08/2013",
-        "sinifi": "6D",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 39,
-        "ad": "Bayruhan",
-        "soyad": "Sezer",
-        "ogrenciNumarasi": "1039",
-        "dogumTarihi": "10/01/2014",
-        "sinifi": "4B",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 40,
-        "ad": "Hami",
-        "soyad": "Arslan",
-        "ogrenciNumarasi": "1040",
-        "dogumTarihi": "02/04/2014",
-        "sinifi": "7D",
-        "kayitTarihi": "13/09/2025"
-    },
-    {
-        "Id": 41,
-        "ad": "Temuçin",
-        "soyad": "Sezer",
-        "ogrenciNumarasi": "1041",
-        "dogumTarihi": "04/06/2014",
-        "sinifi": "7B",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 42,
-        "ad": "Nilcan",
-        "soyad": "Gül",
-        "ogrenciNumarasi": "1042",
-        "dogumTarihi": "26/08/2014",
-        "sinifi": "6D",
-        "kayitTarihi": "09/09/2025"
-    },
-    {
-        "Id": 43,
-        "ad": "Beriye",
-        "soyad": "Akça",
-        "ogrenciNumarasi": "1043",
-        "dogumTarihi": "02/05/2016",
-        "sinifi": "6C",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 44,
-        "ad": "Çağa",
-        "soyad": "Akçay",
-        "ogrenciNumarasi": "1044",
-        "dogumTarihi": "28/12/2012",
-        "sinifi": "7D",
-        "kayitTarihi": "09/09/2025"
-    },
-    {
-        "Id": 45,
-        "ad": "Tan",
-        "soyad": "Gül",
-        "ogrenciNumarasi": "1045",
-        "dogumTarihi": "24/04/2017",
-        "sinifi": "4C",
-        "kayitTarihi": "17/09/2025"
-    },
-    {
-        "Id": 46,
-        "ad": "Kasim",
-        "soyad": "Ülker",
-        "ogrenciNumarasi": "1046",
-        "dogumTarihi": "19/04/2015",
-        "sinifi": "6B",
-        "kayitTarihi": "06/09/2025"
-    },
-    {
-        "Id": 47,
-        "ad": "İnsaf",
-        "soyad": "Mansız",
-        "ogrenciNumarasi": "1047",
-        "dogumTarihi": "14/02/2017",
-        "sinifi": "5H",
-        "kayitTarihi": "12/09/2025"
-    },
-    {
-        "Id": 48,
-        "ad": "Tekbay",
-        "soyad": "Erdoğan",
-        "ogrenciNumarasi": "1048",
-        "dogumTarihi": "26/05/2013",
-        "sinifi": "4G",
-        "kayitTarihi": "01/09/2025"
-    },
-    {
-        "Id": 49,
-        "ad": "Tonguç",
-        "soyad": "İnönü",
-        "ogrenciNumarasi": "1049",
-        "dogumTarihi": "22/10/2015",
-        "sinifi": "5H",
         "kayitTarihi": "08/09/2025"
     },
     {
-        "Id": 50,
-        "ad": "Havali",
-        "soyad": "Tarhan",
-        "ogrenciNumarasi": "1050",
-        "dogumTarihi": "25/08/2014",
-        "sinifi": "5C",
-        "kayitTarihi": "13/09/2025"
+        "Id": 5,
+        "ad": "Uraltay",
+        "soyad": "Akça",
+        "ogrenciNumarasi": "1005",
+        "dogumTarihi": "13/06/2016",
+        "sinifi": "7E",
+        "kayitTarihi": "11/09/2025"
     },
     {
-        "Id": 51,
-        "ad": "Musaffa",
-        "soyad": "Yüksel",
-        "ogrenciNumarasi": "1051",
-        "dogumTarihi": "27/09/2015",
-        "sinifi": "6H",
-        "kayitTarihi": "09/09/2025"
-    },
-    {
-        "Id": 52,
-        "ad": "Yekbun",
-        "soyad": "Karadeniz",
-        "ogrenciNumarasi": "1052",
-        "dogumTarihi": "12/11/2013",
-        "sinifi": "8H",
-        "kayitTarihi": "14/09/2025"
-    },
-    {
-        "Id": 53,
-        "ad": "Serol",
-        "soyad": "Korutürk",
-        "ogrenciNumarasi": "1053",
-        "dogumTarihi": "08/06/2017",
-        "sinifi": "5B",
-        "kayitTarihi": "16/09/2025"
-    },
-    {
-        "Id": 54,
-        "ad": "Şendoğan",
-        "soyad": "Arslan",
-        "ogrenciNumarasi": "1054",
-        "dogumTarihi": "24/03/2015",
+        "Id": 6,
+        "ad": "Ağakişi",
+        "soyad": "Seven",
+        "ogrenciNumarasi": "1006",
+        "dogumTarihi": "03/09/2017",
         "sinifi": "6C",
-        "kayitTarihi": "14/09/2025"
+        "kayitTarihi": "01/09/2025"
     },
     {
-        "Id": 55,
-        "ad": "Alaz",
-        "soyad": "Eraslan",
-        "ogrenciNumarasi": "1055",
-        "dogumTarihi": "03/06/2013",
-        "sinifi": "8A",
+        "Id": 7,
+        "ad": "Zelha",
+        "soyad": "İnönü",
+        "ogrenciNumarasi": "1007",
+        "dogumTarihi": "18/12/2015",
+        "sinifi": "5H",
         "kayitTarihi": "19/09/2025"
     },
     {
-        "Id": 56,
-        "ad": "Kezban",
-        "soyad": "Sezgin",
-        "ogrenciNumarasi": "1056",
-        "dogumTarihi": "03/12/2015",
-        "sinifi": "4D",
-        "kayitTarihi": "10/09/2025"
-    },
-    {
-        "Id": 57,
-        "ad": "Akalan",
-        "soyad": "Sakarya",
-        "ogrenciNumarasi": "1057",
-        "dogumTarihi": "25/05/2014",
-        "sinifi": "6F",
-        "kayitTarihi": "02/09/2025"
-    },
-    {
-        "Id": 58,
-        "ad": "Teksoy",
-        "soyad": "Zengin",
-        "ogrenciNumarasi": "1058",
-        "dogumTarihi": "05/05/2013",
-        "sinifi": "6B",
-        "kayitTarihi": "18/09/2025"
-    },
-    {
-        "Id": 59,
-        "ad": "Nehip",
-        "soyad": "Demir",
-        "ogrenciNumarasi": "1059",
-        "dogumTarihi": "11/08/2014",
-        "sinifi": "5G",
-        "kayitTarihi": "15/09/2025"
-    },
-    {
-        "Id": 60,
-        "ad": "Sebigül",
-        "soyad": "Yıldırım",
-        "ogrenciNumarasi": "1060",
-        "dogumTarihi": "04/01/2014",
-        "sinifi": "7A",
-        "kayitTarihi": "12/09/2025"
-    },
-    {
-        "Id": 61,
-        "ad": "Aybet",
-        "soyad": "Sezgin",
-        "ogrenciNumarasi": "1061",
-        "dogumTarihi": "24/02/2014",
-        "sinifi": "6G",
-        "kayitTarihi": "18/09/2025"
-    },
-    {
-        "Id": 62,
-        "ad": "İlklima",
-        "soyad": "Yüksel",
-        "ogrenciNumarasi": "1062",
-        "dogumTarihi": "17/05/2016",
-        "sinifi": "5A",
+        "Id": 8,
+        "ad": "Armahan",
+        "soyad": "Şener",
+        "ogrenciNumarasi": "1008",
+        "dogumTarihi": "12/10/2012",
+        "sinifi": "8H",
         "kayitTarihi": "03/09/2025"
     },
     {
-        "Id": 63,
-        "ad": "Minibe",
-        "soyad": "Dumanlı",
-        "ogrenciNumarasi": "1063",
-        "dogumTarihi": "20/09/2016",
-        "sinifi": "8D",
+        "Id": 9,
+        "ad": "Yamin",
+        "soyad": "Bilge",
+        "ogrenciNumarasi": "1009",
+        "dogumTarihi": "03/01/2015",
+        "sinifi": "6H",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 10,
+        "ad": "Birben",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1010",
+        "dogumTarihi": "07/07/2015",
+        "sinifi": "5G",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 11,
+        "ad": "Ahter",
+        "soyad": "Zorlu",
+        "ogrenciNumarasi": "1011",
+        "dogumTarihi": "29/03/2016",
+        "sinifi": "6E",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 12,
+        "ad": "Kutay",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1012",
+        "dogumTarihi": "22/02/2013",
+        "sinifi": "6A",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 13,
+        "ad": "Gücal",
+        "soyad": "Akça",
+        "ogrenciNumarasi": "1013",
+        "dogumTarihi": "20/06/2014",
+        "sinifi": "6D",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 14,
+        "ad": "Emine.",
+        "soyad": "Manço",
+        "ogrenciNumarasi": "1014",
+        "dogumTarihi": "23/03/2015",
+        "sinifi": "5H",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 15,
+        "ad": "Anargül",
+        "soyad": "Ertaş",
+        "ogrenciNumarasi": "1015",
+        "dogumTarihi": "25/12/2016",
+        "sinifi": "7E",
+        "kayitTarihi": "10/09/2025"
+    },
+    {
+        "Id": 16,
+        "ad": "Temizkal",
+        "soyad": "Durdu",
+        "ogrenciNumarasi": "1016",
+        "dogumTarihi": "26/03/2015",
+        "sinifi": "7C",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 17,
+        "ad": "Sami",
+        "soyad": "Karadeniz",
+        "ogrenciNumarasi": "1017",
+        "dogumTarihi": "25/10/2013",
+        "sinifi": "6B",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 18,
+        "ad": "Melikkan",
+        "soyad": "Bilgin",
+        "ogrenciNumarasi": "1018",
+        "dogumTarihi": "21/10/2016",
+        "sinifi": "7D",
+        "kayitTarihi": "07/09/2025"
+    },
+    {
+        "Id": 19,
+        "ad": "Emine.",
+        "soyad": "Bilgin",
+        "ogrenciNumarasi": "1019",
+        "dogumTarihi": "02/10/2012",
+        "sinifi": "4G",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 20,
+        "ad": "Urhan",
+        "soyad": "Şener",
+        "ogrenciNumarasi": "1020",
+        "dogumTarihi": "02/10/2016",
+        "sinifi": "6H",
         "kayitTarihi": "06/09/2025"
     },
     {
-        "Id": 64,
-        "ad": "Oliver",
-        "soyad": "Duran",
-        "ogrenciNumarasi": "1064",
-        "dogumTarihi": "16/11/2015",
+        "Id": 21,
+        "ad": "Mengüç",
+        "soyad": "Soylu",
+        "ogrenciNumarasi": "1021",
+        "dogumTarihi": "18/02/2015",
+        "sinifi": "5H",
+        "kayitTarihi": "19/09/2025"
+    },
+    {
+        "Id": 22,
+        "ad": "Müveddet",
+        "soyad": "Karadeniz",
+        "ogrenciNumarasi": "1022",
+        "dogumTarihi": "12/03/2014",
+        "sinifi": "5A",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 23,
+        "ad": "Sezal",
+        "soyad": "Alemdar",
+        "ogrenciNumarasi": "1023",
+        "dogumTarihi": "03/04/2016",
+        "sinifi": "7A",
+        "kayitTarihi": "01/09/2025"
+    },
+    {
+        "Id": 24,
+        "ad": "Sayin",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1024",
+        "dogumTarihi": "10/10/2014",
+        "sinifi": "5B",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 25,
+        "ad": "Alaz",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1025",
+        "dogumTarihi": "29/04/2013",
+        "sinifi": "7G",
+        "kayitTarihi": "07/09/2025"
+    },
+    {
+        "Id": 26,
+        "ad": "Deha",
+        "soyad": "Gül",
+        "ogrenciNumarasi": "1026",
+        "dogumTarihi": "23/01/2014",
+        "sinifi": "7G",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 27,
+        "ad": "Durmuşali",
+        "soyad": "İnönü",
+        "ogrenciNumarasi": "1027",
+        "dogumTarihi": "14/02/2016",
+        "sinifi": "6E",
+        "kayitTarihi": "09/09/2025"
+    },
+    {
+        "Id": 28,
+        "ad": "Müzekker",
+        "soyad": "Yıldırım",
+        "ogrenciNumarasi": "1028",
+        "dogumTarihi": "03/10/2014",
+        "sinifi": "7H",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 29,
+        "ad": "Bediriye",
+        "soyad": "Bilge",
+        "ogrenciNumarasi": "1029",
+        "dogumTarihi": "15/08/2017",
+        "sinifi": "8F",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 30,
+        "ad": "Çıdal",
+        "soyad": "Şensoy",
+        "ogrenciNumarasi": "1030",
+        "dogumTarihi": "23/04/2013",
+        "sinifi": "6G",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 31,
+        "ad": "Rasul",
+        "soyad": "İhsanoğlu",
+        "ogrenciNumarasi": "1031",
+        "dogumTarihi": "29/01/2013",
+        "sinifi": "8H",
+        "kayitTarihi": "10/09/2025"
+    },
+    {
+        "Id": 32,
+        "ad": "Nuyan",
+        "soyad": "Durdu",
+        "ogrenciNumarasi": "1032",
+        "dogumTarihi": "02/06/2016",
+        "sinifi": "5C",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 33,
+        "ad": "Asiman",
+        "soyad": "Gül",
+        "ogrenciNumarasi": "1033",
+        "dogumTarihi": "11/06/2016",
+        "sinifi": "5D",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 34,
+        "ad": "Rumeysa",
+        "soyad": "Hançer",
+        "ogrenciNumarasi": "1034",
+        "dogumTarihi": "22/10/2012",
+        "sinifi": "8D",
+        "kayitTarihi": "16/09/2025"
+    },
+    {
+        "Id": 35,
+        "ad": "Dilsitan",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1035",
+        "dogumTarihi": "07/05/2013",
+        "sinifi": "4D",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 36,
+        "ad": "Sedife",
+        "soyad": "Çorlu",
+        "ogrenciNumarasi": "1036",
+        "dogumTarihi": "10/12/2015",
         "sinifi": "5E",
         "kayitTarihi": "01/09/2025"
     },
     {
-        "Id": 65,
-        "ad": "Şadıman",
-        "soyad": "Tevetoğlu",
-        "ogrenciNumarasi": "1065",
-        "dogumTarihi": "27/02/2016",
-        "sinifi": "5C",
-        "kayitTarihi": "12/09/2025"
+        "Id": 37,
+        "ad": "Bariş",
+        "soyad": "Durmuş",
+        "ogrenciNumarasi": "1037",
+        "dogumTarihi": "02/03/2017",
+        "sinifi": "6G",
+        "kayitTarihi": "09/09/2025"
     },
     {
-        "Id": 66,
-        "ad": "Sevdi",
-        "soyad": "Bilgin",
-        "ogrenciNumarasi": "1066",
-        "dogumTarihi": "21/04/2013",
+        "Id": 38,
+        "ad": "Nurveren",
+        "soyad": "Hayrioğlu",
+        "ogrenciNumarasi": "1038",
+        "dogumTarihi": "22/04/2015",
+        "sinifi": "8A",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 39,
+        "ad": "Atnan",
+        "soyad": "Arsoy",
+        "ogrenciNumarasi": "1039",
+        "dogumTarihi": "25/12/2014",
+        "sinifi": "5E",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 40,
+        "ad": "Dündaralp",
+        "soyad": "Akdeniz",
+        "ogrenciNumarasi": "1040",
+        "dogumTarihi": "30/06/2015",
+        "sinifi": "8B",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 41,
+        "ad": "Zeyno",
+        "soyad": "Ergül",
+        "ogrenciNumarasi": "1041",
+        "dogumTarihi": "04/04/2015",
+        "sinifi": "8A",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 42,
+        "ad": "Okanay",
+        "soyad": "Fırat",
+        "ogrenciNumarasi": "1042",
+        "dogumTarihi": "01/12/2014",
+        "sinifi": "8H",
+        "kayitTarihi": "17/09/2025"
+    },
+    {
+        "Id": 43,
+        "ad": "Yaşar",
+        "soyad": "Demirel",
+        "ogrenciNumarasi": "1043",
+        "dogumTarihi": "01/02/2013",
+        "sinifi": "7C",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 44,
+        "ad": "Sökmen",
+        "soyad": "Arsoy",
+        "ogrenciNumarasi": "1044",
+        "dogumTarihi": "15/12/2012",
+        "sinifi": "8H",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 45,
+        "ad": "Yalazabay",
+        "soyad": "Akçay",
+        "ogrenciNumarasi": "1045",
+        "dogumTarihi": "12/10/2016",
         "sinifi": "8H",
         "kayitTarihi": "03/09/2025"
     },
     {
-        "Id": 67,
-        "ad": "Erinçer",
-        "soyad": "Gül",
-        "ogrenciNumarasi": "1067",
-        "dogumTarihi": "08/11/2015",
-        "sinifi": "7H",
-        "kayitTarihi": "05/09/2025"
+        "Id": 46,
+        "ad": "Akgüneş",
+        "soyad": "Çetin",
+        "ogrenciNumarasi": "1046",
+        "dogumTarihi": "17/08/2013",
+        "sinifi": "5H",
+        "kayitTarihi": "15/09/2025"
     },
     {
-        "Id": 68,
-        "ad": "Süvari",
-        "soyad": "Çorlu",
-        "ogrenciNumarasi": "1068",
-        "dogumTarihi": "24/02/2016",
-        "sinifi": "8D",
-        "kayitTarihi": "11/09/2025"
-    },
-    {
-        "Id": 69,
-        "ad": "Hakikat",
-        "soyad": "Dumanlı",
-        "ogrenciNumarasi": "1069",
-        "dogumTarihi": "18/04/2013",
-        "sinifi": "4A",
-        "kayitTarihi": "01/09/2025"
-    },
-    {
-        "Id": 70,
-        "ad": "Mücevher",
-        "soyad": "Hançer",
-        "ogrenciNumarasi": "1070",
-        "dogumTarihi": "12/09/2015",
+        "Id": 47,
+        "ad": "Uluman",
+        "soyad": "Mansız",
+        "ogrenciNumarasi": "1047",
+        "dogumTarihi": "23/06/2017",
         "sinifi": "4G",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 48,
+        "ad": "Hanim",
+        "soyad": "Şener",
+        "ogrenciNumarasi": "1048",
+        "dogumTarihi": "30/06/2013",
+        "sinifi": "8E",
         "kayitTarihi": "14/09/2025"
     },
     {
-        "Id": 71,
-        "ad": "Uğurkan",
-        "soyad": "Arsoy",
-        "ogrenciNumarasi": "1071",
-        "dogumTarihi": "27/08/2015",
-        "sinifi": "6B",
+        "Id": 49,
+        "ad": "Canur",
+        "soyad": "Yıldırım",
+        "ogrenciNumarasi": "1049",
+        "dogumTarihi": "23/07/2013",
+        "sinifi": "4E",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 50,
+        "ad": "Sadittin",
+        "soyad": "Şafak",
+        "ogrenciNumarasi": "1050",
+        "dogumTarihi": "22/12/2015",
+        "sinifi": "5B",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 51,
+        "ad": "Koçkan",
+        "soyad": "Zorlu",
+        "ogrenciNumarasi": "1051",
+        "dogumTarihi": "22/08/2017",
+        "sinifi": "4D",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 52,
+        "ad": "Tule",
+        "soyad": "Demirel",
+        "ogrenciNumarasi": "1052",
+        "dogumTarihi": "05/08/2013",
+        "sinifi": "7F",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 53,
+        "ad": "Gülşeref",
+        "soyad": "Çorlu",
+        "ogrenciNumarasi": "1053",
+        "dogumTarihi": "14/09/2013",
+        "sinifi": "6D",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 54,
+        "ad": "Ertün",
+        "soyad": "Gül",
+        "ogrenciNumarasi": "1054",
+        "dogumTarihi": "14/08/2016",
+        "sinifi": "8H",
+        "kayitTarihi": "16/09/2025"
+    },
+    {
+        "Id": 55,
+        "ad": "Ayşeana",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1055",
+        "dogumTarihi": "27/08/2017",
+        "sinifi": "8F",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 56,
+        "ad": "Esengün",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1056",
+        "dogumTarihi": "11/09/2015",
+        "sinifi": "8D",
         "kayitTarihi": "06/09/2025"
     },
     {
+        "Id": 57,
+        "ad": "Atnan",
+        "soyad": "Aslan",
+        "ogrenciNumarasi": "1057",
+        "dogumTarihi": "23/07/2017",
+        "sinifi": "4G",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 58,
+        "ad": "Akatay",
+        "soyad": "Sezer",
+        "ogrenciNumarasi": "1058",
+        "dogumTarihi": "24/04/2016",
+        "sinifi": "5C",
+        "kayitTarihi": "10/09/2025"
+    },
+    {
+        "Id": 59,
+        "ad": "Necilal",
+        "soyad": "Bilgin",
+        "ogrenciNumarasi": "1059",
+        "dogumTarihi": "28/08/2017",
+        "sinifi": "7H",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 60,
+        "ad": "Mücellib",
+        "soyad": "Ertaş",
+        "ogrenciNumarasi": "1060",
+        "dogumTarihi": "23/12/2016",
+        "sinifi": "4F",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 61,
+        "ad": "Temime",
+        "soyad": "Yılmaz",
+        "ogrenciNumarasi": "1061",
+        "dogumTarihi": "26/09/2016",
+        "sinifi": "8D",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 62,
+        "ad": "Yönetmen",
+        "soyad": "Durdu",
+        "ogrenciNumarasi": "1062",
+        "dogumTarihi": "11/01/2013",
+        "sinifi": "7C",
+        "kayitTarihi": "12/09/2025"
+    },
+    {
+        "Id": 63,
+        "ad": "Musafet",
+        "soyad": "Türk",
+        "ogrenciNumarasi": "1063",
+        "dogumTarihi": "26/11/2014",
+        "sinifi": "5A",
+        "kayitTarihi": "16/09/2025"
+    },
+    {
+        "Id": 64,
+        "ad": "Çakar",
+        "soyad": "Duran",
+        "ogrenciNumarasi": "1064",
+        "dogumTarihi": "25/06/2013",
+        "sinifi": "5B",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 65,
+        "ad": "Demirbüken",
+        "soyad": "Şener",
+        "ogrenciNumarasi": "1065",
+        "dogumTarihi": "12/02/2013",
+        "sinifi": "7A",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 66,
+        "ad": "Nurda",
+        "soyad": "Manço",
+        "ogrenciNumarasi": "1066",
+        "dogumTarihi": "02/07/2016",
+        "sinifi": "7H",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 67,
+        "ad": "Annak",
+        "soyad": "Bilgin",
+        "ogrenciNumarasi": "1067",
+        "dogumTarihi": "10/07/2013",
+        "sinifi": "6H",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 68,
+        "ad": "Akay",
+        "soyad": "Erdoğan",
+        "ogrenciNumarasi": "1068",
+        "dogumTarihi": "23/07/2017",
+        "sinifi": "4C",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 69,
+        "ad": "Gücal",
+        "soyad": "Erdoğan",
+        "ogrenciNumarasi": "1069",
+        "dogumTarihi": "26/05/2015",
+        "sinifi": "8F",
+        "kayitTarihi": "16/09/2025"
+    },
+    {
+        "Id": 70,
+        "ad": "Günver",
+        "soyad": "Demirel",
+        "ogrenciNumarasi": "1070",
+        "dogumTarihi": "30/03/2016",
+        "sinifi": "7E",
+        "kayitTarihi": "01/09/2025"
+    },
+    {
+        "Id": 71,
+        "ad": "Hadrey",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1071",
+        "dogumTarihi": "16/07/2013",
+        "sinifi": "6C",
+        "kayitTarihi": "09/09/2025"
+    },
+    {
         "Id": 72,
-        "ad": "Zibar",
-        "soyad": "Kol",
-        "ogrenciNumarasi": "1567",
-        "dogumTarihi": "05/04/2000",
-        "sinifi": "7G",
-        "kayitTarihi": "20/09/2025"
+        "ad": "Tali",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1072",
+        "dogumTarihi": "13/05/2016",
+        "sinifi": "8C",
+        "kayitTarihi": "15/09/2025"
     },
     {
         "Id": 73,
-        "ad": "Serap",
-        "soyad": "Yollu",
-        "ogrenciNumarasi": "1210",
-        "dogumTarihi": "06/07/2006",
+        "ad": "Şazime",
+        "soyad": "Yüksel",
+        "ogrenciNumarasi": "1073",
+        "dogumTarihi": "05/06/2015",
+        "sinifi": "5F",
+        "kayitTarihi": "17/09/2025"
+    },
+    {
+        "Id": 74,
+        "ad": "Fuzuli",
+        "soyad": "Öcalan",
+        "ogrenciNumarasi": "1074",
+        "dogumTarihi": "04/04/2015",
+        "sinifi": "5C",
+        "kayitTarihi": "01/09/2025"
+    },
+    {
+        "Id": 75,
+        "ad": "Muhammet",
+        "soyad": "Durmuş",
+        "ogrenciNumarasi": "1075",
+        "dogumTarihi": "16/10/2014",
+        "sinifi": "5F",
+        "kayitTarihi": "09/09/2025"
+    },
+    {
+        "Id": 76,
+        "ad": "Beray",
+        "soyad": "Dumanlı",
+        "ogrenciNumarasi": "1076",
+        "dogumTarihi": "11/07/2015",
+        "sinifi": "8B",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 77,
+        "ad": "Hinet",
+        "soyad": "Çorlu",
+        "ogrenciNumarasi": "1077",
+        "dogumTarihi": "15/03/2017",
+        "sinifi": "8G",
+        "kayitTarihi": "07/09/2025"
+    },
+    {
+        "Id": 78,
+        "ad": "Nüdret",
+        "soyad": "Ülker",
+        "ogrenciNumarasi": "1078",
+        "dogumTarihi": "25/05/2013",
         "sinifi": "4B",
-        "kayitTarihi": "20/09/2025"
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 79,
+        "ad": "Mefarettin",
+        "soyad": "Öcalan",
+        "ogrenciNumarasi": "1079",
+        "dogumTarihi": "14/09/2013",
+        "sinifi": "8G",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 80,
+        "ad": "Hanbiken",
+        "soyad": "Durdu",
+        "ogrenciNumarasi": "1080",
+        "dogumTarihi": "21/11/2016",
+        "sinifi": "7H",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 81,
+        "ad": "Gülağa",
+        "soyad": "Yüksel",
+        "ogrenciNumarasi": "1081",
+        "dogumTarihi": "17/04/2014",
+        "sinifi": "4H",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 82,
+        "ad": "Bahaddin",
+        "soyad": "Akçay",
+        "ogrenciNumarasi": "1082",
+        "dogumTarihi": "16/10/2012",
+        "sinifi": "7F",
+        "kayitTarihi": "10/09/2025"
+    },
+    {
+        "Id": 83,
+        "ad": "Hayret",
+        "soyad": "Akça",
+        "ogrenciNumarasi": "1083",
+        "dogumTarihi": "28/05/2015",
+        "sinifi": "4G",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 84,
+        "ad": "Gülsevil",
+        "soyad": "İhsanoğlu",
+        "ogrenciNumarasi": "1084",
+        "dogumTarihi": "05/06/2014",
+        "sinifi": "6D",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 85,
+        "ad": "Taygan",
+        "soyad": "Sezer",
+        "ogrenciNumarasi": "1085",
+        "dogumTarihi": "08/11/2015",
+        "sinifi": "8H",
+        "kayitTarihi": "14/09/2025"
+    },
+    {
+        "Id": 86,
+        "ad": "Tunahan",
+        "soyad": "Zengin",
+        "ogrenciNumarasi": "1086",
+        "dogumTarihi": "13/04/2015",
+        "sinifi": "5C",
+        "kayitTarihi": "18/09/2025"
+    },
+    {
+        "Id": 87,
+        "ad": "Süner",
+        "soyad": "Yıldırım",
+        "ogrenciNumarasi": "1087",
+        "dogumTarihi": "25/12/2016",
+        "sinifi": "5F",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 88,
+        "ad": "Müşüre",
+        "soyad": "Tarhan",
+        "ogrenciNumarasi": "1088",
+        "dogumTarihi": "01/12/2016",
+        "sinifi": "4A",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 89,
+        "ad": "Nezihi",
+        "soyad": "Soylu",
+        "ogrenciNumarasi": "1089",
+        "dogumTarihi": "08/06/2017",
+        "sinifi": "7C",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 90,
+        "ad": "Sevindik",
+        "soyad": "Manço",
+        "ogrenciNumarasi": "1090",
+        "dogumTarihi": "11/07/2015",
+        "sinifi": "7B",
+        "kayitTarihi": "08/09/2025"
+    },
+    {
+        "Id": 91,
+        "ad": "Tümer",
+        "soyad": "Akça",
+        "ogrenciNumarasi": "1091",
+        "dogumTarihi": "22/03/2014",
+        "sinifi": "4A",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 92,
+        "ad": "Hatem",
+        "soyad": "Sezer",
+        "ogrenciNumarasi": "1092",
+        "dogumTarihi": "07/11/2014",
+        "sinifi": "7E",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 93,
+        "ad": "Anargül",
+        "soyad": "Bilir",
+        "ogrenciNumarasi": "1093",
+        "dogumTarihi": "18/03/2015",
+        "sinifi": "6B",
+        "kayitTarihi": "09/09/2025"
+    },
+    {
+        "Id": 94,
+        "ad": "Nuriyet",
+        "soyad": "Yaman",
+        "ogrenciNumarasi": "1094",
+        "dogumTarihi": "25/08/2014",
+        "sinifi": "8C",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 95,
+        "ad": "Aygönenç",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1095",
+        "dogumTarihi": "28/07/2013",
+        "sinifi": "6H",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 96,
+        "ad": "Mevlüdiye",
+        "soyad": "Alemdar",
+        "ogrenciNumarasi": "1096",
+        "dogumTarihi": "21/12/2014",
+        "sinifi": "4E",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 97,
+        "ad": "Aydınbey",
+        "soyad": "Yüksel",
+        "ogrenciNumarasi": "1097",
+        "dogumTarihi": "03/05/2015",
+        "sinifi": "6G",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 98,
+        "ad": "Ünek",
+        "soyad": "Sezgin",
+        "ogrenciNumarasi": "1098",
+        "dogumTarihi": "15/03/2016",
+        "sinifi": "4H",
+        "kayitTarihi": "03/09/2025"
+    },
+    {
+        "Id": 99,
+        "ad": "Dilara",
+        "soyad": "İhsanoğlu",
+        "ogrenciNumarasi": "1099",
+        "dogumTarihi": "18/01/2015",
+        "sinifi": "5D",
+        "kayitTarihi": "11/09/2025"
+    },
+    {
+        "Id": 100,
+        "ad": "Hayel",
+        "soyad": "Hançer",
+        "ogrenciNumarasi": "1100",
+        "dogumTarihi": "04/11/2014",
+        "sinifi": "8G",
+        "kayitTarihi": "16/09/2025"
+    },
+    {
+        "Id": 101,
+        "ad": "Öngen",
+        "soyad": "Bilge",
+        "ogrenciNumarasi": "1101",
+        "dogumTarihi": "11/08/2015",
+        "sinifi": "4E",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 102,
+        "ad": "Yurdaser",
+        "soyad": "Sezgin",
+        "ogrenciNumarasi": "1102",
+        "dogumTarihi": "07/11/2013",
+        "sinifi": "7H",
+        "kayitTarihi": "07/09/2025"
+    },
+    {
+        "Id": 103,
+        "ad": "Türknur",
+        "soyad": "Şama",
+        "ogrenciNumarasi": "1103",
+        "dogumTarihi": "23/01/2017",
+        "sinifi": "6A",
+        "kayitTarihi": "12/09/2025"
+    },
+    {
+        "Id": 104,
+        "ad": "Tayyibe",
+        "soyad": "Yaman",
+        "ogrenciNumarasi": "1104",
+        "dogumTarihi": "04/11/2015",
+        "sinifi": "5F",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 105,
+        "ad": "İmrihan",
+        "soyad": "Güçlü",
+        "ogrenciNumarasi": "1105",
+        "dogumTarihi": "29/08/2016",
+        "sinifi": "6A",
+        "kayitTarihi": "07/09/2025"
+    },
+    {
+        "Id": 106,
+        "ad": "Nezihi",
+        "soyad": "Yüksel",
+        "ogrenciNumarasi": "1106",
+        "dogumTarihi": "01/03/2015",
+        "sinifi": "6G",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 107,
+        "ad": "Fenni",
+        "soyad": "Demir",
+        "ogrenciNumarasi": "1107",
+        "dogumTarihi": "21/02/2016",
+        "sinifi": "6B",
+        "kayitTarihi": "10/09/2025"
+    },
+    {
+        "Id": 108,
+        "ad": "Gül",
+        "soyad": "Türk",
+        "ogrenciNumarasi": "1108",
+        "dogumTarihi": "13/12/2012",
+        "sinifi": "7H",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 109,
+        "ad": "Basım",
+        "soyad": "Sakarya",
+        "ogrenciNumarasi": "1109",
+        "dogumTarihi": "05/05/2014",
+        "sinifi": "6A",
+        "kayitTarihi": "17/09/2025"
+    },
+    {
+        "Id": 110,
+        "ad": "Birben",
+        "soyad": "Gülen",
+        "ogrenciNumarasi": "1110",
+        "dogumTarihi": "20/07/2016",
+        "sinifi": "8E",
+        "kayitTarihi": "17/09/2025"
+    },
+    {
+        "Id": 111,
+        "ad": "Açıkel",
+        "soyad": "Ülker",
+        "ogrenciNumarasi": "1111",
+        "dogumTarihi": "15/05/2014",
+        "sinifi": "7F",
+        "kayitTarihi": "05/09/2025"
+    },
+    {
+        "Id": 112,
+        "ad": "Altınkaya",
+        "soyad": "Çetin",
+        "ogrenciNumarasi": "1112",
+        "dogumTarihi": "13/10/2016",
+        "sinifi": "7A",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 113,
+        "ad": "Uğan",
+        "soyad": "Alemdar",
+        "ogrenciNumarasi": "1113",
+        "dogumTarihi": "01/02/2013",
+        "sinifi": "6F",
+        "kayitTarihi": "12/09/2025"
+    },
+    {
+        "Id": 114,
+        "ad": "Değmeer",
+        "soyad": "Ergül",
+        "ogrenciNumarasi": "1114",
+        "dogumTarihi": "09/05/2015",
+        "sinifi": "4H",
+        "kayitTarihi": "15/09/2025"
+    },
+    {
+        "Id": 115,
+        "ad": "Yekbun",
+        "soyad": "Şener",
+        "ogrenciNumarasi": "1115",
+        "dogumTarihi": "21/11/2012",
+        "sinifi": "7F",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 116,
+        "ad": "Sebigül",
+        "soyad": "Durdu",
+        "ogrenciNumarasi": "1116",
+        "dogumTarihi": "27/05/2014",
+        "sinifi": "6A",
+        "kayitTarihi": "06/09/2025"
+    },
+    {
+        "Id": 117,
+        "ad": "Mihriye",
+        "soyad": "Akar",
+        "ogrenciNumarasi": "1117",
+        "dogumTarihi": "05/11/2013",
+        "sinifi": "4H",
+        "kayitTarihi": "04/09/2025"
+    },
+    {
+        "Id": 118,
+        "ad": "Özokçu",
+        "soyad": "Yaman",
+        "ogrenciNumarasi": "1118",
+        "dogumTarihi": "18/08/2016",
+        "sinifi": "8G",
+        "kayitTarihi": "19/09/2025"
+    },
+    {
+        "Id": 119,
+        "ad": "Nesfe",
+        "soyad": "Fırat",
+        "ogrenciNumarasi": "1119",
+        "dogumTarihi": "18/04/2015",
+        "sinifi": "8A",
+        "kayitTarihi": "13/09/2025"
+    },
+    {
+        "Id": 120,
+        "ad": "Çakar",
+        "soyad": "İnönü",
+        "ogrenciNumarasi": "1120",
+        "dogumTarihi": "13/08/2017",
+        "sinifi": "7G",
+        "kayitTarihi": "01/09/2025"
     }
 ]

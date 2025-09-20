@@ -1,4 +1,4 @@
-#FIXME - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.
+# - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.
 
 import time, re
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
@@ -89,22 +89,22 @@ def arama(aramaParametresi):
     altListeSinifi= []
     altListeKayitTarihi= []
     birOncekiToplam:int=0
+    
     for metin in aramaParametresi:
         kriterListesi.append(metin)
         for ogrenci in EmptyLists.Jsonda_Mevcut_Veriler:
             if(aramaParametresi is not None and aramaParametresi!=""):
-                if (metin == str(ogrenci["Id"]) or
-                    metin in ogrenci["ad"].lower() or
-                    metin in ogrenci["soyad"].lower() ):
+                if (metin == str(ogrenci["Id"]) or metin in ogrenci["ad"].lower() or metin in ogrenci["soyad"].lower() ):
                     EmptyLists.Bulunanlar.append(ogrenci)  
-                    altListeId.append(str(ogrenci["Id"]));
-                    altListeAd.append(ogrenci["ad"]);
-                    altListeSoyad.append(ogrenci["soyad"]);
-                    altListeNumarasi.append(ogrenci["ogrenciNumarasi"]);
-                    altListeDogTarihi.append(ogrenci["dogumTarihi"]);
-                    altListeSinifi.append(ogrenci["sinifi"]);
-                    altListeKayitTarihi.append(ogrenci["kayitTarihi"]);
-                else: continue
+                    altListeId.append(str(ogrenci["Id"]))
+                    altListeAd.append(ogrenci["ad"])
+                    altListeSoyad.append(ogrenci["soyad"])
+                    altListeNumarasi.append(ogrenci["ogrenciNumarasi"])
+                    altListeDogTarihi.append(ogrenci["dogumTarihi"])
+                    altListeSinifi.append(ogrenci["sinifi"])
+                    altListeKayitTarihi.append(ogrenci["kayitTarihi"])
+                else: 
+                    continue
                 
         joinedId="\n".join(altListeId)  
         joinedAd="\n".join(altListeAd) 
@@ -113,16 +113,24 @@ def arama(aramaParametresi):
         joinedDogTar="\n".join(altListeDogTarihi)
         joinedSinif="\n".join(altListeSinifi)
         joinedKayitTarihi="\n".join(altListeKayitTarihi)
-        EmptyLists.joinedListTek=[
-                    metin,
-                    joinedId,
-                    joinedAd,
-                    joinedSoyad,
-                    joinedNumara,
-                    joinedDogTar,
-                    joinedSinif,
-                    joinedKayitTarihi,
-                               ]
+        
+        EmptyLists.joinedListTek=[ metin,joinedId,joinedAd,joinedSoyad,joinedNumara,joinedDogTar,joinedSinif,joinedKayitTarihi ]
+        
+        from rich.panel import Panel
+        from rich.text import Text
+                   
+        text_joinedId = Text(joinedId, style="bold yellow")
+                   
+        icerikler=[ 
+                    Panel(metin, title="metin",border_style="gold1"),
+                    Panel(text_joinedId, title="Id",border_style="plum1"),
+                    Panel(joinedAd, title="Ad",border_style="green1"),
+                    Panel(joinedSoyad, title="Soyad",border_style=""),
+                    Panel(joinedNumara, title="No'su",border_style="light_goldenrod2"),
+                    Panel(joinedDogTar, title="Doğ Tarihi",border_style="dark_olive_green2"),
+                    Panel(joinedSinif, title="Sınıf"),
+                    Panel(joinedKayitTarihi, title="Kayıt Tarihi",border_style="khaki1"),
+                    ]
         
         EmptyLists.joinedListSozlukTek=[{
                     "metin":metin,
@@ -132,68 +140,73 @@ def arama(aramaParametresi):
                     "ogrenciNumarasi":joinedNumara,
                     "dogumTarihi":joinedDogTar,
                     "sinifi":joinedSinif,
-                    "kayitTarihi":joinedKayitTarihi,}
-                                     ]
+                    "kayitTarihi":joinedKayitTarihi,}        ]
+        
+        
+        
         
        #^ TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukTek, metin)    
         
         
         
-        
+        c.print(f"\n[underline yellow]{metin}[/]\n ")
         # c.print("Id: \n",joinedId, end="\n")
-        # c.print("Ad: \n",joinedAd, end="\n")
-        # c.print("Soyad:\n",joinedSoyad, end="\n")
-        # c.print("Numara: \n",joinedNumara, end="\n")
-        # c.print("Doğum Tarihi:\n",joinedDogTar, end="\n")
-        # c.print("Sınıf: \n",joinedSinif, end="\n")
-        # c.print("Kayıt Tarihi: \n",joinedKayitTarihi, end="\n")  
+        # c.print("\nAd: \n",joinedAd, end="\n")
+        # c.print("\nSoyad:\n",joinedSoyad, end="\n")
+        # c.print("\nNumara: \n",joinedNumara, end="\n")
+        # c.print("\nDoğum Tarihi:\n",joinedDogTar, end="\n")
+        # c.print("\nSınıf: \n",joinedSinif, end="\n")
+        # c.print("\nKayıt Tarihi: \n",joinedKayitTarihi, end="\n")  
+        # c.print("\n")
+        
+        
+        
+        
         
           
                 
-        if EmptyLists.Bulunanlar:
+        if EmptyLists.joinedListSozlukTek:
                     
                     # c.print(f"\n'[bright_yellow]{metin}[/]' kriterine uyan {len(EmptyLists.Bulunanlar)-birOncekiToplam} öğrenci bulundu.", end="\n")
-                    from rich.panel import Panel
-                    from rich.text import Text
-
-                    text_joinedId = Text(joinedId, style="bold yellow")
-                   
                     
                     
                     
+                    renk="bright_white on green"
+                    mesaj = f"[{renk}]   {metin}   [/] kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{altListeAd}\n"
                     
-                    from rich.panel import Panel
-                    icerikler=[ 
-                    Panel(text_joinedId, title="Id",border_style="plum1"),
-                    Panel(joinedAd, title="Ad",border_style="green1"),
-                    Panel(joinedSoyad, title="Soyad"),
-                    Panel(joinedNumara, title="No'su"),
-                    Panel(joinedDogTar, title="Doğ Tarihi"),
-                    Panel(joinedSinif, title="Sınıf"),
-                    Panel(joinedKayitTarihi, title="Kayıt Tarihi",border_style="khaki1"),
-                    ]
-                    
-                    
-                    mesaj = f" \"  [bright_white on red]  {metin}  [/]  \" kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{altListeAd}"
                     kolonlar=Columns(icerikler)
                     
-                    mesaj=str(mesaj)
+                   # mesaj=str(mesaj)      #!!!!  panel String kabul ettiği için.....
                    #^ c.print(Panel.fit(mesaj, title="", border_style="green"))
                    #^ c.print(kolonlar)
-                    c.print(Panel.fit(kolonlar, title=mesaj, title_align="right", subtitle="Alt", subtitle_align="right",border_style="grey39"))
+                  #  if joinedId :
+                    renk="bright_white on green"
+                    c.print(Panel.fit(kolonlar, title=mesaj, title_align="left", subtitle="Değişken", subtitle_align="right",border_style="grey39"))
+                    #else:
+                   # c.print(f" [white on red]   {metin}   [/] kriteriyle uyuşan bir öğrenci bulamadım, Üzgünüm.\n")  
+                    
+                        
+                    
+                    
+                    from rich.panel import Panel
+                    paneller = []
+                    for key, value in EmptyLists.joinedListSozlukTek[-1].items():   #ANCHOR - -  - [-1] 1. ve sonradan gelen 2. 3 .4 . .... elemana ulaştım. Çok önemli bir hile.  
+                            paneller.append(Panel(value, title=key, border_style="green")   )
+                    #if joinedId: 
+                    renk="bright_white on green"
+                    c.print(Columns(paneller))
+                    # else:
+                    #     c.print(f" [bright_white on red]   {metin}   [/] kriteriyle uyuşan bir öğrenci bulamadım, Üzgünüm.")  
+                           
                     
                     
                    #^^ TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukTek, metin)    
                     EmptyLists.joinedListSozlukCoklu.append(EmptyLists.joinedListSozlukTek[0])    #^! listenin sözlük elemanını diğer listeye append ediyoruz. 
                    
-                   
-                   #^ c.print("joinedList\n",EmptyLists.joinedList)  
-                  #  TablolarPY.TABLO_6lı()
-                    
-                #   TablolarPY.TABLO_6lı(EmptyLists.joinedListSozlukCoklu, )    
-                  
+                                        
                     birOncekiToplam=len(EmptyLists.Bulunanlar) 
-                    altListeId.clear();joinedId=""
+                    altListeId.clear();
+                    joinedId=""
                     altListeAd.clear()
                     altListeSoyad.clear()
                     altListeNumarasi.clear()
@@ -209,9 +222,26 @@ def arama(aramaParametresi):
                     joinedSinif=""
                     joinedKayitTarihi=""
         else:
-                    c.print(f" {metin} kriteriyle uyuşan bir öğrenci bulamadım, Üzgünüm.")     
+                    c.print(f" [bold cyan on red]   {metin}   [/] kriterinde bir veri yok.\n")     
 
+        
+        for sozluk in EmptyLists.joinedListSozlukCoklu:
+            for k, v in sozluk.items():
+                if v.strip() == "":
+                    sozluk[k] = "+++++++++??"
+                
+     #^CTRL    c.print("arama>arama> joinedListSozlukCoklu >>",EmptyLists.joinedListSozlukCoklu)
+     
+    from rich import  print as rprint
     
+    rprint("Eşref özbek 5454")
+       
+            
+        
+        
+        
+        
+        
     return aramaParametresi
 
 

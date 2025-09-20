@@ -100,13 +100,139 @@ def startPoint():
                            # c.print(">>main>> KRITER >> ", arananlarSTRINGi)
                             if arananlarSTRINGi is None: break 
                             if EmptyLists.joinedListSozlukCoklu:
-                                    
-                                                                       
-                                    TablolarPY.genel_TABLO(EmptyLists.joinedListSozlukCoklu)
+                                TablolarPY.genel_TABLO(EmptyLists.joinedListSozlukCoklu)
+                                
+                                
+                            c.print("main> ",EmptyLists.joinedListSozlukCoklu)
+                            c.rule("Bölüm 1",style="bold chartreuse1",characters="+",align="right")
+                           
+                           
+                           
+                            # # from rich.console import Console
+                            # from rich.markdown import Markdown
+                            # markdown = Markdown("""
+                            # # Heading
+                            # ## Subheading
+                            # - Bullet point
+                            # - Another bullet point
+                            # """)
+
+                            # c.print(markdown)
+                            
+                            
+                            # # from rich.syntax import Syntax
+                            # # code = '''
+                            # # def hello_world():
+                            # #     print("Hello, world!")
+                            # # '''
+                            
+                            # # syntax = Syntax(code, "python", theme="monokai", line_numbers=True)
+                            # # c.print(syntax)
+                                   
                                                      
+                            # from rich import print
+
+                            # print([1, 2, 3]) # highlights lists
+                            # print({"a": 1}) # highlights dicts
+                            # print((1,2,3)) # highlights tuples
 
 
-                        
+                            # # from rich import inspect
+                            # # import pandas as pd
+
+                            # # df = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})  
+                            # # inspect(df)
+                            
+                            
+                            # from rich.tree import Tree
+
+                            # tree = Tree("Directory")
+                            # tree.add("Folder 1")
+                            # tree.add("Folder 2")
+                            # tree.add("Folder 3")
+
+                            # print(tree)
+                            
+                            
+                            
+                            # # #!/usr/bin/python
+
+                         
+                            # c.rule('Python', style='blue')
+                            # c.print('''Python is a general-purpose, dynamic, object-oriented\
+                            # programming language. The design purpose of the Python language\
+                            # emphasizes programmer productivity and code readability.''')
+                            # c.print()
+
+                            # c.rule('F#', style='red')
+                            # c.print('''F# is a universal programming language for writing succinct,\
+                            # robust and performant code.''')
+                            # c.print()
+
+                            # c.rule('Go')
+                            # c.print('''Go is an open source programming language that makes it easy to\
+                            # build simple, reliable, and efficient software. Go is a statically\
+                            # typed, compiled programming language.''')
+
+
+
+                            # from rich.text import Text
+                            # txt = Text('''Python is a general-purpose, dynamic, object-oriented \
+                            # programming language. The design purpose of the Python language \
+                            # emphasizes programmer productivity and code readability.''', style='italic')
+
+                         
+                            # c.print(txt)
+                            
+                            # # #!/usr/bin/python
+
+                            # # from rich.console import Console
+                            # from rich.columns import Columns
+                            # from rich.panel import Panel
+
+                            # # console = Console()
+
+                            # with open('VERI/words.txt', 'r') as f:
+                            #     words = f.readlines()
+
+                            #     c.print(Columns([Panel(line, border_style='blue')
+                            #                 for line in words], align='center'))
+
+                            
+                            
+                            
+                            
+                            # #!/usr/bin/python
+
+                            # from rich import print
+                            # from rich.console import group
+                            # from rich.panel import Panel
+
+                            # @group()
+                            # def get_panels():
+                            #     yield Panel.fit("an old falcon", style="on blue")
+                            #     yield Panel.fit("a long stormy night", style="on deep_sky_blue4")
+
+                            # print(Panel.fit(get_panels()))
+
+                            # from rich.console import Group
+
+                            # g = Group(
+                            #     Panel.fit("an old falcon", style="on blue"),
+                            #     Panel.fit("a long stormy night", style="on deep_sky_blue4"),
+                            # )
+
+                            # print(Panel.fit(g))
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         
                         
                         

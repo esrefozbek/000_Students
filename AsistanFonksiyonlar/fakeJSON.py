@@ -7,7 +7,7 @@ from datetime import datetime
 fake = Faker('tr_TR')
 
 # Öğrenci sayısı
-num_students = 71
+num_students = 120
 
 # Sınıf seviyeleri ve şubeleri
 grades = list(range(4, 9))  # 4. sınıftan 8. sınıfa
