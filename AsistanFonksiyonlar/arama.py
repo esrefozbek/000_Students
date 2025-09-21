@@ -18,6 +18,10 @@ EmptyLists.Bulunanlar=[]   #! boş bir sözlükler listesi.
 kriter=""
 
 
+EmptyLists.Bulunanlar=[]   #! boş bir sözlükler listesi.
+EmptyLists.altAnaListe=[]
+EmptyLists.JoinedAnaListe=[]
+
 
 
 
@@ -73,74 +77,70 @@ def Parsing(metin):
     metin=metin or ""
     EmptyLists.ParsedSTRING_Listesi = re.split(r'[,\s]+', metin) #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
     
-
+    
+def bulAyikla(metin):
+    for ogrenci in EmptyLists.Jsonda_Mevcut_Veriler:
+        if(metin is not None and metin!=""):
+            if (metin == str(ogrenci["Id"]) or
+                metin in ogrenci["ad"].lower() or
+                metin in ogrenci["soyad"].lower() ):             
+                EmptyLists.Bulunanlar.append(ogrenci)  
+                                  
+                for i,key in enumerate(ogrenci):
+                    EmptyLists.altAnaListe[i].append(str(key) if key == "Id" else key)
+            else: 
+                continue    
+    
 
 def arama(aramaParametresi):
     EmptyLists.joinedListSozlukTek.clear()
     EmptyLists.joinedListSozlukCoklu.clear()
-    
     c.print("\n")
     kriterListesi=[]
-    altListeId=[]
-    altListeAd= []
-    altListeSoyad= []
-    altListeNumarasi= []
-    altListeDogTarihi= []
-    altListeSinifi= []
-    altListeKayitTarihi= []
     birOncekiToplam:int=0
     
     for metin in aramaParametresi:
         kriterListesi.append(metin)
-        for ogrenci in EmptyLists.Jsonda_Mevcut_Veriler:
-            if(aramaParametresi is not None and aramaParametresi!=""):
-                if (metin == str(ogrenci["Id"]) or metin in ogrenci["ad"].lower() or metin in ogrenci["soyad"].lower() ):
-                    EmptyLists.Bulunanlar.append(ogrenci)  
-                    altListeId.append(str(ogrenci["Id"]))
-                    altListeAd.append(ogrenci["ad"])
-                    altListeSoyad.append(ogrenci["soyad"])
-                    altListeNumarasi.append(ogrenci["ogrenciNumarasi"])
-                    altListeDogTarihi.append(ogrenci["dogumTarihi"])
-                    altListeSinifi.append(ogrenci["sinifi"])
-                    altListeKayitTarihi.append(ogrenci["kayitTarihi"])
-                else: 
-                    continue
-                
-        joinedId="\n".join(altListeId)  
-        joinedAd="\n".join(altListeAd) 
-        joinedSoyad="\n".join(altListeSoyad)  
-        joinedNumara="\n".join(altListeNumarasi) 
-        joinedDogTar="\n".join(altListeDogTarihi)
-        joinedSinif="\n".join(altListeSinifi)
-        joinedKayitTarihi="\n".join(altListeKayitTarihi)
         
-        EmptyLists.joinedListTek=[ metin,joinedId,joinedAd,joinedSoyad,joinedNumara,joinedDogTar,joinedSinif,joinedKayitTarihi ]
+        bulAyikla(metin)
+        
+        global altAnaListe , JoinedAnaListe
+        
+        for i,item in EmptyLists.altAnaListe:
+            EmptyLists.JoinedAnaListe[i]="\n".join(item)
+            
+        c.print(EmptyLists.JoinedAnaListe)    
+                
+        """ 
+                
+        
+        # EmptyLists.joinedListTek=[ metin,joinedId,joinedAd,joinedSoyad,joinedNumara,joinedDogTar,joinedSinif,joinedKayitTarihi ]
         
         from rich.panel import Panel
         from rich.text import Text
                    
-        text_joinedId = Text(joinedId, style="bold yellow")
+       # tekst1 = Text(EmptyLists.JoinedAnaListe[0], style="bold yellow")
                    
         icerikler=[ 
-                    Panel(metin, title="metin",border_style="gold1"),
-                    Panel(text_joinedId, title="Id",border_style="plum1"),
-                    Panel(joinedAd, title="Ad",border_style="green1"),
-                    Panel(joinedSoyad, title="Soyad",border_style=""),
-                    Panel(joinedNumara, title="No'su",border_style="light_goldenrod2"),
-                    Panel(joinedDogTar, title="Doğ Tarihi",border_style="dark_olive_green2"),
-                    Panel(joinedSinif, title="Sınıf"),
-                    Panel(joinedKayitTarihi, title="Kayıt Tarihi",border_style="khaki1"),
+                    #Panel(metin, title="metin",border_style="gold1"),
+                    Panel(EmptyLists.JoinedAnaListe[0], title="Id",border_style="plum1"),
+                    Panel(EmptyLists.JoinedAnaListe[1], title="Ad",border_style="green1"),
+                    Panel(EmptyLists.JoinedAnaListe[2], title="Soyad",border_style=""),
+                    Panel(EmptyLists.JoinedAnaListe[3], title="No'su",border_style="light_goldenrod2"),
+                    Panel(EmptyLists.JoinedAnaListe[4], title="Doğ Tarihi",border_style="dark_olive_green2"),
+                    Panel(EmptyLists.JoinedAnaListe[5], title="Sınıf"),
+                    Panel(EmptyLists.JoinedAnaListe[6], title="Kayıt Tarihi",border_style="khaki1"),
                     ]
         
         EmptyLists.joinedListSozlukTek=[{
-                    "metin":metin,
-                    "Id":joinedId,
-                    "ad":joinedAd,
-                    "soyad":joinedSoyad,
-                    "ogrenciNumarasi":joinedNumara,
-                    "dogumTarihi":joinedDogTar,
-                    "sinifi":joinedSinif,
-                    "kayitTarihi":joinedKayitTarihi,}        ]
+                    "metin":EmptyLists.JoinedAnaListe[0],
+                    "Id":EmptyLists.JoinedAnaListe[1],
+                    "ad":EmptyLists.JoinedAnaListe[2],
+                    "soyad":EmptyLists.JoinedAnaListe[3],
+                    "ogrenciNumarasi":EmptyLists.JoinedAnaListe[4],
+                    "dogumTarihi":EmptyLists.JoinedAnaListe[5],
+                    "sinifi":EmptyLists.JoinedAnaListe[6],
+                    "kayitTarihi":EmptyLists.JoinedAnaListe[7]}        ]
         
         
         
@@ -149,7 +149,7 @@ def arama(aramaParametresi):
         
         
         
-        c.print(f"\n[underline yellow]{metin}[/]\n ")
+      #  c.print(f"\n[underline yellow]{metin}[/]\n ")
         # c.print("Id: \n",joinedId, end="\n")
         # c.print("\nAd: \n",joinedAd, end="\n")
         # c.print("\nSoyad:\n",joinedSoyad, end="\n")
@@ -172,7 +172,7 @@ def arama(aramaParametresi):
                     
                     
                     renk="bright_white on green"
-                    mesaj = f"[{renk}]   {metin}   [/] kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{altListeAd}\n"
+                    mesaj = f"[{renk}]   {metin}   [/] kriterine uyan [bold green]{len(EmptyLists.Bulunanlar) - birOncekiToplam}[/] öğrenci bulundu.{"altListeAd"}\n"
                     
                     kolonlar=Columns(icerikler)
                     
@@ -205,14 +205,14 @@ def arama(aramaParametresi):
                    
                                         
                     birOncekiToplam=len(EmptyLists.Bulunanlar) 
-                    altListeId.clear();
-                    joinedId=""
-                    altListeAd.clear()
-                    altListeSoyad.clear()
-                    altListeNumarasi.clear()
-                    altListeDogTarihi.clear()
-                    altListeSinifi.clear()
-                    altListeKayitTarihi.clear()
+                    # altListeId.clear();
+                    # joinedId=""
+                    # altListeAd.clear()
+                    # altListeSoyad.clear()
+                    # altListeNumara.clear()
+                    # altListeDogTarihi.clear()
+                    # altListeSinif.clear()
+                    # altListeKayitTarihi.clear()
                     
                     joinedId=""
                     joinedAd=""
@@ -245,3 +245,4 @@ def arama(aramaParametresi):
     return aramaParametresi
 
 
+ """

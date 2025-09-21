@@ -104,7 +104,7 @@ def startPoint():
                                 
                                 
                             c.print("main> ",EmptyLists.joinedListSozlukCoklu)
-                            c.rule("Bölüm 1",style="bold chartreuse1",characters="+",align="right")
+                            c.rule("Bölüm 1",style="red1",characters="=",align="right")
                            
                            
                            

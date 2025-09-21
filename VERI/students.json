@@ -1078,5 +1078,131 @@
         "dogumTarihi": "13/08/2017",
         "sinifi": "7G",
         "kayitTarihi": "01/09/2025"
+    },
+    {
+        "Id": 121,
+        "ad": "Acar",
+        "soyad": "Baltaş",
+        "ogrenciNumarasi": "426",
+        "dogumTarihi": "04/07/2000",
+        "sinifi": "9F",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 122,
+        "ad": "Feride",
+        "soyad": "Aklıtez",
+        "ogrenciNumarasi": "533",
+        "dogumTarihi": "02/05/1989",
+        "sinifi": "5G",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 123,
+        "ad": "Yusuf",
+        "soyad": "Genç",
+        "ogrenciNumarasi": "532",
+        "dogumTarihi": "05/19/1973",
+        "sinifi": "9B",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 124,
+        "ad": "Ferdi",
+        "soyad": "Özbeğen",
+        "ogrenciNumarasi": "452",
+        "dogumTarihi": "05/02/1982",
+        "sinifi": "4B",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 125,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 126,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 127,
+        "ad": "r",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 128,
+        "ad": "e",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 129,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 130,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 131,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 132,
+        "ad": "",
+        "soyad": "",
+        "ogrenciNumarasi": "w",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 133,
+        "ad": "32e43",
+        "soyad": "erer",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 134,
+        "ad": "",
+        "soyad": "dasd",
+        "ogrenciNumarasi": "asdasczx",
+        "dogumTarihi": "32423",
+        "sinifi": "21412",
+        "kayitTarihi": "21/09/2025"
     }
 ]

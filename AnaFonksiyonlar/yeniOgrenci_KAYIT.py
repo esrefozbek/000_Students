@@ -8,11 +8,13 @@ import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
 import AnaFonksiyonlar.JSON_jobs as AnaModul
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
 import VERI.emptyLists as EmptyLists 
-from rich.panel import Panel
 import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 from AnaFonksiyonlar.student_class import Ogrenciler
 from rich.console import Console ;c=Console()
+from rich.prompt import Prompt
 import Widgetler.SayacAnimasyon.spinner as SpinnerPY 
+from rich.panel import Panel
+from rich.columns import Columns
 
 
 lastID=0
@@ -48,10 +50,11 @@ def inputOgr():
                         ad=ad.strip()
                 
                 # print("\n")       
-                c.print("\n\t[green]SOYADI[/] ",end=": "); soyad = input().strip()
-                c.print("\t[green]NUMARASI[/] ",end=": ");  ogrenciNumarasi = input().strip()
-                c.print("\t[green]Doğum Tarihi[/] ",end=": "); dogumTarihi = input().strip()
-                c.print("\t[green]SINIFI[/] ",end=": "); sinifi = input().strip()
+                c.print("\n\t[green]SOYADI[/] ",end="    >> "); soyad = input().strip()
+                c.print("\t[green]NUMARASI[/] ",end="  >> ");  ogrenciNumarasi = input().strip()
+                #c.print("\t[green]Doğum Tarihi[/] ",end=" >> "); 
+                c.print("\t[green]Doğum Tarihi[/] [grey23][01/01/2000][/]",end=" >> ");dogumTarihi =input().strip()
+                c.print("\t[green]SINIFI[/] ",end="    >> "); sinifi = input().strip()
         
                 ogrenci=(ad, soyad, ogrenciNumarasi, dogumTarihi, sinifi)
                 toplamKayit +=1 
@@ -81,15 +84,21 @@ def FarkSozlukListesineAppend(nesne):
   
 def FarkiJsonSozlugeEkle():        
     if EmptyLists.FARK_SozlukListesi: 
+        AnaModul.SozlugeEkleme("VERI/students.json",EmptyLists.FARK_SozlukListesi ) #! Sözlüğe ekle
+        
         c.print("""[bold yellow]yeniÖğrenciKayıdı():[/]
                 💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...""",style="")
         
         c.print("KAYIT:FarkiJsonSozlugeEkle: EmptyLists.FARK_SozlukListesi >> ",EmptyLists.FARK_SozlukListesi,end="\n")
                         
-        AnaModul.SozlugeEkleme("VERI/students.json",EmptyLists.FARK_SozlukListesi ) #! Sözlüğe ekle
 
                 
-                
+        paneller = []
+        for item in EmptyLists.FARK_SozlukListesi:
+                for key, value in item.items(): #ANCHOR [-1] 1. ve sonradan gelen 2. 3 .4 . .... elemana ulaştım. 
+                        paneller.append(Panel(str(value), title=key, border_style="yellow")   )
+                        
+        c.print(Columns(paneller))        
                 
                
        

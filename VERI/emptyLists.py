@@ -39,3 +39,7 @@ joinedListTek=[]
 joinedListSozlukTek=[]
 joinedListCoklu=[]
 joinedListSozlukCoklu=[]
+
+
+altAnaListe=[]
+JoinedAnaListe=[]
