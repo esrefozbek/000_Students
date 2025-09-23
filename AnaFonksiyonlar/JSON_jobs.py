@@ -1,5 +1,5 @@
 #breakpoint()
-import VERI.emptyLists as EmptyLists,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import VERI.emptyLists as veriYolu,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import json, os
 from rich import print
 import Widgetler.SayacAnimasyon.spinner as SpinnerPY
@@ -23,10 +23,10 @@ def JSONdanImport():
             Geçici_SozlukListesi = json.load(file)
       
        #^ c.print("\njson:import:Geçici_SozlukListesi[-1:]>>",Geçici_SozlukListesi[-1:])       
-        EmptyLists.Jsonda_Mevcut_Veriler.clear() 
+        veriYolu.Jsonda_Mevcut_Veriler.clear() 
         
         import copy
-        EmptyLists.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
+        veriYolu.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
       
 
 #&             KayıtOncesiCTRL_theFilesExist_Or                     
@@ -87,7 +87,7 @@ def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
     ReturnedDatas[0].extend(FARK_SozlukListesi)
     getLastJSON_ID = ReturnedDatas[0][-1]["Id"]
  
-    EmptyLists.FARK_TupleListesi.clear()
+    veriYolu.FARK_SozlukListesi.clear()
     SpinnerPY.spinner(2,1)      
    #^ Jsonda_Mevcut_Veriler = []
    

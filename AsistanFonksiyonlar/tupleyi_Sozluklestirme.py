@@ -1,5 +1,5 @@
 #from veri import TupleliListe_,SözlüklüListe_
-import VERI.emptyLists as EmptyLists
+import VERI.emptyLists as veriYolu
 from rich.console import Console; c = Console()
 
 
@@ -7,11 +7,11 @@ from rich.console import Console; c = Console()
 #NOTE -  tuple içeren liste SÖZLÜĞE dönüştürülüyor. 
 
 def TupleyiSözlükListesineEkle(fark_TupleListesi:list):
-    if EmptyLists.FARK_SozlukListesi:  
-        EmptyLists.FARK_SozlukListesi.clear() #FIXME -burada listebaştan yaratılıyor.
+    if veriYolu.FARK_SozlukListesi:  
+        veriYolu.FARK_SozlukListesi.clear() #FIXME -burada listebaştan yaratılıyor.
         
     for item in fark_TupleListesi :
-        EmptyLists.FARK_SozlukListesi.append({
+        veriYolu.FARK_SozlukListesi.append({
             "id": item[0],
             "ad": item[1],
             "soyad": item[2],
@@ -20,14 +20,14 @@ def TupleyiSözlükListesineEkle(fark_TupleListesi:list):
             "sinifi": item[5],
             "kayitTarihi":item[6] })
         
-    c.print("SözlükYap:: FARK_SozlukListesi >>", EmptyLists.FARK_SozlukListesi)
+    c.print("SözlükYap:: FARK_SozlukListesi >>", veriYolu.FARK_SozlukListesi)
    
    
-    if EmptyLists.FARK_SozlukListesi:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
-        EmptyLists.yedekSozlukluListe_.extend(EmptyLists.FARK_SozlukListesi)
-        EmptyLists.SozlukluListe_Kopya.extend(EmptyLists.FARK_SozlukListesi)
+    if veriYolu.FARK_SozlukListesi:  #NOTE - VERİ.SözlüklüListe_ nin bir kopyasını oluşturarak YEDEK.json dosyasına  kayıt işleminde kullanacağız.
+        veriYolu.yedekSozlukluListe_.extend(veriYolu.FARK_SozlukListesi)
+        veriYolu.SozlukluListe_Kopya.extend(veriYolu.FARK_SozlukListesi)
       
-    return EmptyLists.FARK_SozlukListesi 
+    return veriYolu.FARK_SozlukListesi 
                 
            
                 

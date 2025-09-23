@@ -2,7 +2,7 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle, VERI.emptyLists as EmptyLists,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle, VERI.emptyLists as veriYolu,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import  MenuTablo.tablolarPY as TablolarPY
  
 
@@ -12,17 +12,17 @@ def dilimleme(value,liste):
     menüTipi="Dilimlenmiş Ana Liste"
     listeTipi="Dilimlenmiş Tüm Liste"
     kaçarKaçar = value if value is not None else 10  # kaçarlı dilimler yapalım
-    EmptyLists.ListeDilimi = []
+    veriYolu.ListeDilimi = []
     for idx, i in enumerate(liste):
-        EmptyLists.ListeDilimi.append(i)
+        veriYolu.ListeDilimi.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TablolarPY.genel_TABLO(EmptyLists.ListeDilimi, )
-            EmptyLists.ListeDilimi = []  # Dilimi sıfırla
+            TablolarPY.genel_TABLO(veriYolu.ListeDilimi, )
+            veriYolu.ListeDilimi = []  # Dilimi sıfırla
             klavyeyiDinle.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
-    if EmptyLists.ListeDilimi:  # Eğer dilimListe boş değilse
-        TablolarPY.genel_TABLO(EmptyLists.ListeDilimi, )
+    if veriYolu.ListeDilimi:  # Eğer dilimListe boş değilse
+        TablolarPY.genel_TABLO(veriYolu.ListeDilimi, )
         klavyeyiDinle.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
@@ -36,8 +36,8 @@ def gptDilimleme(value,liste: list):
     for i in range(toplam_sayfa):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
-        EmptyLists.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
-        TablolarPY.genel_TABLO(EmptyLists.Dilimlenmiş_alt_liste, )
+        veriYolu.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
+        TablolarPY.genel_TABLO(veriYolu.Dilimlenmiş_alt_liste, )
         klavyeyiDinle.Enter_ile_devam_et()
         if i>1:
             print("\n\n")

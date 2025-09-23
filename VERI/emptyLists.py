@@ -1,4 +1,7 @@
 Bulunanlar=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
+BulunanIDler=[]
+silinmesi_istenilenler=[]
+
 TupleListesi=[]
 Jsonda_Mevcut_Veriler=[]  
 ParsedSTRING_Listesi=[]
@@ -6,7 +9,7 @@ ParsedSTRING_Listesi=[]
 
 
 
-FARK_TupleListesi=[]  #! silinen veya eklenenlerin listesi,  Ana jsondan çıkarılacak veya eklenecek. 
+FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi,  Ana jsondan çıkarılacak veya eklenecek. 
 FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi, Ana jsondan çıkarılacak veya eklenecek.
 
 
@@ -35,11 +38,18 @@ ListeDilimi=[]
 Dilimlenmiş_alt_liste=[]
 
 
-joinedListTek=[]
-joinedListSozlukTek=[]
-joinedListCoklu=[]
-joinedListSozlukCoklu=[]
+
+altAnaListeTeklerKriterli=[]
+altAnaListeTeklerKritersiz=[]
+
+Joined_altAnaListeTekler=[]
+Joined_altAnaListeTeklerKriterli=[]
 
 
-altAnaListe=[]
-JoinedAnaListe=[]
+altAnaListeTumKriterli=[]
+altAnaListeTumKritersiz= []
+
+Joined_altAnaListeTumKriterli=[]
+Joined_altAnaListeTumKritersiz=[]
+
+Joined_altAnaListeTeklilerSozluk=[{}]

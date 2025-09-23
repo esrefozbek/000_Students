@@ -12,4 +12,4 @@ def _SırfSorgu_():
             break
         else:
         #     sorgu.sorgu(arananData)
-            Arama.arama(arananData)
+            Arama.tumKriterleriBul(arananData)

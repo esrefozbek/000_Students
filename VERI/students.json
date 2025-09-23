@@ -1198,11 +1198,29 @@
     },
     {
         "Id": 134,
-        "ad": "",
+        "ad": "Eşref",
         "soyad": "dasd",
         "ogrenciNumarasi": "asdasczx",
         "dogumTarihi": "32423",
         "sinifi": "21412",
         "kayitTarihi": "21/09/2025"
+    },
+    {
+        "Id": 135,
+        "ad": "Eşref ÖZDEK",
+        "soyad": "KARACA",
+        "ogrenciNumarasi": "893",
+        "dogumTarihi": "01/01/2000",
+        "sinifi": "6B",
+        "kayitTarihi": "23/09/2025"
+    },
+    {
+        "Id": 136,
+        "ad": "Eşref",
+        "soyad": "ÖZBEK",
+        "ogrenciNumarasi": "743",
+        "dogumTarihi": "02/02/2003",
+        "sinifi": "%B",
+        "kayitTarihi": "23/09/2025"
     }
 ]

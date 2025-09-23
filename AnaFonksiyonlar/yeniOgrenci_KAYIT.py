@@ -7,7 +7,7 @@
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
 import AnaFonksiyonlar.JSON_jobs as AnaModul
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
-import VERI.emptyLists as EmptyLists 
+import VERI.emptyLists as veriYolu 
 import  AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 from AnaFonksiyonlar.student_class import Ogrenciler
 from rich.console import Console ;c=Console()
@@ -21,8 +21,8 @@ lastID=0
 toplamKayit=0
 
 def yeniOgrenciKayidi():
-        EmptyLists.FARK_TupleListesi.clear();
-        EmptyLists.FARK_SozlukListesi.clear(); 
+        veriYolu.FARK_SozlukListesi.clear();
+        veriYolu.FARK_SozlukListesi.clear(); 
         while True:            
                 ogrenci=inputOgr() 
                 if ogrenci is None: break
@@ -74,27 +74,27 @@ def klasSureci(ogrenci):
 
 def FarkSozlukListesineAppend(nesne):  
        
-        EmptyLists.FARK_SozlukListesi.append(nesne) #! append to Tuple
+        veriYolu.FARK_SozlukListesi.append(nesne) #! append to Tuple
                 
         c.print(f"{toplamKayit}, [white]öğrencinin bilgileri geçici hafızaya alındı[/] \n")
-        c.print(f"KAYIT:: '{len(EmptyLists.FARK_SozlukListesi)}' [bold bright_white] 'FARK_SozlukListesi' >>[/]\n",EmptyLists.FARK_SozlukListesi,end="\n")
+        c.print(f"KAYIT:: '{len(veriYolu.FARK_SozlukListesi)}' [bold bright_white] 'FARK_SozlukListesi' >>[/]\n",veriYolu.FARK_SozlukListesi,end="\n")
                 #klavDinle.ENTER()
-        EmptyLists.eklendilerListesi.append(EmptyLists.FARK_SozlukListesi) #! Kopyaya kayıt 
+        veriYolu.eklendilerListesi.append(veriYolu.FARK_SozlukListesi) #! Kopyaya kayıt 
    
   
 def FarkiJsonSozlugeEkle():        
-    if EmptyLists.FARK_SozlukListesi: 
-        AnaModul.SozlugeEkleme("VERI/students.json",EmptyLists.FARK_SozlukListesi ) #! Sözlüğe ekle
+    if veriYolu.FARK_SozlukListesi: 
+        AnaModul.SozlugeEkleme("VERI/students.json",veriYolu.FARK_SozlukListesi ) #! Sözlüğe ekle
         
         c.print("""[bold yellow]yeniÖğrenciKayıdı():[/]
                 💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...""",style="")
         
-        c.print("KAYIT:FarkiJsonSozlugeEkle: EmptyLists.FARK_SozlukListesi >> ",EmptyLists.FARK_SozlukListesi,end="\n")
+        c.print("KAYIT:FarkiJsonSozlugeEkle: EmptyLists.FARK_SozlukListesi >> ",veriYolu.FARK_SozlukListesi,end="\n")
                         
 
                 
         paneller = []
-        for item in EmptyLists.FARK_SozlukListesi:
+        for item in veriYolu.FARK_SozlukListesi:
                 for key, value in item.items(): #ANCHOR [-1] 1. ve sonradan gelen 2. 3 .4 . .... elemana ulaştım. 
                         paneller.append(Panel(str(value), title=key, border_style="yellow")   )
                         

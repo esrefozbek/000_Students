@@ -5,7 +5,7 @@ from rich.layout import Layout;l = Layout()
 from rich import print
 from rich import print
 import sys
-import VERI.emptyLists as EmptyLists 
+import VERI.emptyLists as veriYolu 
 aramaSayısı=0
 
 
@@ -74,7 +74,10 @@ def Mesajlar(sayı:int=0):
     if sayı==0: pass
     if sayı==1:
         if aramaSayısı<1:
-            c.print(Panel.fit(f"📌<< [yellow1 on deep_sky_blue1] Aradığın talebelerin numarasını, adını ya da soyadını gir [/] >>,[italic tan] Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]", style="deep_sky_blue1"),end="")
+            c.print(Panel.fit(f"""📌
+[cornsilk1 on navy_blue] Aradığın talebelerin numarasını, adını ya da soyadını gir  [/]
+[italic tan on grey23]  {" "*24}Menüye dönmek için [bold orange_red1]Esc[/] tuşuna bas.[/]""", style="deep_sky_blue1"),end="")
+            
         else: print("[bold red3] Esc[/][grey30] or[/][bold sea_green2] new[/] [yellow1]>>[/] ", end="", flush=True)
         
     if sayı==2:
@@ -86,10 +89,10 @@ def Mesajlar(sayı:int=0):
        
     if sayı==4:
         metin1=f"""[yellow]Silinecek öğrencilerin numaralarını girin. Sayıları boşluk veya virgül ile ayırabilirsiniz.[/]        
-    [bold magenta]Geçerli aralık:[/] 0 - {len(EmptyLists.Bulunanlar) - 1} 
+    [bold magenta]Geçerli aralık:[/] 0 - {len(veriYolu.Bulunanlar) - 1} 
     """  
     if sayı==5:
-        metin2=f""" [bold white][italic yellow] Lütfen bu sefer dikkatli ol, Tanrı aşkına![/italic yellow] 🙏  Geçerli aralık:[bold yellow] 0 - {len(EmptyLists.Bulunanlar) - 1} [/] [/] """
+        metin2=f""" [bold white][italic yellow] Lütfen bu sefer dikkatli ol, Tanrı aşkına![/italic yellow] 🙏  Geçerli aralık:[bold yellow] 0 - {len(veriYolu.Bulunanlar) - 1} [/] [/] """
        
        
        

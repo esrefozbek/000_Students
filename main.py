@@ -12,7 +12,7 @@ from rich.table import Table
 from rich.console import Console; c = Console()
 import readchar
 import time
-import VERI.emptyLists as EmptyLists
+import VERI.emptyLists as veriYolu
 
 import AnaFonksiyonlar.yeniOgrenci_KAYIT as YeniOgr_KAYIT
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
@@ -34,6 +34,17 @@ import AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle
 #import Widgetler.SayacAnimasyon.spinner as spinnerPY
 
+
+
+ #£  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+  #€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+  #?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+  #~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json   
+  #_  asdasdasdasdasda23423424242342       
+  #** asddasdsadasadasdad2342342342342342            
+
+
+
 #breakpoint()
 #^########################################menu.ekranTemizle()
 
@@ -51,8 +62,8 @@ def anamenü_bekletme(scnd):
             
 
 def startPoint():
-        EmptyLists.Jsonda_Mevcut_Veriler.clear()
-        EmptyLists.FARK_SozlukListesi.clear()
+        veriYolu.Jsonda_Mevcut_Veriler.clear()
+        veriYolu.FARK_SozlukListesi.clear()
       
        
 #? SECTION ANAMENÜ
@@ -96,16 +107,16 @@ def startPoint():
                               
                         while True:
                             arananlarSTRINGi=Arama.bul(1)  #! Bulunanlar listesine dolum yapılır,
-                            
-                           # c.print(">>main>> KRITER >> ", arananlarSTRINGi)
+                              
+                            c.print(">>main>> KRITER >> ", arananlarSTRINGi)
                             if arananlarSTRINGi is None: break 
-                            if EmptyLists.joinedListSozlukCoklu:
+                            """   if EmptyLists.joinedListSozlukCoklu:
                                 TablolarPY.genel_TABLO(EmptyLists.joinedListSozlukCoklu)
                                 
                                 
-                            c.print("main> ",EmptyLists.joinedListSozlukCoklu)
-                            c.rule("Bölüm 1",style="red1",characters="=",align="right")
-                           
+                            c.print("main> ",EmptyLists.Joined_altAnaListeTeklilerSozluk)
+                            c.rule("Bölüm 1",style="red1",characters="=",align="right") """
+                            
                            
                            
                             # # from rich.console import Console
@@ -266,8 +277,8 @@ def startPoint():
                       #^  sayacKronometre.geri_say(1)
                       #  spinnerPY.dene_spinner() 
                         anamenü_bekletme(3)
-                        EmptyLists.Jsonda_Mevcut_Veriler.clear()
-                        EmptyLists.FARK_SozlukListesi.clear()
+                        veriYolu.Jsonda_Mevcut_Veriler.clear()
+                        veriYolu.FARK_SozlukListesi.clear()
                         continue
    
                        
@@ -277,29 +288,29 @@ def startPoint():
                         
                     elif CHOOSEN == 7: #NOTE -  DİLİMLEME         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
-                        EmptyLists.value=25
-                        değer=EmptyLists.value
+                        veriYolu.value=25
+                        değer=veriYolu.value
                         Menu.ekranTemizle()
                         AnaModul.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if EmptyLists.Jsonda_Mevcut_Veriler:
+                        if veriYolu.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
-                            EmptyLists.Jsonda_Mevcut_Veriler.clear()
+                            veriYolu.Jsonda_Mevcut_Veriler.clear()
                         else:
                             c.print("📭 Liste boş. Önce öğrenci gir.",style="white")
                         Say_Kro.progress_sayac()
 
                     elif CHOOSEN==77:#NOTE -  DİLİMLEME
                 
-                        EmptyLists.value=500
-                        değer=EmptyLists.value
+                        veriYolu.value=500
+                        değer=veriYolu.value
                        #! Menu.ekranTemizle()
                         AnaModul.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if EmptyLists.Jsonda_Mevcut_Veriler:
+                        if veriYolu.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
                            #&   Canlı_Tablo.main()    
-                            EmptyLists.Jsonda_Mevcut_Veriler.clear()
+                            veriYolu.Jsonda_Mevcut_Veriler.clear()
                         else:
                             c.print("📭 Liste boş. Önce öğrenci gir.", style="blink")
                       #FIXME -   menü.rastgele_box_stili
@@ -353,11 +364,11 @@ def startPoint():
                         
                         
                     elif selected == 4:
-                        c.print("\n[bold]VERİ.TupleliListe_:[/bold]",EmptyLists.Jsonda_Mevcut_Veriler)
+                        c.print("\n[bold]VERİ.TupleliListe_:[/bold]",veriYolu.Jsonda_Mevcut_Veriler)
                         ENTER()
            
                     elif selected== 5:
-                        AsistanModul.TupleyiSözlükListesineEkle(EmptyLists.Jsonda_Mevcut_Veriler)
+                        AsistanModul.TupleyiSözlükListesineEkle(veriYolu.Jsonda_Mevcut_Veriler)
                       
                         #NOTE - Hangi tuple var, ilk kayıttaki mi , jsondan gelip remove edilmiş olan mı, 
                         klavyeyiDinle.Enter_ile_devam_et()
@@ -365,9 +376,9 @@ def startPoint():
                     elif selected==6:
                         menuTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
-                        if EmptyLists.FARK_SozlukListesi:
+                        if veriYolu.FARK_SozlukListesi:
                             c.print("\nVERİ.SözlüklüListe_:",style="green")
-                            for i in EmptyLists.FARK_SozlukListesi:
+                            for i in veriYolu.FARK_SozlukListesi:
                                     c.print(i)
                                     
                         else:
@@ -378,13 +389,13 @@ def startPoint():
                     elif selected==7:
                         menuTipi="tupleliListe"
                         listeTipi="tupleliListe"
-                        EmptyLists.Jsonda_Mevcut_Veriler.sort()
+                        veriYolu.Jsonda_Mevcut_Veriler.sort()
                             
-                        c.print(f"\n[ {len(EmptyLists.Jsonda_Mevcut_Veriler)} TALEBE bulundu ]",style=" white")
-                        c.print("[magenta]VERİ.TupleliListe_:[/magenta]",EmptyLists.Jsonda_Mevcut_Veriler)
-                        if EmptyLists.FARK_SozlukListesi:
+                        c.print(f"\n[ {len(veriYolu.Jsonda_Mevcut_Veriler)} TALEBE bulundu ]",style=" white")
+                        c.print("[magenta]VERİ.TupleliListe_:[/magenta]",veriYolu.Jsonda_Mevcut_Veriler)
+                        if veriYolu.FARK_SozlukListesi:
                            # for sözlük in sözlüklüListe:
-                                c.print("\n",EmptyLists.FARK_SozlukListesi,"\n",style="bold")
+                                c.print("\n",veriYolu.FARK_SozlukListesi,"\n",style="bold")
                         else:
                             c.print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         klavyeyiDinle.Enter_ile_devam_et()
@@ -394,8 +405,8 @@ def startPoint():
                         
                     
                     elif selected==9:
-                        EmptyLists.Jsonda_Mevcut_Veriler.clear()
-                        if EmptyLists.Jsonda_Mevcut_Veriler:
+                        veriYolu.Jsonda_Mevcut_Veriler.clear()
+                        if veriYolu.Jsonda_Mevcut_Veriler:
                             c.print("Tupleli liste dolu")
                             ENTER()
                         else:
@@ -403,12 +414,12 @@ def startPoint():
                         ENTER()
                     
                     elif selected==10:
-                        EmptyLists.FARK_SozlukListesi.clear()
+                        veriYolu.FARK_SozlukListesi.clear()
 
                         # ekran temizlenir anaMenüye gidilir Lakin silinen eklenen listeleri doludur.
                         
                     elif selected==11:
-                        Dilimleme.dilimleme(5,EmptyLists.Jsonda_Mevcut_Veriler)                        
+                        Dilimleme.dilimleme(5,veriYolu.Jsonda_Mevcut_Veriler)                        
                         #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
                     
                     elif selected==12:

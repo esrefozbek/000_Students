@@ -1,6 +1,6 @@
 from rich import box
 import MenuTablo.menu as Menu
-import VERI.emptyLists as EmptyLists
+import VERI.emptyLists as veriYolu
 from rich.table import Table
 from rich.console import Console
 from rich.table import Table
@@ -23,7 +23,7 @@ def genel_TABLO(liste: list, ):
     # Tablo yaratılıyor
     titleBelow=f"[bold spring_green2]BULUNAN ÖĞRENCİLER TABLOSU[/]   [thistle1]box_stilim:[/]{altBox_stili[0]}"
     table = Table(title=titleBelow,
-                 caption=f"{EmptyLists.value} xxxxxxxxxxxxxxxxxx",
+                 caption=f"{veriYolu.value} xxxxxxxxxxxxxxxxxx",
                  box=altBox_stili[1],
                  show_header=True,header_style="bold bright_black",
                  row_styles=["none", "dim"],
@@ -42,7 +42,7 @@ def genel_TABLO(liste: list, ):
     for sıra_numarası, item in enumerate(liste):
             table.add_row(
             str(sıra_numarası),
-            item["metin"],
+            item["kriter"],
             str(item["Id"]),
             item["ad"],
             item["soyad"],
@@ -53,7 +53,7 @@ def genel_TABLO(liste: list, ):
     
     c.print("\n", table)
     
-    if EmptyLists.Bulunanlar:
+    if veriYolu.Bulunanlar:
         c.print("\n\n➡️  Yeni arama için [bold green]ENTER[/bold green] tuşuna bas...\n➡️  Ana menüye dönmek için [bold red]ESC[/bold red] tuşuna bas...\n")
     
     
