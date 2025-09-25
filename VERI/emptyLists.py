@@ -28,7 +28,9 @@ Jsonda_Mevcut_Veriler=[]
 
 sayı:int
 ad:str
-
+ekle=False
+bul=False
+sil=False
 
 value=6
 
@@ -52,4 +54,4 @@ altAnaListeTumKritersiz= []
 Joined_altAnaListeTumKriterli=[]
 Joined_altAnaListeTumKritersiz=[]
 
-Joined_altAnaListeTeklilerSozluk=[{}]
+Joined_TeklilerSozluk=[{}]

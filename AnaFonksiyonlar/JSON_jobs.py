@@ -1,5 +1,5 @@
 #breakpoint()
-import VERI.emptyLists as veriYolu,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import VERI.emptyLists as EMPTY_LISTS,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import json, os
 from rich import print
 import Widgetler.SayacAnimasyon.spinner as SpinnerPY
@@ -23,10 +23,10 @@ def JSONdanImport():
             Geçici_SozlukListesi = json.load(file)
       
        #^ c.print("\njson:import:Geçici_SozlukListesi[-1:]>>",Geçici_SozlukListesi[-1:])       
-        veriYolu.Jsonda_Mevcut_Veriler.clear() 
+        EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear() 
         
         import copy
-        veriYolu.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
+        EMPTY_LISTS.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
       
 
 #&             KayıtOncesiCTRL_theFilesExist_Or                     
@@ -78,7 +78,7 @@ def tamiratForID(getLastJSON_ID,ilaveSozluk):
     return AtEmptyLists.Jsonda_Mevcut_Veriler, ilaveSozluk, getLastJSON_ID, getTextID
 
 
-#&                   Sözlüğe Ekleme                   
+#**                   Sözlüğe Ekleme                                      
 def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
     #degisimMiktari=len(YeniEklenenlerinSozluklerListesi_)
     ReturnedDatas=CTRLforFilesExist(JSON_Dosyasi)  #! ReturnedDatas[0]:AtEmptyLists.Jsonda_Mevcut_Veriler
@@ -87,7 +87,7 @@ def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
     ReturnedDatas[0].extend(FARK_SozlukListesi)
     getLastJSON_ID = ReturnedDatas[0][-1]["Id"]
  
-    veriYolu.FARK_SozlukListesi.clear()
+    EMPTY_LISTS.FARK_SozlukListesi.clear()
     SpinnerPY.spinner(2,1)      
    #^ Jsonda_Mevcut_Veriler = []
    
@@ -98,27 +98,32 @@ def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
 
 
 
-#&                    Jsonda_Mevcut_Verilerden Silme                  
-def SozluktenEksiltme(jsonSozluk, silineceklerListesi):
-  
-    for item in silineceklerListesi:
-      jsonSozluk.remove(item)
+#_                    Jsonda_Mevcut_Verilerden Silme                  
+def SozluktenEksiltme(AnaJson, farkListesi):
+    
+    for item in farkListesi:
+        if item in AnaJson:
+            
+            AnaJson.remove(item)
+        else:
+            c.print(f"{item} ana json dosyasında mevcut değil.")
 
-    getLastJSON_ID =jsonSozluk[-1]["Id"]  #^ mevcut değilse ??
+
+    getLastJSON_ID =AnaJson[-1]["Id"]  #^ mevcut değilse ??
     getTextID = TxtYolu.txtID_Oku(txt_dosya_yolu) #^ mevcut değilse ??
 
    #^ Jsonda_Mevcut_Veriler = []
     SpinnerPY.spinner(3,2)  
-    JsonaDump(jsonSozluk)    
+    JsonaDump(AnaJson)    
     c.print(f" 200 öğrencinin bilgileri [red]JSON[/]'dan silindi.\n")
     
-    return jsonSozluk 
+    return AnaJson 
     
     
     
     
 
-#&              Jsonda_Mevcut_Veriler'i JSON'a Dump                     
+#=              Jsonda_Mevcut_Veriler'i JSON'a Dump                     
 
 def JsonaDump(mevcut_Veriler):
     with open(jsonDosya_adi, "w", encoding="utf-8") as f:

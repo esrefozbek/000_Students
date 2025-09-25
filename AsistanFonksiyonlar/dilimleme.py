@@ -2,8 +2,8 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-import AsistanFonksiyonlar.klavyeDinleme as klavyeyiDinle, VERI.emptyLists as veriYolu,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
-import  MenuTablo.tablolarPY as TablolarPY
+import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE, VERI.emptyLists as EMPTY_LISTS,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import  MenuTablo.tablolarPY as TABLOLAR
  
 
 
@@ -12,18 +12,18 @@ def dilimleme(value,liste):
     menüTipi="Dilimlenmiş Ana Liste"
     listeTipi="Dilimlenmiş Tüm Liste"
     kaçarKaçar = value if value is not None else 10  # kaçarlı dilimler yapalım
-    veriYolu.ListeDilimi = []
+    EMPTY_LISTS.ListeDilimi = []
     for idx, i in enumerate(liste):
-        veriYolu.ListeDilimi.append(i)
+        EMPTY_LISTS.ListeDilimi.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TablolarPY.genel_TABLO(veriYolu.ListeDilimi, )
-            veriYolu.ListeDilimi = []  # Dilimi sıfırla
-            klavyeyiDinle.Enter_ile_devam_et()
+            TABLOLAR.genel_TABLO(EMPTY_LISTS.ListeDilimi, )
+            EMPTY_LISTS.ListeDilimi = []  # Dilimi sıfırla
+            KLAVYE_DINLE.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
-    if veriYolu.ListeDilimi:  # Eğer dilimListe boş değilse
-        TablolarPY.genel_TABLO(veriYolu.ListeDilimi, )
-        klavyeyiDinle.Enter_ile_devam_et()
+    if EMPTY_LISTS.ListeDilimi:  # Eğer dilimListe boş değilse
+        TABLOLAR.genel_TABLO(EMPTY_LISTS.ListeDilimi, )
+        KLAVYE_DINLE.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
 def gptDilimleme(value,liste: list):
@@ -36,9 +36,9 @@ def gptDilimleme(value,liste: list):
     for i in range(toplam_sayfa):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
-        veriYolu.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
-        TablolarPY.genel_TABLO(veriYolu.Dilimlenmiş_alt_liste, )
-        klavyeyiDinle.Enter_ile_devam_et()
+        EMPTY_LISTS.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
+        TABLOLAR.genel_TABLO(EMPTY_LISTS.Dilimlenmiş_alt_liste, )
+        KLAVYE_DINLE.Enter_ile_devam_et()
         if i>1:
             print("\n\n")
         

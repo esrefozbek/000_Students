@@ -1,12 +1,13 @@
 import readchar
-from rich.console import Console
-console=Console()
+from rich.console import Console; c=Console()
+from rich import print as p
+from rich.panel import Panel
 
 
 def Evet_Hayır_OnayiAl(ogr):
-    console.print(f"\n[?] Bu öğrenciyi silmek istiyor musunuz?\n[bold cyan]{ogr}[/bold cyan]")
-    print("Devam etmek için [e/E]vet, iptal için [h/H]ayır tuşuna basın: ", end="", flush=True)
-
+    p(Panel.fit(f"\n[?] Bu öğrenciyi silmek istiyor musunuz?  [cyan]{ogr}[/] \nDevam etmek için 'e/E'(evet), iptal için 'h/H'(hayır) tuşuna bas" , title=" Evet Hayır ONAYI ",     style="red1"))
+            
+            
     while True:
         tus = readchar.readchar().lower()
         if tus == 'e' or tus=='E':
@@ -15,5 +16,6 @@ def Evet_Hayır_OnayiAl(ogr):
         elif tus == 'h' or 'H':
             print(" → İptal edildi.")
             return False
+                
         else:
             print("\nGeçersiz tuş! Lütfen 'e/E' veya 'h/H' tuşlarına basın: ", end="", flush=True)

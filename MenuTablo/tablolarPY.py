@@ -1,6 +1,6 @@
 from rich import box
 import MenuTablo.menu as Menu
-import VERI.emptyLists as veriYolu
+import VERI.emptyLists as EMPTY_LISTS
 from rich.table import Table
 from rich.console import Console
 from rich.table import Table
@@ -23,7 +23,7 @@ def genel_TABLO(liste: list, ):
     # Tablo yaratılıyor
     titleBelow=f"[bold spring_green2]BULUNAN ÖĞRENCİLER TABLOSU[/]   [thistle1]box_stilim:[/]{altBox_stili[0]}"
     table = Table(title=titleBelow,
-                 caption=f"{veriYolu.value} xxxxxxxxxxxxxxxxxx",
+                 caption=f"{EMPTY_LISTS.value} tane",
                  box=altBox_stili[1],
                  show_header=True,header_style="bold bright_black",
                  row_styles=["none", "dim"],
@@ -39,7 +39,7 @@ def genel_TABLO(liste: list, ):
     table.add_column("Sınıf", justify="center",style="green")
     table.add_column("Kayıt Tarihi", justify="center", style="white", no_wrap=True,overflow="crop")
     
-    for sıra_numarası, item in enumerate(liste):
+    for sıra_numarası, item in enumerate(liste,start=1):
             table.add_row(
             str(sıra_numarası),
             item["kriter"],
@@ -51,11 +51,12 @@ def genel_TABLO(liste: list, ):
             item["sinifi"],
             item["kayitTarihi"], ) 
     
-    c.print("\n", table)
+    c.print("", table,end="\n")
+    c.rule("sonuçlar yukarıda sunuldu",style="red")
+    c.print("",end="\n")
     
-    if veriYolu.Bulunanlar:
-        c.print("\n\n➡️  Yeni arama için [bold green]ENTER[/bold green] tuşuna bas...\n➡️  Ana menüye dönmek için [bold red]ESC[/bold red] tuşuna bas...\n")
-    
+ #_   if EMPTY_LISTS.Bulunanlar:
+ #       c.print("\n➡️  Yeni arama için [bold green]ENTER[/bold green] tuşuna bas...\n➡️  Ana menüye dönmek için [bold red]ESC[/bold red] tuşuna bas...\n")
     
 
 
