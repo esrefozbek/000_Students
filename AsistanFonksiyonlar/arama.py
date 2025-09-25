@@ -1,9 +1,9 @@
  #£  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-  #€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-  #?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-  #~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json   
-  #_  asdasdasdasdasda23423424242342       
-  #** asddasdsadasadasdad2342342342342342            
+#€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+#?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+#~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json   
+#_  asdasdasdasdasda23423424242342       
+#** asddasdsadasadasdad2342342342342342            
 
 # - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.
 
@@ -19,52 +19,26 @@ from rich.console import Console; c=Console()
 from rich.columns import Columns
 from rich.panel import Panel
 import AnaFonksiyonlar.JSON_jobs as ANAMODUL
-import Widgetler.SayacAnimasyon.spinner as SAYAC
 
 
 EMPTY_LISTS.Bulunanlar=[]   #! boş bir sözlükler listesi.
-kriter=""
-
-
-
-EMPTY_LISTS.Bulunanlar=[]   #! boş bir sözlükler listesi.
-EMPTY_LISTS.altAnaListeTeklerKriterli=[]
-EMPTY_LISTS.altAnaListeTeklerKritersiz=[]
-
-EMPTY_LISTS.altAnaListeTumKriterli=[]
-EMPTY_LISTS.altAnaListeTumKritersiz= []
-
-EMPTY_LISTS.Joined_altAnaListeTekler=[]
-EMPTY_LISTS.Joined_altAnaListeTumKriterli=[]
+kriterStringi=""
 
 
 
 
-def bul_AnaFonksiyon(GirisMesaji:int):
-        
-        listeleriCleanEt()
-        JSONdan_Import()    #!  her seferinde baştan yükleniyor İyi mi Kötü mü ???
-        
-        kriter=InputwithESCAPE(GirisMesaji) 
-        if kriter is not None:
-            Parsing(kriter)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
-            KriterleriBul(EMPTY_LISTS.ParsedSTRING_Listesi)
-#            tumKriterleriBul(EmptyLists.ParsedSTRING_Listesi)  #! EmptyLists.Bulunanlar listesi ve altAnaListe dolduruldu.
-#            joinification(EmptyLists.altAnaListeTeklerKritersiz)
-            joinification(EMPTY_LISTS.altAnaListeTeklerKriterli)
-            panelisation(EMPTY_LISTS.Joined_altAnaListeTekler)
-            TabloyaSozlukYap(EMPTY_LISTS.Joined_altAnaListeTekler)
-            TABLOLAR.genel_TABLO(EMPTY_LISTS.Joined_TeklilerSozluk, ) 
-            return kriter         
-        else:
-            return None
-          
+def Cleaning():
 
 
-def listeleriCleanEt():
+    EMPTY_LISTS.Joined_altAnaListeTekler=[]
+    EMPTY_LISTS.Joined_altAnaListeTumKriterli=[]
+    EMPTY_LISTS.altAnaListeTeklerKritersiz=[]
     EMPTY_LISTS.altAnaListeTeklerKritersiz=      [[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altAnaListeTeklerKriterli=[]
     EMPTY_LISTS.altAnaListeTeklerKriterli=       [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altAnaListeTumKriterli=[]
     EMPTY_LISTS.altAnaListeTumKriterli=                  [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altAnaListeTumKritersiz= []
     EMPTY_LISTS.altAnaListeTumKritersiz=                  [[],[],[],[],[],[],[]]
     
     EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
@@ -77,32 +51,56 @@ def listeleriCleanEt():
     EMPTY_LISTS.BulunanIDler.clear()
     EMPTY_LISTS.Jsonda_Mevcut_Veriler=[]  #! Temizlik imandandır
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
+
+
+
+def bul_AnaFonksiyon(GirisMesaji:int):
+        
+        Cleaning()
+        JSONdan_Import()    #!  her seferinde baştan yükleniyor İyi mi Kötü mü ???
+        MESAJLAR.Mesajlar(GirisMesaji)
+        kriter=InputwithESCAPE()
+        if kriter is None:
+            return None
+        else:
+            Parsing(kriter)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
+            KriterleriBul(EMPTY_LISTS.parsedKriterStringi_Listesi) #/  Sonuç bulunursa Bulunanlar listesi doldurulur . 
+            joinification(EMPTY_LISTS.altAnaListeTeklerKriterli)
+            panelisation(EMPTY_LISTS.Joined_altAnaListeTekler)
+            TabloyaSozlukYap(EMPTY_LISTS.Joined_altAnaListeTekler)
+            TABLOLAR.genel_TABLO(EMPTY_LISTS.Joined_TeklilerSozluk, ) 
+            return kriter         
+          
+
+
     
-   
-     
 def JSONdan_Import():
     ANAMODUL.JSONdanImport()  
 
-def InputwithESCAPE(mesaj:int=0):
-    global kriter
+
+
+def InputwithESCAPE():
+    global kriterStringi
     while True:
-        MESAJLAR.Mesajlar(mesaj)
-        kriter=KLAVYE_DINLE.KlavyeDinle()
-        if kriter is  None:
-#            c.print("    Ana menüye hicret ediyoruz ...................................",style="magenta")
-            SAYAC.spinner(4,7)
+        
+        kriterStringi=KLAVYE_DINLE.KlavyeDinle()
+        if kriterStringi is  None:
+          #  SAYAC.spinner(4,3)
             return None    
-        elif kriter == "":
+        elif kriterStringi == "":
             c.print("<< \"  \" Hiçbir değer girmeden [red on green] Enter [/] tuşuna bastın Beni boşuna oyalama dostum, gazabım kötüdür",style="bright_yellow")
             continue
         else:    
-           #_       kriter=str(kriter).strip().lower()         
-            return kriter
+            kriter=str(kriterStringi).strip().lower()         
+            return kriterStringi
 
-def Parsing(kriter):
-    kriter=kriter or ""
-    EMPTY_LISTS.ParsedSTRING_Listesi=[]
-    EMPTY_LISTS.ParsedSTRING_Listesi = re.split(r'[,\s]+', kriter) 
+
+
+
+def Parsing(kriterStringi):
+    kriterStringi=kriterStringi or ""
+    EMPTY_LISTS.parsedKriterStringi_Listesi=[]
+    EMPTY_LISTS.parsedKriterStringi_Listesi = re.split(r'[,\s]+', kriterStringi) 
     #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
         
 def KriterleriBul(aramaParametresi:list):   #~           TEK KRİTER              
@@ -144,19 +142,21 @@ def joinification(liste:list):
     for i,grup in enumerate(liste):
         for j,sutun  in enumerate(grup):      
             EMPTY_LISTS.Joined_altAnaListeTekler[i][j]="\n".join(sutun)
-#_    p("\nArama>joynlama: EmptyLists.Joined_altAnaListeTekler  >> ",veriYolu.Joined_altAnaListeTekler)     
+#/    p("\nArama>joynlama: EmptyLists.Joined_altAnaListeTekler  >> ",veriYolu.Joined_altAnaListeTekler)     
 
 def panelisation(joinedLists):
+#    p("panel>>joinedLists >> ",joinedLists)
     icerikler = []
     renk=["yellow","orange1","green1","light_goldenrod2","dark_olive_green2","khaki1","dodger_blue2","green4"]
     basliklar=["kriter","Id","Ad","Soyad","No'su","Doğ Tarihi","Sınıf","Kayıt Tarihi"]
     
     for j, joinedList in enumerate(joinedLists):
         paneller=[]
-        for i,longString in enumerate(joinedList):
-            pan=(Panel.fit(Text(longString, style="grey35"), title=basliklar[i], border_style=renk[i]))
-            paneller.append(pan)
-        icerikler.append(Panel.fit(Columns(paneller), title="başlık ", border_style="grey15"))
+        if joinedList[1]!="":
+            for i,longString in enumerate(joinedList):
+                pan=(Panel.fit(Text(longString, style="grey35"), title=basliklar[i], border_style=renk[i]))
+                paneller.append(pan)
+            icerikler.append(Panel.fit(Columns(paneller), title="başlık ", border_style="grey15"))
     col=Columns(icerikler)
     p(col,end="\n")
   
@@ -171,7 +171,7 @@ def TabloyaSozlukYap(liste):
             sozluk[basliklar[j]] = item[j]  #_ key:value yapıdı. 
         EMPTY_LISTS.Joined_TeklilerSozluk.append(sozluk)
 
-#_    p("Arama>>TabloyaSozluk: VERI.Joined_TeklilerSozluk ",VERI.Joined_TeklilerSozluk)
+#/    p("Arama>>TabloyaSozluk: VERI.Joined_TeklilerSozluk ",VERI.Joined_TeklilerSozluk)
     
 
     

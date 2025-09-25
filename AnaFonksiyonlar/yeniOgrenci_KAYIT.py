@@ -29,14 +29,9 @@ def yeniOgrenciKayidi():
         FarkiJsonSozlugeEkle()
         
 def inputOgr():
-        global toplamKayit
         
         while True:
-                if toplamKayit==0:
-                        c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey30]\n📌 Anamenü'ye [bold orange_red1]Esc[/] ile dönebilirsin.[/]", border_style="green_yellow"), end="")
-                else:
-                        #NOTE -  Burada ad giriliyor, 'Esc'  ye basılırsa yeni öğrenci kayıdı sonlandırılıyor.
-                        MESAJLAR.Mesajlar(3)  
+                MESAJLAR.Mesajlar(8)
                 ad = KLAVYEDINLE.KlavyeDinle()
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
                         c.print(f"\n{toplamKayit} öğrenci bilgisi sağladınız...\n",style="",end="\n")
@@ -54,7 +49,6 @@ def inputOgr():
                 c.print("\t[green]SINIFI[/] ",end="    >> "); sinifi = input().strip()
         
                 ogrenci=(ad, soyad, ogrenciNumarasi, dogumTarihi, sinifi)
-                toplamKayit +=1 
                 c.print("kayıt::inputOgr: toplamKayit 2>>",toplamKayit)
                 return ogrenci 
 

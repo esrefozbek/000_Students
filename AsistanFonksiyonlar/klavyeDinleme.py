@@ -52,7 +52,7 @@ def enter_OR_esc(metod):
               
 
 def Enter_ile_devam_et(mesaj="""
-            ➡️  Devam etmek için [bold green]ENTER[/] tuşuna bas..."""):
+            ➡️  Devam etmek için [bold green]ENTER[/] tuşuna bas dostum..."""):
     c.print(mesaj, style="light_sky_blue3")
     while True:
         key = readchar.readkey()

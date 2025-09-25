@@ -7,12 +7,12 @@ import os
 
 
 class Ogrenciler():
-    # ogrenciId:int
-    # ad:str
-    # soyad:str
-    # doğumTarihi:str
-    # sinifi:str
-    # kayıtTarihi:datetime 
+    Id:int
+    ad:str
+    soyad:str
+    doğumTarihi:str
+    sinifi:str
+    kayıtTarihi:datetime 
     
 
     #NOTE -  BURADA TUPLELER İÇEREN LİSTE YAPISINA EKLEME YAPILIYOR

@@ -5,7 +5,7 @@ from rich.panel import Panel
 
 
 def Evet_Hayır_OnayiAl(ogr):
-    p(Panel.fit(f"\n[?] Bu öğrenciyi silmek istiyor musunuz?  [cyan]{ogr}[/] \nDevam etmek için 'e/E'(evet), iptal için 'h/H'(hayır) tuşuna bas" , title=" Evet Hayır ONAYI ",     style="red1"))
+    p(Panel.fit(f"\n[?] Bu öğrenciyi silmek istiyor musunuz?  [cyan]{ogr}[/] \nDevam etmek için 'e/E'(evet), iptal için 'h/H'(hayır/Esc) tuşuna bas" , title=" Evet Hayır ONAYI ",     style="red1"))
             
             
     while True:

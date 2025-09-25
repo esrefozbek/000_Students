@@ -59,7 +59,7 @@ def startPoint():
 
 #? SECTION ANAMENÜ
         while True:  #Menüden seçim
-            
+                    print("\n")
                     Menu.menu_goster()
                     #REVIEW - JSON._JSONdanYükleme_()
                     try:
@@ -235,12 +235,10 @@ def startPoint():
                     elif CHOOSEN ==3: #NOTE -  SİL
                         # if not VERİ.TupleliListe_:
                         # else:
-                        while True:
-                            Ogr_SiL.Silme_AnaFonksiyon()
-                            EMPTY_LISTS.sil=True
-                         
+                        Ogr_SiL.Silme_AnaFonksiyon()
+                        EMPTY_LISTS.sil=True
                         EMPTY_LISTS.sil=False
-                        ENTER()
+                       
         
         
 

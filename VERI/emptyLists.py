@@ -1,12 +1,12 @@
 Bulunanlar=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
 BulunanIDler=[]
-silinmesi_istenilenler=[]
+silinmesi_istenilenler_Stringi=""
+hatalilar=[]
+hatasizlar=[]
 
 TupleListesi=[]
 Jsonda_Mevcut_Veriler=[]  
-ParsedSTRING_Listesi=[]
-
-
+parsedKriterStringi_Listesi=[]
 
 
 FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi,  Ana jsondan çıkarılacak veya eklenecek. 
@@ -31,7 +31,7 @@ ad:str
 ekle=False
 bul=False
 sil=False
-
+aramaSayisi=0
 value=6
 
 

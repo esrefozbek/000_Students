@@ -1258,5 +1258,77 @@
         "dogumTarihi": "",
         "sinifi": "",
         "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 146,
+        "ad": "Eşref Kamil",
+        "soyad": "Dönercioğlu",
+        "ogrenciNumarasi": "23423",
+        "dogumTarihi": "04/02/1974",
+        "sinifi": "5N",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 147,
+        "ad": "Şehvet",
+        "soyad": "Engin",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "4V",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 148,
+        "ad": "Orhan",
+        "soyad": "Veli",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 149,
+        "ad": "Musa",
+        "soyad": "Avcı",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 150,
+        "ad": "Oktay",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 151,
+        "ad": "Melih",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 152,
+        "ad": "Suhulet",
+        "soyad": "Tezcan",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 153,
+        "ad": "Muhammet",
+        "soyad": "Pedofilli",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "25/09/2025"
     }
 ]
