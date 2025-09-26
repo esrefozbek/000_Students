@@ -23,7 +23,7 @@ from rich.columns import Columns
 # import questionary
 
     
-returned=""    
+   
 def Silme_AnaFonksiyon():
   while True:
         returned=Bul()   # returned:  aranan bir kelime girilmedi ESC ye basıldı demek . 
@@ -43,12 +43,12 @@ def Bul():
     
     while True:
         Cleaning()
-        Returned=Arama.bul_AnaFonksiyon(2)  #/ Bulunanlar listesi dolduruldu. Esc ile çıkılır Tekrar SilmeAnafonksiyona dönülür.   
-        c.print("Sil>>Bul:   Returnned 1 >>", Returned)
-        if Returned is None: #_ Nonw demek Esc ye basıldı demek.  Birşey bulunmaması ise "" demek. 
+        returned=Arama.bul_AnaFonksiyon(2)  #/ Bulunanlar listesi dolduruldu. Esc ile çıkılır Tekrar SilmeAnafonksiyona dönülür.   
+        c.print("Sil>>Bul:   Returnned  << 1 >>", returned)
+        if returned is None: #_ Nonw demek Esc ye basıldı demek.  Birşey bulunmaması ise "" demek. 
            c.print("sil>> bul :  ESC ye basıldı  ",style="deep_sky_blue1")
            
-        return Returned
+        return returned
     
             
 

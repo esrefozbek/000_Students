@@ -1,9 +1,9 @@
  #£  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-#€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-#?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
-#~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json   
-#_  asdasdasdasdasda23423424242342       
-#** asddasdsadasadasdad2342342342342342            
+#€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json     
+#?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json     
+#~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+#_  asdasdasdasdasda23423424242342                              
+#** asddasdsadasadasdad2342342342342342                         
 
 # - ogrenci_SiLME.py de  " "  boşluk arattığımda tüm liste dökülüyor önüme.
 
@@ -30,26 +30,17 @@ kriterStringi=""
 def Cleaning():
 
 
-    EMPTY_LISTS.Joined_altAnaListeTekler=[]
-    EMPTY_LISTS.Joined_altAnaListeTumKriterli=[]
-    EMPTY_LISTS.altAnaListeTeklerKritersiz=[]
-    EMPTY_LISTS.altAnaListeTeklerKritersiz=      [[],[],[],[],[],[],[]]
-    EMPTY_LISTS.altAnaListeTeklerKriterli=[]
-    EMPTY_LISTS.altAnaListeTeklerKriterli=       [[],[],[],[],[],[],[],[]]
-    EMPTY_LISTS.altAnaListeTumKriterli=[]
-    EMPTY_LISTS.altAnaListeTumKriterli=                  [[],[],[],[],[],[],[],[]]
-    EMPTY_LISTS.altAnaListeTumKritersiz= []
-    EMPTY_LISTS.altAnaListeTumKritersiz=                  [[],[],[],[],[],[],[]]
+ 
+    EMPTY_LISTS.altAnaListeTekler=       [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altAnaListeTum=          [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.Joined_altAnaListeTum=   [[],[],[],[],[],[],[],[]]
     
     EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
-    EMPTY_LISTS.Joined_altAnaListeTeklerKriterli.clear() 
+    EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
     
-    EMPTY_LISTS.Joined_altAnaListeTumKritersiz=   [[],[],[],[],[],[],[]]
-    EMPTY_LISTS.Joined_altAnaListeTumKriterli=    [[],[],[],[],[],[],[],[]]
     
     EMPTY_LISTS.Bulunanlar.clear()  #!j - Her sorguda önce temizle 
     EMPTY_LISTS.BulunanIDler.clear()
-    EMPTY_LISTS.Jsonda_Mevcut_Veriler=[]  #! Temizlik imandandır
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
 
 
@@ -64,11 +55,11 @@ def bul_AnaFonksiyon(GirisMesaji:int):
             return None
         else:
             Parsing(kriter)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
-            KriterleriBul(EMPTY_LISTS.parsedKriterStringi_Listesi) #/  Sonuç bulunursa Bulunanlar listesi doldurulur . 
-            joinification(EMPTY_LISTS.altAnaListeTeklerKriterli)
+            KriterleriBul(EMPTY_LISTS.parsedKriterStringi_Listesi) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
+            joinification(EMPTY_LISTS.altAnaListeTekler)
             panelisation(EMPTY_LISTS.Joined_altAnaListeTekler)
             TabloyaSozlukYap(EMPTY_LISTS.Joined_altAnaListeTekler)
-            TABLOLAR.genel_TABLO(EMPTY_LISTS.Joined_TeklilerSozluk, ) 
+            TABLOLAR.genel_TABLO(EMPTY_LISTS.Joined_TeklilerSozluk ) 
             return kriter         
           
 
@@ -103,52 +94,65 @@ def Parsing(kriterStringi):
     EMPTY_LISTS.parsedKriterStringi_Listesi = re.split(r'[,\s]+', kriterStringi) 
     #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
         
-def KriterleriBul(aramaParametresi:list):   #~           TEK KRİTER              
+        
+        
+def KriterleriBul(parsedKriterStringi_Listesi:list):   
     kriterListesi=[]
     birOncekiToplam:int=0
-    EMPTY_LISTS.altAnaListeTeklerKriterli = [[[] for _ in range(8)] for _ in range(len(aramaParametresi))]
-    EMPTY_LISTS.altAnaListeTeklerKritersiz =[[[] for _ in range(7)] for _ in range(len(aramaParametresi))]
+    p("\n\n✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altAnaListeTekler)) 
+    p("✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",EMPTY_LISTS.altAnaListeTekler) 
+    EMPTY_LISTS.altAnaListeTekler = [[[] for _ in range(len(EMPTY_LISTS.altAnaListeTekler))] for _ in range(len(parsedKriterStringi_Listesi))] #. Boş 2 boyutlu liste oluşturuldu. (altAnaListeTekler[0] X parsedKriterStringi_Listesi)
     
-    for i, metin in enumerate(aramaParametresi):
-        EMPTY_LISTS.altAnaListeTeklerKriterli[i][0]=[metin]
-        EMPTY_LISTS.altAnaListeTumKriterli[0]=aramaParametresi
+    p("\n✈️ ✈️  Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altAnaListeTekler[0]),"X",len(parsedKriterStringi_Listesi)) 
+    p(EMPTY_LISTS.altAnaListeTekler)
+   
+    for i, birKriter in enumerate(parsedKriterStringi_Listesi):
+        EMPTY_LISTS.altAnaListeTekler[i][0]=[birKriter] #. kriter alt dikey listeye eklendi.
+        EMPTY_LISTS.altAnaListeTum[0]=parsedKriterStringi_Listesi
         for ogrenci in EMPTY_LISTS.Jsonda_Mevcut_Veriler:
-            if(metin is not None and metin!=""):
-                if (metin == str(ogrenci["Id"]) or
-                    metin in ogrenci["ad"].lower() or
-                    metin in ogrenci["soyad"].lower()or
-                    metin in ogrenci["ogrenciNumarasi"] or
-                    metin in ogrenci["dogumTarihi"] or
-                    metin in ogrenci["sinifi"].lower() or
-                    metin in ogrenci["kayitTarihi"]
-                    
-                    ):             
+            if(birKriter is not None and birKriter!=""):
+                if (birKriter == str(ogrenci["Id"]) or birKriter in ogrenci["ad"].lower() or birKriter in ogrenci["soyad"].lower()or birKriter in ogrenci["ogrenciNumarasi"] or birKriter in ogrenci["dogumTarihi"] or birKriter in ogrenci["sinifi"].lower() or birKriter in ogrenci["kayitTarihi"]):             
 
                     EMPTY_LISTS.Bulunanlar.append(ogrenci) 
                     EMPTY_LISTS.BulunanIDler.append(ogrenci["Id"]) 
                     
                     for j,val in enumerate(ogrenci.values() ):
-                        EMPTY_LISTS.altAnaListeTeklerKriterli[i][j+1].append(str(val))
-                        EMPTY_LISTS.altAnaListeTeklerKritersiz[i][j].append(str(val))
-                        EMPTY_LISTS.altAnaListeTumKriterli[j+1].append(str(val))
-                        EMPTY_LISTS.altAnaListeTumKritersiz[j].append(str(val))
+                        EMPTY_LISTS.altAnaListeTekler[i][j+1].append(str(val))
+                        EMPTY_LISTS.altAnaListeTum[j+1].append(str(val))     
                 else: 
                     continue
+    
+  #      p("\n✈️✈️ Arama>>kriterBul >> parsedKriterStringi_Listesi uzunluğu: >>", len(parsedKriterStringi_Listesi))
+#         p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY_LISTS.altAnaListeTekler[0]))
+        p("\n✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY_LISTS.altAnaListeTekler)
                            
-    p("\n");c.rule("    SONUÇLAR    ",style="red") ;
+    p("\n");c.rule(" SONUÇLAR ",style="red") ;
+    
+    
+    
  
 def joinification(liste:list):
     EMPTY_LISTS.Joined_altAnaListeTekler= [["" for _ in range(len(liste[0]))] for _ in range(len(liste))]   
     for i,grup in enumerate(liste):
         for j,sutun  in enumerate(grup):      
             EMPTY_LISTS.Joined_altAnaListeTekler[i][j]="\n".join(sutun)
-#/    p("\nArama>joynlama: EmptyLists.Joined_altAnaListeTekler  >> ",veriYolu.Joined_altAnaListeTekler)     
+#.    p("\nArama>joynlama: EmptyLists.Joined_altAnaListeTekler  >> ",veriYolu.Joined_altAnaListeTekler)     
+
+
 
 def panelisation(joinedLists):
 #    p("panel>>joinedLists >> ",joinedLists)
     icerikler = []
     renk=["yellow","orange1","green1","light_goldenrod2","dark_olive_green2","khaki1","dodger_blue2","green4"]
     basliklar=["kriter","Id","Ad","Soyad","No'su","Doğ Tarihi","Sınıf","Kayıt Tarihi"]
+    
+    print("🧪 basliklar:", len(basliklar))
+    print("🧪 renk:", len(renk))
+    print("🧪 Joined_altAnaListeTekler:", len(EMPTY_LISTS.Joined_altAnaListeTekler[0]))
+    print("🧪 EMPTY_LISTS.altAnaListeTekler:", len(joinedLists[0]) if isinstance(joinedLists, list) else "veri liste değil")
+
+    
+    
     
     for j, joinedList in enumerate(joinedLists):
         paneller=[]
@@ -159,6 +163,9 @@ def panelisation(joinedLists):
             icerikler.append(Panel.fit(Columns(paneller), title="başlık ", border_style="grey15"))
     col=Columns(icerikler)
     p(col,end="\n")
+    
+    
+    
   
 def TabloyaSozlukYap(liste):
     basliklar = ["kriter", "Id", "ad", "soyad", "ogrenciNumarasi", "dogumTarihi", "sinifi", "kayitTarihi"]
@@ -171,7 +178,7 @@ def TabloyaSozlukYap(liste):
             sozluk[basliklar[j]] = item[j]  #_ key:value yapıdı. 
         EMPTY_LISTS.Joined_TeklilerSozluk.append(sozluk)
 
-#/    p("Arama>>TabloyaSozluk: VERI.Joined_TeklilerSozluk ",VERI.Joined_TeklilerSozluk)
+#.    p("Arama>>TabloyaSozluk: VERI.Joined_TeklilerSozluk ",VERI.Joined_TeklilerSozluk)
     
 
     

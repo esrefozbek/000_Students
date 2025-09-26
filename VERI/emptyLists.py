@@ -41,17 +41,20 @@ Dilimlenmiş_alt_liste=[]
 
 
 
-altAnaListeTeklerKriterli=[]
-altAnaListeTeklerKritersiz=[]
-
-Joined_altAnaListeTekler=[]
-Joined_altAnaListeTeklerKriterli=[]
 
 
-altAnaListeTumKriterli=[]
-altAnaListeTumKritersiz= []
+listeSayisi=7
+cokluListe=[[] for _ in range(listeSayisi)]
 
-Joined_altAnaListeTumKriterli=[]
-Joined_altAnaListeTumKritersiz=[]
 
-Joined_TeklilerSozluk=[{}]
+altAnaListeTekler=     cokluListe
+altAnaListeTum=        cokluListe
+
+Joined_altAnaListeTekler= cokluListe
+Joined_altAnaListeTum=    cokluListe
+Joined_TeklilerSozluk=[{}] 
+Joined_TumSozluk=[{}] 
+
+
+
+
