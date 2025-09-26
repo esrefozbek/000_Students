@@ -12,7 +12,7 @@ def Mesajlar(sayı:int=0):
     
     if sayı==1:   #=   BUL    
         if EMPTY_LISTS.aramaSayisi<1:  
-            c.print(Panel.fit(f"""📌[cornsilk1 on navy_blue] Aradığın talebelerin numarasını, adını ya da soyadını gir[/][italic tan on grey15] Menü için [bold orange_red1]Esc[/] [/]""", style="deep_sky_blue1"),end="")
+            c.print(Panel.fit(f"""[cornsilk1 on navy_blue] Aradığın talebelerin numarasını, adını ya da soyadını gir [/][italic tan on grey15] Menü için [bold orange_red1]Esc 📌[/] [/]""", style="deep_sky_blue1"),end="")
             p("[red] Esc[/][grey30] or[/][bold sea_green2] first Search[/] ➡️ ", end="", flush=True)
             EMPTY_LISTS.aramaSayisi+=1            
         else: 
@@ -70,7 +70,7 @@ def Mesajlar(sayı:int=0):
     
      
         if sayı==10: #/       parsedKriterStringi_Listesi             
-           p(Panel.fit(str(EMPTY_LISTS.parsedKriterStringi_Listesi), title=" parsedKriterStringi_Listesi ",     style="white"))   
+           p(Panel.fit(str(EMPTY_LISTS.KellesiGidenler_Listesi), title=" parsedKriterStringi_Listesi ",     style="white"))   
    
    
    

@@ -15,15 +15,13 @@ import AsistanFonksiyonlar.onayE_H as OnayE_H
 
 from rich.panel import Panel
 from rich.console import Console; c = Console()
-from rich import print as p
 from rich.columns import Columns
 
+from InquirerPy import inquirer
+from rich import print as p
 
 
-# import questionary
-
-    
-   
+  
 def Silme_AnaFonksiyon():
   while True:
         returned=Bul()   # returned:  aranan bir kelime girilmedi ESC ye basıldı demek . 
@@ -47,26 +45,52 @@ def Bul():
         c.print("Sil>>Bul:   Returnned  << 1 >>", returned)
         if returned is None: #_ Nonw demek Esc ye basıldı demek.  Birşey bulunmaması ise "" demek. 
            c.print("sil>> bul :  ESC ye basıldı  ",style="deep_sky_blue1")
-           
+        
+        
         return returned
     
-            
+          
 
 
 def WhichToDelete():
+    from InquirerPy import inquirer
+    
     while True:
+            EMPTY_LISTS.KellesiGidenler_Listesi.clear()
             MESAJLAR.Mesajlar(22)
-            EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
-            if  EMPTY_LISTS.silinmesi_istenilenler_Stringi is None:
+            
+            #EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
+            
+            
+            EMPTY_LISTS.KellesiGidenler_Listesi = inquirer.checkbox(
+                message="??",
+                choices=EMPTY_LISTS.BulunanAdSoyadIDler,
+               ).execute()
+            EMPTY_LISTS.BulunanAdSoyadIDler.clear()
+
+          #  print(f"Seçilenler: {EMPTY_LISTS.silinmesi_istenilenler_Stringi}")
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+            EMPTY_LISTS.KellesiGidenler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.KellesiGidenler_Listesi ]
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+            
+            
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+            
+            if  EMPTY_LISTS.KellesiGidenler_Listesi is None:
                 break
-            if EMPTY_LISTS.silinmesi_istenilenler_Stringi:
-                Arama.Parsing(EMPTY_LISTS.silinmesi_istenilenler_Stringi) ;p("\n")#/.parsedKriterStringi_Listesi üretildi. 
+            if EMPTY_LISTS.KellesiGidenler_Listesi:
+                
                 MESAJLAR.Mesajlar(10)
-                Silinmesi_istenilenlerinCTRL(EMPTY_LISTS.parsedKriterStringi_Listesi) #/  hatali ve hatasız istekler ayrışır.
+            Silinmesi_istenilenlerinCTRL(EMPTY_LISTS.KellesiGidenler_Listesi) #/  hatali ve hatasız istekler ayrışır.
             if EMPTY_LISTS.hatasizlar:
                 break
             else:
                 p(" geçerli bir Id girmelisin adamım" )
+    
+    
+  
+    
+    
       
             
 
@@ -115,33 +139,31 @@ def    Silinmesi_istenilenlerinCTRL(liste):
 
 
 def SilmeSureci(liste):
+    toplamOgr=len(liste)
+    p("sil>>silmeSüreci>> liste len'i:",len(liste) )
+    liste = [dict(t) for t in {tuple(sorted(d.items())) for d in liste}] #. tekrar eden şahısları listeden çıkardık, tek örnek bıraktık.
+    
+    p("sil>>silmeSüreci>> liste len'i:",len(liste) )
+
+    p("sil>>silmeSüreci>> liste:", liste      )
     silinen_öğrenci_sayısı=0 
-    for silinen_öğrenci_sayısı, sozluk  in enumerate(liste, start=1):
-        ogr=sozluk["ad"], sozluk["soyad"], sozluk["ogrenciNumarasi"]
+    for  sozluk  in liste:
+        ogr=sozluk["ad"] +" "+ sozluk["soyad"] +" "+ sozluk["ogrenciNumarasi"]
         if OnayE_H.Evet_Hayır_OnayiAl(ogr): 
                 ANAMODUL.SozluktenEksiltme(EMPTY_LISTS.Jsonda_Mevcut_Veriler, sozluk ) 
+                silinen_öğrenci_sayısı+=1 
         else:
-            silinen_öğrenci_sayısı=0 
             continue
-    EMPTY_LISTS.FARK_SozlukListesi.clear()
+    
     EMPTY_LISTS.Bulunanlar.clear()
     EMPTY_LISTS.FARK_SozlukListesi.clear()
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
     
     if silinen_öğrenci_sayısı>0:
-        c.print(f"{silinen_öğrenci_sayısı} öğrenci başarıyla silindi. 😄😄 ", style="bold red")
+        c.print(f"\n{silinen_öğrenci_sayısı} öğrenci silindi. ", style="bold red")
+        c.print(f"SİLME>> {toplamOgr-silinen_öğrenci_sayısı} TALEBEnin KAYDI silinmedi", style="bold green")
     else:
-        c.print(f"SİLME>> Hiçbir TALEBE KAYDI silinmedi", style="bold green")
-
-
-
-
-
-
-
-
-
-
+        p("Talebelere dokanılmadı")
 
 
 

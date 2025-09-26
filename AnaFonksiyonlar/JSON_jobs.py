@@ -106,7 +106,7 @@ def SozluktenEksiltme(AnaJson, farkListesi):
             
             AnaJson.remove(item)
         else:
-            c.print(f"{item} ana json dosyasında mevcut değil.")
+            pass
 
 
     getLastJSON_ID =AnaJson[-1]["Id"]  #^ mevcut değilse ??
@@ -115,7 +115,7 @@ def SozluktenEksiltme(AnaJson, farkListesi):
    #^ Jsonda_Mevcut_Veriler = []
     SpinnerPY.spinner(3,2)  
     JsonaDump(AnaJson)    
-    c.print(f" 200 öğrencinin bilgileri [red]JSON[/]'dan silindi.\n")
+    c.print(f" öğrencinin bilgileri [red]VeriTabanı[/]'ndan silindi.\n")
     
     return AnaJson 
     
