@@ -56,32 +56,32 @@ def WhichToDelete():
     from InquirerPy import inquirer
     
     while True:
-            EMPTY_LISTS.KellesiGidenler_Listesi.clear()
+            EMPTY_LISTS.parsedKriterler_Listesi.clear()
             MESAJLAR.Mesajlar(22)
             
             #EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
             
             
-            EMPTY_LISTS.KellesiGidenler_Listesi = inquirer.checkbox(
+            EMPTY_LISTS.parsedKriterler_Listesi = inquirer.checkbox(
                 message="??",
                 choices=EMPTY_LISTS.BulunanAdSoyadIDler,
                ).execute()
             EMPTY_LISTS.BulunanAdSoyadIDler.clear()
 
           #  print(f"Seçilenler: {EMPTY_LISTS.silinmesi_istenilenler_Stringi}")
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
-            EMPTY_LISTS.KellesiGidenler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.KellesiGidenler_Listesi ]
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
+            EMPTY_LISTS.parsedKriterler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.parsedKriterler_Listesi ]
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
             
             
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
             
-            if  EMPTY_LISTS.KellesiGidenler_Listesi is None:
+            if  EMPTY_LISTS.parsedKriterler_Listesi is None:
                 break
-            if EMPTY_LISTS.KellesiGidenler_Listesi:
+            if EMPTY_LISTS.parsedKriterler_Listesi:
                 
                 MESAJLAR.Mesajlar(10)
-            Silinmesi_istenilenlerinCTRL(EMPTY_LISTS.KellesiGidenler_Listesi) #/  hatali ve hatasız istekler ayrışır.
+            Silinmesi_istenilenlerinCTRL(EMPTY_LISTS.parsedKriterler_Listesi) #/  hatali ve hatasız istekler ayrışır.
             if EMPTY_LISTS.hatasizlar:
                 break
             else:

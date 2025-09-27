@@ -3,12 +3,15 @@ BulunanIDler=[]
 BulunanAdSoyadIDler=[]
 BulunanAdSoyadIDler=[]
 silinmesi_istenilenler_Stringi=""
+kriterStringi=""
+parsedKriterler_Listesi=[]
+
 hatalilar=[]
 hatasizlar=[]
 
 TupleListesi=[]
 Jsonda_Mevcut_Veriler=[]  
-KellesiGidenler_Listesi=[]
+parsedKriterler_Listesi=[]
 
 
 FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi,  Ana jsondan çıkarılacak veya eklenecek. 
@@ -44,16 +47,17 @@ Dilimlenmiş_alt_liste=[]
 
 
 
-
 listeSayisi=7
 cokluListe=[[] for _ in range(listeSayisi)]
 
 
-altAnaListeTekler=     cokluListe
-altAnaListeTum=        cokluListe
+altListe_birKriter = [[],[],[],[],[],[],[],[]]
 
-Joined_altAnaListeTekler= cokluListe
-Joined_altAnaListeTum=    cokluListe
+altAnaListeBirCokKriterYanyana= []    #. daha sonra parametre sayısı kadar çoğaltılıp listelenecek. 
+altAnaListeTum= []
+
+Joined_altAnaListeTekler= []
+Joined_altAnaListeTum= []
 Joined_TeklilerSozluk=[{}] 
 Joined_TumSozluk=[{}] 
 
