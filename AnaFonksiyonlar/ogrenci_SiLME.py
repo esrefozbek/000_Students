@@ -29,7 +29,7 @@ def Silme_AnaFonksiyon():
             break
         else:
             p("SİL>>Ana:: returned:",returned)
-            if EMPTY_LISTS.Bulunanlar:
+            if EMPTY_LISTS.TekKriterinBulunanlari:
                     WhichToDelete()
                     farkListesiOlusturma()
                     Sil()
@@ -98,7 +98,7 @@ def WhichToDelete():
 def farkListesiOlusturma():
     if EMPTY_LISTS.hatasizlar is not None:
         hatasizlar = list(set(EMPTY_LISTS.hatasizlar))
-        EMPTY_LISTS.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY_LISTS.Bulunanlar if ogrenci['Id'] in [int(i) for i in hatasizlar] ]
+        EMPTY_LISTS.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY_LISTS.TekKriterinBulunanlari if ogrenci['Id'] in [int(i) for i in hatasizlar] ]
                          
 
 def Sil():
@@ -155,7 +155,7 @@ def SilmeSureci(liste):
         else:
             continue
     
-    EMPTY_LISTS.Bulunanlar.clear()
+    EMPTY_LISTS.TekKriterinBulunanlari.clear()
     EMPTY_LISTS.FARK_SozlukListesi.clear()
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
     
@@ -169,7 +169,7 @@ def SilmeSureci(liste):
 
 
 def Cleaning():
-    EMPTY_LISTS.Bulunanlar.clear()
+    EMPTY_LISTS.TekKriterinBulunanlari.clear()
     EMPTY_LISTS.hatalilar=[] 
     EMPTY_LISTS.hatasizlar=[]
     EMPTY_LISTS.FARK_SozlukListesi.clear()

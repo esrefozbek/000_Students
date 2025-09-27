@@ -8,6 +8,7 @@
 #breakpoint()
 
 import  re    #. importlar
+import copy
 import VERI.mesajlar as MESAJLAR
 import VERI.emptyLists as EMPTY_LISTS 
 import MenuTablo.tablolarPY as TABLOLAR
@@ -20,6 +21,9 @@ from rich.panel import Panel
 from rich.columns import Columns
 from rich.console import Console; c=Console()
 
+def reset_altListe_birKriter():
+    return [[] for _ in range(8)]
+
 
 
 def bul_AnaFonksiyon(GirisMesaji:int):
@@ -31,9 +35,9 @@ def bul_AnaFonksiyon(GirisMesaji:int):
         return None
     else:
         Parsing(kriter)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
-   #     BirlesikKriterBul(EMPTY_LISTS.KellesiGidenler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
+   #     BirlesikKriterBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
         KriterBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
-        #KriterleriBul(EMPTY_LISTS.KellesiGidenler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
+        #KriterleriBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
         # joinification(EMPTY_LISTS.altAnaListeTekler)
         # panelisation(EMPTY_LISTS.Joined_altAnaListeTekler)
         # TabloyaSozlukYap(EMPTY_LISTS.Joined_altAnaListeTekler)
@@ -44,45 +48,69 @@ def bul_AnaFonksiyon(GirisMesaji:int):
           
  
 def KriterBul(kriterler:list, sozlukListesi:list=EMPTY_LISTS.Jsonda_Mevcut_Veriler):
-    
+    EMPTY_LISTS.altListe_birKriter = [[],[],[],[],[],[],[],[]]
+
     for birKriter in kriterler: 
         birKriter= birKriter.lower()
-        
+        # 🔻🔻🔻 Bulunanlar'ı temizle 🔻🔻🔻
+        EMPTY_LISTS.TekKriterinBulunanlari.clear()
         CORE_Bul(birKriter,sozlukListesi)
-        TekeApend(EMPTY_LISTS.Bulunanlar)
+        EMPTY_LISTS.TotalBulunanlar.extend(EMPTY_LISTS.TekKriterinBulunanlari)  #~Bu işime yaramaz bir veri, sanırım.
+        
+        TekeApend(EMPTY_LISTS.TekKriterinBulunanlari)
         kriteriEkle(birKriter)
         
-        EMPTY_LISTS.altAnaListeBirCokKriterYanyana.append(EMPTY_LISTS.altListe_birKriter) 
-        EMPTY_LISTS.altListe_birKriter=[[],[],[],[],[],[],[],[]]
+        c.print("Arama >>>KriterBUL::  altListe_birKriter Silme öncesi >>",EMPTY_LISTS.altListe_birKriter,style="cyan")
+        EMPTY_LISTS.altListe_CokKriter.append(EMPTY_LISTS.altListe_birKriter)
+
+        EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
+              
         
-        p("\n[bold yellow]Arama>>KriterBul[/] : [bold red]altAnaListeTekler doluyor[/] >>>  ",EMPTY_LISTS.altAnaListeBirCokKriterYanyana)
+        
+        c.print("Arama >>>KriterBUL::  altListe_birKriter Silme sonrası >>",EMPTY_LISTS.altListe_birKriter,style="cyan")
+        
+        p("\n[bold yellow]Arama>>KriterBul[/] : [bold red]altListe_CokKriter doluyor[/] >>>  ",EMPTY_LISTS.altListe_CokKriter)
+    #    c.print("\n[bold yellow]Arama>>KriterBul[/] EMPTY_LISTS.TotalBulunanlar>>",EMPTY_LISTS.TotalBulunanlar,style="orchid")
     c.rule("KriterBul bitti",style="bold yellow1")
-    return
+    
 
 
-def TekeApend(liste:list):
-    EMPTY_LISTS.altListe_birKriter = [[],[],[],[],[],[],[],[]]
-    for ogr in liste:
+def TekeApend(TekKriterinBulunanlari:list):#. Bulunanlarda  ne varsa altListe_birKriter e döşer.  Bulunanlar srekli arttığı için 2. 3. kriterle birlikte bulunanalar artar ve tüm liste TekeApend edilir. Bu sebeple 2. ve sonrası listeler sürekli daha fazlalaşır. 
+    for ogr in TekKriterinBulunanlari:
+        
         for j,val in enumerate(ogr.values()):
             EMPTY_LISTS.altListe_birKriter[j].append(val)
-            EMPTY_LISTS.altAnaListeTum[j].append(val)
+          #  EMPTY_LISTS.altListe_Butun[j].append(val)
+    c.rule("TekeApend bitti")
+
+
+
+
+def BirlesikKriterBul(Kriterler,liste):
+        EMPTY_LISTS.TekKriterinBulunanlari.clear()
+                
+        for i, kriter in enumerate(Kriterler):
+            if i==0:
+                liste=EMPTY_LISTS.Jsonda_Mevcut_Veriler    
+            else:
+                liste=EMPTY_LISTS.TekKriterinBulunanlari
+                
+            CORE_Bul(kriter,liste)
+            liste=EMPTY_LISTS.TekKriterinBulunanlari
+            
+    
+
+        c.print("\nArama>>BirleşikKriter:   Birleşik Bulunanlar:>>>",EMPTY_LISTS.Bulunanlar,style="magenta")        
+  
     
    
    
 def kriteriEkle(birKriter):
-    EMPTY_LISTS.altAnaListeTum[-1].append([birKriter])
     EMPTY_LISTS.altListe_birKriter[-1]=[birKriter] #. kriter alt dikey listeye eklendi.
-    c.print("\n++++ EMPTY_LISTS.altAnaListeTek kriter   ++++", birKriter, EMPTY_LISTS.altListe_birKriter,style="turquoise2")
-    
+  #  EMPTY_LISTS.altListe_Butun[-1].append([birKriter])
+  #  c.print("\n++++ EMPTY_LISTS.altAnaListeTek kriter   ++++", birKriter, EMPTY_LISTS.altListe_birKriter,style="turquoise2")
     
    
-   # p("^^^^ altAnaListeTum ^^^^",EMPTY_LISTS.altAnaListeTum) 
-    c.rule("TekeApend bitti")
-    return
-   
-
-
-
 
 def CORE_Bul(birKriter,liste:list):
     for ogrenci in liste:
@@ -95,28 +123,27 @@ def CORE_Bul(birKriter,liste:list):
                (len(birKriter)==4 and birKriter in ogrenci["dogumTarihi"]) or
                birKriter == (ogrenci["sinifi"].lower()) or                           
                (len(birKriter)==4 and birKriter == ogrenci["kayitTarihi"])): 
-               EMPTY_LISTS.Bulunanlar.append(ogrenci) 
+               EMPTY_LISTS.TekKriterinBulunanlari.append(ogrenci) 
                EMPTY_LISTS.BulunanAdSoyadIDler.append((ogrenci["Id"], ogrenci["ad"], ogrenci["soyad"])) 
            else: 
             continue
-    c.print(f"\n\nCORE>>>>>>> [yellow]birKriter[/] ve Bulunanlar >>> [yellow]{birKriter}[/]", style="bright_white")
-    if EMPTY_LISTS.Bulunanlar: EMPTY_LISTS.Bulunanlar[-1]
+   # c.print(f"\n\nCORE>>>>>>> [yellow]birKriter[/] ve Bulunanlar >>> [yellow]{birKriter}[/]",EMPTY_LISTS.TekKriterinBulunanlari[:], style="bright_white")
+    #if EMPTY_LISTS.Bulunanlar: 
+    c.print("\n")
     c.rule("CORE bitti")
     return 
 
 def Cleaning():
-    
-    EMPTY_LISTS.altListe_birKriter = [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
     EMPTY_LISTS.altListe_birKriter.clear() 
-    EMPTY_LISTS.altAnaListeBirCokKriterYanyana=       []
-    EMPTY_LISTS.altAnaListeTum=          [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.altListe_CokKriter=       []
+    EMPTY_LISTS.altListe_Butun=          [[],[],[],[],[],[],[],[]]
     EMPTY_LISTS.Joined_altAnaListeTum=   [[],[],[],[],[],[],[],[]]
     
     EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
     EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
     
-    
-    EMPTY_LISTS.Bulunanlar.clear()  #!j - Her sorguda önce temizle 
+    EMPTY_LISTS.TekKriterinBulunanlari.clear()  #!j - Her sorguda önce temizle 
     EMPTY_LISTS.BulunanIDler.clear()
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
     
@@ -155,21 +182,6 @@ def Parsing(kriterStringi):
 
 
 
-
-
-
-
-""" def BirlesikKriterBul(birlesikKriter,liste):
-        EMPTY_LISTS.Bulunanlar.clear()
-                
-        for i, kriter in enumerate(birlesikKriter):
-            if i==0:
-                liste=Em...    
-            else:
-                liste=aranacakListe    
-
-        c.print("\nArama>>BirleşikKriter:   Birleşik Bulunanlar:>>>",EMPTY_LISTS.Bulunanlar,style="magenta")        
-"""  
 
 
      
@@ -233,20 +245,20 @@ def TabloyaSozlukYap(liste):
 def KriterleriBul(parsedKriterStringi_Listesi:list, neredeAranacak:list=EMPTY_LISTS.Jsonda_Mevcut_Veriler):   
     kriterListesi=[]
     birOncekiToplam:int=0
-    p("\n\n✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altAnaListeBirCokKriterYanyana)) 
-    p("✈️📌📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",EMPTY_LISTS.altAnaListeBirCokKriterYanyana) 
+    p("\n\n✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altListe_CokKriter)) 
+    p("✈️📌📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",EMPTY_LISTS.altListe_CokKriter) 
     
     #EMPTY_LISTS.altAnaListeBirCokKriterYanyana = [[[] for _ in range(len(EMPTY_LISTS.altAnaListeBirCokKriterYanyana))] for _ in range(len(parsedKriterStringi_Listesi))] #_ Boş 2 boyutlu liste oluşturuldu. (altAnaListeTekler[0] X parsedKriterStringi_Listesi)
     
-    p("\n✈️  ✈️  Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altAnaListeBirCokKriterYanyana[0]),"X",len(parsedKriterStringi_Listesi)) 
+    p("\n✈️  ✈️  Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY_LISTS.altListe_CokKriter[0]),"X",len(parsedKriterStringi_Listesi)) 
     
     KriterBul(parsedKriterStringi_Listesi, neredeAranacak)  #_  
     
     p("\n✈️✈️ Arama>>kriterBul >> parsedKriterStringi_Listesi uzunluğu: >>", len(parsedKriterStringi_Listesi))
-    p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY_LISTS.altAnaListeBirCokKriterYanyana[0]))
-    p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",EMPTY_LISTS.Bulunanlar)
+    p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY_LISTS.altListe_CokKriter[0]))
+    p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",EMPTY_LISTS.TekKriterinBulunanlari)
     p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",EMPTY_LISTS.BulunanAdSoyadIDler)
-    p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY_LISTS.altAnaListeBirCokKriterYanyana)
+    p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY_LISTS.altListe_CokKriter)
     
     p("\n");c.rule(" SONUÇLAR ",style="red") ;
                     

@@ -1,6 +1,7 @@
-Bulunanlar=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
+TekKriterinBulunanlari=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
 BulunanIDler=[]
-BulunanAdSoyadIDler=[]
+Bulunanlar=[]
+TotalBulunanlar=[]
 BulunanAdSoyadIDler=[]
 silinmesi_istenilenler_Stringi=""
 kriterStringi=""
@@ -53,8 +54,8 @@ cokluListe=[[] for _ in range(listeSayisi)]
 
 altListe_birKriter = [[],[],[],[],[],[],[],[]]
 
-altAnaListeBirCokKriterYanyana= []    #. daha sonra parametre sayısı kadar çoğaltılıp listelenecek. 
-altAnaListeTum= []
+altListe_CokKriter= []    #. daha sonra parametre sayısı kadar çoğaltılıp listelenecek. 
+altListe_Butun= []
 
 Joined_altAnaListeTekler= []
 Joined_altAnaListeTum= []

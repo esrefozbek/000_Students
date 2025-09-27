@@ -43,17 +43,17 @@ def Mesajlar(sayı:int=0):
             
     if sayı==4:
         metin1=f"""[yellow]Silinecek öğrencilerin numaralarını girin. Sayıları boşluk veya virgül ile ayırabilirsiniz.[/]        
-    [bold magenta]Geçerli aralık:[/] 0 - {len(EMPTY_LISTS.Bulunanlar) - 1} 
+    [bold magenta]Geçerli aralık:[/] 0 - {len(EMPTY_LISTS.TekKriterinBulunanlari) - 1} 
     """  
     
  
     if sayı==6:
         metin1=f"""[yellow]Silinecek öğrencilerin Id numaralarını girin. '\\s' veya ',' ile ayırabilirsiniz.[/]        
-        [bold magenta]Geçerli aralık:[/] 0 - {len(EMPTY_LISTS.Bulunanlar) - 1} 
+        [bold magenta]Geçerli aralık:[/] 0 - {len(EMPTY_LISTS.TekKriterinBulunanlari) - 1} 
         """  
         
     if sayı==7:    
-        metin2=f""" [bold white][italic yellow] Lütfen bu sefer dikkatli ol, Tanrı aşkına![/italic yellow] 🙏  Geçerli aralık:[bold yellow] 0 - {len(EMPTY_LISTS.Bulunanlar) - 1} [/] [/] """
+        metin2=f""" [bold white][italic yellow] Lütfen bu sefer dikkatli ol, Tanrı aşkına![/italic yellow] 🙏  Geçerli aralık:[bold yellow] 0 - {len(EMPTY_LISTS.TekKriterinBulunanlari) - 1} [/] [/] """
         
   
  
