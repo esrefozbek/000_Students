@@ -7,7 +7,7 @@
 #FIXME - "İndeksler:"   kısmı "İndeksler or Esc"   olarak değiştirilmeli.  
  
 
-import AnaFonksiyonlar.JSON_jobs as ANAMODUL
+import AnaFonksiyonlar.JSON_jobs as JSON_
 import VERI.emptyLists as EMPTY_LISTS 
 import VERI.mesajlar as MESAJLAR 
 import AsistanFonksiyonlar.arama as Arama
@@ -24,133 +24,85 @@ from rich import print as p
   
 def Silme_AnaFonksiyon():
   while True:
-        returned=Bul()   # returned:  aranan bir kelime girilmedi ESC ye basıldı demek . 
-        if returned is None:
+        klavye=Bul()   # returned:  aranan bir kelime girilmedi ESC ye basıldı demek . 
+        if klavye is None:
             break
         else:
-            p("SİL>>Ana:: returned:",returned)
+            p("SİL>>AnaFonksiyon():: returned:",klavye)
             if EMPTY_LISTS.TekKriterinBulunanlari:
                     WhichToDelete()
                     farkListesiOlusturma()
                     Sil()
             else:
                 continue
+    
+    
+    
                           
 
 def Bul():
     
     while True:
         Cleaning()
-        returned=Arama.bul_AnaFonksiyon(2)  #/ Bulunanlar listesi dolduruldu. Esc ile çıkılır Tekrar SilmeAnafonksiyona dönülür.   
-        c.print("Sil>>Bul:   Returnned  << 1 >>", returned)
-        if returned is None: #_ Nonw demek Esc ye basıldı demek.  Birşey bulunmaması ise "" demek. 
-           c.print("sil>> bul :  ESC ye basıldı  ",style="deep_sky_blue1")
-        
-        
-        return returned
+        klavye=Arama.bul_AnaFonksiyon(2)  #/ Bulunanlar listesi dolduruldu. Esc ile çıkılır Tekrar SilmeAnafonksiyona dönülür.   
+        c.print("Sil>>Bul:   Returnned  <<1>>", klavye)
+        if klavye is None: #_ Nonw demek Esc ye basıldı demek.  Birşey bulunmaması ise "" demek. 
+           c.print("sil>> Bul() :  ESC ye basıldı  ",style="deep_sky_blue1")
+        return klavye
     
           
 
 
 def WhichToDelete():
     from InquirerPy import inquirer
+    EMPTY_LISTS.KellesiGidenler_Listesi.clear()
+    MESAJLAR.Mesajlar(22)
     
-    while True:
-            EMPTY_LISTS.parsedKriterler_Listesi.clear()
-            MESAJLAR.Mesajlar(22)
-            
-            #EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
-            
-            
-            EMPTY_LISTS.parsedKriterler_Listesi = inquirer.checkbox(
-                message="??",
-                choices=EMPTY_LISTS.BulunanAdSoyadIDler,
-               ).execute()
-            EMPTY_LISTS.BulunanAdSoyadIDler.clear()
-
-          #  print(f"Seçilenler: {EMPTY_LISTS.silinmesi_istenilenler_Stringi}")
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
-            EMPTY_LISTS.parsedKriterler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.parsedKriterler_Listesi ]
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
-            
-            
-            print(f"KellesiGidenler_Listesi: { EMPTY_LISTS.parsedKriterler_Listesi}")
-            
-            if  EMPTY_LISTS.parsedKriterler_Listesi is None:
-                break
-            if EMPTY_LISTS.parsedKriterler_Listesi:
-                
-                MESAJLAR.Mesajlar(10)
-            Silinmesi_istenilenlerinCTRL(EMPTY_LISTS.parsedKriterler_Listesi) #/  hatali ve hatasız istekler ayrışır.
-            if EMPTY_LISTS.hatasizlar:
-                break
-            else:
-                p(" geçerli bir Id girmelisin adamım" )
+    #EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
+    
+    from InquirerPy.base.control import Choice
+    EMPTY_LISTS.KellesiGidenler_Listesi = inquirer.checkbox(
+            message="Seçmek istediğiniz öğrencileri seçin:",
+            choices=[Choice(name=f"{ogrenci['ad']} {ogrenci['soyad']} ({ogrenci['Id']})",value=(ogrenci["Id"], ogrenci["ad"], ogrenci["soyad"])) for ogrenci in EMPTY_LISTS.TotalBulunanlar]
+            ).execute()
+              
+    print(f"KellesiGidenler_Listesi1: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+    EMPTY_LISTS.KellesiGidenler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.KellesiGidenler_Listesi ]
+    print(f"KellesiGidenler_Listesi2: { EMPTY_LISTS.KellesiGidenler_Listesi}")
+    
+    if EMPTY_LISTS.KellesiGidenler_Listesi:
+        MESAJLAR.Mesajlar(10)
+    
+        
     
     
   
-    
-    
-      
-            
-
 
 def farkListesiOlusturma():
-    if EMPTY_LISTS.hatasizlar is not None:
-        hatasizlar = list(set(EMPTY_LISTS.hatasizlar))
-        EMPTY_LISTS.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY_LISTS.TekKriterinBulunanlari if ogrenci['Id'] in [int(i) for i in hatasizlar] ]
+    EMPTY_LISTS.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY_LISTS.TotalBulunanlar if ogrenci['Id'] in [int(i) for i in EMPTY_LISTS.KellesiGidenler_Listesi] ]
+    
+    c.print(" SİLME >>FArkListesi:: EMPTY_LISTS.FARK_SozlukListesi >>",EMPTY_LISTS.FARK_SozlukListesi)
                          
 
 def Sil():
     if EMPTY_LISTS.FARK_SozlukListesi:
         SilmeSureci(EMPTY_LISTS.FARK_SozlukListesi)
-        EMPTY_LISTS.silindilerListesi.extend(EMPTY_LISTS.FARK_SozlukListesi)
+        if EMPTY_LISTS.FARK_SozlukListesi==[]:
+            EMPTY_LISTS.silindilerListesi.extend(EMPTY_LISTS.FARK_SozlukListesi)
                             #/ tamam mı devam mı  soralım 
-    
-
-    
-
-           #silinen_öğrenci_sayısı:int=0     
-
-
-def    Silinmesi_istenilenlerinCTRL(liste): 
-    global aramaSayisi
-    hatalı_var = False    #? bayrak 
-    
-    for istenenlerdenBiri in liste :  #/ istenenlerdenBiri liste de mi , listede ise.... 
-        if not istenenlerdenBiri.isdigit():
-            EMPTY_LISTS.hatalilar.append(istenenlerdenBiri)
-            hatalı_var = True
-        else:
-                if int(istenenlerdenBiri) in EMPTY_LISTS.BulunanIDler:
-                    EMPTY_LISTS.hatasizlar.append(istenenlerdenBiri)
-                else:
-                    EMPTY_LISTS.hatalilar.append(istenenlerdenBiri)
-        
-        if EMPTY_LISTS.hatasizlar or EMPTY_LISTS.hatalilar: EMPTY_LISTS.aramaSayisi += 1; 
-        continue   #/  digit değilse veya yanlış sayı girildiyse CONTINUE yapılır. 
-    
-    panel1=Panel.fit(f"{EMPTY_LISTS.hatasizlar}",title="[red]Hatasızlar[/]",   border_style="bright_white",    style="green")
-    panel2=Panel.fit(f"{EMPTY_LISTS.hatalilar}",title="[green]Hatalılar[/]",   border_style="bright_yellow",    style="magenta")
-    # Yan yana göstermek için Columns kullan
-    c.print(Columns([panel1, panel2], equal=True, expand=False))
-        
-        
-
-
 def SilmeSureci(liste):
     toplamOgr=len(liste)
-    p("sil>>silmeSüreci>> liste len'i:",len(liste) )
-    liste = [dict(t) for t in {tuple(sorted(d.items())) for d in liste}] #. tekrar eden şahısları listeden çıkardık, tek örnek bıraktık.
+    p("SİL>>SilmeSüreci:: liste len'i:",len(liste) )
+    #liste = [dict(t) for t in {tuple(sorted(d.items())) for d in liste}] #. tekrar eden şahısları listeden çıkardık, tek örnek bıraktık.
     
-    p("sil>>silmeSüreci>> liste len'i:",len(liste) )
+    p(">>silmeSüreci>> liste len'i:",len(liste) )
 
-    p("sil>>silmeSüreci>> liste:", liste      )
+    p("SİL>>SilmeSüreci>> liste:", liste      )
     silinen_öğrenci_sayısı=0 
-    for  sozluk  in liste:
-        ogr=sozluk["ad"] +" "+ sozluk["soyad"] +" "+ sozluk["ogrenciNumarasi"]
+    for ogr in liste:
+        ogr=ogr["ad"] +" "+ ogr["soyad"] +" "+ ogr["ogrenciNumarasi"]
         if OnayE_H.Evet_Hayır_OnayiAl(ogr): 
-                ANAMODUL.SozluktenEksiltme(EMPTY_LISTS.Jsonda_Mevcut_Veriler, sozluk ) 
+                JSON_.SozluktenEksiltme(EMPTY_LISTS.Jsonda_Mevcut_Veriler, ogr ) 
                 silinen_öğrenci_sayısı+=1 
         else:
             continue
@@ -161,7 +113,7 @@ def SilmeSureci(liste):
     
     if silinen_öğrenci_sayısı>0:
         c.print(f"\n{silinen_öğrenci_sayısı} öğrenci silindi. ", style="bold red")
-        c.print(f"SİLME>> {toplamOgr-silinen_öğrenci_sayısı} TALEBEnin KAYDI silinmedi", style="bold green")
+      #  c.print(f"SİLME>> {toplamOgr-silinen_öğrenci_sayısı} TALEBEnin KAYDI silinmedi", style="bold green")
     else:
         p("Talebelere dokanılmadı")
 
@@ -170,8 +122,6 @@ def SilmeSureci(liste):
 
 def Cleaning():
     EMPTY_LISTS.TekKriterinBulunanlari.clear()
-    EMPTY_LISTS.hatalilar=[] 
-    EMPTY_LISTS.hatasizlar=[]
     EMPTY_LISTS.FARK_SozlukListesi.clear()
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
-    EMPTY_LISTS.silindilerListesi.clear()
+    EMPTY_LISTS.silindilerListesi.clear()   #??????  session süresince silinenleri değilde bir seferlik .....

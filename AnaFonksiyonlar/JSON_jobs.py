@@ -99,12 +99,14 @@ def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
 
 
 #_                    Jsonda_Mevcut_Verilerden Silme                  
-def SozluktenEksiltme(AnaJson, farkListesi):
+def SozluktenEksiltme(AnaJson, birKelle):
     
-    for item in farkListesi:
-        if item in AnaJson:
-            
-            AnaJson.remove(item)
+    if AnaJson:
+        c.print("JSON>>SözlüktenEksiltme:  json[-1] >> ",   EMPTY_LISTS.Jsonda_Mevcut_Veriler[-1])
+        if birKelle in AnaJson:
+            c.print("JSON>>SözlüktenEksiltme: birKelle >>",   birKelle)
+         
+            AnaJson.remove(birKelle)
         else:
             pass
 

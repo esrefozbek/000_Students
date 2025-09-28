@@ -4,7 +4,7 @@
 
 #breakpoint()
 import Widgetler.SayacAnimasyon.spinner as SpinnerPY 
-import AnaFonksiyonlar.JSON_jobs as ANAMODUL
+import AnaFonksiyonlar.JSON_jobs as JSON_
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYEDINLE
 import VERI.emptyLists as EMPTY_LISTS 
 from AnaFonksiyonlar.student_class import Ogrenciler
@@ -72,7 +72,7 @@ def FarkSozlukListesineAppend(nesne):
   
 def FarkiJsonSozlugeEkle():        
     if EMPTY_LISTS.FARK_SozlukListesi: 
-        ANAMODUL.SozlugeEkleme("VERI/students.json",EMPTY_LISTS.FARK_SozlukListesi ) #! Sözlüğe ekle
+        JSON_.SozlugeEkleme("VERI/students.json",EMPTY_LISTS.FARK_SozlukListesi ) #! Sözlüğe ekle
         
         c.print("""[bold yellow]yeniÖğrenciKayıdı():[/]
                 💛💛💛 SözlüklüListe başarıyla oluşturuldu Şimdi json'a ekleniyor...""",style="")
