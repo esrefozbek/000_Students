@@ -56,11 +56,11 @@ def startPoint():
                         
                         c.print("[bold white]  SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", style="link https://google.com",end=" ")
                         
-                        CHOOSEN = int(input())
-                    except ValueError:
-                        c.print( "⚠️  Lütfen sadece sayı girin.ENTER ile devam et",style="" )
-                        input()
-                        continue
+                    CHOOSEN = int(input())
+                    
+                    c.print( "⚠️  Lütfen sadece sayı girin.ENTER ile devam et",style="" )
+                    input()
+                    continue 
                     
                     if CHOOSEN not in (1,2,3,4,5,6,7,77,44):
                         c.print( "❗❗❗❗❗❗❗[bold bright white] Düzgün bir sayı gir ENTER ile devam et[/]❗❗❗❗❗❗", style="blink", end="")
