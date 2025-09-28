@@ -36,23 +36,20 @@ def inputOgr():
                 if ad is None :  #NOTE - None, Esc ye basıldı anlamına geliyor. 
                         c.print(f"\n{toplamKayit} öğrenci bilgisi sağladınız...\n",style="",end="\n")
                         SpinnerPY.spinner(4,4) if toplamKayit>0  else SpinnerPY.spinner(3,6) 
-                        c.print("kayıt::inputOgr: toplamKayit 1>>",toplamKayit)
+                        c.print("kayıt::inputOgr: toplamKayit ->>",toplamKayit)
                         return None
                 else:
                         ad=ad.strip()
                 
                 # print("\n")       
-                c.print("\n\t[green]SOYADI[/] ",end="    >> "); soyad = input().strip()
-                c.print("\t[green]NUMARASI[/] ",end="  >> ");  ogrenciNumarasi = input().strip()
-                #c.print("\t[green]Doğum Tarihi[/] ",end=" >> "); 
-                c.print("\t[green]Doğum Tarihi[/] [grey23][01/01/2000][/]",end=" >> ");dogumTarihi =input().strip()
-                c.print("\t[green]SINIFI[/] ",end="    >> "); sinifi = input().strip()
+                c.print("\n\t[dark_slate_gray1]SOYADI[/] ",end="       ➡️ "); soyad = input().strip()
+                c.print("\t[dark_slate_gray1]NUMARASI[/] ",end="     ➡️ ");  ogrenciNumarasi = input().strip()
+                c.print("\t[dark_slate_gray1]Doğum Tarihi[/] [grey23][01/01/2000][/]",end=" ➡️ ");dogumTarihi =input().strip()
+                c.print("\t[dark_slate_gray1]SINIFI[/] ",end="       ➡️ "); sinifi = input().strip()
         
                 ogrenci=(ad, soyad, ogrenciNumarasi, dogumTarihi, sinifi)
-                c.print("kayıt::inputOgr: toplamKayit 2>>",toplamKayit)
+                c.print("kayıt::inputOgr: toplamKayit -->>",toplamKayit)
                 return ogrenci 
-
-
 
 def klasSureci(ogrenci):
               

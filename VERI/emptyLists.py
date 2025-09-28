@@ -1,7 +1,9 @@
 TekKriterinBulunanlari=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
+TotalBulunanlar=[]
+
+
 BulunanIDler=[]
 Bulunanlar=[]
-TotalBulunanlar=[]
 BulunanAdSoyadIDler=[]
 silinmesi_istenilenler_Stringi=""
 kriterStringi=""
@@ -54,10 +56,10 @@ cokluListe=[[] for _ in range(listeSayisi)]
 
 altListe_birKriter = [[],[],[],[],[],[],[],[]]
 
-altListe_CokKriter= []    #. daha sonra parametre sayısı kadar çoğaltılıp listelenecek. 
+verticalsReadyForJoin= []  #. bu 3 katmanlı bir liste.  hem birleşik hem de ayrık kriter aramalarının ortak sonuç listesi. Join'e gider. 
 altListe_Butun= []
 
-Joined_altAnaListeTekler= []
+Joined_altAnaListeTekler= [[],[],[],[],[],[],[],[]]
 Joined_altAnaListeTum= []
 Joined_TeklilerSozluk=[{}] 
 Joined_TumSozluk=[{}] 

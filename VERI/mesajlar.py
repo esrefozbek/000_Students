@@ -61,11 +61,11 @@ def Mesajlar(sayı:int=0):
         if EMPTY_LISTS.aramaSayisi<1:
             
             c.print(Panel.fit("[bold][yellow2]📝 Yeni Öğrenci Girişi [/][/][italic grey30]\n📌 Anamenü'ye [bold orange_red1]Esc[/] ile dönebilirsin.[/]", border_style="green_yellow"), end="")
-            c.print("\n[yellow]Öğrencinin;[/]\n[green]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end=" ➡️ ")
+            c.print("\n[yellow]Öğrencinin;[/]\n[cyan1]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end="    ➡️ ")
                       
             EMPTY_LISTS.aramaSayisi+=1
         else:
-             c.print("\n[yellow]Öğrencinin;[/]\n[green]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end=" ➡️ ")
+             c.print("\n[yellow]Öğrencinin;[/]\n[green]\tADI[/][grey30] || [red1]Esc[/][/grey30]",end="    ➡️ ")
     
     
      

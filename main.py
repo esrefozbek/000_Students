@@ -1,14 +1,28 @@
  #_ Evet Hayır onayı nerede ????                                                      
 #~  3 Silmeye girince bilgilendirme kısmında son eklenen Id numaraları gelsin !!!!!!!!
 #~  silme fonksiyonneleştirlmeli Okunurluğu artırılmalı.                              
- #€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
- #?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
- #_  asdasdasdasdasda23423424242342                             
  #£  C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
- #~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json   
- #** asddasdsadasadasdad2342342342342342                        
- #/ dsafsddfsfdsfsfdsdfsfsfdsfsfdsdfsfsfsdfsdfsfsfds            
- #= asdsadasdasdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa          
+#=                      saaadadsadad                            
+#?  C:\Users\Markus\AppData\Roaming\Code\User\settings.json     
+#** asddasdsadasadasdad2342342342342342                         
+#.            sdfsdfsdfsdf 2342342434                           
+#todo ssssssssssssssssssssssssssssssssssssssssssssssssss        
+#// sadasdssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                      
+#! sadasdasdas               asdasdasd3e4234342                 
+#+ asdddddddddddddddsssssssssssssssssssssssssssssssssss 
+#^  sadasdasdasda         324234234234234                       
+#~   C:\Users\Markus\AppData\Roaming\Code\User\settings.json    
+#&          asdaaaaaaaadsadasd2342342423                        
+#€  C:\Users\Markus\AppData\Roaming\Code\User\settings.json     
+#/  asdasdasdasdasda23423424242342                              
+#_         sdadadsasdasdqweqe 234234234424                      
+#/   fsdfsdfsdfs  sdfsdfsdfsdfsd                                
+#@         sdfsdfsdf 2342342rfwsfewsfs                          
+
+
+
+
+
 
 #breakpoint()
 from rich.panel import Panel
@@ -48,10 +62,11 @@ import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE
 #^########################################menu.ekranTemizle()
 
 def anamenü_bekletme(scnd):
-    with Live(refresh_per_second=2) as live:
+    with Live(refresh_per_second=3, console=c) as live:
         for i in range(scnd, 0, -1):
-            live.update(f"[cyan]⏳ Anamenü açılıyor...yaşaşınnnn {i}[/]")
-            time.sleep(4)
+            live.update(f"[cyan]⏳ Anamenü tekrar açılıyor... {i} saniye[/]")
+            time.sleep(1)
+    
 
 def startPoint():
         EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
@@ -259,9 +274,7 @@ def startPoint():
 
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
-                      #^  sayacKronometre.geri_say(1)
-                      #  spinnerPY.dene_spinner() 
-                        anamenü_bekletme(3)
+                        anamenü_bekletme(2)
                         EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
                         EMPTY_LISTS.FARK_SozlukListesi.clear()
                         continue

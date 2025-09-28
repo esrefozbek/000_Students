@@ -1330,5 +1330,59 @@
         "dogumTarihi": "",
         "sinifi": "",
         "kayitTarihi": "25/09/2025"
+    },
+    {
+        "Id": 154,
+        "ad": "Veli",
+        "soyad": "Bacık",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
+    },
+    {
+        "Id": 155,
+        "ad": "Sirakuza",
+        "soyad": "Palçova",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
+    },
+    {
+        "Id": 156,
+        "ad": "Salih",
+        "soyad": "Pekmez",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
+    },
+    {
+        "Id": 157,
+        "ad": "Mitat",
+        "soyad": "Kalazo",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
+    },
+    {
+        "Id": 158,
+        "ad": "Bekir",
+        "soyad": "Toromon",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
+    },
+    {
+        "Id": 159,
+        "ad": "Cahiz",
+        "soyad": "Elübük",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "28/09/2025"
     }
 ]
