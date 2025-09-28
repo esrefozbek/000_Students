@@ -2,23 +2,22 @@ TekKriterinBulunanlari=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
 TotalBulunanlar=[]
 
 
-BulunanIDler=[]
-Bulunanlar=[]
-BulunanAdSoyadIDler=[]
-silinmesi_istenilenler_Stringi=""
-kriterStringi=""
-parsedKriterler_Listesi=[]
 
-hatalilar=[]
-hatasizlar=[]
+
+
+
+
+KellesiGidenler_Listesi=[]
+
+
 
 TupleListesi=[]
 Jsonda_Mevcut_Veriler=[]  
-parsedKriterler_Listesi=[]
+
 
 
 FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi,  Ana jsondan çıkarılacak veya eklenecek. 
-FARK_SozlukListesi=[]  #! silinen veya eklenenlerin listesi, Ana jsondan çıkarılacak veya eklenecek.
+
 
 
 

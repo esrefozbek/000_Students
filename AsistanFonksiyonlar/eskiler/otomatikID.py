@@ -1,5 +1,5 @@
 import VERI.emptyLists as EMPTY_LISTS
-import AnaFonksiyonlar.JSON_jobs as ANAMODUL
+import AnaFonksiyonlar.JSON_jobs as JSON_
 from rich.console import Console; c = Console()
 
 sayı: int = 0
@@ -7,7 +7,7 @@ sayı: int = 0
 def otomatikID():
     global sayı
     if not EMPTY_LISTS.Jsonda_Mevcut_Veriler:
-        ANAMODUL.JSONdanImport()
+        JSON_.JSONdanImport()
 
     if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
         en_büyük_tuple = max(EMPTY_LISTS.Jsonda_Mevcut_Veriler, key=lambda x: x[0])

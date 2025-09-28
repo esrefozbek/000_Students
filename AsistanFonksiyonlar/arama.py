@@ -4,7 +4,7 @@ import string
 import VERI.mesajlar as MESAJLAR
 import VERI.emptyLists as EMPTY_LISTS 
 import MenuTablo.tablolarPY as TABLOLAR
-import AnaFonksiyonlar.JSON_jobs as ANAMODUL
+import AnaFonksiyonlar.JSON_jobs as JSON_
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE
 from rich import print as p # ya da c.print kullanıyorsan onu bırak
 from rich.text import Text
@@ -35,13 +35,23 @@ def bul_AnaFonksiyon(GirisMesaji:int):
     Cleaning()
     JSONdan_Import()                        #  her seferinde baştan yükleniyor İyi mi Kötü mü ???
     MESAJLAR.Mesajlar(GirisMesaji)
-    kriter=InputwithESCAPE()
-    if kriter is None:
+    klavye=InputwithESCAPE()
+    if klavye is None:
         return None
     else:
+<<<<<<< HEAD
         Parsing(kriter)  
         fonksiyon_secimi()
     return kriter         
+=======
+        Parsing(klavye)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
+        fonksiyon_secimi()
+      #KriterleriBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
+       
+        #p("Arama>>AnaFonk:    EMPTY_LISTS.altAnaListeTum",EMPTY_LISTS.altAnaListeTum)
+        #p("Arama>>AnaFonk:    EMPTY_LISTS.altAnaListeTekKriterler",EMPTY_LISTS.altAnaListeTekler)
+        return klavye         
+>>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
           
  
 def KriterleriAyriBul(kriterler:list, sozlukListesi:list=EMPTY_LISTS.Jsonda_Mevcut_Veriler):
@@ -56,7 +66,15 @@ def KriterleriAyriBul(kriterler:list, sozlukListesi:list=EMPTY_LISTS.Jsonda_Mevc
         DikeyeKriteriEkle(birKriter)
         EMPTY_LISTS.verticalsReadyForJoin.append(EMPTY_LISTS.altListe_birKriter)
         EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
+<<<<<<< HEAD
        
+=======
+        c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TekKriterinBulunanlari",EMPTY_LISTS.TekKriterinBulunanlari )
+    c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TotalBulunanlar",EMPTY_LISTS.TotalBulunanlar )
+    EMPTY_LISTS.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in EMPTY_LISTS.TotalBulunanlar}.values())
+    c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TotalBulunanlar---Filtrelenmiş--",EMPTY_LISTS.TotalBulunanlar )
+    
+>>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
 
 
 def KriterleriBirlesikBul(Kriterler,liste):
@@ -67,7 +85,15 @@ def KriterleriBirlesikBul(Kriterler,liste):
             liste=takas
         CORE_Bul(kriter,liste)
         takas=EMPTY_LISTS.TekKriterinBulunanlari
+<<<<<<< HEAD
     EMPTY_LISTS.TotalBulunanlar.extend(EMPTY_LISTS.TekKriterinBulunanlari)  
+=======
+    #    c.print("Arama>>BirlesikKriterBul:: TekKriterinBulunanlari",EMPTY_LISTS.TekKriterinBulunanlari)
+    EMPTY_LISTS.TotalBulunanlar.extend(EMPTY_LISTS.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım. Buraya ne olur ne olmaz bulunsun diye ekledim.
+    
+    EMPTY_LISTS.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in EMPTY_LISTS.TotalBulunanlar}.values())
+    #c.print("Arama>>BirlesikKriterBul:: TotalBulunanlar",EMPTY_LISTS.TotalBulunanlar)    
+>>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     DikeyeGecis_TekKriter(EMPTY_LISTS.TekKriterinBulunanlari)
     DikeyeKriteriEkle(Kriterler)
     EMPTY_LISTS.verticalsReadyForJoin=[EMPTY_LISTS.altListe_birKriter] #. diğer yapı 3 katman   [[[]]]   şekklinde olduğu için  ve sonraki adımlara uyumluluk için 3 katman yaptım. 
@@ -86,10 +112,19 @@ def CORE_Bul(birKriter,liste:list):
                (len(birKriter)==4 and birKriter in ogrenci["dogumTarihi"]) or
                birKriter == ((ogrenci["sinifi"]).lower() or  (ogrenci["sinifi"])) or                      
                (len(birKriter)==4 and birKriter == ogrenci["kayitTarihi"])): 
-               EMPTY_LISTS.TekKriterinBulunanlari.append(ogrenci) 
-               EMPTY_LISTS.BulunanAdSoyadIDler.append((ogrenci["Id"], ogrenci["ad"], ogrenci["soyad"])) 
+               EMPTY_LISTS.TekKriterinBulunanlari.append(ogrenci) #.Yatay
+               
            else: 
             continue
+<<<<<<< HEAD
+=======
+    
+   
+   # c.print(f"\n\nCORE>>>>>>> [yellow]birKriter[/] ve Bulunanlar >>> [yellow]{birKriter}[/]",EMPTY_LISTS.TekKriterinBulunanlari[:], style="bright_white")
+    #if EMPTY_LISTS.Bulunanlar: 
+    c.print("\n")
+    #c.rule("CORE bitti")
+>>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     return 
 
 def DikeyeGecis_TekKriter(TekKriterinBulunanlari:list):
@@ -167,10 +202,10 @@ def fonksiyon_secimi():
         return 
 
     if "birlesik" in secimler:
-        KriterleriBirlesikBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
+        KriterleriBirlesikBul(EMPTY_LISTS.KellesiGidenler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
 
     if "tekli" in secimler:
-        KriterleriAyriBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
+        KriterleriAyriBul(EMPTY_LISTS.KellesiGidenler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler)
 
     if "panel" in secimler:
         joinification(EMPTY_LISTS.verticalsReadyForJoin)
@@ -193,10 +228,26 @@ def fonksiyon_secimi():
 
  """    
 
+<<<<<<< HEAD
 
+=======
+def Cleaning():
+    EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
+    EMPTY_LISTS.altListe_birKriter.clear() 
+    EMPTY_LISTS.verticalsReadyForJoin=       []
+    EMPTY_LISTS.altListe_Butun=          [[],[],[],[],[],[],[],[]]
+    EMPTY_LISTS.Joined_altAnaListeTum=   [[],[],[],[],[],[],[],[]]
+    
+    EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
+    EMPTY_LISTS.Joined_altAnaListeTekler.clear() 
+    
+    EMPTY_LISTS.TekKriterinBulunanlari.clear()  #!j - Her sorguda önce temizle 
+   
+    EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
+>>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     
 def JSONdan_Import():
-    ANAMODUL.JSONdanImport()  
+    JSON_.JSONdanImport()  
 
 def InputwithESCAPE():
     global kriterStringi
@@ -216,8 +267,8 @@ def InputwithESCAPE():
 
 def Parsing(kriterStringi):
     kriterStringi=kriterStringi or ""
-    EMPTY_LISTS.parsedKriterler_Listesi=[]
-    EMPTY_LISTS.parsedKriterler_Listesi = re.split(r'[,\s]+', kriterStringi) 
+    EMPTY_LISTS.KellesiGidenler_Listesi=[]
+    EMPTY_LISTS.KellesiGidenler_Listesi = re.split(r'[,\s]+', kriterStringi) 
     #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
 
 
@@ -238,7 +289,7 @@ def KriterleriBul(parsedKriterStringi_Listesi:list, neredeAranacak:list=EMPTY_LI
     p("\n✈️✈️ Arama>>kriterBul >> parsedKriterStringi_Listesi uzunluğu: >>", len(parsedKriterStringi_Listesi))
     p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY_LISTS.verticalsReadyForJoin[0]))
     p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",EMPTY_LISTS.TekKriterinBulunanlari)
-    p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",EMPTY_LISTS.BulunanAdSoyadIDler)
+    p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",EMPTY_LISTS.TekKriterinBulunanAdSoyadIDleri)
     p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY_LISTS.verticalsReadyForJoin)
     
     p("\n");c.rule(" SONUÇLAR ",style="red") ;

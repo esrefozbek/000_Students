@@ -70,7 +70,7 @@ def Mesajlar(sayı:int=0):
     
      
         if sayı==10: #/       parsedKriterStringi_Listesi             
-           p(Panel.fit(str(EMPTY_LISTS.parsedKriterler_Listesi), title=" parsedKriterStringi_Listesi ",     style="white"))   
+           p(Panel.fit(str(EMPTY_LISTS.KellesiGidenler_Listesi), title=" KellesiGidenler_Listesi ",     style="white"))   
    
    
    

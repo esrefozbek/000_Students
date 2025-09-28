@@ -41,7 +41,7 @@ import VERI.emptyLists as EMPTY_LISTS
 
 import AnaFonksiyonlar.yeniOgrenci_KAYIT as YeniOgr_KAYIT
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
-import AnaFonksiyonlar.JSON_jobs as ANAMODUL
+import AnaFonksiyonlar.JSON_jobs as JSON_
 import AnaFonksiyonlar.ogrenci_SiLME as Ogr_SiL
 
 import Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
@@ -290,7 +290,7 @@ def startPoint():
                         EMPTY_LISTS.value=25
                         değer=EMPTY_LISTS.value
                         Menu.ekranTemizle()
-                        ANAMODUL.JSONdanImport()
+                        JSON_.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
                         if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
@@ -303,7 +303,7 @@ def startPoint():
                         EMPTY_LISTS.value=500
                         değer=EMPTY_LISTS.value
                        #! Menu.ekranTemizle()
-                        ANAMODUL.JSONdanImport()
+                        JSON_.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
                         if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
@@ -354,7 +354,7 @@ def startPoint():
 
                         
                     elif selected == 3: 
-                        ANAMODUL.JSONdanImport()
+                        JSON_.JSONdanImport()
                         Say_Kro.geri_say(3)
                        
                         
