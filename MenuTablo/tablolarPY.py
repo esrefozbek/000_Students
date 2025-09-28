@@ -52,7 +52,7 @@ def genel_TABLO(liste: list, ):
             item["kayitTarihi"], ) 
     
     c.print("", table,end="\n")
-    c.rule("sonuçlar yukarıda sunuldu",style="red")
+    c.rule("Tablo sonuçlar yukarıda sunuldu",style="orange_red1")
     c.print("",end="\n")
     
  #_   if EMPTY_LISTS.Bulunanlar:
