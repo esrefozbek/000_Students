@@ -39,19 +39,9 @@ def bul_AnaFonksiyon(GirisMesaji:int):
     if klavye is None:
         return None
     else:
-<<<<<<< HEAD
-        Parsing(kriter)  
+        Parsing(klavye)  
         fonksiyon_secimi()
-    return kriter         
-=======
-        Parsing(klavye)  #! EmptyLists.ParsedSTRING_Listesi=[]  dolduruldu.
-        fonksiyon_secimi()
-      #KriterleriBul(EMPTY_LISTS.parsedKriterler_Listesi, EMPTY_LISTS.Jsonda_Mevcut_Veriler) #.  Sonuç bulunursa Bulunanlar listesi doldurulur . 
-       
-        #p("Arama>>AnaFonk:    EMPTY_LISTS.altAnaListeTum",EMPTY_LISTS.altAnaListeTum)
-        #p("Arama>>AnaFonk:    EMPTY_LISTS.altAnaListeTekKriterler",EMPTY_LISTS.altAnaListeTekler)
-        return klavye         
->>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
+    return klavye         
           
  
 def KriterleriAyriBul(kriterler:list, sozlukListesi:list=EMPTY_LISTS.Jsonda_Mevcut_Veriler):
@@ -66,15 +56,7 @@ def KriterleriAyriBul(kriterler:list, sozlukListesi:list=EMPTY_LISTS.Jsonda_Mevc
         DikeyeKriteriEkle(birKriter)
         EMPTY_LISTS.verticalsReadyForJoin.append(EMPTY_LISTS.altListe_birKriter)
         EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
-<<<<<<< HEAD
        
-=======
-        c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TekKriterinBulunanlari",EMPTY_LISTS.TekKriterinBulunanlari )
-    c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TotalBulunanlar",EMPTY_LISTS.TotalBulunanlar )
-    EMPTY_LISTS.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in EMPTY_LISTS.TotalBulunanlar}.values())
-    c.print("Arama>>KriterleriAYrı::  EMPTY_LISTS.TotalBulunanlar---Filtrelenmiş--",EMPTY_LISTS.TotalBulunanlar )
-    
->>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
 
 
 def KriterleriBirlesikBul(Kriterler,liste):
@@ -85,15 +67,11 @@ def KriterleriBirlesikBul(Kriterler,liste):
             liste=takas
         CORE_Bul(kriter,liste)
         takas=EMPTY_LISTS.TekKriterinBulunanlari
-<<<<<<< HEAD
-    EMPTY_LISTS.TotalBulunanlar.extend(EMPTY_LISTS.TekKriterinBulunanlari)  
-=======
     #    c.print("Arama>>BirlesikKriterBul:: TekKriterinBulunanlari",EMPTY_LISTS.TekKriterinBulunanlari)
     EMPTY_LISTS.TotalBulunanlar.extend(EMPTY_LISTS.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım. Buraya ne olur ne olmaz bulunsun diye ekledim.
     
     EMPTY_LISTS.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in EMPTY_LISTS.TotalBulunanlar}.values())
     #c.print("Arama>>BirlesikKriterBul:: TotalBulunanlar",EMPTY_LISTS.TotalBulunanlar)    
->>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     DikeyeGecis_TekKriter(EMPTY_LISTS.TekKriterinBulunanlari)
     DikeyeKriteriEkle(Kriterler)
     EMPTY_LISTS.verticalsReadyForJoin=[EMPTY_LISTS.altListe_birKriter] #. diğer yapı 3 katman   [[[]]]   şekklinde olduğu için  ve sonraki adımlara uyumluluk için 3 katman yaptım. 
@@ -116,15 +94,12 @@ def CORE_Bul(birKriter,liste:list):
                
            else: 
             continue
-<<<<<<< HEAD
-=======
     
    
    # c.print(f"\n\nCORE>>>>>>> [yellow]birKriter[/] ve Bulunanlar >>> [yellow]{birKriter}[/]",EMPTY_LISTS.TekKriterinBulunanlari[:], style="bright_white")
     #if EMPTY_LISTS.Bulunanlar: 
     c.print("\n")
     #c.rule("CORE bitti")
->>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     return 
 
 def DikeyeGecis_TekKriter(TekKriterinBulunanlari:list):
@@ -228,9 +203,6 @@ def fonksiyon_secimi():
 
  """    
 
-<<<<<<< HEAD
-
-=======
 def Cleaning():
     EMPTY_LISTS.altListe_birKriter = reset_altListe_birKriter()
     EMPTY_LISTS.altListe_birKriter.clear() 
@@ -244,7 +216,6 @@ def Cleaning():
     EMPTY_LISTS.TekKriterinBulunanlari.clear()  #!j - Her sorguda önce temizle 
    
     EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
->>>>>>> b0244b2c4b7f60604938fdcaa685ac07410cdb68
     
 def JSONdan_Import():
     JSON_.JSONdanImport()  
@@ -289,7 +260,7 @@ def KriterleriBul(parsedKriterStringi_Listesi:list, neredeAranacak:list=EMPTY_LI
     p("\n✈️✈️ Arama>>kriterBul >> parsedKriterStringi_Listesi uzunluğu: >>", len(parsedKriterStringi_Listesi))
     p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY_LISTS.verticalsReadyForJoin[0]))
     p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",EMPTY_LISTS.TekKriterinBulunanlari)
-    p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",EMPTY_LISTS.TekKriterinBulunanAdSoyadIDleri)
+    p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",)
     p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY_LISTS.verticalsReadyForJoin)
     
     p("\n");c.rule(" SONUÇLAR ",style="red") ;
