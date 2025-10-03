@@ -5,6 +5,7 @@ import re
 from rich.live import Live
 from rich.console import Console
 import os
+import VERI.renkler as RENKlist
 
 console = Console()
 
@@ -37,6 +38,9 @@ def renkleriJsondanOku(dosya_adi="VERI/renkler.json"):
 
 def randomize(birTuple):
     return random.choice(birTuple)
+
+def randomRENK():
+    return random.choice(RENKlist.renkler)
 
 
 def ogrenciYok():

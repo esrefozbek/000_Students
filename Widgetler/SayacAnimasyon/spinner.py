@@ -9,17 +9,17 @@ c = Console()
 def spinner(duration, WhichText:int): 
     text="0"    # sayı ve text gönder
     if WhichText==1:
-        text="[bold green] Girdiler Veri tabanına Ekleniyor...**[/]"
+        text="[bold green]  🐳 🐳 🐳 Girdiler Veri tabanına Ekleniyor...**[/]"
     if WhichText==2:
-        text="[bold magenta] Siliniyor...[/]"
+        text="[bold magenta] 🎯🎯🎯 Siliniyor...[/]"
     if WhichText==3:
-        text="[bold yellow] Düzeltiliyor...[/]"
+        text="[bold yellow] 💻💻💻 Düzeltiliyor...[/]"
     if WhichText==4:
-        text="[bright_white] Bilgilerin kaydı gerçekleşiyor......[/]"
+        text="[bright_white] Bilgilerin kaydı gerçekleşiyor......💬💬💬[/]"
     if WhichText==5:
-        text="[bold yellow] Bulunanlar yükleniyor...[/]"
+        text="[bold yellow] Bulunanlar yükleniyor...➕➕➕[/]"
     if WhichText==6:
-        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor [/]"   
+        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor 🤫🤫🤫😂[/]"   
     if WhichText==7:
         text="[bold yellow] AnaMenüye Hicret ediliyor...[/]" 
     

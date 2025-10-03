@@ -4,6 +4,7 @@ from rich.panel import Panel
 from rich import print, box
 import os, random
 import Widgetler.SayacAnimasyon.spinner as SpinnersPY
+import Widgetler.randomRenk as RR
 
 
 
@@ -48,14 +49,14 @@ def rastgele_box_stili():
 
 
 def menu_goster():
-    
+    renk=RR.randomRENK()
    ####################################### os.system("cls" if os.name == "nt" else "clear")  # Terminal temizliği
     
-    table = Table(title="🧠 [yellow]Öğrenci Sistemi Menüsü[/yellow]", box=rastgele_box_stili()[1], expand=False)
+    table = Table(title="", box=rastgele_box_stili()[1], expand=False,border_style=RR.randomRENK() )
 
-    table.add_column("Seçim", justify="center", style="turquoise2", no_wrap=False)    
-    table.add_column("", justify="center", style="", no_wrap=False)    
-    table.add_column(f"İşlem, [grey46]Box Stili:[/][bold turquoise2]{rastgele_box_stili()[0]}[/]", style="white",no_wrap=False)
+    table.add_column(f"[{RR.randomRENK()}]Seçim[/]", justify="center", style=RR.randomRENK(), no_wrap=False)    
+    table.add_column("", justify="center", style=RR.randomRENK(), no_wrap=False)    
+    table.add_column(f"[{RR.randomRENK()}]İşlem[/], [{RR.randomRENK()}]Box Stili:[/][{RR.randomRENK()}]{rastgele_box_stili()[0]}[/]", style=RR.randomRENK(),no_wrap=True)
 
     table.add_row("1","➕",f"Öğrenci Ekle")
     table.add_row("2", "🔍","Öğrenci Bul")
@@ -67,7 +68,7 @@ def menu_goster():
     table.add_row("77", "📋", "Öğrencileri Listele (50 Dilimli)")
     table.add_row("44","",f"Teknik menüye hicret et") 
     
-    panel = Panel(table, title=f"[red]AnamMenü", border_style="deep_sky_blue1", expand=False)
+    panel = Panel(table, title=f"[{RR.randomRENK()}] AnaMenü [/]", title_align="right", border_style=RR.randomRENK(), expand=False)
     console.print(panel)
     
 # Menü oluşturuldu

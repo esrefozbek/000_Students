@@ -31,13 +31,10 @@ from rich.layout import Layout
 
 import sys,os
 from rich.live import Live
-from rich.box import Box
-from rich import box
-from rich.table import Table
 from rich.console import Console; c = Console()
 import readchar
 import time
-import VERI.emptyLists as EMPTY_LISTS
+import VERI.emptyLists as E_LISTS
 
 import AnaFonksiyonlar.yeniOgrenci_KAYIT as YeniOgr_KAYIT
 import AnaFonksiyonlar.ogrenci_LiSTEleme as Ogr_List
@@ -57,6 +54,8 @@ import AsistanFonksiyonlar.sırfSORGU as sırfSORGU
 import AsistanFonksiyonlar.arama as Arama
 import AsistanFonksiyonlar.tupleyi_Sozluklestirme as AsistanModul
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE
+import AsistanFonksiyonlar.fakeJSON as FAKE
+import Widgetler.randomRenk as RR
 #import Widgetler.SayacAnimasyon.spinner as spinnerPY
 
 #^########################################menu.ekranTemizle()
@@ -69,8 +68,8 @@ def anamenü_bekletme(scnd):
     
 
 def startPoint():
-        EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
-        EMPTY_LISTS.FARK_SozlukListesi.clear()
+        E_LISTS.Jsonda_Mevcut_Veriler.clear()
+        E_LISTS.FARK_SozlukListesi.clear()
 
 #? SECTION ANAMENÜ
         while True:  #Menüden seçim
@@ -88,7 +87,7 @@ def startPoint():
                         # is_rich_great = Confirm.ask("Do you like rich?")
                         # assert is_rich_great
                         
-                        c.print("[bold white]  SANA ZAHMET BİR [yellow][blink]SEÇİM[/][/] YAP:[/bold white]", style="link https://google.com",end=" ")
+                        c.print(f"[{RR.randomRENK()}]  SANA ZAHMET BİR [{RR.randomRENK()}][{RR.randomRENK()}]SEÇİM[/][/] YAP >>[/]", style="link https://google.com",end=" ")
                         
                         CHOOSEN = int(input())
                     except ValueError:
@@ -104,19 +103,19 @@ def startPoint():
                     
                     
                     if CHOOSEN == 1:#NOTE - YENİ KAYIT
-                        EMPTY_LISTS.ekle=True
+                        E_LISTS.ekle=True
                         YeniOgr_KAYIT.yeniOgrenciKayidi()
-                        EMPTY_LISTS.ekle=False
+                        E_LISTS.ekle=False
                         
                         
 
                     elif CHOOSEN==2:#NOTE - BUL
-                        EMPTY_LISTS.bul=True      
+                        E_LISTS.bul=True      
                         while True:
                             sonuc=Arama.bul_AnaFonksiyon(1)  #! Bulunanlar listesine dolum yapılır,
                             if sonuc is None:
                                 break
-                        EMPTY_LISTS.bul=False      
+                        E_LISTS.bul=False      
                         
                             
                             
@@ -251,8 +250,8 @@ def startPoint():
                         # if not VERİ.TupleliListe_:
                         # else:
                         Ogr_SiL.Silme_AnaFonksiyon()
-                        EMPTY_LISTS.sil=True
-                        EMPTY_LISTS.sil=False
+                        E_LISTS.sil=True
+                        E_LISTS.sil=False
                        
         
         
@@ -274,9 +273,9 @@ def startPoint():
 
                         
                     elif CHOOSEN==5: #NOTE - Ekranı resEtleme
-                        anamenü_bekletme(2)
-                        EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
-                        EMPTY_LISTS.FARK_SozlukListesi.clear()
+                        anamenü_bekletme(0)
+                        E_LISTS.Jsonda_Mevcut_Veriler.clear()
+                        E_LISTS.FARK_SozlukListesi.clear()
                         continue
    
                        
@@ -287,28 +286,28 @@ def startPoint():
                         
                     elif CHOOSEN == 7: #NOTE -  DİLİMLEME         #Burada tüm liste ekranı aşıyor,   Tüm listeyi  20 satır yap,  oklarla 21... satırlara gidebil Ama tablonun içinde yaşa bu durumu. 
                       
-                        EMPTY_LISTS.value=25
-                        değer=EMPTY_LISTS.value
+                        E_LISTS.value=100
+                        değer=E_LISTS.value
                         Menu.ekranTemizle()
                         JSON_.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
+                        if E_LISTS.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
-                            EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
+                            E_LISTS.Jsonda_Mevcut_Veriler.clear()
                         else:
                             c.print("📭 Liste boş. Önce öğrenci gir.",style="white")
                         Say_Kro.progress_sayac()
 
                     elif CHOOSEN==77:#NOTE -  DİLİMLEME
-                        EMPTY_LISTS.value=500
-                        değer=EMPTY_LISTS.value
+                        E_LISTS.value=350
+                        değer=E_LISTS.value
                        #! Menu.ekranTemizle()
                         JSON_.JSONdanImport()
                         #FIXME - JSON.JSONaKayıt("öğrenciler.json")
-                        if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
+                        if E_LISTS.Jsonda_Mevcut_Veriler:
                             Ogr_List.altAltaOgrenciListesi(değer)
                            #&   Canlı_Tablo.main()    
-                            EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
+                            E_LISTS.Jsonda_Mevcut_Veriler.clear()
                         else:
                             c.print("📭 Liste boş. Önce öğrenci gir.", style="blink")
                       #FIXME -   menü.rastgele_box_stili
@@ -333,7 +332,7 @@ def startPoint():
                         continue
                     
 
-                    if selected not in (0,1,2,3,4,5,6,7,8,9,10,11,12, 13,33):
+                    if selected not in (0,1,2,3,4,5,6,7,8,9,10,11,12, 13,14,33):
                         c.print( "❗❗❗❗❗❗❗ Düzgün bir sayı gir ❗❗❗❗❗❗", style="blink")
                         input("ENTER ile devam et...")
                         continue      
@@ -360,11 +359,11 @@ def startPoint():
                         
                         
                     elif selected == 4:
-                        c.print("\n[bold]VERİ.TupleliListe_:[/bold]",EMPTY_LISTS.Jsonda_Mevcut_Veriler)
+                        c.print("\n[bold]VERİ.TupleliListe_:[/bold]",E_LISTS.Jsonda_Mevcut_Veriler)
                         ENTER()
            
                     elif selected== 5:
-                        AsistanModul.TupleyiSözlükListesineEkle(EMPTY_LISTS.Jsonda_Mevcut_Veriler)
+                        AsistanModul.TupleyiSözlükListesineEkle(E_LISTS.Jsonda_Mevcut_Veriler)
                       
                         #NOTE - Hangi tuple var, ilk kayıttaki mi , jsondan gelip remove edilmiş olan mı, 
                         KLAVYE_DINLE.Enter_ile_devam_et()
@@ -372,9 +371,9 @@ def startPoint():
                     elif selected==6:
                         menuTipi="sözlüklüListe"
                         listeTipi="sözlüklüListe"
-                        if EMPTY_LISTS.FARK_SozlukListesi:
+                        if E_LISTS.FARK_SozlukListesi:
                             c.print("\nVERİ.SözlüklüListe_:",style="green")
-                            for i in EMPTY_LISTS.FARK_SozlukListesi:
+                            for i in E_LISTS.FARK_SozlukListesi:
                                     c.print(i)
                                     
                         else:
@@ -385,13 +384,13 @@ def startPoint():
                     elif selected==7:
                         menuTipi="tupleliListe"
                         listeTipi="tupleliListe"
-                        EMPTY_LISTS.Jsonda_Mevcut_Veriler.sort()
+                        E_LISTS.Jsonda_Mevcut_Veriler.sort()
                             
-                        c.print(f"\n[ {len(EMPTY_LISTS.Jsonda_Mevcut_Veriler)} TALEBE bulundu ]",style=" white")
-                        c.print("[magenta]VERİ.TupleliListe_:[/magenta]",EMPTY_LISTS.Jsonda_Mevcut_Veriler)
-                        if EMPTY_LISTS.FARK_SozlukListesi:
+                        c.print(f"\n[ {len(E_LISTS.Jsonda_Mevcut_Veriler)} TALEBE bulundu ]",style=" white")
+                        c.print("[magenta]VERİ.TupleliListe_:[/magenta]",E_LISTS.Jsonda_Mevcut_Veriler)
+                        if E_LISTS.FARK_SozlukListesi:
                            # for sözlük in sözlüklüListe:
-                                c.print("\n",EMPTY_LISTS.FARK_SozlukListesi,"\n",style="bold")
+                                c.print("\n",E_LISTS.FARK_SozlukListesi,"\n",style="bold")
                         else:
                             c.print( "SözlüklüListe_de Öğrenci Kaydı yok. ")
                         KLAVYE_DINLE.Enter_ile_devam_et()
@@ -401,8 +400,8 @@ def startPoint():
                         
                     
                     elif selected==9:
-                        EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
-                        if EMPTY_LISTS.Jsonda_Mevcut_Veriler:
+                        E_LISTS.Jsonda_Mevcut_Veriler.clear()
+                        if E_LISTS.Jsonda_Mevcut_Veriler:
                             c.print("Tupleli liste dolu")
                             ENTER()
                         else:
@@ -410,12 +409,12 @@ def startPoint():
                         ENTER()
                     
                     elif selected==10:
-                        EMPTY_LISTS.FARK_SozlukListesi.clear()
+                        E_LISTS.FARK_SozlukListesi.clear()
 
                         # ekran temizlenir anaMenüye gidilir Lakin silinen eklenen listeleri doludur.
                         
                     elif selected==11:
-                        Dilimleme.dilimleme(5,EMPTY_LISTS.Jsonda_Mevcut_Veriler)                        
+                        Dilimleme.dilimleme(5,E_LISTS.Jsonda_Mevcut_Veriler)                        
                         #ANCHOR - console.input("\n🔁 Devam etmek için ENTER'a basın..." )
                     
                     elif selected==12:
@@ -428,6 +427,11 @@ def startPoint():
                             line = " ".join(f"[on color({j})]{j:3}[/]" for j in range(i, i + 16))
                             c.print(line)
                         KLAVYE_DINLE.Enter_ile_devam_et()
+                        
+                    elif selected==14:
+                        FAKE.fakeOgrenciOlustur()                          
+                    
+                        
                     
                     elif selected==33:
                         startPoint()

@@ -2,7 +2,7 @@ from rich.console import Console; console = Console()
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE, VERI.emptyLists as EMPTY_LISTS,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE, VERI.emptyLists as E_LISTS,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import  MenuTablo.tablolarPY as TABLOLAR
  
 
@@ -12,17 +12,17 @@ def dilimleme(value,liste):
     menüTipi="Dilimlenmiş Ana Liste"
     listeTipi="Dilimlenmiş Tüm Liste"
     kaçarKaçar = value if value is not None else 10  # kaçarlı dilimler yapalım
-    EMPTY_LISTS.ListeDilimi = []
+    E_LISTS.ListeDilimi = []
     for idx, i in enumerate(liste):
-        EMPTY_LISTS.ListeDilimi.append(i)
+        E_LISTS.ListeDilimi.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TABLOLAR.genel_TABLO(EMPTY_LISTS.ListeDilimi, )
-            EMPTY_LISTS.ListeDilimi = []  # Dilimi sıfırla
+            TABLOLAR.genel_TABLO_kritersiz(E_LISTS.ListeDilimi, )
+            E_LISTS.ListeDilimi = []  # Dilimi sıfırla
             KLAVYE_DINLE.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
-    if EMPTY_LISTS.ListeDilimi:  # Eğer dilimListe boş değilse
-        TABLOLAR.genel_TABLO(EMPTY_LISTS.ListeDilimi, )
+    if E_LISTS.ListeDilimi:  # Eğer dilimListe boş değilse
+        TABLOLAR.genel_TABLO_kritersiz(E_LISTS.ListeDilimi, )
         KLAVYE_DINLE.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
@@ -36,8 +36,8 @@ def gptDilimleme(value,liste: list):
     for i in range(toplam_sayfa):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
-        EMPTY_LISTS.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
-        TABLOLAR.genel_TABLO(EMPTY_LISTS.Dilimlenmiş_alt_liste, )
+        E_LISTS.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
+        TABLOLAR.genel_TABLO_kritersiz(E_LISTS.Dilimlenmiş_alt_liste, )
         KLAVYE_DINLE.Enter_ile_devam_et()
         if i>1:
             print("\n\n")

@@ -43,7 +43,7 @@ def ID_olustur_ve_oku():
 
     yeni_id = mevcut_id + 1
     txtUzerineYaz(txt_dosya_yolu, yeni_id)
-    c.print(f"Yeni ID kaydedildi: {yeni_id}")
+ #   c.print(f"\n\t[green]Yeni ID kaydedildi:[/] {yeni_id}")
     
     return yeni_id
 

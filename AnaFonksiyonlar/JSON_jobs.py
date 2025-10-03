@@ -1,5 +1,5 @@
 #breakpoint()
-import VERI.emptyLists as EMPTY_LISTS,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import VERI.emptyLists as E_LISTS,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import json, os
 from rich import print
 import Widgetler.SayacAnimasyon.spinner as SpinnerPY
@@ -23,10 +23,10 @@ def JSONdanImport():
             Geçici_SozlukListesi = json.load(file)
       
        #^ c.print("\njson:import:Geçici_SozlukListesi[-1:]>>",Geçici_SozlukListesi[-1:])       
-        EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear() 
+        E_LISTS.Jsonda_Mevcut_Veriler.clear() 
         
         import copy
-        EMPTY_LISTS.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
+        E_LISTS.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
       
 
 #&             KayıtOncesiCTRL_theFilesExist_Or                     
@@ -41,7 +41,7 @@ def CTRLforFilesExist(jsonDosya_adi: str ):# bunu teknik menüye al  Ayrıca Asi
                 getTextID = TxtYolu.txtOlustur(txt_dosya_yolu)  #txtOlustur
             else: 
                 getTextID = TxtYolu.txtID_Oku(txt_dosya_yolu)   #txtID_Oku 
-        c.print("JSON::CTRLforExistance::try:: Jsonda_Mevcut_Veriler [-1] ",AtEmptyLists.Jsonda_Mevcut_Veriler[-1] )                
+       # c.print("JSON::CTRLforExistance::try:: Jsonda_Mevcut_Veriler [-1] ",AtEmptyLists.Jsonda_Mevcut_Veriler[-1] )                
         return  AtEmptyLists.Jsonda_Mevcut_Veriler, getLastJSON_ID, getTextID
     
     
@@ -50,7 +50,7 @@ def CTRLforFilesExist(jsonDosya_adi: str ):# bunu teknik menüye al  Ayrıca Asi
         getLastJSON_ID = 0
         TxtYolu.txtOlustur("VERI/Text.txt")
         getTextID = 0
-        c.print("JSON::CTRLforExistance::except:: Jsonda_Mevcut_Veriler [0]",AtEmptyLists.Jsonda_Mevcut_Veriler[0] )                
+    #    c.print("JSON::CTRLforExistance::except:: Jsonda_Mevcut_Veriler [0]",AtEmptyLists.Jsonda_Mevcut_Veriler[0] )                
         return  AtEmptyLists.Jsonda_Mevcut_Veriler, getLastJSON_ID,  getTextID
     
 
@@ -82,44 +82,56 @@ def tamiratForID(getLastJSON_ID,ilaveSozluk):
 def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
     #degisimMiktari=len(YeniEklenenlerinSozluklerListesi_)
     ReturnedDatas=CTRLforFilesExist(JSON_Dosyasi)  #! ReturnedDatas[0]:AtEmptyLists.Jsonda_Mevcut_Veriler
-    c.print("JSON::EKLEME:: Jsonda_Mevcut_Veriler [-2:]>>",ReturnedDatas[0][-2:])
+    #c.print("JSON::EKLEME:: Jsonda_Mevcut_Veriler [-2:]>>",ReturnedDatas[0][-2:])
     a= CTRLforID(ReturnedDatas[1],ReturnedDatas[2],FARK_SozlukListesi,)
     ReturnedDatas[0].extend(FARK_SozlukListesi)
     getLastJSON_ID = ReturnedDatas[0][-1]["Id"]
  
-    EMPTY_LISTS.FARK_SozlukListesi.clear()
-    SpinnerPY.spinner(2,1)      
+    if FARK_SozlukListesi: SpinnerPY.spinner(3,1)      
+    else: SpinnerPY.spinner(4,6)  
    #^ Jsonda_Mevcut_Veriler = []
    
     JsonaDump(ReturnedDatas[0])  
-    c.print(f" {len(FARK_SozlukListesi)} öğrencinin bilgileri [green]JSON[/]'a kaydedildi.\n")
-    c.print("JSON::EKLEME:: Jsonda_Mevcut_Veriler [-1:]>>",ReturnedDatas[0][-1:])
+    if len(E_LISTS.FARK_SozlukListesi): c.print(f"\n📢📢📢 {len(E_LISTS.FARK_SozlukListesi)} öğrencinin bilgileri [green]VERİTABANI[/]'na kaydedildi.👉👉👉\n")
+    else:
+        c.print("🚨🚨🚨🚨🚨🚨 Öğrenci kayıt işlemi iptal edildi 🚨🚨🚨🚨🚨🚨 ",style="bold red")
+    
+    #c.print("JSON::EKLEME:: Jsonda_Mevcut_Veriler [-1:]>>",ReturnedDatas[0][-1:])
+    
+    E_LISTS.FARK_SozlukListesi.clear()
     return ReturnedDatas[0]
 
 
 
 #_                    Jsonda_Mevcut_Verilerden Silme                  
-def SozluktenEksiltme(AnaJson, birKelle):
-    
-    if AnaJson:
-        c.print("JSON>>SözlüktenEksiltme:  json[-1] >> ",   EMPTY_LISTS.Jsonda_Mevcut_Veriler[-1])
-        if birKelle in AnaJson:
-            c.print("JSON>>SözlüktenEksiltme: birKelle >>",   birKelle)
+def SozluktenEksiltme(OGR_JSON, ogr):
+    c.print("OGR_JSON len :1:", len(OGR_JSON))
+    if OGR_JSON:
+       # c.print("🚨🚨💡💡 OGR_JSON>>SözlüktenEksiltme:  json[-3:] >> ",   EMPTY_LISTS.Jsonda_Mevcut_Veriler[-3:])
+        if ogr :
+            c.print("⭐️⭐️ OGR_JSON>>SözlüktenEksiltme: birKelle >>",   ogr)
          
-            AnaJson.remove(birKelle)
+            OGR_JSON.remove(ogr)
+            # kelle_id = birKelle[0]['Id']
+            # c.print(" 🚨🚨💡💡  kelle_id>>>",kelle_id)
+            # AnaJson = [item for item in AnaJson if item["Id"] != kelle_id]
+
+            
+            
         else:
             pass
 
-
-    getLastJSON_ID =AnaJson[-1]["Id"]  #^ mevcut değilse ??
+    
+    getLastJSON_ID =OGR_JSON[-1]["Id"]  #^ mevcut değilse ??
     getTextID = TxtYolu.txtID_Oku(txt_dosya_yolu) #^ mevcut değilse ??
 
    #^ Jsonda_Mevcut_Veriler = []
     SpinnerPY.spinner(3,2)  
-    JsonaDump(AnaJson)    
-    c.print(f" öğrencinin bilgileri [red]VeriTabanı[/]'ndan silindi.\n")
+    JsonaDump(OGR_JSON)    
+    c.print(f"🎟️🎟️ öğrencinin bilgileri [red]VeriTabanı[/]'ndan silindi.\n")
+    c.print("AnaJson len :2:", len(OGR_JSON))
     
-    return AnaJson 
+    return OGR_JSON 
     
     
     

@@ -57,7 +57,9 @@ def teknikMenü():
     table.add_row("11", "TupleListeyi Dilimle")
     table.add_row("12", "SORGU(eğer yoksa jsondan tuple yap.)")
     table.add_row("13", "256 [italic]Renk Paleti[/]")
-    table.add_row("33", "Ana Menüye hicret et")
+    table.add_row("14", "[bold yellow]FakeMaker[/]")
+    
+    table.add_row("33", "Ana Menüye hicret et   ESC ile ")
     
     panel = Panel(table, title="[red]Alt Menü", border_style="light_goldenrod2", expand=False)
     console.print(panel)

@@ -1,5 +1,8 @@
 TekKriterinBulunanlari=[]  #! Aramada bulunanlar.  Silme ve Bul menüsü için.
+TKB_Miktarlar=[]     #  TekKriterinBulunanlari=[]  >>>>  E_LISTS.TKB_Miktarlar.append(len(E_LISTS.TekKriterinBulunanlari))  
+
 TotalBulunanlar=[]
+
 
 
 
@@ -40,6 +43,8 @@ bul=False
 sil=False
 aramaSayisi=0
 value=6
+import Widgetler.randomRenk as RR
+renk=""
 
 
 
