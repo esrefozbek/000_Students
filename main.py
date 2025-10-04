@@ -46,7 +46,7 @@ import Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import MenuTablo.canlıTablo as Canlı_Tablo
 import MenuTablo.teknikMenü as Tek_Menü
 import MenuTablo.menu as Menu
-import MenuTablo.tablolarPY as TABLOLAR
+import MenuTablo.tablolarPY as TABLO
 
 from AsistanFonksiyonlar.klavyeDinleme import ENTER
 import AsistanFonksiyonlar.dilimleme as Dilimleme

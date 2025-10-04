@@ -65,8 +65,10 @@ def menu_goster():
     table.add_row("5", ":thumbs_up:","Ekranı resetle")
     table.add_row("6",":thumbs_down:","Bir kaydı editleme") 
     table.add_row("7", "📋","Öğrencileri Listele (10 Dilimli)")
-    table.add_row("77", "📋", "Öğrencileri Listele (50 Dilimli)")
-    table.add_row("44","",f"Teknik menüye hicret et") 
+    table.add_row("77", "🍷", "Öğrencileri Listele (50 Dilimli)")
+    table.add_row("88", "📊", "Öğrencileri Kaçarlı listelyelim?")
+    table.add_row("44","🍀",f"Teknik menüye hicret et") 
+    table.add_row("8","📊",f"[yellow]Detaylı[/] arama") 
     
     panel = Panel(table, title=f"[{RR.randomRENK()}] AnaMenü [/]", title_align="right", border_style=RR.randomRENK(), expand=False)
     console.print(panel)

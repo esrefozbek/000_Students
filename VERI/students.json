@@ -71989,5 +71989,32 @@
         "dogumTarihi": "",
         "sinifi": "",
         "kayitTarihi": "03/10/2025"
+    },
+    {
+        "Id": 8004,
+        "ad": "abd",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "04/10/2025"
+    },
+    {
+        "Id": 8005,
+        "ad": "rusya",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "04/10/2025"
+    },
+    {
+        "Id": 8006,
+        "ad": "çin",
+        "soyad": "",
+        "ogrenciNumarasi": "",
+        "dogumTarihi": "",
+        "sinifi": "",
+        "kayitTarihi": "04/10/2025"
     }
 ]

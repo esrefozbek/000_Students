@@ -3,7 +3,7 @@ import copy
 import string
 import VERI.mesajlar as MESAJLAR
 import VERI.emptyLists as E_LISTS 
-import MenuTablo.tablolarPY as TABLOLAR
+import MenuTablo.tablolarPY as TABLO
 import AnaFonksiyonlar.JSON_jobs as JSON_
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE
 import Widgetler.randomRenk as RR
@@ -145,11 +145,11 @@ def joinification(liste:list):
 
 
 def panelisation(joinedLists):
-            p("\n")
+    #        p("\n")
             icerikler = []
             renk=["bright_white","orange1","medium_purple1","light_goldenrod2","dark_olive_green2","khaki1","light_salmon1","grey70"]
-            basliklar=["Kriter","Id","Ad","Soyad","No","Doğ. Tar.","Şube","Kayıt"]
-            genislikler=[16,11,15,16,12,15,10,14]
+            basliklar=["🔎","Id","Ad","Soyad","No","Doğ. Tar.","Şube","Kayıt"]
+            genislikler=[17,11,15,16,12,15,10,14]
             
             if E_LISTS.Joined_altAnaListeTekler: pass
 
@@ -162,6 +162,7 @@ def panelisation(joinedLists):
                 if joinedList[1]!="":
                     # uzunluk=iter(EMPTY_LISTS.TKB_Miktarlar)
                     # next(uzunluk)
+    #                c.print("\n")
                     for i,longString in enumerate(joinedList):
                         if i==0:
                             
@@ -174,47 +175,90 @@ def panelisation(joinedLists):
                             # İki paneli grupla
                             solPanel = Panel.fit(
                                 Group(ust_panel, alt_panel),  # içeriğe panelleri alt alta koyduk
-                               # title="Panel 0", 
-                               #subtitle="Eşref",
+                                title="", 
+                                subtitle="",
                                 border_style="bright_yellow",
                                 width=16,
-                                height=9 if E_LISTS.TKB_Miktarlar[j]<6  else  E_LISTS.TKB_Miktarlar[j]+4         ,
-                                box=box.SIMPLE,   
-                                  
-                            )
-                        else:
+                                height=9 if E_LISTS.TKB_Miktarlar[j]<6  else  E_LISTS.TKB_Miktarlar[j]+4,
+                                box=box.SQUARE)
+                            solPanel=Align.left(solPanel)
+                            
+                        else:  #.    SAĞ PANEL
                             birRenk=RR.randomRENK()
                             birRenkList.append(birRenk)
                             
-                            c.print(f"[{birRenk}]-{birRenk}--  [/]",end="")
+    #                        c.print(f"  [{birRenk}]{birRenk}  [/]",)
                             birRenk=str(birRenk)
-                            pan=(Panel(Text(longString, style=f"{birRenk}",justify="center"), title=basliklar[i], border_style=birRenk, width=genislikler[i],box=box.SQUARE  ))
+                            pan=(Panel(Text(longString, style=f"{birRenk}",justify="center"), title=f"[{RR.randomRENK()}]{basliklar[i]}[/]", border_style=RR.randomRENK(), width=genislikler[i],box=box.SQUARE  ))
                             sagPanel.append(pan)  
                             
                     
-                    sagPanel=Panel(Columns(sagPanel,expand=False,title=""),title="",
-                            subtitle_align="left",   border_style="white", width=104, height=9 if E_LISTS.TKB_Miktarlar[j]<5 else None,box=box.SIMPLE)
-                    sagPanel=Align.left(sagPanel)
+                    sagPanel=Panel.fit(
+                                       Columns(sagPanel,expand=False,title=""),
+                                       title="",
+                                       subtitle_align="left",
+                                       border_style="white",
+                                       width=104, height=9 if E_LISTS.TKB_Miktarlar[j]<5 else None,
+                                       box=box.SQUARE)
+                    sagPanel=Align.right(sagPanel)
                     
-                    paneller=[sagPanel,solPanel ]
-                    paneller=Columns(paneller,expand=False,column_first=False,title="",align="left",)
-                    panel=Panel(paneller,title="", title_align="right", border_style="bright_yellow",box=box.HORIZONTALS,width=125)
-                    p("\n")
-                    p(panel)
+                    paneller=[solPanel,sagPanel ]
+                    kolonlar=Columns(paneller,expand=False,column_first=False,align="left")
+                    paneller=Panel(kolonlar, title="", title_align="right", border_style="bright_yellow",box=box.SIMPLE,width=125) # buradaki panel gizli. simple box ile çerçeveledim.
                     
-                    # Başarı mesajı
-    
-"""                             
-                    icerikler.append(panel)
+                    outer_panel=Panel(paneller,subtitle="outer panel", subtitle_align="right", border_style="bright_yellow",box=box.HORIZONTALS,width=132)
                     
-#           luzumsuzCevre=Panel(Group(*icerikler),title="Dış Panel100",border_style="orange1")
-            luzumsuzCevre=(Group(*icerikler))
-#            p(Panel(luzumsuzCevre,title="Dış Panel 1", width=124 ,style=" ", box=box.SQUARE,border_style="deep_pink2" ),end="\n")
-            p(luzumsuzCevre,end="\n")
-            c.rule("Panel sonuçlar yukarıda verildi", style="magenta", align="right")
-            
-              
-               """
+                    
+                    # c.print(*[renk_kutusu(color) for color in birRenkList], end="") 
+                    # c.print("\n")
+                    # c.print(Group(*[renk_kutusu(color) for color in birRenkList]))
+                    # c.print("\n")
+                    # c.print(Panel(Columns([renk_kutusu(renk) for renk in birRenkList])), ) 
+                    # c.print(Columns([renk_kutusu(renk) for renk in birRenkList]))  
+                    #c.print("\n")
+                    c.print(renk_teksti(birRenkList))
+                    #c.print("\n")
+                #    c.print(renk_kolonu(birRenkList))     #. HATALI !!!!!  kolon molon değil bu.
+                    c.print(outer_panel)
+            c.print("\n")
+
+
+# Tek bir renk kutusu
+def renk_kutusu(Renk):
+    pan = Panel.fit(
+        f"[{Renk}]{Renk}[/]",               # iç yazı
+        title=f"[black]{Renk}[/]",          # panel başlığı
+        style=f"black on {Renk}",           # arka plan rengi
+        border_style=Renk,                  # border rengi artık değişken
+        box=box.SQUARE,
+    )
+    return pan
+
+# Renkleri dikey kolon şeklinde panel                   !!!!!! HATALI !!!!!!
+def renk_kolonu(renkListesi):
+    kolonlar = [Text(f"{renk}\n", style=renk) for renk in renkListesi]
+    panelim = Panel.fit(
+        Columns(kolonlar, align="left"),
+        title="[bold yellow]Renkler[/]",
+        border_style="cyan"
+    )
+    return panelim
+
+# Renkleri alt alta yazı şeklinde panel
+def renk_teksti(colorsList):
+    txt = Text()
+    for color in colorsList:
+        txt.append(f"{color}\n", style=color)
+
+    panelim = Panel.fit(
+        txt,
+        title="[bold yellow]Renkler[/]",
+        border_style="cyan"
+    )
+    return panelim
+
+
+
               
               
 def TabloyaSozlukYap(liste):
@@ -239,10 +283,10 @@ def fonksiyon_secimi():
         message="Hangi fonksiyon(lar) çalıştırılsın?",
         instruction="(Space ile seç, Enter ile devam et)",
         choices=[
-            {"name": "💛 Ayrık Kriter", "value": "tekli", "enabled": False},
-            {"name": "🌟 Birlesik Kriter", "value": "birlesik", "enabled": False},
-            {"name": "📊 Tablo Sonuç", "value": "tablo", "enabled": True , "disabled": "Pasif"},
             {"name": "✈️ Panel Sonuç", "value": "panel", "enabled": True},
+            {"name": "📊 Tablo Sonuç", "value": "tablo", "enabled": False , "disabled": "Pasif"},
+            {"name": "💛 Ayrık Kriter", "value": "tekli", "enabled": True},
+            {"name": "🌟 Birlesik Kriter", "value": "birlesik", "enabled": False},
         ],
         transformer=lambda result: ", ".join(result) if result else "Hiçbir şey seçilmedi.",
     ).execute()
@@ -265,7 +309,8 @@ def fonksiyon_secimi():
     if "tablo" in secimler:
         joinification(E_LISTS.verticalsReadyForJoin)
         TabloyaSozlukYap(E_LISTS.Joined_altAnaListeTekler)
-        TABLOLAR.genel_TABLO_kriterli(E_LISTS.Joined_TeklilerSozluk )
+        TABLO.sagSolTablo(TABLO.TABLO_kritersiz(E_LISTS.Joined_TeklilerSozluk),E_LISTS.Joined_TeklilerSozluk )
+        TABLO.tabloKapanis()
     
      
 def JSONdan_Import():

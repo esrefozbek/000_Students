@@ -3,7 +3,7 @@ from rich.table import Table
 from rich.panel import Panel
 from rich import box
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE, VERI.emptyLists as E_LISTS,math,time,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
-import  MenuTablo.tablolarPY as TABLOLAR
+import  MenuTablo.tablolarPY as TABLO
  
 
 
@@ -16,13 +16,13 @@ def dilimleme(value,liste):
     for idx, i in enumerate(liste):
         E_LISTS.ListeDilimi.append(i)
         if (idx + 1) % kaçarKaçar == 0:  # Her 8 elemanda bir tablo yazdır
-            TABLOLAR.genel_TABLO_kritersiz(E_LISTS.ListeDilimi, )
+            TABLO.TABLO_kritersiz(E_LISTS.ListeDilimi, )
             E_LISTS.ListeDilimi = []  # Dilimi sıfırla
             KLAVYE_DINLE.Enter_ile_devam_et()
     
     # Son dilimi yazdır (kalan elemanlar)
     if E_LISTS.ListeDilimi:  # Eğer dilimListe boş değilse
-        TABLOLAR.genel_TABLO_kritersiz(E_LISTS.ListeDilimi, )
+        TABLO.TABLO_kritersiz(E_LISTS.ListeDilimi, )
         KLAVYE_DINLE.Enter_ile_devam_et()
         
 #NOTE - gptDilimleme      
@@ -37,7 +37,7 @@ def gptDilimleme(value,liste: list):
         baslangic = i * kaçarlıDilimleme
         bitis = baslangic + kaçarlıDilimleme
         E_LISTS.Dilimlenmiş_alt_liste = liste[baslangic:bitis] 
-        TABLOLAR.genel_TABLO_kritersiz(E_LISTS.Dilimlenmiş_alt_liste, )
+        TABLO.TABLO_kritersiz(E_LISTS.Dilimlenmiş_alt_liste, )
         KLAVYE_DINLE.Enter_ile_devam_et()
         if i>1:
             print("\n\n")

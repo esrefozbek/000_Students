@@ -1,7 +1,7 @@
 from rich.panel import Panel
 from rich.console import Console;console=Console()
 from rich.table import Table
-import MenuTablo.tablolarPY as TABLOLAR
+import MenuTablo.tablolarPY as TABLO
 import VERI.emptyLists as E_LISTS
 import AsistanFonksiyonlar.dilimleme as Dilimleme
 
@@ -20,7 +20,7 @@ def silinmişKayıtlılarListesiDökümü():
     menüTipi="Silinmişler"
     listeTipi="Silinmişler"
     if E_LISTS.silindilerListesi:
-        TABLOLAR.tabloyaGonder(E_LISTS.silindilerListesi)
+        TABLO.tabloyaGonder(E_LISTS.silindilerListesi)
     else:
         print( "Henüz Öğrenci Kayıdı silinmedi. ")
 
@@ -29,7 +29,7 @@ def yeniOgrListesiDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
     if E_LISTS.eklendilerListesi:     
-        TABLOLAR.tabloyaGonder(E_LISTS.silindilerListesi)
+        TABLO.tabloyaGonder(E_LISTS.silindilerListesi)
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
         
@@ -38,7 +38,7 @@ def yeniOgrListesiSözlükDökümü():
     menüTipi="Yeni Eklenenler"
     listeTipi="Yeni Eklenenler"
     if E_LISTS.SozlukluListe_Kopya:     
-        TABLOLAR.tabloyaGonder(E_LISTS.silindilerListesi)
+        TABLO.tabloyaGonder(E_LISTS.silindilerListesi)
     else:
         console.print("Henüz yeni öğrenci Kayıdı yapılmadı. ",style="bold green")
 
