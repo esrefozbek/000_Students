@@ -114,11 +114,11 @@ def SilmeSureci(OGR_JSON:list,FarkListesi:list):
     
     silinen_öğrenci_sayısı=0 
     for ogr in FarkListesi: 
-        ogrenci=ogr["ad"] +" "+ ogr["soyad"] +" "+ ogr["ogrenciNumarasi"]
+   #     ogrenci=ogr["ad"] +" "+ ogr["soyad"] +" "+ ogr["ogrenciNumarasi"]
 #        c.print("🫑🫑🫑 SİL>>SilmeSüreci:: FarkListesi",FarkListesi, ogrenci)
 
         
-        if OnayE_H.Evet_Hayır_OnayiAl(ogrenci): 
+        if OnayE_H.Evet_Hayır_OnayiAl(ogr): 
                 JSON_.SozluktenEksiltme(OGR_JSON, ogr) 
                 silinen_öğrenci_sayısı+=1 
         else:

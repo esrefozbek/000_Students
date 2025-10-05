@@ -143,7 +143,6 @@ def joinification(liste:list):
                     E_LISTS.Joined_altAnaListeTekler[i][j]="\n".join(sutun)
 
 
-
 def panelisation(joinedLists):
     #        p("\n")
             icerikler = []
@@ -200,13 +199,15 @@ def panelisation(joinedLists):
                                        border_style="white",
                                        width=104, height=9 if E_LISTS.TKB_Miktarlar[j]<5 else None,
                                        box=box.SQUARE)
-                    sagPanel=Align.right(sagPanel)
                     
-                    paneller=[solPanel,sagPanel ]
+                    paneller=[sagPanel, solPanel]
+                    
                     kolonlar=Columns(paneller,expand=False,column_first=False,align="left")
-                    paneller=Panel(kolonlar, title="", title_align="right", border_style="bright_yellow",box=box.SIMPLE,width=125) # buradaki panel gizli. simple box ile çerçeveledim.
+                    kolonPaneli=Panel(kolonlar, title="", title_align="right", border_style="bright_green",box=box.SQUARE,width=125) # buradaki panel gizli. simple box ile çerçeveledim.
+                    kolonPaneli=Align.center(kolonPaneli)
                     
-                    outer_panel=Panel(paneller,subtitle="outer panel", subtitle_align="right", border_style="bright_yellow",box=box.HORIZONTALS,width=132)
+                    outer_panel=Panel(kolonPaneli,subtitle="outer panel", subtitle_align="right", border_style="bright_white",box=box.HORIZONTALS,width=130)
+                    outer_panel=Align.center(outer_panel)
                     
                     
                     # c.print(*[renk_kutusu(color) for color in birRenkList], end="") 
@@ -247,20 +248,17 @@ def renk_kolonu(renkListesi):
 # Renkleri alt alta yazı şeklinde panel
 def renk_teksti(colorsList):
     txt = Text()
-    for color in colorsList:
-        txt.append(f"{color}\n", style=color)
+    for i, color in enumerate(colorsList):
+        txt.append(f"{color}\n" if i<6 else f"{color}", style=color)
 
     panelim = Panel.fit(
         txt,
-        title="[bold yellow]Renkler[/]",
+     #   title="[bold yellow]Renkler[/]",
         border_style="cyan"
     )
     return panelim
 
-
-
-              
-              
+        
 def TabloyaSozlukYap(liste):
     basliklar = ["kriter", "Id", "ad", "soyad", "ogrenciNumarasi", "dogumTarihi", "sinifi", "kayitTarihi"]
     E_LISTS.Joined_TeklilerSozluk = []
@@ -284,13 +282,12 @@ def fonksiyon_secimi():
         instruction="(Space ile seç, Enter ile devam et)",
         choices=[
             {"name": "✈️ Panel Sonuç", "value": "panel", "enabled": True},
-            {"name": "📊 Tablo Sonuç", "value": "tablo", "enabled": False , "disabled": "Pasif"},
+            {"name": "📊 Tablo Sonuç", "value": "tablo", "enabled": True , "disabled": "Pasif"},
             {"name": "💛 Ayrık Kriter", "value": "tekli", "enabled": True},
             {"name": "🌟 Birlesik Kriter", "value": "birlesik", "enabled": False},
         ],
         transformer=lambda result: ", ".join(result) if result else "Hiçbir şey seçilmedi.",
     ).execute()
-  #  c.print("\n")
   
     if not secimler:
         print("⚠️ Hiçbir fonksiyon seçilmedi!")
@@ -310,9 +307,8 @@ def fonksiyon_secimi():
         joinification(E_LISTS.verticalsReadyForJoin)
         TabloyaSozlukYap(E_LISTS.Joined_altAnaListeTekler)
         TABLO.sagSolTablo(TABLO.TABLO_kritersiz(E_LISTS.Joined_TeklilerSozluk),E_LISTS.Joined_TeklilerSozluk )
-        TABLO.tabloKapanis()
+       
     
-     
 def JSONdan_Import():
     JSON_.JSONdanImport()  
 
@@ -326,6 +322,7 @@ def InputwithESCAPE():
             return None    
         elif kriterStringi == "":
             c.print("\n<< \" \" Hiçbir değer girmeden [red on green] Enter [/] tuşuna bastın Beni boşuna oyalama dostum, gazabım kötüdür",style="bright_yellow")
+            MESAJLAR.Mesajlar(11)
             continue
 
         else:    

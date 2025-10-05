@@ -57,7 +57,7 @@ def inputOgr():
                 dogumTarihi=KLAVYEDINLE.KlavyeDinle()
                 if dogumTarihi is None: break
                 
-                ogrenci=(ad, soyad, ogrenciNumarasi, dogumTarihi, sinifi)
+                ogrenci=(ad.capitalize(), soyad.capitalize(), ogrenciNumarasi, dogumTarihi, sinifi.capitalize()  )
                 ogrenciDatasi+=1
                 
                 return ogrenci  # Return ile döngüden çıkılıyor, nesne=klasSureci(ogrenci)                 FarkSozlukListesineAppend(nesne)  süreçleri uygulanıyor VE tekrar  

@@ -61,7 +61,7 @@ def TABLO_kritersiz(liste: list):
 def sagSolTablo(tablo:Table,liste: list):
     # Sol panel: tablo
          
-        panel_sol = Panel(tablo, title="[bold cyan]Öğrenci Tablosu[/]", border_style="green", width=105)    
+        panel_sol = Panel(tablo, title="[bold cyan]Öğrenci Tablosu[/]", border_style="yellow", width=90)    
 
         # Sağ panel: özet bilgiler
         toplam_ogrenci = len(liste)
@@ -78,8 +78,8 @@ def sagSolTablo(tablo:Table,liste: list):
 
         panel_sag = Panel(ozet_text,
                           title="[bold magenta]Özet Bilgiler[/]",
-                          border_style="blue",
-                          width=40)
+                          border_style="yellow",
+                          width=35)
 
         kolonlar = Columns([panel_sol,panel_sag], align="left", expand=False)
         c.print(kolonlar)
