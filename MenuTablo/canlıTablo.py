@@ -1,7 +1,7 @@
 from rich.table import Table
 from rich.live import Live
 from time import sleep
-import VERI.emptyLists as E_LISTS  # içinde TupleliListe_ olan modül
+import VERI.emptyLists as EMPTY  # içinde TupleliListe_ olan modül
 
 
 def tablo_olustur(liste: list) -> Table:
@@ -32,7 +32,7 @@ def tablo_olustur(liste: list) -> Table:
 
 
 def main():
-    liste = E_LISTS.Jsonda_Mevcut_Veriler
+    liste = EMPTY.Jsonda_Mevcut_Veriler
 
     with Live(tablo_olustur(liste), refresh_per_second=4) as live:
         for _ in range(14):  # 50 kez güncellensin

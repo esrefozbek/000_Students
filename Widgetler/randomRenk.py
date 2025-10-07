@@ -39,7 +39,7 @@ def renkleriJsondanOku(dosya_adi="VERI/renkler.json"):
 def randomize(birTuple):
     return random.choice(birTuple)
 
-def randomRENK():
+def randomRENK()-> str:
     return random.choice(RENKlist.renkler)
 
 

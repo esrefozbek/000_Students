@@ -3,11 +3,11 @@
 #FIXME - çıkmak için Esc ye bastığında "Devam etmek için ENTER tuşuna bas..."  yerine "Girilen öğrencileri kaydetmek için Enter/e   kayıttan vazgeçmek için Esc/H  seçin"   gelsin
 
 #breakpoint()
-import Widgetler.SayacAnimasyon.spinner as SpinnerPY 
-import Widgetler.randomRenk as RR
+import Widgetler.SayacAnimasyon.spinner as SNIPPER 
+import Widgetler.randomRenk as RENK
 import AnaFonksiyonlar.JSON_jobs as JSON_
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYEDINLE
-import VERI.emptyLists as E_LISTS 
+import VERI.emptyLists as EMPTY 
 from AnaFonksiyonlar.student_class import Ogrenciler
 import MenuTablo.tablolarPY as TABLO
 from rich.console import Console ;c=Console()
@@ -24,8 +24,8 @@ lastID=0
 ogrenciDatasi=0
 
 def yeniOgrenciKayidi():
-        E_LISTS.FARK_SozlukListesi.clear();
-        E_LISTS.FARK_SozlukListesi.clear(); 
+        EMPTY.FARK_SozlukListesi.clear();
+        EMPTY.FARK_SozlukListesi.clear(); 
         while True:            
                 ogrenci=inputOgr() 
                 if ogrenci is None: break
@@ -35,7 +35,7 @@ def yeniOgrenciKayidi():
        
 def inputOgr():
         global ogrenciDatasi
-        rengim=E_LISTS.renk
+        rengim=EMPTY.renk
         while True:
                 MESAJLAR.Mesajlar(8)
                 ad=KLAVYEDINLE.KlavyeDinle()
@@ -62,8 +62,8 @@ def inputOgr():
                 
                 return ogrenci  # Return ile döngüden çıkılıyor, nesne=klasSureci(ogrenci)                 FarkSozlukListesineAppend(nesne)  süreçleri uygulanıyor VE tekrar  
   
-        if E_LISTS.FARK_SozlukListesi:
-                c.print(f"\n🌟🌟🌟 Hafızada {len(E_LISTS.FARK_SozlukListesi)} adet kayıt bekleyen öğrenci verisi var. 💛💛💛✨✨\n ")
+        if EMPTY.FARK_SozlukListesi:
+                c.print(f"\n🌟🌟🌟 Hafızada {len(EMPTY.FARK_SozlukListesi)} adet kayıt bekleyen öğrenci verisi var. 💛💛💛✨✨\n ")
   
   
         
@@ -78,20 +78,20 @@ def klasSureci(ogrenci):
 
 def FarkSozlukListesineAppend(nesne):  
         
-        E_LISTS.FARK_SozlukListesi.append(nesne) #! append to Tuple
+        EMPTY.FARK_SozlukListesi.append(nesne) #! append to Tuple
         #c.print(f"\t{ogrenciDatasi}, [white]öğrencinin bilgileri geçici hafızaya alındı![/] ")
         
     #    c.print("👇👇👇🛍️🛍️",ogrenci_panel())
 
                     #klavDinle.ENTER()
-        E_LISTS.eklendilerListesi.append(E_LISTS.FARK_SozlukListesi) #! Kopyaya kayıt 
+        EMPTY.eklendilerListesi.append(EMPTY.FARK_SozlukListesi) #! Kopyaya kayıt 
         print("\n")
         
 
 def FarkiJsonSozlugeEkle():   
-        c.print("\n👇👇👇 Eklenenler: \n",TABLO.ogrenci_panel())  # Farklistesi alttaki JSON_.SozlugeEkleme de silindiği için burada verdim.
+        c.print("\n👇👇👇 Eklenenler: \n",Columns(TABLO.ogrenci_panel((EMPTY.FARK_SozlukListesi))))  # Farklistesi alttaki JSON_.SozlugeEkleme de silindiği için burada verdim.
         
-        JSON_.SozlugeEkleme("VERI/students.json",E_LISTS.FARK_SozlukListesi ) #! Sözlüğe ekle
+        JSON_.SozlugeEkleme("VERI/students.json",EMPTY.FARK_SozlukListesi ) #! Sözlüğe ekle
         
      #   c.print("""🌟🌟🌟🦀🦀\n💛💛💛 [bold turquoise2]SözlüklüListe başarıyla oluşturuldu Şimdi sisteme ekleniyor...[/] 📉📉""",style="")
         

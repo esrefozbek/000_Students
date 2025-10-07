@@ -1,5 +1,6 @@
 from rich.console import Console
 from rich.spinner import Spinner
+import Widgetler.randomRenk as RENK
 import time
 import random
 c = Console()
@@ -9,19 +10,21 @@ c = Console()
 def spinner(duration, WhichText:int): 
     text="0"    # sayı ve text gönder
     if WhichText==1:
-        text="[bold green]  🐳 🐳 🐳 Girdiler Veri tabanına Ekleniyor...**[/]"
+        text=f"[{RENK.randomRENK()}] 🐳 🐳 🐳 Girdiler Veri tabanına Ekleniyor, taaa tabana ...**[/]"
     if WhichText==2:
-        text="[bold magenta] 🎯🎯🎯 Siliniyor...[/]"
+        text=f"[{RENK.randomRENK()}] 🎯🎯🎯 Siliniyor...[/]"
     if WhichText==3:
-        text="[bold yellow] 💻💻💻 Düzeltiliyor...[/]"
+        text=f"[{RENK.randomRENK()}] 💻💻💻 Düzeltiliyor, eccük sabırlı ol...[/]"
     if WhichText==4:
-        text="[bright_white] Bilgilerin kaydı gerçekleşiyor......💬💬💬[/]"
+        text=f"[{RENK.randomRENK()}]] Bilgilerin kaydı gerçekleşiyor......💬💬💬[/]"
     if WhichText==5:
-        text="[bold yellow] Bulunanlar yükleniyor...➕➕➕[/]"
+        text=f"[{RENK.randomRENK()}] Bulunanlar yükleniyor...➕➕➕[/]"
     if WhichText==6:
-        text="[bold yellow] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor 🤫🤫🤫😂[/]"   
+        text=f"[{RENK.randomRENK()}] Kayıt yapılacak veri girilmedi, ana menüye dönülüyor 🤫🤫🤫😂[/]"   
     if WhichText==7:
-        text="[bold yellow] AnaMenüye Hicret ediliyor...[/]" 
+        text=f"[{RENK.randomRENK()}] AnaMenüye Hicret ediliyor...[/]" 
+    if WhichText==8:
+        text=f"[{RENK.randomRENK()}]⚠️ ID çatışması tespit edildi.[/] [bold yellow] Biraz bekle, düzeltip geliyorum.⚠️[/]"
     
        
     with c.status(text, spinner="line"):

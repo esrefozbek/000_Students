@@ -2,11 +2,11 @@ import  re    #. importlar
 import copy
 import string
 import VERI.mesajlar as MESAJLAR
-import VERI.emptyLists as E_LISTS 
+import VERI.emptyLists as EMPTY 
 import MenuTablo.tablolarPY as TABLO
 import AnaFonksiyonlar.JSON_jobs as JSON_
 import AsistanFonksiyonlar.klavyeDinleme as KLAVYE_DINLE
-import Widgetler.randomRenk as RR
+import Widgetler.randomRenk as RENK
 from rich import print as p # ya da c.print kullanıyorsan onu bırak
 from rich import box
 from rich.text import Text
@@ -19,19 +19,19 @@ def reset_altListe_birKriter():
     return [[] for _ in range(8)]
 
 def CleanThem():
-    E_LISTS.altListe_birKriter = reset_altListe_birKriter()
-    E_LISTS.altListe_birKriter.clear() 
-    E_LISTS.verticalsReadyForJoin=       []
-    E_LISTS.altListe_Butun=          [[],[],[],[],[],[],[],[]]
-    E_LISTS.Joined_altAnaListeTum=   [[],[],[],[],[],[],[],[]]
+    EMPTY.altListe_birKriter = reset_altListe_birKriter()
+    EMPTY.altListe_birKriter.clear() 
+    EMPTY.verticalsReadyForJoin=       []
+    EMPTY.altListe_Butun=          [[],[],[],[],[],[],[],[]]
+    EMPTY.Joined_altAnaListeTum=   [[],[],[],[],[],[],[],[]]
     
-    E_LISTS.Joined_altAnaListeTekler.clear() 
-    E_LISTS.Joined_altAnaListeTekler.clear() 
+    EMPTY.Joined_altAnaListeTekler.clear() 
+    EMPTY.Joined_altAnaListeTekler.clear() 
     
-    E_LISTS.TekKriterinBulunanlari.clear()  #!j - Her sorguda önce temizle 
+    EMPTY.TekKriterinBulunanlari.clear()  #!j - Her sorguda önce temizle 
     
-    E_LISTS.Jsonda_Mevcut_Veriler.clear()
-    E_LISTS.TKB_Miktarlar.clear()
+    EMPTY.Jsonda_Mevcut_Veriler.clear()
+    EMPTY.TKB_Miktarlar.clear()
 
 
 def bul_AnaFonksiyon(GirisMesaji:int):
@@ -47,42 +47,42 @@ def bul_AnaFonksiyon(GirisMesaji:int):
     return klavye         
           
  
-def KriterleriAyriBul(kriterler:list, sozlukListesi:list=E_LISTS.Jsonda_Mevcut_Veriler):
-    E_LISTS.TKB_Miktarlar=[]
+def KriterleriAyriBul(kriterler:list, sozlukListesi:list=EMPTY.Jsonda_Mevcut_Veriler):
+    EMPTY.TKB_Miktarlar=[]
     for birKriter in kriterler: 
         birKriter= birKriter.lower()
         # 🔻🔻🔻 TekKriterinBulunanlari'nı temizle 🔻🔻🔻
-        E_LISTS.TekKriterinBulunanlari.clear()
+        EMPTY.TekKriterinBulunanlari.clear()
         CORE_Bul(birKriter,sozlukListesi)
-        E_LISTS.TotalBulunanlar.extend(E_LISTS.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım.
-        DikeyeGecis_TekKriter(E_LISTS.TekKriterinBulunanlari)
+        EMPTY.TotalBulunanlar.extend(EMPTY.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım.
+        DikeyeGecis_TekKriter(EMPTY.TekKriterinBulunanlari)
         DikeyeKriteriEkle(birKriter)
-        E_LISTS.verticalsReadyForJoin.append(E_LISTS.altListe_birKriter)
-        E_LISTS.altListe_birKriter = reset_altListe_birKriter()
+        EMPTY.verticalsReadyForJoin.append(EMPTY.altListe_birKriter)
+        EMPTY.altListe_birKriter = reset_altListe_birKriter()
        
 
 
 def KriterleriBirlesikBul(Kriterler,liste):
     takas:list=[]
-    E_LISTS.TKB_Miktarlar=[]
+    EMPTY.TKB_Miktarlar=[]
     for i, kriter in enumerate(Kriterler):
         if i!=0:
-            E_LISTS.TekKriterinBulunanlari=[]
+            EMPTY.TekKriterinBulunanlari=[]
             liste=takas
         CORE_Bul(kriter,liste)
-        takas=E_LISTS.TekKriterinBulunanlari
+        takas=EMPTY.TekKriterinBulunanlari
     #    c.print("Arama>>BirlesikKriterBul:: TekKriterinBulunanlari",EMPTY_LISTS.TekKriterinBulunanlari)
-    E_LISTS.TotalBulunanlar.extend(E_LISTS.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım. Buraya ne olur ne olmaz bulunsun diye ekledim.
+    EMPTY.TotalBulunanlar.extend(EMPTY.TekKriterinBulunanlari)  #~Bu işe yaramaz bir veri, sanırım. Buraya ne olur ne olmaz bulunsun diye ekledim.
     
     
     
     
-    E_LISTS.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in E_LISTS.TotalBulunanlar}.values())
+    EMPTY.TotalBulunanlar = list({tuple(sorted(d.items())): d for d in EMPTY.TotalBulunanlar}.values())
     #c.print("Arama>>BirlesikKriterBul:: TotalBulunanlar",EMPTY_LISTS.TotalBulunanlar)    
-    DikeyeGecis_TekKriter(E_LISTS.TekKriterinBulunanlari)
+    DikeyeGecis_TekKriter(EMPTY.TekKriterinBulunanlari)
     DikeyeKriteriEkle(Kriterler)
-    E_LISTS.verticalsReadyForJoin=[E_LISTS.altListe_birKriter] #. diğer yapı 3 katman   [[[]]]   şekklinde olduğu için  ve sonraki adımlara uyumluluk için 3 katman yaptım. 
-    if E_LISTS.TKB_Miktarlar: E_LISTS.TKB_Miktarlar=[E_LISTS.TKB_Miktarlar[-1]]
+    EMPTY.verticalsReadyForJoin=[EMPTY.altListe_birKriter] #. diğer yapı 3 katman   [[[]]]   şekklinde olduğu için  ve sonraki adımlara uyumluluk için 3 katman yaptım. 
+    if EMPTY.TKB_Miktarlar: EMPTY.TKB_Miktarlar=[EMPTY.TKB_Miktarlar[-1]]
 
 
 
@@ -114,12 +114,12 @@ def CORE_Bul(birKriter, liste: list):
             birKriter == sinif or
             (len(birKriter) == 4 and birKriter == kayit)
         ):
-            E_LISTS.TekKriterinBulunanlari.append(ogrenci)
+            EMPTY.TekKriterinBulunanlari.append(ogrenci)
 #.Yatay
                
         else: 
             continue
-    E_LISTS.TKB_Miktarlar.append(len(E_LISTS.TekKriterinBulunanlari)) 
+    EMPTY.TKB_Miktarlar.append(len(EMPTY.TekKriterinBulunanlari)) 
     
   #  c.print("CORE>>  TekKriterinBulunanlari_Miktarlar >>", E_LISTS.TKB_Miktarlar, end="")
     #c.print("\n")
@@ -128,29 +128,30 @@ def CORE_Bul(birKriter, liste: list):
 def DikeyeGecis_TekKriter(TekKriterinBulunanlari:list):
     for ogr in TekKriterinBulunanlari:
         for j,val in enumerate(ogr.values()):
-            E_LISTS.altListe_birKriter[j+1].append(str(val))
-            E_LISTS.altListe_Butun[j+1].append(str(val))
+            EMPTY.altListe_birKriter[j+1].append(str(val))
+            EMPTY.altListe_Butun[j+1].append(str(val))
     
 
 def DikeyeKriteriEkle(birKriter):
-    E_LISTS.altListe_birKriter[0] = [birKriter] if isinstance(birKriter, str) else birKriter   #. kriter alt dikey listeye eklendi.
+    EMPTY.altListe_birKriter[0] = [birKriter] if isinstance(birKriter, str) else birKriter   #. kriter alt dikey listeye eklendi.
   
 
 def joinification(liste:list):
-            E_LISTS.Joined_altAnaListeTekler= [["" for _ in range(len(liste[0]))] for _ in range(len(liste))]   
+            EMPTY.Joined_altAnaListeTekler= [["" for _ in range(len(liste[0]))] for _ in range(len(liste))]   
             for i,grup in enumerate(liste):
                 for j,sutun  in enumerate(grup):      
-                    E_LISTS.Joined_altAnaListeTekler[i][j]="\n".join(sutun)
+                    EMPTY.Joined_altAnaListeTekler[i][j]="\n".join(sutun)
 
 
 def panelisation(joinedLists):
+            c.rule("PANEL SONUÇLARI",style="orange_red1",align="right")
     #        p("\n")
             icerikler = []
             renk=["bright_white","orange1","medium_purple1","light_goldenrod2","dark_olive_green2","khaki1","light_salmon1","grey70"]
             basliklar=["🔎","Id","Ad","Soyad","No","Doğ. Tar.","Şube","Kayıt"]
             genislikler=[17,11,15,16,12,15,10,14]
             
-            if E_LISTS.Joined_altAnaListeTekler: pass
+            if EMPTY.Joined_altAnaListeTekler: pass
 
             for j, joinedList in enumerate(joinedLists):
                 paneller=[]
@@ -165,117 +166,150 @@ def panelisation(joinedLists):
                     for i,longString in enumerate(joinedList):
                         if i==0:
                             
-                            if E_LISTS.TKB_Miktarlar:       #c.print("uzunluk✔️",E_LISTS.TKB_Miktarlar[j])
+                            if EMPTY.TKB_Miktarlar:       #c.print("uzunluk✔️",E_LISTS.TKB_Miktarlar[j])
                                 pass
                             
-                            ust_panel = Panel(Text(longString, style="green",justify="center" ), title=basliklar[i], title_align="center",border_style=renk[i], box=box.SQUARE,)
-                            alt_panel = Panel(Text(str(E_LISTS.TKB_Miktarlar[j]), style="yellow",justify="center", ), title="Adet",title_align="center", border_style=renk[i],  box=box.SQUARE,)
+                            ust_panel = Panel(
+                                Text(longString,
+                                    style=f"{RENK.randomRENK()}",
+                                    justify="center"),
+                                title=basliklar[i],
+                                title_align="center",
+                                border_style=f"{RENK.randomRENK()}",
+                                box=box.ROUNDED,)
+                            
+                            alt_panel = Panel(
+                                Text(str(EMPTY.TKB_Miktarlar[j]),
+                                    style=f"{RENK.randomRENK()}",
+                                    justify="center"),
+                                title="Adet",
+                                title_align="center",
+                                border_style=f"{RENK.randomRENK()}",
+                                box=box.ROUNDED,)
 
                             # İki paneli grupla
-                            solPanel = Panel.fit(
+                            sagPanel = Panel.fit(
                                 Group(ust_panel, alt_panel),  # içeriğe panelleri alt alta koyduk
-                                title="", 
+                                title="GÖT", 
                                 subtitle="",
-                                border_style="bright_yellow",
-                                width=16,
-                                height=9 if E_LISTS.TKB_Miktarlar[j]<6  else  E_LISTS.TKB_Miktarlar[j]+4,
-                                box=box.SQUARE)
-                            solPanel=Align.left(solPanel)
+                                border_style=f"{RENK.randomRENK()}",
+                                width=14,
+                                height=9 if EMPTY.TKB_Miktarlar[j]<6  else  EMPTY.TKB_Miktarlar[j]+4,
+                                style=f"on {RENK.randomRENK()}",
+                                box=box.ROUNDED)
+                            sagPanel=Align.right(sagPanel)
                             
                         else:  #.    SAĞ PANEL
-                            birRenk=RR.randomRENK()
+                            birRenk=RENK.randomRENK()
                             birRenkList.append(birRenk)
                             
     #                        c.print(f"  [{birRenk}]{birRenk}  [/]",)
-                            birRenk=str(birRenk)
-                            pan=(Panel(Text(longString, style=f"{birRenk}",justify="center"), title=f"[{RR.randomRENK()}]{basliklar[i]}[/]", border_style=RR.randomRENK(), width=genislikler[i],box=box.SQUARE  ))
-                            sagPanel.append(pan)  
+                          #  birRenk=str(birRenk)
+                            pan=(Panel(Text(longString, style=f"{RENK.randomRENK()}",justify="center"), title=f"[{RENK.randomRENK()}]{basliklar[i]}[/]", border_style=RENK.randomRENK(), width=genislikler[i],box=box.SQUARE  ))
+                            solPanel.append(pan)  
+                    c.print("\nbirRenkList >> ",birRenkList,end="")
                             
                     
-                    sagPanel=Panel.fit(
-                                       Columns(sagPanel,expand=False,title=""),
+                    solPanel=Panel.fit(
+                                       Columns(solPanel,expand=False,title=""),
                                        title="",
                                        subtitle_align="left",
-                                       border_style="white",
-                                       width=104, height=9 if E_LISTS.TKB_Miktarlar[j]<5 else None,
+                                       border_style=f"{RENK.randomRENK()}",
+                                       width=104, height=9 if EMPTY.TKB_Miktarlar[j]<5 else None,
+                                       
                                        box=box.SQUARE)
                     
-                    paneller=[sagPanel, solPanel]
+                    paneller=[sagPanel,solPanel]
                     
-                    kolonlar=Columns(paneller,expand=False,column_first=False,align="left")
-                    kolonPaneli=Panel(kolonlar, title="", title_align="right", border_style="bright_green",box=box.SQUARE,width=125) # buradaki panel gizli. simple box ile çerçeveledim.
+                    kolonlar=Columns(paneller,
+                                     expand=False,
+                                     column_first=False,
+                                     align="left")
+                    kolonPaneli=Panel(kolonlar,
+                                      title="",
+                                      title_align="right",
+                                      border_style=f"{RENK.randomRENK()}",
+                                      box=box.SQUARE,
+                                      style="none",
+                                      width=125,
+                                      ) # buradaki panel gizli. simple box ile çerçeveledim.
                     kolonPaneli=Align.center(kolonPaneli)
                     
-                    outer_panel=Panel(kolonPaneli,subtitle="outer panel", subtitle_align="right", border_style="bright_white",box=box.HORIZONTALS,width=130)
-                    outer_panel=Align.center(outer_panel)
+                    outer_panel=Panel(kolonPaneli,
+                                      subtitle="outer panel",
+                                      subtitle_align="right",
+                                      border_style=f"{RENK.randomRENK()}",
+                                      box=box.HORIZONTALS,
+                                      #style=f"on {RR.randomRENK()}",
+                                      width=130)
+                    
+                    outer_panel=Align.left(outer_panel)
                     
                     
-                    # c.print(*[renk_kutusu(color) for color in birRenkList], end="") 
+                    #""  c.print(*[renk_kutusu(color) for color in birRenkList], end="") 
                     # c.print("\n")
                     # c.print(Group(*[renk_kutusu(color) for color in birRenkList]))
-                    # c.print("\n")
+                   # c.print("\n")
                     # c.print(Panel(Columns([renk_kutusu(renk) for renk in birRenkList])), ) 
-                    # c.print(Columns([renk_kutusu(renk) for renk in birRenkList]))  
-                    #c.print("\n")
                     c.print(renk_teksti(birRenkList))
-                    #c.print("\n")
-                #    c.print(renk_kolonu(birRenkList))     #. HATALI !!!!!  kolon molon değil bu.
+                   # c.print("\n")
+                    c.print(Columns([renk_kutusu(renk) for renk in birRenkList]))  
+                    c.print("\n")
+                    #c.print(renk_kolonu(birRenkList))     #. HATALI !!!!!  kolon molon değil bu.
                     c.print(outer_panel)
             c.print("\n")
 
 
 # Tek bir renk kutusu
-def renk_kutusu(Renk):
+def renk_kutusu(Renk: str):
     pan = Panel.fit(
-        f"[{Renk}]{Renk}[/]",               # iç yazı
-        title=f"[black]{Renk}[/]",          # panel başlığı
-        style=f"black on {Renk}",           # arka plan rengi
-        border_style=Renk,                  # border rengi artık değişken
-        box=box.SQUARE,
-    )
+        f"[{RENK.randomRENK()}]{Renk}[/]",               # iç yazı
+       # title=f"[{RR.randomRENK()}]{Renk}[/]",          # panel başlığı
+       style=f" on {Renk}",           # arka plan rengi
+       border_style=f"{RENK.randomRENK()}",                  # border rengi artık değişken
+        box=box.SIMPLE,)
     return pan
 
 # Renkleri dikey kolon şeklinde panel                   !!!!!! HATALI !!!!!!
-def renk_kolonu(renkListesi):
+def renk_kolonu(renkListesi: list[str]):
     kolonlar = [Text(f"{renk}\n", style=renk) for renk in renkListesi]
     panelim = Panel.fit(
         Columns(kolonlar, align="left"),
         title="[bold yellow]Renkler[/]",
-        border_style="cyan"
-    )
+        border_style="cyan")
     return panelim
 
 # Renkleri alt alta yazı şeklinde panel
-def renk_teksti(colorsList):
+def renk_teksti(colorsList: list[str]):
+    
     txt = Text()
     for i, color in enumerate(colorsList):
-        txt.append(f"{color}\n" if i<6 else f"{color}", style=color)
+        txt.append(f"{color}\n" if i<len(colorsList)-1 else f"{color}", style=color)
 
     panelim = Panel.fit(
         txt,
      #   title="[bold yellow]Renkler[/]",
-        border_style="cyan"
-    )
+        border_style=f"{RENK.randomRENK()}" )
     return panelim
 
         
 def TabloyaSozlukYap(liste):
     basliklar = ["kriter", "Id", "ad", "soyad", "ogrenciNumarasi", "dogumTarihi", "sinifi", "kayitTarihi"]
-    E_LISTS.Joined_TeklilerSozluk = []
+    EMPTY.Joined_TeklilerSozluk = []
     for item in liste:
         sozluk = {}
         for j in range(len(item)):
             sozluk[basliklar[j]] = item[j]  #_ key:value yapıdı. 
-        E_LISTS.Joined_TeklilerSozluk.append(sozluk)
+        EMPTY.Joined_TeklilerSozluk.append(sozluk)
 #.    p("Arama>>TabloyaSozluk: VERI.Joined_TeklilerSozluk ",VERI.Joined_TeklilerSozluk)
     
 def fonksiyon_secimi():
     from InquirerPy import inquirer
     
-    E_LISTS.verticalsReadyForJoin.clear()
-    E_LISTS.TekKriterinBulunanlari=[]
-    E_LISTS.TotalBulunanlar=[]
-    E_LISTS.altListe_birKriter = [[],[],[],[],[],[],[],[]]
+    EMPTY.verticalsReadyForJoin.clear()
+    EMPTY.TekKriterinBulunanlari=[]
+    EMPTY.TotalBulunanlar=[]
+    EMPTY.altListe_birKriter = [[],[],[],[],[],[],[],[]]
     c.print("\n")
     secimler = inquirer.checkbox(
         message="Hangi fonksiyon(lar) çalıştırılsın?",
@@ -294,19 +328,19 @@ def fonksiyon_secimi():
         return 
 
     if "birlesik" in secimler:
-        KriterleriBirlesikBul(E_LISTS.KellesiGidenler_Listesi, E_LISTS.Jsonda_Mevcut_Veriler)
+        KriterleriBirlesikBul(EMPTY.KellesiGidenlerin_Listesi, EMPTY.Jsonda_Mevcut_Veriler)
 
     if "tekli" in secimler:
-        KriterleriAyriBul(E_LISTS.KellesiGidenler_Listesi, E_LISTS.Jsonda_Mevcut_Veriler)
+        KriterleriAyriBul(EMPTY.KellesiGidenlerin_Listesi, EMPTY.Jsonda_Mevcut_Veriler)
 
     if "panel" in secimler:
-        joinification(E_LISTS.verticalsReadyForJoin)
-        panelisation(E_LISTS.Joined_altAnaListeTekler)
+        joinification(EMPTY.verticalsReadyForJoin)
+        panelisation(EMPTY.Joined_altAnaListeTekler)
         
     if "tablo" in secimler:
-        joinification(E_LISTS.verticalsReadyForJoin)
-        TabloyaSozlukYap(E_LISTS.Joined_altAnaListeTekler)
-        TABLO.sagSolTablo(TABLO.TABLO_kritersiz(E_LISTS.Joined_TeklilerSozluk),E_LISTS.Joined_TeklilerSozluk )
+        joinification(EMPTY.verticalsReadyForJoin)
+        TabloyaSozlukYap(EMPTY.Joined_altAnaListeTekler)
+        TABLO.sagSolTablo(TABLO.genel_TABLO(EMPTY.Joined_TeklilerSozluk),EMPTY.Joined_TeklilerSozluk )
        
     
 def JSONdan_Import():
@@ -331,28 +365,28 @@ def InputwithESCAPE():
 
 def Parsing(kriterStringi):
     kriterStringi=kriterStringi or ""
-    E_LISTS.KellesiGidenler_Listesi=[]
-    E_LISTS.KellesiGidenler_Listesi = re.split(r'[,\s]+', kriterStringi) 
+    EMPTY.KellesiGidenlerin_Listesi=[]
+    EMPTY.KellesiGidenlerin_Listesi = re.split(r'[,\s]+', kriterStringi) 
     #! Klavyeden girilenler temizlenip liste yapıldı. Boşluklar veya virgüller atıldı. 
 
      
-def KriterleriBul(parsedKriterStringi_Listesi:list, neredeAranacak:list=E_LISTS.Jsonda_Mevcut_Veriler):   
+def KriterleriBul(parsedKriterStringi_Listesi:list, neredeAranacak:list=EMPTY.Jsonda_Mevcut_Veriler):   
     kriterListesi=[]
     birOncekiToplam:int=0
-    p("\n\n✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(E_LISTS.verticalsReadyForJoin)) 
-    p("✈️📌📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",E_LISTS.verticalsReadyForJoin) 
+    p("\n\n✈️📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY.verticalsReadyForJoin)) 
+    p("✈️📌📌 Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",EMPTY.verticalsReadyForJoin) 
     
     #EMPTY_LISTS.altAnaListeBirCokKriterYanyana = [[[] for _ in range(len(EMPTY_LISTS.altAnaListeBirCokKriterYanyana))] for _ in range(len(parsedKriterStringi_Listesi))] #_ Boş 2 boyutlu liste oluşturuldu. (altAnaListeTekler[0] X parsedKriterStringi_Listesi)
     
-    p("\n✈️  ✈️  Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(E_LISTS.verticalsReadyForJoin[0]),"X",len(parsedKriterStringi_Listesi)) 
+    p("\n✈️  ✈️  Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>",len(EMPTY.verticalsReadyForJoin[0]),"X",len(parsedKriterStringi_Listesi)) 
     
     KriterleriAyriBul(parsedKriterStringi_Listesi, neredeAranacak)  #_  
     
     p("\n✈️✈️ Arama>>kriterBul >> parsedKriterStringi_Listesi uzunluğu: >>", len(parsedKriterStringi_Listesi))
-    p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(E_LISTS.verticalsReadyForJoin[0]))
-    p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",E_LISTS.TekKriterinBulunanlari)
+    p("✈️✈️ Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler uzunluğu: >>", len(EMPTY.verticalsReadyForJoin[0]))
+    p("⤵️arama>>kriterleriBul     EMPTY_LISTS.Bulunanlar>>",EMPTY.TekKriterinBulunanlari)
     p("⤵️⤵️arama>>kriterleriBul     EMPTY_LISTS.BulunanAdSoyadIDler>>",)
-    p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", E_LISTS.verticalsReadyForJoin)
+    p("\n✈️✈️✈️    Arama>>kriterBul >> EMPTY_LISTS.altAnaListeTekler  >>", EMPTY.verticalsReadyForJoin)
     
     p("\n");c.rule(" SONUÇLAR ",style="red") ;
                     

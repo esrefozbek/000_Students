@@ -1,8 +1,8 @@
 #breakpoint()
-import VERI.emptyLists as E_LISTS,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
+import VERI.emptyLists as EMPTY,Widgetler.SayacAnimasyon.sayacKronometre as Say_Kro
 import json, os
 from rich import print
-import Widgetler.SayacAnimasyon.spinner as SpinnerPY
+import Widgetler.SayacAnimasyon.spinner as SNIPPER
 import VERI.emptyLists as AtEmptyLists
 import AsistanFonksiyonlar.txt_Jobs as TxtYolu
 from rich.console import Console; c = Console()
@@ -23,10 +23,10 @@ def JSONdanImport():
             Geçici_SozlukListesi = json.load(file)
       
        #^ c.print("\njson:import:Geçici_SozlukListesi[-1:]>>",Geçici_SozlukListesi[-1:])       
-        E_LISTS.Jsonda_Mevcut_Veriler.clear() 
+        EMPTY.Jsonda_Mevcut_Veriler.clear() 
         
         import copy
-        E_LISTS.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
+        EMPTY.Jsonda_Mevcut_Veriler =copy.deepcopy(Geçici_SozlukListesi)
       
 
 #&             KayıtOncesiCTRL_theFilesExist_Or                     
@@ -60,7 +60,8 @@ def CTRLforID(JSON_ID, TextID, ilaveSozluk):# bunu teknik menüye al  Ayrıca As
     degisimMiktari=len(ilaveSozluk)
    
     if TextID!=(JSON_ID + degisimMiktari):
-        c.print("\n⚠️[yellow]ID çatışması tespit edildi. Biraz belkle, düzeltip geliyorum.[/]")
+        SNIPPER.spinner(4,8)  # ⚠️ID çatışması tespit edildi
+        #c.print("\n⚠️[yellow]ID çatışması tespit edildi. Biraz bekle, düzeltip geliyorum.[/]")
         return tamiratForID(JSON_ID,ilaveSozluk)
     else:
         c.print("")
@@ -74,7 +75,7 @@ def tamiratForID(getLastJSON_ID,ilaveSozluk):
             i["Id"]=getLastJSON_ID 
             TxtYolu.txtUzerineYaz("VERI/Text.txt", getLastJSON_ID)
     
-    SpinnerPY.spinner(2,3)      # bu tamir süreci  ayrı yapılabilir. 
+    SNIPPER.spinner(2,3)      #    💻💻💻 Düzeltiliyor...                     bu tamir süreci  ayrı yapılabilir.  
     return AtEmptyLists.Jsonda_Mevcut_Veriler, ilaveSozluk, getLastJSON_ID, getTextID
 
 
@@ -87,29 +88,29 @@ def SozlugeEkleme(JSON_Dosyasi: str, FARK_SozlukListesi: list):
     ReturnedDatas[0].extend(FARK_SozlukListesi)
     getLastJSON_ID = ReturnedDatas[0][-1]["Id"]
  
-    if FARK_SozlukListesi: SpinnerPY.spinner(3,1)      
-    else: SpinnerPY.spinner(4,6)  
+    if FARK_SozlukListesi: SNIPPER.spinner(3,1)   #  🐳 🐳 🐳 Girdiler Veri tabanına Ekleniyor...   
+    else: SNIPPER.spinner(4,6)  
    #^ Jsonda_Mevcut_Veriler = []
    
     JsonaDump(ReturnedDatas[0])  
-    if len(E_LISTS.FARK_SozlukListesi): c.print(f"\n📢📢📢 {len(E_LISTS.FARK_SozlukListesi)} öğrencinin bilgileri [green]VERİTABANI[/]'na kaydedildi.👉👉👉\n")
+    if len(EMPTY.FARK_SozlukListesi): c.print(f"\n📢📢📢 {len(EMPTY.FARK_SozlukListesi)} öğrencinin bilgileri [green]VERİTABANI[/]'na kaydedildi.👉👉👉")
     else:
-        c.print("🚨🚨🚨🚨🚨🚨 Öğrenci kayıt işlemi iptal edildi 🚨🚨🚨🚨🚨🚨 ",style="bold red")
+        c.print("🚨🚨🚨🚨🚨🚨 Öğrenci kayıt işlemi iptal edildi, Allah belanı versin 🚨🚨🚨🚨🚨🚨 ",style="bold red")
     
     #c.print("JSON::EKLEME:: Jsonda_Mevcut_Veriler [-1:]>>",ReturnedDatas[0][-1:])
     
-    E_LISTS.FARK_SozlukListesi.clear()
+    EMPTY.FARK_SozlukListesi.clear()
     return ReturnedDatas[0]
 
 
 
 #_                    Jsonda_Mevcut_Verilerden Silme                  
 def SozluktenEksiltme(OGR_JSON, ogr):
-    c.print("OGR_JSON len :1:", len(OGR_JSON))
+#    c.print("OGR_JSON len :1:", len(OGR_JSON))
     if OGR_JSON:
        # c.print("🚨🚨💡💡 OGR_JSON>>SözlüktenEksiltme:  json[-3:] >> ",   EMPTY_LISTS.Jsonda_Mevcut_Veriler[-3:])
         if ogr :
-            c.print("⭐️⭐️ OGR_JSON>>SözlüktenEksiltme: birKelle >>",   ogr)
+         #   c.print("⭐️⭐️ OGR_JSON>>SözlüktenEksiltme: birKelle >>",   ogr)
          
             OGR_JSON.remove(ogr)
             # kelle_id = birKelle[0]['Id']
@@ -126,10 +127,10 @@ def SozluktenEksiltme(OGR_JSON, ogr):
     getTextID = TxtYolu.txtID_Oku(txt_dosya_yolu) #^ mevcut değilse ??
 
    #^ Jsonda_Mevcut_Veriler = []
-    SpinnerPY.spinner(3,2)  
+#    SNIPPER.spinner(3,2)  
     JsonaDump(OGR_JSON)    
-    c.print(f"🎟️🎟️ öğrencinin bilgileri [red]VeriTabanı[/]'ndan silindi.\n")
-    c.print("AnaJson len :2:", len(OGR_JSON))
+#    c.print(f"🎟️🎟️ öğrencinin bilgileri [red]VeriTabanı[/]'ndan silindi.\n")
+  #  c.print("AnaJson len :2:", len(OGR_JSON))
     
     return OGR_JSON 
     

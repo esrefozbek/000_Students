@@ -1,17 +1,17 @@
 #~  3 Silmeye girince bilgilendirme kısmında son eklenen Id numaraları gelsin !!!!!!!!
  
 def Cleaning():
-    EMPTY_LISTS.TekKriterinBulunanlari.clear()
-    EMPTY_LISTS.FARK_SozlukListesi.clear()
-    EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
-    EMPTY_LISTS.silindilerListesi.clear()   #??????  session süresince silinenleri değilde bir seferlik .....
+    EMPTY.TekKriterinBulunanlari.clear()
+    EMPTY.FARK_SozlukListesi.clear()
+    EMPTY.Jsonda_Mevcut_Veriler.clear()
+    EMPTY.silindilerListesi.clear()   #??????  session süresince silinenleri değilde bir seferlik .....
 
 #from prompt_toolkit.shortcuts import checkboxlist_dialog
 import AnaFonksiyonlar.JSON_jobs as JSON_
-import VERI.emptyLists as EMPTY_LISTS 
+import VERI.emptyLists as EMPTY 
 import VERI.mesajlar as MESAJLAR 
 import AsistanFonksiyonlar.arama as Arama
-import AsistanFonksiyonlar.onayE_H as OnayE_H
+import AsistanFonksiyonlar.onayE_H as ONAY
 
 from rich.panel import Panel
 from rich.console import Console; c = Console()
@@ -35,7 +35,7 @@ def Silme_AnaFonksiyon():
         else:
        #     c.print("\nSİL>>AnaFonksiyon():: Returned:",klavye,end="\n")
        #     c.print("\n")
-            if EMPTY_LISTS.TekKriterinBulunanlari:
+            if EMPTY.TekKriterinBulunanlari:
                     WhichToDelete()
                     farkListesiOlusturma()
                     Sil()
@@ -56,15 +56,16 @@ def Bul():
           
 def WhichToDelete():
     from InquirerPy import inquirer
-    EMPTY_LISTS.KellesiGidenler_Listesi.clear()
+    EMPTY.KellesiGidenlerin_Listesi.clear()
 #    MESAJLAR.Mesajlar(22)
     
     #EMPTY_LISTS.silinmesi_istenilenler_Stringi =Arama.InputwithESCAPE () 
     
     from InquirerPy.base.control import Choice
-    EMPTY_LISTS.KellesiGidenler_Listesi = inquirer.checkbox(
+    EMPTY.KellesiGidenlerin_Listesi = inquirer.checkbox(
             message="Seçmek istediğiniz öğrencileri seçin:",
-            choices=[Choice(name=f"{ogrenci['ad']} {ogrenci['soyad']} ({ogrenci['Id']})",value=(ogrenci["Id"], ogrenci["ad"], ogrenci["soyad"])) for ogrenci in EMPTY_LISTS.TotalBulunanlar]
+            choices=[Choice(name=f"{ogrenci['ad']} {ogrenci['soyad']} ({ogrenci['Id']})",
+                            value=(ogrenci["Id"], ogrenci["ad"], ogrenci["soyad"])) for ogrenci in EMPTY.TotalBulunanlar]
             ).execute() 
     
     
@@ -84,26 +85,26 @@ def WhichToDelete():
 
               
    # print(f"\nKellesiGidenler_Listesi 1: { EMPTY_LISTS.KellesiGidenler_Listesi} \n")
-    EMPTY_LISTS.KellesiGidenler_Listesi=[str(ogr[0]) for ogr in EMPTY_LISTS.KellesiGidenler_Listesi ]
+    EMPTY.KellesiGidenlerin_Listesi=[str(ogr[0]) for ogr in EMPTY.KellesiGidenlerin_Listesi ]
    # print(f"\n 💰💰💰 KellesiGidenler_Listesi2: { EMPTY_LISTS.KellesiGidenler_Listesi}\n")
     
-    if EMPTY_LISTS.KellesiGidenler_Listesi:
-        MESAJLAR.Mesajlar(10)
+    # if EMPTY.KellesiGidenlerin_Listesi:
+    #     MESAJLAR.Mesajlar(10)
     
     
 
 def farkListesiOlusturma():
-    EMPTY_LISTS.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY_LISTS.TotalBulunanlar if ogrenci['Id'] in [int(i) for i in EMPTY_LISTS.KellesiGidenler_Listesi] ]
+    EMPTY.FARK_SozlukListesi = [ogrenci for ogrenci in EMPTY.TotalBulunanlar if ogrenci['Id'] in [int(i) for i in EMPTY.KellesiGidenlerin_Listesi] ]
    
     
  #   c.print("\n 🇹🇷 🇹🇷 🏀🏀🏀  SS SİLME >>FArkListesi:: EMPTY_LISTS.FARK_SozlukListesi >>",EMPTY_LISTS.FARK_SozlukListesi,end="\n")
                          
 
 def Sil():
-    if EMPTY_LISTS.FARK_SozlukListesi:
-        SilmeSureci(EMPTY_LISTS.Jsonda_Mevcut_Veriler, EMPTY_LISTS.FARK_SozlukListesi)
-        if EMPTY_LISTS.FARK_SozlukListesi==[]:
-            EMPTY_LISTS.silindilerListesi.extend(EMPTY_LISTS.FARK_SozlukListesi)
+    if EMPTY.FARK_SozlukListesi:
+        SilmeSureci(EMPTY.Jsonda_Mevcut_Veriler, EMPTY.FARK_SozlukListesi)
+        if EMPTY.FARK_SozlukListesi==[]:
+            EMPTY.silindilerListesi.extend(EMPTY.FARK_SozlukListesi)
                             #/ tamam mı devam mı  soralım 
    
                             
@@ -113,24 +114,21 @@ def SilmeSureci(OGR_JSON:list,FarkListesi:list):
 #    p("🍀🍀🍀 SİL>>SilmeSüreci:: FARK LİSTESİ >>", FarkListesi)
     
     silinen_öğrenci_sayısı=0 
-    for ogr in FarkListesi: 
    #     ogrenci=ogr["ad"] +" "+ ogr["soyad"] +" "+ ogr["ogrenciNumarasi"]
 #        c.print("🫑🫑🫑 SİL>>SilmeSüreci:: FarkListesi",FarkListesi, ogrenci)
 
-        
-        if OnayE_H.Evet_Hayır_OnayiAl(ogr): 
+
+    if ONAY.Ogrencileri_Silme_Onayi(FarkListesi): 
+            for ogr in FarkListesi: 
                 JSON_.SozluktenEksiltme(OGR_JSON, ogr) 
                 silinen_öğrenci_sayısı+=1 
-        else:
-            continue
-    
-    
+    else:
+        pass
 
-    
-  #  p("SİL>>SilmeSüreci:: Jsonda_Mevcut_Veriler[-2:] >>",EMPTY_LISTS.Jsonda_Mevcut_Veriler[-2:])
-    EMPTY_LISTS.TekKriterinBulunanlari.clear()
-    EMPTY_LISTS.FARK_SozlukListesi.clear()
-    EMPTY_LISTS.Jsonda_Mevcut_Veriler.clear()
+    #  p("SİL>>SilmeSüreci:: Jsonda_Mevcut_Veriler[-2:] >>",EMPTY_LISTS.Jsonda_Mevcut_Veriler[-2:])
+    EMPTY.TekKriterinBulunanlari.clear()
+    EMPTY.FARK_SozlukListesi.clear()
+    EMPTY.Jsonda_Mevcut_Veriler.clear()
     
     if silinen_öğrenci_sayısı>0:
         c.print(f"\n{silinen_öğrenci_sayısı} öğrenci silindi. ", style="bold red")
