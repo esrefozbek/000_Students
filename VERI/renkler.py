@@ -1,6 +1,6 @@
 
 renkler= [
-        #"black",
+        # "black",
         "red",
         "green",
         "yellow",

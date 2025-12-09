@@ -71,3 +71,5 @@ docs/_build/
 # Local test / debug dosyaları
 debug.log
 *.tmp
+
+.fake

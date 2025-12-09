@@ -172,12 +172,9 @@ def startPoint():
                             # tree.add("Folder 3")
 
                             # print(tree)
-                            
-                            
-                            
                             # # #!/usr/bin/python
 
-                         
+
                             # c.rule('Python', style='blue')
                             # c.print('''Python is a general-purpose, dynamic, object-oriented\
                             # programming language. The design purpose of the Python language\

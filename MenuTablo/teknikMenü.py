@@ -22,26 +22,39 @@ box_turleri = [
 ]
 
 
-def rastgele_box_stili():
+
+
+
+
+def random_BoxStili():
     global secim
     secim=random.choice(box_turleri)
     box_objesi = getattr(box, secim)
-   #^  print(type(box_objesi))
-    return box_objesi
+    mesaj="Bugün hava kapalı olacak"
+  #^  print(type(box_objesi))
+    return secim,box_objesi,mesaj
 
-boxStilim=rastgele_box_stili()
+
+boxStilim=random_BoxStili()[1]
+boxStili_adi=random_BoxStili()[0]
+
 
 
 
 
 
 def teknikMenü():
+    global boxStilim,boxStili_adi
+    boxStilim=random_BoxStili()[1]
+    boxStili_adi=random_BoxStili()[0]  
+    
+
     os.system("cls" if os.name == "nt" else "clear")  # Terminal temizliği
     
     table = Table(title=":thumbs_up: [yellow]Teknik Bakım Menüsü[/yellow]:thumbs_up:", box=boxStilim, expand=False)
 
     table.add_column("Seçim", justify="center", style="light_goldenrod1", no_wrap=False)
-    table.add_column(f"İşlem, [red]  Box Stili:[/red] [black]{(secim)}[/black]", style="white",no_wrap=False)
+    table.add_column(f"İşlem, [red]  Box Stili:[/red] boxStilim1 [yellow]{boxStili_adi}[/yellow]", style="white",no_wrap=False)
 
     table.add_row("1", "Veri.yeniEklenenlerListesi_")
     table.add_row("0", "Veri.SozlukluListe_")
@@ -61,7 +74,9 @@ def teknikMenü():
     
     table.add_row("33", "Ana Menüye hicret et   ESC ile ")
     
-    panel = Panel(table, title="[red]Alt Menü", border_style="light_goldenrod2", expand=False)
+    boxStilim2=random_BoxStili()[1]
+    boxStili_adi2=random_BoxStili()[0]
+    panel = Panel(table, title="[red]Alt Menü", box=boxStilim2, border_style="light_goldenrod2", expand=False, subtitle=f"boxStilim2 :{boxStili_adi2}")
     console.print(panel)
     
 

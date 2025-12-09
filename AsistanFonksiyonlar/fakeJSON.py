@@ -18,6 +18,12 @@ def fakeOgrenciOlustur():
     faker_de = Faker("de_DE")
     faker_in = Faker("en_IN")  # Hint İngilizcesi
     faker_us = Faker("en_US")
+    faker_is=Faker("is_IS")
+    faker_ru=Faker("ru_RU")
+    faker_fr=Faker("fr_FR")
+    faker_it=Faker("it_IT") 
+    
+    
 
     # Farklı faker’ları listeye koy
     fakers = [
@@ -26,6 +32,10 @@ def fakeOgrenciOlustur():
         faker_de,
         faker_in,
         faker_us,
+        faker_is,
+        faker_ru,
+        faker_fr,
+        faker_it
     ]
 
     c.print(" Kaç öğrenci oluşturayım >> ", end="")

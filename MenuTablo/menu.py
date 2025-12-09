@@ -51,13 +51,15 @@ boxStilim=random_BoxStili()
 
 def menu_goster():
     renk=RENK.randomRENK()
+    box_stili=random_BoxStili()[1]
+    box_stili_adi=random_BoxStili()[0]
    ####################################### os.system("cls" if os.name == "nt" else "clear")  # Terminal temizliği
     
-    table = Table(title="BOK", box=random_BoxStili()[1], border_style=RENK.randomRENK(),show_edge=True,title_style=f"bold {RENK.randomRENK()}", caption_style=f"bold {RENK.randomRENK()}", header_style=f"bold {RENK.randomRENK()}", row_styles=[f"none", f"dim"], safe_box=False,padding = (0, 1), collapse_padding= False, pad_edge= True, expand= False, show_header= True, show_footer= False, show_lines = False, leading = 0,)
+    table = Table(title="Çikolata Yer misin?", box=box_stili, border_style=renk, show_edge=True,title_style=f"bold {renk}", caption_style=f"bold {renk}", header_style=f"bold {renk}", row_styles=[f"none", f"dim"], safe_box=False,padding = (0, 1), collapse_padding= False, pad_edge= True, expand= False, show_header= True, show_footer= False, show_lines = False, leading = 0,)
 
     table.add_column(f"[{RENK.randomRENK()}]Seçim[/]", justify="center", style=RENK.randomRENK(), no_wrap=False)
     table.add_column("", justify="center", style=RENK.randomRENK(), no_wrap=False)
-    table.add_column(f"[{RENK.randomRENK()}]İşlem[/]",  style=RENK.randomRENK(),no_wrap=True)
+    table.add_column(f"[{RENK.randomRENK()}]İşlem --> BoxStyle:  {box_stili_adi}[/]",  style=RENK.randomRENK(),no_wrap=True)
 
     table.add_row("1","➕",f"[{RENK.randomRENK()}]Öğrenci Ekle")
     table.add_row("2", "🔍",f"[{RENK.randomRENK()}]Öğrenci Bul")
@@ -71,8 +73,12 @@ def menu_goster():
     table.add_row("44", "🍀", f"[{RENK.randomRENK()}]Teknik menüye hicret et")
     table.add_row("8", "📊", f"[yellow]Detaylı[/] arama")
     
-    panel = Panel(table, title=f"[{RENK.randomRENK()}] AnaMenü [/]", title_align="right", border_style=RENK.randomRENK(), expand=True, box=random_BoxStili()[1],
-                  subtitle=f"[{RENK.randomRENK()}]Box Stili:[/][{RENK.randomRENK()}]{random_BoxStili()[0]}[/]",
+
+    box_stili=random_BoxStili()[1]
+    box_stili_adi=random_BoxStili()[0]
+
+    panel = Panel(table, title=f"[{RENK.randomRENK()}] Ana Menü Bölgesi [/]", title_align="right", border_style=renk, expand=True, box=box_stili,
+                  subtitle=f"[{RENK.randomRENK()}]Box Stili:[/][{RENK.randomRENK()}]{box_stili_adi}[/]",
                   )
     panel=Align.left(panel)
     console.print(panel)
